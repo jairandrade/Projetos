@@ -11,5 +11,5 @@
     @see (links_or_references)
     /*/
 User Function teste3()
-    alert("tste")
+    alert("teste")
 Return 
