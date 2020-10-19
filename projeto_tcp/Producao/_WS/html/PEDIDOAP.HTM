@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+        <title>Purchase Order Approved</title>
+    </head>
+
+    <body>
+
+        <table border="0" width="1500">
+            <tr>
+                <td width="62">&nbsp;</td>
+                <td width="1">
+                    <table border="0" width="1500" height="84">
+                        %cContrato%
+                        <tr>
+                            <td colspan="3" width="1500" bgcolor="#DFEFFF" height="24">
+                                <p align="left">
+                                    <font size="4" face="Arial">
+                                    <b>Purchase Order Approved</b>: %pedido%
+                                    </font>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" width="630" height="24"><h1><font size="2" face="Arial"><b>User: %cUsuario%</b></font></h1></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" colspan="3" width="624" height="24">
+                                <font size="2" face="Arial">
+                                <b>%lb_empresa%</b> 
+                                </font>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Provider</b> : %fornecedor% - %lb_nome%</font></td>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Date of Issue</b> : %emissao%</font></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Payment Term</b> : %cond_pag%</font></td>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Buyer</b> : %cod_compra%</font></td>
+							<td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Requester</b> : %solicitante%</font></td>
+                        </tr>
+               
+                        <tr>
+                            <td valign="top" colspan="3" height="24"><font size="2" face="Arial"><b>Proposal Key Terms:</b> %termos%</font></td>
+                        </tr> 
+						<tr>
+                            <td valign="top" colspan="3" height="24"><font size="2" face="Arial"><b>CPX/OPX?:</b> %capex%</font></td>
+                        </tr>
+						<tr>
+                            <td valign="top" colspan="3" height="24"><font size="2" face="Arial"><b>Note:</b> %lb_obs%</font></td>
+                        </tr>
+                    </table>
+					<p><font color="#0000FF" face="Arial"><b>Approval Workflow</b></font></p>
+                    <table border="1" width="1500" height="85">
+                        <tr>
+                            <td align="center" width="62" bgcolor="#DFEFFF" height="18"><font face="Arial">Level</font></td>
+                            <td align="center" width="190" bgcolor="#DFEFFF" height="18"><font face="Arial">User Responsible</font></td>
+                            <td align="center" width="100" bgcolor="#DFEFFF" height="18"><font face="Arial">Status</font></td>
+                            <td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">User Approval</font></td>
+                            <td align="center" width="87" bgcolor="#DFEFFF" height="18"><font face="Arial">Date Approval</font></td>                            
+                        </tr>
+                        <tr>
+                            <td><font size="2" face="Arial">%ap.nivelalcada%</font></td>
+                            <td><font size="2" face="Arial">%ap.nomeaprovadorresp%</font></td>
+                            <td><font size="2" face="Arial">%ap.statusalcada%</font></td>
+                            <td><font size="2" face="Arial">%ap.nomeaprovador%</font></td>
+							<td><font size="2" face="Arial">%ap.dataaprocacao%</font></td>                            					
+                        </tr>
+					</table>	
+                    <p><font color="#0000FF" face="Arial"><b>Itens</b></font></p>
+                    <table border="1" width="1500" height="85">
+                       <tr>
+                            <td align="center" width="62" bgcolor="#DFEFFF" height="18"><font face="Arial">Item</font></td>
+                            <td align="center" width="190" bgcolor="#DFEFFF" height="18"><font face="Arial">Product</font></td>  
+							<td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">Stock Replenishment?</font></td>
+                            <td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">Stock Balance</font></td>
+                            <td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">Minimum stock</font></td>
+                           
+                            <td align="center" width="100" bgcolor="#DFEFFF" height="18"><font face="Arial">Cost Center </font></td>
+                            <td align="center" width="100" bgcolor="#DFEFFF" height="18"><font face="Arial">Accounting </font></td>
+                            <td align="center" width="50" bgcolor="#DFEFFF" height="18"><font face="Arial">Warranty </font></td>
+                            <td align="center" width="80" bgcolor="#DFEFFF" height="18"><font face="Arial">Warranty Time </font></td>
+                            <td align="center" style="%styleh%" width="30" bgcolor="#DFEFFF" height="18"><font face="Arial">Delivery Date</font></td>
+                           <td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">Quantity</font></td>
+                            <td align="center" width="87" bgcolor="#DFEFFF" height="18"><font face="Arial">Unitary Value</font></td>
+							<td align="center" width="87" bgcolor="#DFEFFF" height="18"><font face="Arial">Total</font></td>
+                        </tr>
+                        <tr>
+                            <td><font size="2" face="Arial">%it.item%</font></td>
+                            <td><font size="2" face="Arial">%it.codigo% - %it.descricao%</font></td>
+                            <td align="center"><font size="2" face="Arial">%it.ptPedido%</font></td>
+                            <td align="center"><font size="2" face="Arial">%it.saldo%</font></td>
+                            <td align="center"><font size="2" face="Arial">%it.ponto%</font></td>
+                            <td><font size="2" face="Arial">%it.ctt% - %it.cttdesc%</font></td>
+                            <td><font size="2" face="Arial">%it.conta% - %it.cCont%</font></td>
+                            <td><font size="2" face="Arial">%it.garantia%</font></td>
+                            <td><font size="2" face="Arial">%it.tempoGar%</font></td>
+                            <td style="%it.style%"><font size="2" face="Arial">%it.dtent%</font></td>
+                            <td align="center"><font size="2" face="Arial">%it.quant%</font></td>
+                            <td align="right"><font size="2" face="Arial">%it.preco%</font></td>
+                            <td align="right"><font size="2" face="Arial">%it.total%</font></td>					
+							
+                        </tr>
+                        <tr>
+                            <td colspan="12" width="498" height="22">
+                                <p align="right"><font face="Arial">Total Product(s) Value:</font></p>
+                            </td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial">%lbvalor%</font>
+                            </td>
+						</tr>
+                        <tr>
+                            <td colspan="12" width="498" height="22">
+                                <p align="right"><font face="Arial">Taxes Value:</font></p>
+                            </td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial">%lbimp%</font>
+                            </td>
+						</tr>
+						<tr>
+						     <td colspan="12" width="498" height="22">
+                                <p align="right"><font face="Arial">Discount:</font></p>
+                            </td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial">%lbdes%</font>
+                            </td>
+						</tr>      
+						<tr>
+						     <td colspan="12" width="498" height="22">
+                                <p align="right"><font face="Arial">Freight:</font></p>
+                            </td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial">%lValFre%</font>
+                            </td>
+						</tr>               
+						<tr>
+                            <td colspan="12" width="498" height="22">
+                                <p align="right"><font face="Arial">Total Value Order:</font></p>
+                            </td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial">%lbtotal%</font>
+                            </td>
+						</tr>	
+						
+                    </table>
+
+                    <p><font color="#0000FF" face="Arial"><b>Others Quotes</b></font></p>
+                    <p>%cotacoes%</p>
+                </td>
+            </tr>
+        </table>		
+				<div style="display:none;">
+		<table border="1" width="1" height="1"style="display:none;" >                     
+            <tr>
+                <td style="display:none;">%valorcontrato% %cmsg% %valorsaldo% %totalpedido% %rateio%</td>
+			</tr>
+		</table>	
+		</div>
+    </body>
+</html>

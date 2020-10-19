@@ -1,0 +1,105 @@
+#include "apwebex.ch"
+#include 'totvs.ch'
+
+/*/{Protheus.doc} WMDT001A
+Integração de sistemas via requição HTTPGET
+@type function
+@version 12.1.25
+@author kaiquesousa
+@since 5/7/2020
+@param __aCookies, param_type, param_description
+@param __aPostParms, param_type, param_description
+@param __nProcID, param_type, param_description
+@param __aProcParms, param_type, param_description
+@param __cHTTPPage, param_type, param_description
+@return return_type, return_description
+/*/
+
+User Function WMDT001A(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage) 
+
+	Local cHtml     := ""
+	Local cHash     := Decode64(Alltrim(HttpGet->keyvalue))
+    Local cEmp      := SubStr(cHash,1,2)
+    Local cFil      := SubStr(cHash,3,2)
+    Local cFornece  := SubStr(cHash,5,6)
+    Local cLoja     := SubStr(cHash,11,2)
+    Local cCodEPI   := SubStr(cHash,13,15)
+    Local cNumCap   := SubStr(cHash,28,12) 
+    Local cMatric   := SubStr(cHash,40,6) 
+    Local cData     := SubStr(cHash,46,8) 
+    Local cHora     := SubStr(cHash,54,4) 
+    Local cCodApr   := SubStr(cHash,58,6)
+    Private aResult := {}
+	CONOUT(cHash)
+    WEB EXTENDED INIT cHtml
+	
+	RPCSetType(3)
+	RPCSetEnv( cEmp, cFil,,,"EST","RPC",,,,,)
+     
+    IF valtype(cHash) == "C" 
+	    aResult := u_TCMD01Lib(cFornece,cLoja,cCodEPI,cNumCap,cMatric,cData,cHora,cCodApr)
+    EndIF   
+    
+    IF len(aResult) != 2
+        aResult := {.F.,"Chave HTML de pesquisa não identificada."}
+    EndIF
+    
+    cHtml := H_WACD10()
+
+	RPCClearEnv()
+
+	WEB EXTENDED END
+
+Return cHtml
+
+/*/{Protheus.doc} WMDT001R
+Integração de sistemas via requição HTTPGET
+@type function
+@version 12.1.25
+@author kaiquesousa
+@since 5/7/2020
+@param __aCookies, param_type, param_description
+@param __aPostParms, param_type, param_description
+@param __nProcID, param_type, param_description
+@param __aProcParms, param_type, param_description
+@param __cHTTPPage, param_type, param_description
+@return return_type, return_description
+/*/
+
+User Function WMDT001R(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml     := ""
+	Local cHash     := Decode64(HttpGet->keyvalue)
+    Local cEmp      := SubStr(cHash,1,2)
+    Local cFil      := SubStr(cHash,3,2)
+    Local cFornece  := SubStr(cHash,5,6)
+    Local cLoja     := SubStr(cHash,11,2)
+    Local cCodEPI   := SubStr(cHash,13,15)
+    Local cNumCap   := SubStr(cHash,28,12) 
+    Local cMatric   := SubStr(cHash,40,6) 
+    Local cData     := SubStr(cHash,46,8) 
+    Local cHora     := SubStr(cHash,54,4) 
+    Local cCodApr   := SubStr(cHash,58,6)
+    Private aResult := {}
+	
+    WEB EXTENDED INIT cHtml
+	
+	RPCSetType(3)
+	RPCSetEnv( cEmp, cFil,,,"EST","RPC",,,,,)
+    
+    IF valtype(cHash) == "C"
+	    aResult := u_TCMD01Rej(cFornece,cLoja,cCodEPI,cNumCap,cMatric,cData,cHora,cCodApr)
+    EndIF   
+    
+    IF len(aResult) != 2
+        aResult := {.F.,"Chave HTML de pesquisa não identificada."}
+    EndIF
+    
+    cHtml := H_WACD10()
+
+	RPCClearEnv()
+
+	WEB EXTENDED END
+
+Return cHtml
+

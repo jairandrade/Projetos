@@ -1,0 +1,298 @@
+#INCLUDE "APWEBEX.CH"
+#include 'protheus.ch'
+#INCLUDE "TOPCONN.CH"
+#DEFINE CRLF (chr(13)+chr(10))
+
+
+/*/
+
+@param __aCookies, array, Cookies
+@param __aPostParms, array, Parametros post
+@param __nProcID, numérico, Proc Id
+@param __aProcParms, array, Parametros do processo
+@param __cHTTPPage, character, Http Page
+
+@return cHtml Retorno com as tags html
+
+/*/
+/*
++----------------------------------------------------------------------------+
+!                         FICHA TECNICA DO PROGRAMA                          !
++----------------------------------------------------------------------------+
+!   DADOS DO PROGRAMA                                                        !
++------------------+---------------------------------------------------------+
+! Versão           ! Protheus 11                                             !
++------------------+---------------------------------------------------------+
+! Tipo             ! WKF                                                     !
++------------------+---------------------------------------------------------+
+! Modulo           ! PCO                                                     !
++------------------+---------------------------------------------------------+
+! Nome             ! WFPCOREJ                                                !
++------------------+---------------------------------------------------------+
+! Descricao        ! Funções de tratamento de aprovação e rejeição do WF.    !
++------------------+---------------------------------------------------------+
+! Autor            ! HUGO                                                    !
++------------------+---------------------------------------------------------+
+! Data de Criacao  ! 17/03/2015                                              !
++------------------+---------------------------------------------------------+
+
+*/
+
+user function WFPCOREJ(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml  := ""
+	Local cEmprr := ""
+
+	Local nPosEmp	:= 0
+	Local cFiliall	:= ""
+
+	Local aKey := {}
+
+	Private cLink := ""
+
+	cLink 	 := HttpGet->keyvalue
+	cChave 	 := Embaralha(cLink,1)
+	aKey := Separa(cChave, ';')
+
+	cFiliall	:= aKey[1]
+	cCodContg	:= Akey[2]
+	cUserApr	:= Akey[3]
+	cEmprr		:= Akey[4]
+
+	//Desconecta a empresa
+	RpcClearEnv()
+
+	web Extended init cHtml
+
+	OpenSM0()
+	RPCSetType(3)
+	RpcSetEnv( cEmprr, cFiliall,,, "COM", "MATA020",,,,,)
+
+	DbSelectArea('ALI')
+	ALI->(DbSetOrder(1))
+	If DbSeek(cFiliall + cCodContg + cUserApr)
+		IF ALLTRIM(ALI->ALI_STATUS) $ ('02')
+
+			//Html para justificativa
+			cHtml := H_TCP_GRVJUSTPCO()
+			//Conout('WFPCO002 - Retorno html')
+		Else
+			//Html de retorno, caso já esteja aprovado/reprovado.
+			cHtml := H_TCP_JARESPPCO()
+		EndIf
+	EndIf
+
+	web Extended end
+return (cHtml)
+
+
+//**********************************************************************************//
+//**********************************************************************************//
+//**********************************************************************************//
+User function GRJUSPCO()
+
+	Local cHtml  := ""
+	Local nPosEmp	:= 0
+	Local cFiliall	:= ""
+	Local cEmprr	:= ""
+	Local aKey		:= {}
+    Local lReprovado:=.F.
+	
+	ckey  := HttpPost->Chave
+	cJus := HttpPost->cJus
+	cChave:=Embaralha(ckey,1)
+	aKey := Separa(cChave, ';')
+
+	cFiliall	:= aKey[1]
+	cCodContg	:= Akey[2]
+	cUserApr	:= Akey[3]
+	cEmprr		:= Akey[4]
+
+	//Desconecta a empresa
+	RpcClearEnv()
+
+	web Extended init cHtml
+
+	OpenSM0()
+	RPCSetType(3)
+	RpcSetEnv( cEmprr, cFiliall,,, "PCO",,,,,,)
+
+    DbSelectArea('ALI')
+	ALI->(DbSetOrder(1))		
+	DbSeek(cFiliall + cCodContg)
+	While !ALI->(Eof()) .and. ALI->ALI_FILIAL == cFiliall .and. AllTrim(ALI->ALI_CDCNTG) == AllTrim(cCodContg)
+
+		If AllTrim(ALI->ALI_STATUS) $ ('02')
+		
+		   //Reprova a contingencia
+		   AtuContig(cFiliall, cCodContg, ALI->ALI_USER, 'R', cJus, cUserApr)
+		   //Conout('WFPCO002 - Reprovado')
+           lReprovado:=.T.
+        
+        EndIf
+		    
+	    ALI->(DbSkip())
+		 
+	EndDo
+
+    If lReprovado
+         
+       //Html de retorno de reprovação
+       cHtml := H_TCP_REPROVPCO()
+       //Conout('WFPCO002 - Retorno html')
+       
+       //E-mail de situação reprovado para o solicitante
+       U_WFPCO001(cEmprr, cFiliall, cCodContg, 'R', cUserApr, cJus)
+   
+   Else
+   
+      //Html de retorno, caso já esteja reprovado.
+      cHtml := H_TCP_JARESPPCO()
+			
+   EndIf
+
+   web Extended end
+
+return (cHtml)
+
+/*---------------------------------------------------------------------------+
+!   DADOS DA FUNÇÃO                                                          !
++------------------+---------------------------------------------------------+
+!Nome              ! WFPCOAPR                                                !
++------------------+---------------------------------------------------------+
+!Descricao         ! Aprovação da contingencia.                              !
++------------------+---------------------------------------------------------+
+!Autor      	   ! HUGO                                                    !
++------------------+---------------------------------------------------------+
+!Data Criação      ! 19/03/2015                                              !
++------------------+--------------------------------------------------------*/
+user function WFPCOAPR(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	local cHtml		:= ""
+	Local cFiliall	:= ""
+	Local cEmprr	:= ""
+	Local nPosEmp	:= 0
+	Local aKey		:= {}
+	Local lAprovado:= .F.
+
+	Private ckey	  := HttpGet->keyvalue
+	Private cPedido := ''
+
+	cChave := Embaralha(ckey,1)
+	aKey := Separa(cChave, ';')
+
+	//Conout('WFPCO002 - chave original' + cChave)
+
+	If !Empty(Alltrim(cChave))
+
+	//Conecta a empresa 02 para recuperar tamanho dos campos da chave
+		RpcSetType(3)
+		RpcSetEnv( '02', '01',,, "PCO",,,,,,)
+
+		//Recupera empresa
+		nPosEmp := tamsx3('ALI_FILIAL')[1] + tamsx3('ALI_CDCNTG')[1] + tamsx3('ALK_USER')[1] + 1
+		cEmprr	 := substr(cChave,nPosEmp,2)
+
+		If Empty(AllTrim(cEmprr))
+			cEmprr := "02"
+		EndIf
+
+		nPosini		:=1
+		nposFin		:=tamsx3('ALI_FILIAL')[1]
+		cFiliall 	:= substr(cChave,nPosini,nposFin)
+		RpcClearEnv() //Desconecta a empresa
+
+		cFiliall	:= aKey[1]
+		cCodContg	:= aKey[2]
+		cUserApr	:= aKey[3]
+		cEmprr		:= aKey[4]
+
+		RpcSetType(3)
+		RpcSetEnv( cEmprr, cFiliall,,, "PCO",,,,,,)
+
+		DbSelectArea('ALI')
+		ALI->(DbSetOrder(1))		
+		DbSeek(cFiliall + cCodContg)
+		While !ALI->(Eof()) .and. ALI->ALI_FILIAL == cFiliall .and. AllTrim(ALI->ALI_CDCNTG) == AllTrim(cCodContg)
+			
+			If Alltrim(ALI->ALI_STATUS) $ ('02')
+
+				//Aprovação da contingencia
+				AtuContig(cFiliall, cCodContg, ALI->ALI_USER, 'A', '', cUserApr)
+				//Conout('WFPCO002 - Aprovado')
+                lAprovado:=.T.
+
+			EndIf
+		    
+		    ALI->(DbSkip())
+		 
+		EndDo
+
+        If lAprovado
+         
+    	   //Html de retorno de aprovação
+			cHtml := H_TCP_APROVPCO()//H_WEBLOGIN()
+			//Conout('WFPCO002 - Retorno html')
+
+			//E-mail de confirmação para o solicitante
+			U_WFPCO001(cEmprr, cFiliall, cCodContg, 'A', cUserApr, '')
+
+		Else
+		
+			//Html de retorno, caso já esteja aprovado.
+			cHtml := H_TCP_JARESPPCO()
+			//Conout('WFPCO002 - Já respondido')
+			
+        EndIf
+
+	EndIf
+
+return (cHtml)
+
+
+/*---------------------------------------------------------------------------+
+!   DADOS DA FUNÇÃO                                                          !
++------------------+---------------------------------------------------------+
+!Nome              ! AprovCont                                               !
++------------------+---------------------------------------------------------+
+!Descricao         ! Atualização das tabelas de contingencia.                 !
++------------------+---------------------------------------------------------+
+!Autor      	   ! HUGO                                                    !
++------------------+---------------------------------------------------------+
+!Data Criação      ! 19/03/2015                                              !
++------------------+--------------------------------------------------------*/
+Static Function AtuContig(cFilCont, cCodContg, cUserApr, cAproRepro, cJustif, cUsrApr)
+
+	Local cStatus 	:= IIF(cAproRepro == 'A', '03', '04')
+	Local cNomUsr	:= ''
+	Local aInfo		:= {}
+
+	PswOrder(1)
+	If PswSeek(cUsrApr,.t.)
+		aInfo := PswRet(1)
+		cNomUsr := alltrim(aInfo[1,2])
+	EndIf
+
+	DbSelectArea('ALI')
+	ALI->(DbSetOrder(1))
+	If DbSeek(cFilCont + cCodContg + cUserApr)
+
+		BEGIN TRANSACTION
+
+		RecLock('ALI', .F.)
+
+		ALI->ALI_STATUS := cStatus
+		ALI->ALI_DTLIB	:= dDataBase
+		ALI->ALI_HORAL	:= TIME()
+		ALI->ALI_USRLIB	:= cUsrApr
+		ALI->ALI_NOMLIB	:= cNomUsr
+
+		ALI->(MsUnlock())
+
+		END TRANSACTION
+
+	EndIf
+
+Return
+
+

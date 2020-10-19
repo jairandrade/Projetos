@@ -1,0 +1,63 @@
+TIPO REGISTRO  00100100                                                           
+OPERACAO       0020020"1"                                                         
+LITERAL DE REME0030090"REMESSA"                                                   
+CODIDO SERVICO 0100110"01"                                                        
+LITERAL SERVICO0120260"COBRANCA"                                                  
+AGENCIA        0270300STRZERO(VAL(SUBSTR(SEE->EE_AGENCIA,1,4)),4)                 
+ZEROS          0310320"00"                                                        
+CONTA          0330380LEFT(STRTRAN(SEE->EE_CONTA,"-",""),6)                       
+BRANCOS        0390460SPACE(08)                                                   
+NOME EMPRESA   0470760UPPER(SM0->M0_NOMECOM)                                      
+CODIGO BANCO   0770790SEE->EE_CODIGO                                              
+NOME BANCO     0800940"BANCO ITAU SA"                                             
+DT GERACAO     0951000GRAVADATA(DDATABASE,.F.)                                    
+BRANCOS        1013940SPACE(294)                                                  
+NUM SEQUENCIAL 3954000"000001"                                                    
+TIPO INSCRICAO 00100101                                                           
+CODIGO INSCRICA002003002                                                          
+NUM INSCRICAO  0040170SM0->M0_CGC                                                 
+AGENCIA        0180210STRZERO(VAL(SUBSTR(SEE->EE_AGENCIA,1,4)),4)                 
+ZEROS          022023000                                                          
+CONTA          0240290LEFT(STRTRAN(SEE->EE_CONTA,"-",""),6)                       
+BRANCOS        0300330SPACE(04)                                                   
+INSTRUCAO      0340370SE1->E1_OCORREN                                             
+USO EMPRESA    0380620ALLTRIM(SE1->E1_NUM)                                        
+NOSSO NUMERO   0630700STRZERO(VAL(SE1->E1_NUMBCO),8)                              
+QTD MOEDA      0710830REPLICATE("0",13)                                           
+NUM CARTEIRA   084086 "109"                                                       
+USO BANCO      0871070SPACE(21)                                                   
+CARTEIRA       1081080"I"                                                         
+COD OCORRENCIA 1091100SE1->E1_OCORREN                                             
+NUM DOC        1111200ALLTRIM(SE1->(E1_NUM+E1_PARCELA))                           
+VENCIMENTO     1211260GravaData(SE1->E1_VENCREA,.F.)                              
+VALOR TITULO   1271390STRZERO(((SE1->E1_SALDO)*100),13)                           
+CODIGO BANCO   1401420SEE->EE_CODIGO                                              
+AGENCIA        143147000000                                                       
+ESPECIE TITULO 1481490"01"                                                        
+ACEITE         1501500"N"                                                         
+DT EMISSAO     1511560GravaData(SE1->E1_EMISSAO,.F.)                              
+INSTRUCAO 1    1571580SPACE(02)                                                   
+INSTRUCAO 2    1591600SPACE(02)                                                   
+JUROS DE 1 DIA 1611730STRZERO(ROUND((SE1->E1_SALDO*(1/100))/30,2)*100,13)         
+DT LIMITE      1741790gravadata(SE1->E1_VENCREA,.F.)                              
+VALOR DESCONTO 1801920REPLICATE("0", 13)                                          
+VALOR IOF      1932050REPLICATE("0", 13)                                          
+ABATIMENTO     2062180REPLICATE("0", 13)                                          
+COD INSCRICAO  2192200IIF(SA1->A1_PESSOA == "F","01","02")                        
+NUM INSCRICAO  2212340STRZERO(VAL(SA1->A1_CGC),14)                                
+NOME SACADO    2352640NOACENTO(SubStr(SA1->A1_NOME,1,30))                         
+BRANCOS        2652740SPACE(10)                                                   
+END  SACADO    2753140NOACENTO(SubStr(SA1->A1_END,1,40))                          
+BAIRRO SACADO  3153260NOACENTO(Substr(SA1->A1_BAIRRO,1,12))                       
+CEP SACADO     3273340STRZERO(VAL(SubStr(SA1->A1_CEP,1,8)),8)                     
+CIDADE SACADO  3353490NOACENTO(Substr(SA1->A1_MUN,1,15))                          
+UF SACADO      3503510SA1->A1_EST                                                 
+NOME SACADOR   3523810SPACE(30)                                                   
+BRANCOS        3823850SPACE(4)                                                    
+DTMORA         3863910GravaData(SE1->E1_VENCREA,.F.)                              
+PRAZO          392393000                                                          
+BRANCOS        3943940SPACE(1)                                                    
+NUM SEQEUNCIAL 3954000INCREMENTA()                                                
+TIPO REGISTRO  00100109                                                           
+BRANCOS        0023940SPACE(393)                                                  
+NUM SEQUENCIAL 3954000INCREMENTA()                                                

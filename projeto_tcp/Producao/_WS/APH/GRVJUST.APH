@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+#apDiv1 {
+	position: absolute;
+	width: 512px;
+	height: 214px;
+	z-index: 1;
+	left: 415px;
+	top: 127px;
+	background-color: #999999;
+}
+</style>
+<script>
+function retira_acentos(palavra) {
+    com_acento = 'áàãâäéèêëíìîïóòõôöúùûüçÁÀÃÂÄÉÈÊËÍÌÎÏÓÒÕÖÔÚÙÛÜÇ';
+    sem_acento = 'aaaaaeeeeiiiiooooouuuucAAAAAEEEEIIIIOOOOOUUUUC';
+    nova='';
+    for(i=0;i<palavra.length;i++) {
+      if (com_acento.search(palavra.substr(i,1))>=0) {
+      nova+=sem_acento.substr(com_acento.search(palavra.substr(i,1)),1);
+      }
+      else {
+       nova+=palavra.substr(i,1);
+      }
+    }
+    return nova;
+}
+
+</script>
+
+
+</head>
+
+<body>
+<div id="apDiv1">
+  <form id="form1" name="form1" method="post" action="U_GRVJUST.APW">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>&nbsp;</td>
+        <td align="center"><h2>Justification</h2></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="center"><p>
+          <label for="textfield"></label>
+          </p>
+          <p>
+            <input name="cJus" type="text" id="textfield" size="67" onBlur="this.value=retira_acentos(this.value)" />
+            <input name="Chave" value="<%= cLink %>" type="hidden">
+        </p></td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td align="center"><p>&nbsp;
+          </p>
+          <p>
+            <input type="submit" name="button" id="button" value="Send" />
+        </p></td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </form>
+</div>
+</body>
+</html>

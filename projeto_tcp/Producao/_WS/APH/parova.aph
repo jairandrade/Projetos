@@ -1,0 +1,452 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Aprovação de Pedido de Compra</title>
+</head>
+
+<script type='text/javascript'>
+	function AtualizaStatus(cVal)
+	{
+		//document.getElementById('APROVACAO').value = cVal
+		document.FrontPage_Form1.APROVACAO.value = cVal;
+	}
+</script>
+
+<body>
+
+<noscript> Esta mensagem possui rotinas em JavaScript e seu
+navegador n&atilde;o consegue execut&aacute;-las.<br>
+Favor atualiz&aacute;-lo para uma vers&atilde;o mais
+recente.<br>
+</noscript>
+
+<form action="http://192.168.1.31/aprova_pedido.php" method="POST" name="FrontPage_Form1"><input type=hidden name="PEDIDO" value="004553">
+<input type=hidden name="FORNECEDOR" value="000075">
+<input type=hidden name="LB_NOME" value="ROSIBRAS MERCADO    ">
+<input type=hidden name="EMISSAO" value="12/11/12">
+<input type=hidden name="LB_OBS" value="MATERIAL REPOSICAO ESTOQUE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ">
+<input type=hidden name="LBVALOR" value="      2.978,84">
+<input type=hidden name="COTACOES" value="<table border='1' width='639'><tr><td width='62' bgcolor='#DFEFFF' height='18'><font face='Arial'>Fornecedor</font></td><td align='right' width='101' bgcolor='#DFEFFF' height='18'><font face='Arial'>Vlr. Total</font></td></tr><tr><td><font size='2' face='Arial'>ROSIBRAS COML.ATACAD.BEBIDAS E ALIMENTOS</font></td><td align='right'><font size='2' face='Arial'>      3.362,42</font></td></tr><tr><td><font size='2' face='Arial'>CONTABILISTA PAPEL E SUPRIM DE INFORMATI</font></td><td align='right'><font size='2' face='Arial'>      3.043,61</font></td></tr><tr><td><font size='2' face='Arial'>PAPELARIA WESPI LTDA</font></td><td align='right'><font size='2' face='Arial'>      2.964,65</font></td></tr></table>">
+<input type=hidden name="WFMAILID" value="WF0000011d017dcbc0d6ab">
+<input type=hidden name="WFRECNOTIMEOUT" value="{}">
+<input type=hidden name="WFEMPRESA" value="02">
+<input type=hidden name="WFFILIAL" value="01">
+<input type=hidden name="IT.ITEM.1" value="0001">
+<input type=hidden name="IT.ITEM.2" value="0002">
+<input type=hidden name="IT.ITEM.3" value="0003">
+<input type=hidden name="IT.ITEM.4" value="0004">
+<input type=hidden name="IT.ITEM.5" value="0005">
+<input type=hidden name="IT.ITEM.6" value="0006">
+<input type=hidden name="IT.ITEM.7" value="0007">
+<input type=hidden name="IT.ITEM.8" value="0008">
+<input type=hidden name="IT.ITEM.9" value="0009">
+<input type=hidden name="IT.ITEM.10" value="0010">
+<input type=hidden name="IT.ITEM.11" value="0011">
+<input type=hidden name="IT.CODIGO.1" value="AL00000001     ">
+<input type=hidden name="IT.CODIGO.2" value="AL00000002     ">
+<input type=hidden name="IT.CODIGO.3" value="AL00000004     ">
+<input type=hidden name="IT.CODIGO.4" value="AL00000009     ">
+<input type=hidden name="IT.CODIGO.5" value="MC00000034     ">
+<input type=hidden name="IT.CODIGO.6" value="MC00000035     ">
+<input type=hidden name="IT.CODIGO.7" value="MC00000037     ">
+<input type=hidden name="IT.CODIGO.8" value="MC00000038     ">
+<input type=hidden name="IT.CODIGO.9" value="MC00000088     ">
+<input type=hidden name="IT.CODIGO.10" value="MC00000095     ">
+<input type=hidden name="IT.CODIGO.11" value="MP88000502     ">
+<input type=hidden name="IT.DESCRICAO.1" value="ACUCAR REFINADO,  1KG         ">
+<input type=hidden name="IT.DESCRICAO.2" value="CHA MATE, CX C/30UND X 250GR  ">
+<input type=hidden name="IT.DESCRICAO.3" value="CAFE,  VACUO,  500GR,  DAMASCO">
+<input type=hidden name="IT.DESCRICAO.4" value="LEITE EM PO, 400GRM           ">
+<input type=hidden name="IT.DESCRICAO.5" value="COPO DESC 180ML, 25X100 UND   ">
+<input type=hidden name="IT.DESCRICAO.6" value="GUARDANAPO PAPEL TAM 20X20, FR">
+<input type=hidden name="IT.DESCRICAO.7" value="MEXEDOR PLAST GRD, PCT C/240UN">
+<input type=hidden name="IT.DESCRICAO.8" value="DESODORIZADOR, 360ML, LAVANDA,">
+<input type=hidden name="IT.DESCRICAO.9" value="COADOR CAFE GRANDE,  PANO     ">
+<input type=hidden name="IT.DESCRICAO.10" value="FOSFORO LONGO,  FIAT LUX,  1X2">
+<input type=hidden name="IT.DESCRICAO.11" value="INSETICIDA SBP                ">
+<input type=hidden name="IT.QUANT.1" value="    200,00">
+<input type=hidden name="IT.QUANT.2" value="     60,00">
+<input type=hidden name="IT.QUANT.3" value="    200,00">
+<input type=hidden name="IT.QUANT.4" value="      1,00">
+<input type=hidden name="IT.QUANT.5" value="     20,00">
+<input type=hidden name="IT.QUANT.6" value="     10,00">
+<input type=hidden name="IT.QUANT.7" value="     10,00">
+<input type=hidden name="IT.QUANT.8" value="     10,00">
+<input type=hidden name="IT.QUANT.9" value="      5,00">
+<input type=hidden name="IT.QUANT.10" value="      5,00">
+<input type=hidden name="IT.QUANT.11" value="     15,00">
+<input type=hidden name="IT.PRECO.1" value="          1,89">
+<input type=hidden name="IT.PRECO.2" value="          3,26">
+<input type=hidden name="IT.PRECO.3" value="          7,25">
+<input type=hidden name="IT.PRECO.4" value="          4,99">
+<input type=hidden name="IT.PRECO.5" value="         34,50">
+<input type=hidden name="IT.PRECO.6" value="          6,89">
+<input type=hidden name="IT.PRECO.7" value="          4,40">
+<input type=hidden name="IT.PRECO.8" value="          4,35">
+<input type=hidden name="IT.PRECO.9" value="          2,79">
+<input type=hidden name="IT.PRECO.10" value="          0,99">
+<input type=hidden name="IT.PRECO.11" value="          5,65">
+<input type=hidden name="IT.TOTAL.1" value="        378,00">
+<input type=hidden name="IT.TOTAL.2" value="        195,80">
+<input type=hidden name="IT.TOTAL.3" value="      1.450,00">
+<input type=hidden name="IT.TOTAL.4" value="          4,99">
+<input type=hidden name="IT.TOTAL.5" value="        690,00">
+<input type=hidden name="IT.TOTAL.6" value="         68,90">
+<input type=hidden name="IT.TOTAL.7" value="         44,00">
+<input type=hidden name="IT.TOTAL.8" value="         43,50">
+<input type=hidden name="IT.TOTAL.9" value="         13,95">
+<input type=hidden name="IT.TOTAL.10" value="          4,95">
+<input type=hidden name="IT.TOTAL.11" value="         84,75">
+
+    <table border="0" width="733">
+        <tr>
+            <td width="62">&nbsp;</td>
+			<td width="657">
+				<table border="0" width="638" height="84">
+					<tr>
+						<td colspan="2" width="630" bgcolor="#DFEFFF" height="24">
+							<p align="left">
+								<font size="4" face="Arial">
+									<b>Aprovação Pedido de Compra </b>: 004553
+								</font>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" width="315" height="24">
+							<font size="2" face="Arial">
+								<b>Fornecedor</b> : 000075 - ROSIBRAS MERCADO    
+							</font>
+						</td>
+						<td valign="top" width="315" height="24">
+							<font size="2" face="Arial">
+								<b>Emissao</b> : 12/11/12
+							</font>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top" colspan="2" width="624" height="24">
+							<font size="2" face="Arial">
+								<b>Observação.. :</b> MATERIAL REPOSICAO ESTOQUE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+							</font>
+						</td>
+					</tr>
+				</table>
+				<p><font color="#0000FF" face="Arial"><b>Itens</b></font></p>
+				<table border="1" width="639" height="85">
+					<tr>
+						<td width="62" bgcolor="#DFEFFF" height="18">
+							<font face="Arial">Item</font>
+						</td>
+						<td width="190" bgcolor="#DFEFFF" height="18">
+							<font face="Arial">Produto</font>
+						</td>
+						<td align="center" width="86" bgcolor="#DFEFFF" height="18">
+							<font face="Arial">Quantidade</font>
+						</td>
+						<td align="right" width="87" bgcolor="#DFEFFF" height="18">
+							<font face="Arial">Vlr.Unit</font>
+						</td>
+						<td align="right" width="101" bgcolor="#DFEFFF" height="18">
+							<font face="Arial">Vlr. Total</font>
+						</td>
+					</tr>
+					<tr>
+						<td><font size="2" face="Arial">0001</font></td>
+						<td><font size="2" face="Arial">AL00000001      - ACUCAR REFINADO,  1KG         </font></td>
+						<td align="center"><font size="2" face="Arial">    200,00</font></td>
+						<td align="right"><font size="2" face="Arial">          1,89</font></td>
+						<td align="right"><font size="2" face="Arial">        378,00</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0002</font></td>
+						<td><font size="2" face="Arial">AL00000002      - CHA MATE, CX C/30UND X 250GR  </font></td>
+						<td align="center"><font size="2" face="Arial">     60,00</font></td>
+						<td align="right"><font size="2" face="Arial">          3,26</font></td>
+						<td align="right"><font size="2" face="Arial">        195,80</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0003</font></td>
+						<td><font size="2" face="Arial">AL00000004      - CAFE,  VACUO,  500GR,  DAMASCO</font></td>
+						<td align="center"><font size="2" face="Arial">    200,00</font></td>
+						<td align="right"><font size="2" face="Arial">          7,25</font></td>
+						<td align="right"><font size="2" face="Arial">      1.450,00</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0004</font></td>
+						<td><font size="2" face="Arial">AL00000009      - LEITE EM PO, 400GRM           </font></td>
+						<td align="center"><font size="2" face="Arial">      1,00</font></td>
+						<td align="right"><font size="2" face="Arial">          4,99</font></td>
+						<td align="right"><font size="2" face="Arial">          4,99</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0005</font></td>
+						<td><font size="2" face="Arial">MC00000034      - COPO DESC 180ML, 25X100 UND   </font></td>
+						<td align="center"><font size="2" face="Arial">     20,00</font></td>
+						<td align="right"><font size="2" face="Arial">         34,50</font></td>
+						<td align="right"><font size="2" face="Arial">        690,00</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0006</font></td>
+						<td><font size="2" face="Arial">MC00000035      - GUARDANAPO PAPEL TAM 20X20, FR</font></td>
+						<td align="center"><font size="2" face="Arial">     10,00</font></td>
+						<td align="right"><font size="2" face="Arial">          6,89</font></td>
+						<td align="right"><font size="2" face="Arial">         68,90</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0007</font></td>
+						<td><font size="2" face="Arial">MC00000037      - MEXEDOR PLAST GRD, PCT C/240UN</font></td>
+						<td align="center"><font size="2" face="Arial">     10,00</font></td>
+						<td align="right"><font size="2" face="Arial">          4,40</font></td>
+						<td align="right"><font size="2" face="Arial">         44,00</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0008</font></td>
+						<td><font size="2" face="Arial">MC00000038      - DESODORIZADOR, 360ML, LAVANDA,</font></td>
+						<td align="center"><font size="2" face="Arial">     10,00</font></td>
+						<td align="right"><font size="2" face="Arial">          4,35</font></td>
+						<td align="right"><font size="2" face="Arial">         43,50</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0009</font></td>
+						<td><font size="2" face="Arial">MC00000088      - COADOR CAFE GRANDE,  PANO     </font></td>
+						<td align="center"><font size="2" face="Arial">      5,00</font></td>
+						<td align="right"><font size="2" face="Arial">          2,79</font></td>
+						<td align="right"><font size="2" face="Arial">         13,95</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0010</font></td>
+						<td><font size="2" face="Arial">MC00000095      - FOSFORO LONGO,  FIAT LUX,  1X2</font></td>
+						<td align="center"><font size="2" face="Arial">      5,00</font></td>
+						<td align="right"><font size="2" face="Arial">          0,99</font></td>
+						<td align="right"><font size="2" face="Arial">          4,95</font></td>
+					</tr><tr>
+						<td><font size="2" face="Arial">0011</font></td>
+						<td><font size="2" face="Arial">MP88000502      - INSETICIDA SBP                </font></td>
+						<td align="center"><font size="2" face="Arial">     15,00</font></td>
+						<td align="right"><font size="2" face="Arial">          5,65</font></td>
+						<td align="right"><font size="2" face="Arial">         84,75</font></td>
+					</tr>
+					<tr>
+						<td colspan="4" width="498" height="22">
+							<p align="right"><font face="Arial">Valor Total:</font></p>
+						</td>
+						<td align="right" width="101" height="22">
+							<font size="2" face="Arial">      2.978,84</font>
+						</td>
+					</tr>
+				</table>
+
+				<p><font color="#0000FF" face="Arial"><b>Demais Cotações</b></font></p>
+				<p><table border='1' width='639'><tr><td width='62' bgcolor='#DFEFFF' height='18'><font face='Arial'>Fornecedor</font></td><td align='right' width='101' bgcolor='#DFEFFF' height='18'><font face='Arial'>Vlr. Total</font></td></tr><tr><td><font size='2' face='Arial'>ROSIBRAS COML.ATACAD.BEBIDAS E ALIMENTOS</font></td><td align='right'><font size='2' face='Arial'>      3.362,42</font></td></tr><tr><td><font size='2' face='Arial'>CONTABILISTA PAPEL E SUPRIM DE INFORMATI</font></td><td align='right'><font size='2' face='Arial'>      3.043,61</font></td></tr><tr><td><font size='2' face='Arial'>PAPELARIA WESPI LTDA</font></td><td align='right'><font size='2' face='Arial'>      2.964,65</font></td></tr></table></p>
+				<p>
+					<input type="submit" name="Aprovar" id="enviar" value="Aprovar" onclick="AtualizaStatus('S');">
+					<input type="submit" name="Recusar" id="recusar" value="Recusar" onclick="AtualizaStatus('N');">
+				</p>
+            </td>
+        </tr>
+    </table>
+
+	<input name="APROVADOR" TEMPLATE_name="APROVADOR" value="000003" type="hidden">
+	<input name="APROVACAO" TEMPLATE_name="APROVACAO" value="" type="hidden">
+<script language="javaScript">
+var NIL = null;
+var LAST_ERROR = null;
+var GLOBAL_VALID_LIST = new Array();
+var GLOBAL_VALIDA = false;
+var GLOBAL_ERROR = false;
+var NS4 = (document.layers) ? 1 : 0; // Netscape 4+
+var IE4 = (document.all) ? 1 : 0;    // Explorer 4+
+var ver4 = (IE4 || NS4) ? 1 : 0;      // ver 4+
+function setColor(poElement, pcColor)
+{
+   if (poElement.style)
+   {
+     poElement.style.backgroundColor = pcColor;
+   }
+}
+function warning(poField, pcMsg)
+{
+   if (poField)
+   {
+      LAST_ERROR = poField;
+      setColor(poField, "#ccccFF");
+      if (GLOBAL_VALIDA == false)
+      {
+         if (poField.type.substring(0,1) != "s")
+            poField.select();
+         poField.focus();
+      }
+   }
+   alert(pcMsg);
+}
+function validValue(AValue, ACheckOK)
+{
+   var lRet = true;
+   for (i = 0;  i < AValue.length;  i++)
+      if (ACheckOK.indexOf(AValue.charAt(i)) == "-1")
+      {
+         lRet = false;
+         break;
+      }
+   return (lRet);
+}
+function doValidField(poField, pcCaption,  plRequired,  pcFieldType, pnFieldLen, pnDecimals, pxMinValue, pxMaxValue)
+{
+   var cValid = null;
+   if (plRequired && (poField.value == "" || (poField.selectedIndex && poField.selectedIndex < 0)))
+   {
+      warning(poField, "O prenchimento do campo \"" + pcCaption + "\" é obrigatório.");
+      return (false);
+   }
+   if (pcFieldType == "A")
+      cValid = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþ"
+   else if (pcFieldType == "I")
+      cValid = "0123456789-"
+   else if (pcFieldType == "N")
+      cValid = "0123456789-."
+   else if (pcFieldType == "D")
+      cValid = "0123456789/"
+   else if (pcFieldType == "P" || pcFieldType == "S" || pcFieldType == "C")
+      cValid = null;
+   if (cValid && !validValue(poField.value, cValid))
+   {
+      warning(poField, "O valor informado para \"" + pcCaption + "\", é inválido.\nCaracteres válidos para este campo:\n" + cValid);
+      return (false);
+   }
+   if (pcFieldType == "I" || pcFieldType == "N") 
+   {
+      var cValue = poField.value;
+      var cPos = cValue.indexOf("-");
+      if (cPos != "-1")
+      {
+         if ( cPos != cValue.lastIndexOf("-"))
+         {
+            warning(poField, "O valor informado para \"" + pcCaption + "\", possui mais de uma ocorrência do sinal \"-\".");
+            return (false);
+         }
+         if ( cPos != "0")
+            poField.value = "-" + cValue.substring(0, cPos) + cValue.substring(cPos + 1, 255);
+      }
+      if (pcFieldType == "N")
+      {
+         var cValue = poField.value;
+         var cPos = cValue.indexOf(".");
+         if (cPos != "-1")
+         {
+            if ( cPos != cValue.lastIndexOf("."))
+            {
+               warning(poField, "O valor informado para \"" + pcCaption + "\", possui mais de uma ocorrência do ponto decimal.");
+               return (false);
+            }
+            var cDec = cValue.substring(cPos + 1, cValue.length);
+            if (cDec.length > pnDecimals)
+            {
+              warning(poField, "O número de decimais informado para \"" + pcCaption + "\", ultrapassa o limite de " + pnDecimals + " casas decimais.");
+              return (false);
+            }
+         }
+      }
+   }
+   if (pcFieldType == "D")
+   {
+      var cValue = poField.value;
+      var cBarraDia = cValue.indexOf("/");
+      var cBarraMes = cValue.lastIndexOf("/");
+      if (cBarraDia == cBarraMes || cValue.length < 6)
+      {
+         warning(poField, "O valor informado para \"" + pcCaption + "\", é inválido.\nUse o formato DD/MM/YYYY.");
+         return (false);
+      }
+      var cDia = cValue.substr(0, cBarraDia);
+      var cMes = cValue.substr(cBarraDia + 1, cBarraMes - cBarraDia - 1);
+      var cAno = cValue.substr(cBarraMes + 1, 4);
+      if (cAno < 40)
+         cAno = "20" + cAno
+      else if (cAno.length == 2)
+         cAno = "19" + cAno;
+      cMes = parseInt(cMes);
+      if (cMes < 1 || cMes > 12)
+      {
+         warning(poField, "O mês informado para \"" + pcCaption + "\", é inválido.");
+         return (false);
+      }
+      var aDaysMonth = new Array(-1, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+      var nMaxDays = aDaysMonth[ cMes ];
+      if (cMes == 2)
+      {
+         if ((cAno % 4) != 0 || ((cAno % 400) != 0 && (cAno % 100) == 0))
+            nMaxDays = 28;
+      }
+      if (cDia < 1 || cDia > nMaxDays )
+      {
+         warning(poField, "O dia informado para \"" + pcCaption + "\", é inválido.");
+         return (false);
+      }
+      strDia = "A" + (100+eval(cDia));
+      strMes = "A" + (100+eval(cMes));
+      poField.value = strDia.substr(2,2) +
+                      "/" + strMes.substr(2,2) +
+                      "/" + cAno;
+   }
+   if (pcFieldType == "P")
+   {
+      if (poField.selectedIndex == 0)
+      {
+         warning(poField, "A primeira opção do campo \"" + pcCaption + "\", é inválido.");
+         return (false);
+      }
+   }
+   if (pxMinValue && poField.value < pxMinValue)
+   {
+      warning(poField, "O valor informado para \"" + pcCaption + "\", é inferior a\"" + pxMinValue + "\".");
+      return (false);
+   }
+   if (pxMaxValue && poField.value > pxMaxValue)
+   {
+      warning(poField, "O valor informado para \"" + pcCaption + "\", é superior a \"" + pxMaxValue + "\".");
+      return (false);
+   }
+   LAST_ERROR = null;
+   setColor(poField, "white");
+   return (true);
+}
+function validField(poField)
+{
+   var j;
+   for (j=0; j < GLOBAL_VALID_LIST.length; j++)
+   {
+      var nPosFinal = GLOBAL_VALID_LIST[j][0].length;
+      if (poField.name.substr(0, nPosFinal) == GLOBAL_VALID_LIST[j][0])
+      {
+        if (!(doValidField(poField, GLOBAL_VALID_LIST[j][1], GLOBAL_VALID_LIST[j][2], GLOBAL_VALID_LIST[j][3],GLOBAL_VALID_LIST[j][4], GLOBAL_VALID_LIST[j][5], GLOBAL_VALID_LIST[j][6],GLOBAL_VALID_LIST[j][7])))
+        {
+          GLOBAL_ERROR = true;
+          return ( false );
+        }
+      }
+   }
+   return ( true );
+}
+function doSubmit(poForm)
+{
+  var oElements = poForm.elements;
+  var lRet = true;
+  for (var i = 0;  i < oElements.length; i++)
+  {
+    if (!(oElements[i].type == "hidden"))
+	{
+      lRet = validField(oElements[i]);
+      if (!lRet)
+      {
+	    oElements[i].focus();
+        break;
+      }
+    }
+  }
+  return (lRet);
+}
+//if (NS4) { document.forms[0].captureEvents(Event.SUBMIT) }
+document.forms[0].onsubmit = function () { return(doSubmit(this)) };
+var oElements = document.forms[0];
+</script>
+<noscript>
+Esta mensagem possui rotinas em JavaScript e seu navegador não consegue executá-las.
+<br>
+Favor atualiza-lo para uma versão mais recente.
+</noscript>
+</form>
+</body>
+</html>

@@ -1,0 +1,758 @@
+#INCLUDE "PROTHEUS.CH"
+
+#DEFINE _nVERSAO 02 //Versao do fonte
+
+//---------------------------------------------------------------------
+/*/{Protheus.doc} TCP1R001
+
+Relatório de custo de equipamento.
+
+@author Lucas Guszak
+@since 18/11/13
+/*/ 
+//------------------------------------------------------------
+User Function TCP1R001()  
+
+	Local aNGBEGINPRM := NGBEGINPRM(_nVERSAO)
+	Local aArea := GetArea()
+	
+	Private cPerg	:= "TCP001"
+	
+	//------------------------------------------------------------
+	/*/
+	Variaveis utilizadas para parametros!                        
+	MV_PAR01 - De Bem                                   
+	MV_PAR02 - Ate Bem                                   
+	MV_PAR03 - De Familia                                   
+	MV_PAR04 - Ate Familia                                 
+	MV_PAR05 - De Modelo                                   
+	MV_PAR06 - Ate Modelo
+	MV_PAR07 - De Centro de Custo                                   
+	MV_PAR08 - Ate Centro de Custo
+	MV_PAR09 - De Serviço                                  
+	MV_PAR10 - Ate Serviço 
+	MV_PAR11 - De Tipo Manutenção                                  
+	MV_PAR12 - Ate Tipo Manutenção
+	MV_PAR13 - De Data de finalização da O.S ou do abastecimento                                 
+	MV_PAR14 - Ate Data de finalização da O.S ou do abastecimento                                   
+	/*/
+	//------------------------------------------------------------
+	/*DbSelectArea("SX1")
+	DbSetOrder(01)
+	If !Dbseek(cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"01")   
+		aPerg := {}                                                          
+		AAdd(aPerg, {"De Bem			 ?","C",TamSx3("T9_CODBEM" )[1],0,"U_TCP001VL(1,MV_PAR01,MV_PAR02,'ST9')","ST9","G"})
+		AAdd(aPerg, {"Até Bem			 ?","C",TamSx3("T9_CODBEM" )[1],0,"U_TCP001VL(2,MV_PAR01,MV_PAR02,'ST9')","ST9","G"})
+		AAdd(aPerg, {"De Família		 ?","C",TamSx3("T6_CODFAMI")[1],0,"U_TCP001VL(1,MV_PAR03,MV_PAR04,'ST6')","ST6","G"})
+		AAdd(aPerg, {"Até Família	 ?","C",TamSx3("T6_CODFAMI")[1],0,"U_TCP001VL(2,MV_PAR03,MV_PAR04,'ST6')","ST6","G"})
+		AAdd(aPerg, {"De Modelo		 ?","C",TamSx3("TQR_TIPMOD")[1],0,"U_TCP001VL(1,MV_PAR05,MV_PAR06,'TQR')","TQR","G"})
+		AAdd(aPerg, {"Até Modelo		 ?","C",TamSx3("TQR_TIPMOD")[1],0,"U_TCP001VL(2,MV_PAR05,MV_PAR06,'TQR')","TQR","G"})
+		AAdd(aPerg, {"De C. Custo	 ?","C",TamSx3("CTT_CUSTO" )[1],0,"U_TCP001VL(1,MV_PAR07,MV_PAR08,'CTT')","CTT","G"})
+		AAdd(aPerg, {"Até C. Custo	 ?","C",TamSx3("CTT_CUSTO" )[1],0,"U_TCP001VL(2,MV_PAR07,MV_PAR08,'CTT')","CTT","G"})
+		AAdd(aPerg, {"De Serviço		 ?","C",TamSx3("T4_SERVICO")[1],0,"U_TCP001VL(1,MV_PAR09,MV_PAR10,'ST4')","ST4","G"})
+		AAdd(aPerg, {"Até Serviço	 ?","C",TamSx3("T4_SERVICO")[1],0,"U_TCP001VL(2,MV_PAR09,MV_PAR10,'ST4')","ST4","G"})
+		AAdd(aPerg, {"De Tipo Manut.	 ?","C",TamSx3("TE_TIPOMAN")[1],0,"U_TCP001VL(1,MV_PAR11,MV_PAR12,'STE')","STE","G"})
+		AAdd(aPerg, {"Até Tipo Manut.?","C",TamSx3("TE_TIPOMAN")[1],0,"U_TCP001VL(2,MV_PAR11,MV_PAR12,'STE')","STE","G"})
+		AAdd(aPerg, {"De Data			 ?","D",08,0,"NAOVAZIO()" ,"","G"})
+		AAdd(aPerg, {"Até Data		 ?","D",08,0,"(MV_PAR14 >= MV_PAR13)" ,"","G"}) 
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"01"+'.',;
+		"Informe a partir de qual Bem deseja o relatório. Pressione a tecla [F3] para selecionar um Bem.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"02"+'.',;
+		"Informe até qual Bem deseja o relatório. Pressione a tecla [F3] para selecionar um Bem, ou digite "+Replicate("Z",TamSx3("T9_CODBEM")[1])+ ;    
+		" neste campo e o campo acima em branco para considerar todos os Bens.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"03"+'.',;
+		"Informe a partir de qual Família de Bens deseja o relatório. Pressione a tecla	[F3] para selecionar uma Família.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"04"+'.',;
+		"Informe até qual Família de Bens deseja o relatório. Pressione a tecla [F3] para	selecionar uma Família, ou digite "+Replicate("Z",TamSx3("T6_CODFAMI")[1]) + ;
+		" neste campo e o campo acima em branco para considerar todas as Famílias.", .T.)
+	
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"05"+'.',;
+		"Informe a partir de qual Modelo deseja o relatório. Pressione a tecla [F3] para selecionar um Modelo.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"06"+'.',;
+		"Informe até qual Modelo deseja o relatório. Pressione a tecla [F3] para	selecionar um Modelo, ou digite "+Replicate("Z",TamSx3("TQR_TIPMOD")[1]) + ;
+		" neste campo e o campo acima em branco para considerar todos os Modelos.", .T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"07"+'.',;
+		"Informe a partir de qual Centro de Custo deseja o relatório. Pressione a tecla [F3] para selecionar um Centro de Custo.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"08"+'.',;
+		"Informe até qual Centro de Custo deseja o relatório. Pressione a tecla [F3] para selecionar um Centro de Custo, ou digite "+Replicate("Z",TamSx3("CTT_CUSTO")[1]) + ;
+		" neste campo e o campo acima em branco para considerar todos os Centros de Custos.", .T.)
+	
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"09"+'.',;
+		"Informe a partir de qual Serviço deseja o relatório. Pressione a tecla [F3] para selecionar um Serviço.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"10"+'.',;
+		"Informe até qual Serviço deseja o relatório. Pressione a tecla [F3] para selecionar um Serviço, ou digite "+Replicate("Z",TamSx3("T4_SERVICO")[1]) + ;
+		" neste campo e o campo acima em branco para considerar todos os Serviços.", .T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"11"+'.',;
+		"Informe a partir de qual Tipo de Manutenção deseja o relatório. Pressione a tecla [F3] para selecionar um Tipo de Manutenção.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"12"+'.',;
+		"Informe até qual Tipo de Manutenção deseja o relatório. Pressione a tecla [F3] para selecionar um Tipo de Manutenção, ou digite "+Replicate("Z",TamSx3("TE_TIPOMAN")[1]) + ;
+		" neste campo e o campo acima em branco para considerar todos os Tipos de Manutenção.", .T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"13"+'.',;
+		"Informe a partir de qual Data da Finalização da O.S. ou do Abastecimento deseja o relatório. Pressione a tecla [F3] para selecionar uma Data.",.T.)
+		
+		NgHelp('.'+cPerg+Space(Len(SX1->X1_GRUPO)-Len(cPerg))+"14"+'.',;
+		"Informe até qual Data da Finalização da O.S. ou do Abastecimento deseja o relatório. Pressione a tecla [F3] para selecionar uma Data, ou digite "+Replicate("Z",8) + ;
+		" neste campo e o campo acima em branco para considerar todos as Datas.", .T.)
+		
+		NGchksx1(cPerg,aPerg)
+		
+	EndIf*/
+	
+	Pergunte(cPerg,.F.)
+	
+	oReport := ReportDef()
+	oReport:SetLandscape()
+	oReport:PrintDialog()
+
+	RestArea(aArea)
+	NGRETURNPRM(aNGBEGINPRM)
+	
+Return Nil
+
+//---------------------------------------------------------------------
+/*/{Protheus.doc} ReportDef
+
+Define as seções impressas no relatório
+
+@author Lucas Guszak
+@since 20/11/13
+/*/ 
+//------------------------------------------------------------
+Static Function ReportDef()
+
+	Local oReport	
+	Local oSectionKm // Km/l
+	Local oSectionKw // Kw/h
+	Local oSectionLt // Lt/h
+	//Local oSectionTT // Totalizadores
+	Local oCell
+	
+	Private cCODIGO := "" // Codigo do equipamento
+	Private cDESCRI := "" // Descricao do equipamento
+	Private nHORASA := 0 // Contador acumulado
+	Private nHORASP := 0 // Contador percorrido no período
+	Private nMATERI := 0 // Custo de O.S com produtos e ferramentas no periodo
+	Private nLTHORA := 0 // Litros combustivel / Horas Trab. Mes
+	Private nLTCOMB := 0 // Total de abastecimento
+	Private nRSCOMB := 0 // Custo de todos os abastecimentos
+	Private nRSMOEN := 0 // Custo de O.S com todos as maos de obras e terceiros
+	Private nHORAMO := 0 // Horas de mao de obra em O.S.
+	Private nRSTOTA := 0 // Soma das colunas de R$ Material, Combustivel e M.O
+	Private nRSHORA := 0 // Custo total dividido por Hora Trab. Mês
+	
+	//----------------------------------------------------------------------
+	// Criacao do componente de impressao                                      
+	//                                                                        
+	// TReport():New                                                           
+	// ExpC1 : Nome do relatorio                                               
+	// ExpC2 : Titulo                                                          
+	// ExpC3 : Pergunte                                                        
+	// ExpB4 : Bloco de codigo que sera executado na confirmacao da impressao  
+	// ExpC5 : Descricao                                                       
+	//                                                                        
+	//----------------------------------------------------------------------
+	oReport := TReport():New("TCP1R001",OemToAnsi("Relatório de Custo de Equipamento"),;
+				"TCP001",{|oReport| ReportPrint(oReport)},"")
+
+	oReport:SetLandscape()  //Default Paisagem
+			
+	//----------------------------------------------------------------------
+	// Variaveis utilizadas para parametros                                                
+	// MV_PAR01 - De Bem                                   
+	// MV_PAR02 - Ate Bem                                   
+	// MV_PAR03 - De Familia                                   
+	// MV_PAR04 - Ate Familia                                 
+	// MV_PAR05 - De Modelo                                   
+	// MV_PAR06 - Ate Modelo
+	// MV_PAR07 - De Centro de Custo                                   
+	// MV_PAR08 - Ate Centro de Custo
+	// MV_PAR09 - De Serviço                                  
+	// MV_PAR10 - Ate Serviço 
+	// MV_PAR11 - De Tipo Manutenção                                  
+	// MV_PAR12 - Ate Tipo Manutenção
+	// MV_PAR13 - De Data de finalização da O.S ou do abastecimento                                 
+	// MV_PAR14 - Ate Data de finalização da O.S ou do abastecimento            
+	//----------------------------------------------------------------------
+	Pergunte(oReport:uParam,.F.)
+	
+	//----------------------------------------------------------------------
+	// Criacao da secao utilizada pelo relatorio                               
+	//                                                                        
+	// TRSection():New                                                         
+	// ExpO1 : Objeto TReport que a secao pertence                             
+	// ExpC2 : Descricao da seçao                                              
+	// ExpA3 : Array com as tabelas utilizadas pela secao. A primeira tabela   
+	//         sera considerada como principal para a seção.                   
+	// ExpA4 : Array com as Ordens do relatório                                
+	// ExpL5 : Carrega campos do SX3 como celulas                              
+	//         Default : False                                                 
+	// ExpL6 : Carrega ordens do Sindex                                        
+	//         Default : False                                                 
+	//                                                                         
+	//----------------------------------------------------------------------
+	//----------------------------------------------------------------------
+	// Criacao da celulas da secao do relatorio                                
+	//                                                                         
+	// TRCell():New                                                            
+	// ExpO1 : Objeto TSection que a secao pertence                            
+	// ExpC2 : Nome da celula do relatório. O SX3 será consultado              
+	// ExpC3 : Nome da tabela de referencia da celula                          
+	// ExpC4 : Titulo da celula                                                
+	//         Default : X3Titulo()                                            
+	// ExpC5 : Picture                                                         
+	//         Default : X3_PICTURE                                            
+	// ExpC6 : Tamanho                                                         
+	//         Default : X3_TAMANHO                                            
+	// ExpL7 : Informe se o tamanho esta em pixel                              
+	//         Default : False                                                 
+	// ExpB8 : Bloco de código para impressao.                                 
+	//         Default : ExpC2                                                 
+	//                                                                        
+	//----------------------------------------------------------------------
+	
+	// Km/l
+	oSectionKm := TRSection():New(oReport,"Custo de Equipamento Km/l",{})	
+	oCell := TRCell():New(oSectionKm,"cCODIGO","","Código"					,"@!",TamSx3("T9_CODBEM")[1],,{||cCODIGO})
+	oCell := TRCell():New(oSectionKm,"cDESCRI","","Equipamento"			,"@!",TamSx3("T9_NOME")[1],,{||cDESCRI})
+	oCell := TRCell():New(oSectionKm,"nHORASA","","Horas Acumuladas"	,"@E 999,999,999,999",12,,{||nHORASA})
+	oCell := TRCell():New(oSectionKm,"nHORASP","","Horas Trab. Mês"		,"@E 999,999,999,999",12,,{||nHORASP})
+	oCell := TRCell():New(oSectionKm,"nMATERI","","Custo Material"		,"@E 999,999,999.99",12,,{||nMATERI})
+	oCell := TRCell():New(oSectionKm,"nLTHORA","","Média LT x HR"		,"@E 999,999,999.99",12,,{||nLTHORA})
+	oCell := TRCell():New(oSectionKm,"nLTCOMB","","Litros Combustível"	,"@E 999,999,999.99",12,,{||nLTCOMB})
+	oCell := TRCell():New(oSectionKm,"nRSCOMB","","Custo Combustível"	,"@E 999,999,999.99",12,,{||nRSCOMB})
+	oCell := TRCell():New(oSectionKm,"nRSMOEN","","Custo M.O e ENC"		,"@E 999,999,999.99",12,,{||nRSMOEN})
+	oCell := TRCell():New(oSectionKm,"nHORAMO","","Horas M.O"			,"@!",8,,{||nHORAMO})
+	oCell := TRCell():New(oSectionKm,"nRSTOTA","","Custo Total Equip."	,"@E 999,999,999.99",12,,{||nRSTOTA})
+	oCell := TRCell():New(oSectionKm,"nRSHORA","","Custo Horário"		,"@E 999,999,999.99",12,,{||nRSHORA})
+	
+	// Kw/h
+	oSectionKw := TRSection():New(oReport,"Custo de Equipamento Kw/h",{})	
+	oCell := TRCell():New(oSectionKw,"cCODIGO","","Código"				,"@!",TamSx3("T9_CODBEM")[1],,{||cCODIGO})
+	oCell := TRCell():New(oSectionKw,"cDESCRI","","Equipamento"			,"@!",TamSx3("T9_NOME")[1],,{||cDESCRI})
+	oCell := TRCell():New(oSectionKw,"nHORASA","","Horas Acumuladas"	,"@E 999,999,999,999",12,,{||nHORASA})
+	oCell := TRCell():New(oSectionKw,"nHORASP","","Horas Trab. Mês"		,"@E 999,999,999,999",12,,{||nHORASP})
+	oCell := TRCell():New(oSectionKw,"nMATERI","","Custo Material"		,"@E 999,999,999.99",12,,{||nMATERI})
+	oCell := TRCell():New(oSectionKw,"nLTHORA","","Média KW x HR"		,"@E 999,999,999.99",12,,{||nLTHORA})
+	oCell := TRCell():New(oSectionKw,"nLTCOMB","","Total de Quilowatt"	,"@E 999,999,999.99",12,,{||nLTCOMB})
+	oCell := TRCell():New(oSectionKw,"nRSCOMB","","Custo de Quilowatt"	,"@E 999,999,999.99",12,,{||nRSCOMB})
+	oCell := TRCell():New(oSectionKw,"nRSMOEN","","Custo M.O e ENC"		,"@E 999,999,999.99",12,,{||nRSMOEN})
+	oCell := TRCell():New(oSectionKw,"nHORAMO","","Horas M.O"			,"@!",8,,{||nHORAMO})
+	oCell := TRCell():New(oSectionKw,"nRSTOTA","","Custo Total Equip."	,"@E 999,999,999.99",12,,{||nRSTOTA})
+	oCell := TRCell():New(oSectionKw,"nRSHORA","","Custo Horário"		,"@E 999,999,999.99",12,,{||nRSHORA})
+	
+	// Lt/h
+	oSectionLt := TRSection():New(oReport,"Custo de Equipamento Lt/h",{})	
+	oCell := TRCell():New(oSectionLt,"cCODIGO","","Código"					,"@!",TamSx3("T9_CODBEM")[1],,{||cCODIGO})
+	oCell := TRCell():New(oSectionLt,"cDESCRI","","Equipamento"			,"@!",TamSx3("T9_NOME")[1],,{||cDESCRI})
+	oCell := TRCell():New(oSectionLt,"nHORASA","","Horas Acumuladas"	,"@E 999,999,999,999",12,,{||nHORASA})
+	oCell := TRCell():New(oSectionLt,"nHORASP","","Horas Trab. Mês"		,"@E 999,999,999,999",12,,{||nHORASP})
+	oCell := TRCell():New(oSectionLt,"nMATERI","","Custo Material"		,"@E 999,999,999.99",12,,{||nMATERI})
+	oCell := TRCell():New(oSectionLt,"nLTHORA","","Média LT x HR"		,"@E 999,999,999.99",12,,{||nLTHORA})
+	oCell := TRCell():New(oSectionLt,"nLTCOMB","","Litros Combustível"	,"@E 999,999,999.99",12,,{||nLTCOMB})
+	oCell := TRCell():New(oSectionLt,"nRSCOMB","","Custo Combustível"	,"@E 999,999,999.99",12,,{||nRSCOMB})
+	oCell := TRCell():New(oSectionLt,"nRSMOEN","","Custo M.O e ENC"		,"@E 999,999,999.99",12,,{||nRSMOEN})
+	oCell := TRCell():New(oSectionLt,"nHORAMO","","Horas M.O"			,"@!",8,,{||nHORAMO})
+	oCell := TRCell():New(oSectionLt,"nRSTOTA","","Custo Total Equip."	,"@E 999,999,999.99",12,,{||nRSTOTA})
+	oCell := TRCell():New(oSectionLt,"nRSHORA","","Custo Horário"		,"@E 999,999,999.99",12,,{||nRSHORA})
+	
+Return oReport
+
+//---------------------------------------------------------------------
+/*/{Protheus.doc} ReportPrint
+
+Chamada do relatório
+
+@author Lucas Guszak
+@since 20/11/13
+/*/ 
+//------------------------------------------------------------
+Static Function ReportPrint()
+	
+	Local aTotais := {} //Amarzena os totalizadores
+	Local aContIni := {} //Contador Inicial
+	Local aContFim := {} //Contador Final
+	Local cUnidade := ""
+	Local cFamilia := ""
+	Local cFamiDesc := ""
+	Local lIniciou := .F.
+	Local nX := 0
+	Local nTmpHor := 0
+		
+	//Totalizador por Familia
+	Local nTTContAcu := 0
+	Local nTTHoraTra := 0
+	Local nTTHoraMao := 0
+	Local nTTMaoTerc := 0
+	Local nTTProdFer := 0
+	Local nTTAbastec := 0
+	Local nTTCustoAb := 0
+	Local nTTCustoTo := 0
+	Local nTTLtPorHr := 0
+	Local nTTCustoHr := 0
+	
+	//Totalizador Final
+	Local nTGContAcu := 0
+	Local nTGHoraTra := 0
+	Local nTGHoraMao := 0
+	Local nTGMaoTerc := 0
+	Local nTGProdFer := 0
+	Local nTGAbastec := 0
+	Local nTGCustoAb := 0
+	Local nTGCustoTo := 0
+	Local nTGLtPorHr := 0
+	Local nTGCustoHr := 0
+	
+	Private oSectionKm := oReport:Section(1)// Km/l
+	Private oSectionKw := oReport:Section(2)// Kw/h
+	Private oSectionLt := oReport:Section(3)// Lt/h
+	//Private oSectionTT := oReport:Section(4)// Totalizadores
+	Private cAliasQry := ""
+	Private cAliasTrb := ""
+	Private cArqTrb := ""
+	
+	Processa({|lEND| TCP001PROC(@lEND)},"Aguarde...","Processando Registros...")
+	
+	DbSelectArea(cAliasTrb)
+	DbGoTop()
+	DbSeTOrder(1)
+	oReport:SetMeter(LastRec())
+	While !(cAliasTrb)->(Eof())
+	
+		//Km, Kw ou Lt
+		cUnidade := (cAliasTrb)->T6_UNIDAD1
+		
+		While !Eof() .And. cUnidade == (cAliasTrb)->T6_UNIDAD1
+			
+			oReport:IncMeter()		
+			
+			nTTContAcu := 0 //Total Contador acumulado
+			nTTHoraTra := 0 //Total Contador percorrido no período 	
+			nTTHoraMao := 0 //Total Horas de mao de obra em O.S.	
+			nTTMaoTerc := 0 //Total Custo de O.S com todos as maos de obras e terceiros
+			nTTProdFer := 0 //Total Custo de O.S com produtos e ferramentas no periodo
+			nTTAbastec := 0 //Total Quantidade de todos os abastecimentos
+			nTTCustoAb := 0 //Total Custo de todos os abastecimentos
+			nTTCustoTo := 0 //Total Custo Mao de Obra+Terceiros+Ferramenta+Produto+abastecimento	
+			nTTLtPorHr := 0 //Total LT/Hora ou Kw/Hora
+			nTTCustoHr := 0 //Total Custo Horario
+			
+			cFamilia := (cAliasTrb)->T6_CODFAMI
+			cFamiDesc := NGSeek('ST6',(cAliasTrb)->T6_CODFAMI,1,'T6_NOME')
+			
+			While !(cAliasTrb)->(Eof()) .And. cUnidade == (cAliasTrb)->T6_UNIDAD1 .And. cFamilia == (cAliasTrb)->T6_CODFAMI			
+				
+				//Verifica qual cabeçalho será impresso
+				If AllTrim(cUnidade) == "KM"
+					oSectionKm:Init()
+					lIniciou := .T.
+				ElseIf AllTrim(cUnidade) == "KW"		
+					oSectionKw:Init()
+					lIniciou := .T.
+				Else
+					oSectionLt:Init()
+					lIniciou := .T.
+				EndIf								
+					
+				cCODIGO := (cAliasTrb)->T9_CODBEM // Codigo do equipamento
+				cDESCRI := (cAliasTrb)->T9_NOME // Descricao do equipamento
+				
+				aContIni := NGACUMEHIS(cCODIGO,MV_PAR13,"00:00",1,"E")//Contador Inicial		
+				aContFim := NGACUMEHIS(cCODIGO,MV_PAR14,"23:59",1,"E")//Contador Final
+				
+				nHORASA := aContFim[2] // Contador acumulado
+				nHORASP := aContFim[2]-aContIni[2] // Contador percorrido no período
+				nMATERI := 0 // Custo de O.S com produtos e ferramentas no periodo
+				nLTHORA := 0 // Litros combustivel / Horas Trab. Mes
+				nLTCOMB := 0 // Total de abastecimento
+				nRSCOMB := 0 // Custo de todos os abastecimentos
+				nRSMOEN := 0 // Custo de O.S com todos as maos de obras e terceiros
+				nHORAMO := 0 // Horas de mao de obra em O.S.
+				nRSTOTA := 0 // Soma das colunas de R$ Material, Combustivel e M.O
+				nRSHORA := 0 // Custo total dividido por Hora Trab. Mês
+												
+				While !(cAliasTrb)->(Eof()) .And. cUnidade == (cAliasTrb)->T6_UNIDAD1 .And. cFamilia == (cAliasTrb)->T6_CODFAMI .And. cCODIGO == (cAliasTrb)->T9_CODBEM
+																									
+					//Custo de O.S com todos as maos de obras e terceiros
+					If Alltrim((cAliasTrb)->TIPO) == "M" .OR. Alltrim((cAliasTrb)->TIPO) == "T"
+											
+						If Alltrim((cAliasTrb)->TIPO) == "M"
+																
+							nHORAMO += (cAliasTrb)->QTD //Horas de mao de obra em O.S.
+											
+						EndIf
+											
+						nRSMOEN += (cAliasTrb)->TOT // Custo de O.S com todos as maos de obras e terceiros
+											
+					//Custo de O.S com produtos e ferramentas no periodo
+					ElseIf Alltrim((cAliasTrb)->TIPO) == "P" .OR. Alltrim((cAliasTrb)->TIPO) == "F"
+											
+						nMATERI += (cAliasTrb)->TOT // Custo de O.S com produtos e ferramentas no periodo
+										
+					//Quantidade e custo de todos os abastecimentos
+					Else
+											
+						nLTCOMB += (cAliasTrb)->QTD // Total de abastecimento													
+						nRSCOMB += (cAliasTrb)->TOT // Custo de todos os abastecimentos
+										
+					EndIf
+					
+					(cAliasTrb)->(DbSkip())
+					
+				//Fim While - Bem	
+				End
+				nTmpHor := nHORAMO
+				nHORAMO := NToH(nHORAMO)
+				
+				nLTHORA := nLTCOMB/nHORASP //Litros combustivel / Horas Trab. Mes	 
+				nRSTOTA := nRSMOEN+nMATERI+nRSCOMB //Soma das colunas de R$ Material, Combustivel e M.O				
+				nRSHORA := nRSTOTA/nHORASP //Custo total dividido por Hora Trab. Mês
+				
+				//Verifica se todos os registros do bem foram verificados, assim poderá imprimir a linha
+				If cCODIGO != (cAliasTrb)->T9_CODBEM 
+					If AllTrim(cUnidade) == "KM"
+						oSectionKm:PrintLine()
+					ElseIf AllTrim(cUnidade) == "KW"
+						oSectionKw:PrintLine()
+					Else
+						oSectionLt:PrintLine()
+					EndIf
+				EndIf
+				
+				//------------------------------------------------------
+				// Calculo dos Totalizadores - Familias (tres caracteres)
+				//-------------------------------------------------------
+				nTTContAcu += nHORASA //Total Contador acumulado
+				nTTHoraTra += nHORASP //Total Contador percorrido no período 							
+				nTTHoraMao += nTmpHor //Total Horas de mao de obra em O.S.	
+				nTTMaoTerc += nRSMOEN //Total Custo de O.S com todos as maos de obras e terceiros	
+				nTTProdFer += nMATERI //Total Custo de O.S com produtos e ferramentas no periodo
+				nTTAbastec += nLTCOMB //Total Quantidade de todos os abastecimentos
+				nTTCustoAb += nRSCOMB //Total Custo de todos os abastecimentos
+				
+				//Quando todos os registros da familia forem impressos, será adicionado os totais no array
+				If cFamilia != (cAliasTrb)->T6_CODFAMI
+							
+					nTTLtPorHr := nTTAbastec/nTTHoraTra //Total LT/Hora ou Kw/Hora
+					nTTCustoTo := nTTMaoTerc+nTTProdFer+nTTCustoAb //Total Custo Mao de Obra+Terceiros+Ferramenta+Produto+abastecimento	
+					nTTCustoHr := nTTCustoTo/nTTHoraTra //Total Custo Horario
+					
+					aAdd(aTotais,{cFamilia,;
+									cFamiDesc,;
+									nTTContAcu,;
+								 	nTTHoraTra,;
+									nTTProdFer,;
+									nTTLtPorHr,;
+									nTTAbastec,;
+									nTTCustoAb,;  
+									nTTMaoTerc,;
+									nTTHoraMao,;
+									nTTCustoTo,;
+									nTTCustoHr})
+				EndIf
+				//------------------------------------------
+				// Fim do Calculo dos Totalizadores
+				//------------------------------------------
+			
+			//Fim While - Familia	
+			End
+			
+			//Quando trocar de unidade imprimi os totais
+			If cUnidade != (cAliasTrb)->T6_UNIDAD1
+			
+				nTGContAcu := 0 //Total Contador acumulado
+				nTGHoraTra := 0 //Total Contador percorrido no período 							
+				nTGHoraMao := 0 //Total Horas de mao de obra em O.S.	
+				nTGMaoTerc := 0 //Total Custo de O.S com todos as maos de obras e terceiros	
+				nTGProdFer := 0 //Total Custo de O.S com produtos e ferramentas no periodo
+				nTGAbastec := 0 //Total Quantidade de todos os abastecimentos
+				nTGCustoAb := 0 //Total Custo de todos os abastecimentos
+				nTGLtPorHr := 0 //Total LT/Hora ou Kw/Hora		
+				nTGCustoTo := 0 //Total Custo Mao de Obra+Terceiros+Ferramenta+Produto+abastecimento
+				nTGCustoHr := 0 //Total Custo Horario
+				nTmpHor := 0
+			
+				//------------------------------------------------------
+				// Imprimi Totais das Familias
+				//-------------------------------------------------------
+				For nX := 1 To Len(aTotais)
+					
+					cCODIGO := aTotais[nX][1] //Codigo da Familia
+					cDESCRI := aTotais[nX][2] //Descrição da Familia
+					nHORASA := aTotais[nX][3] //Total Contador acumulado
+					nHORASP := aTotais[nX][4] //Total Contador percorrido no período 							
+					nMATERI := aTotais[nX][5] //Total Custo de O.S com produtos e ferramentas no periodo		
+					nLTHORA := aTotais[nX][6] //Total Litros combustivel / Horas Trab. Mes
+					nLTCOMB := aTotais[nX][7] //Total Quantidade de todos os abastecimentos
+					nRSCOMB := aTotais[nX][8] //Total Custo de todos os abastecimentos
+					nRSMOEN := aTotais[nX][9] //Total Custo de O.S com todos as maos de obras e terceiros
+					nTmpHor := aTotais[nX][10]
+					nHORAMO := NToH(aTotais[nX][10]) //Total Horas de mao de obra em O.S.	
+					nRSTOTA := aTotais[nX][11] //Total Soma das colunas de R$ Material, Combustivel e M.O
+					nRSHORA := aTotais[nX][12] //Total Custo total dividido por Hora Trab. Mês		
+					
+					If AllTrim(cUnidade) == "KM"
+						oSectionKm:PrintLine()
+					ElseIf AllTrim(cUnidade) == "KW"
+						oSectionKw:PrintLine()
+					Else 
+						oSectionLt:PrintLine()	
+					EndIf
+					
+					//------------------------------------------------------
+					// Calculo do Totalizador Final
+					//-------------------------------------------------------
+					nTGContAcu += nHORASA //Total Contador acumulado
+					nTGHoraTra += nHORASP //Total Contador percorrido no período 							
+					nTGHoraMao += nTmpHor //Total Horas de mao de obra em O.S.	
+					nTGMaoTerc += nRSMOEN //Total Custo de O.S com todos as maos de obras e terceiros	
+					nTGProdFer += nMATERI //Total Custo de O.S com produtos e ferramentas no periodo
+					nTGAbastec += nLTCOMB //Total Quantidade de todos os abastecimentos
+					nTGCustoAb += nRSCOMB //Total Custo de todos os abastecimentos		
+					
+					//------------------------------------------------------
+					// Imprimi Totalizador Final
+					//-------------------------------------------------------
+					If nX == Len(aTotais)
+						
+						nTGLtPorHr := nTGAbastec/nTGHoraTra //Total LT/Hora ou Kw/Hora		
+						nTGCustoTo := nTGMaoTerc+nTGProdFer+nTGCustoAb //Total Custo Mao de Obra+Terceiros+Ferramenta+Produto+abastecimento
+						nTGCustoHr := nTGCustoTo/nTGHoraTra //Total Custo Horario
+						
+						cCODIGO := "Total" // Total dos bens
+						cDESCRI := ""
+						nHORASA := nTGContAcu //Total Contador acumulado
+						nHORASP := nTGHoraTra //Total Contador percorrido no período 							
+						nMATERI := nTGProdFer //Total Custo de O.S com produtos e ferramentas no periodo		
+						nLTHORA := nTGLtPorHr //Total Litros combustivel / Horas Trab. Mes
+						nLTCOMB := nTGAbastec //Total Quantidade de todos os abastecimentos
+						nRSCOMB := nTGCustoAb //Total Custo de todos os abastecimentos
+						nRSMOEN := nTGMaoTerc //Total Custo de O.S com todos as maos de obras e terceiros
+						nHORAMO := NToH(nTGHoraMao) //Total Horas de mao de obra em O.S.	
+						nRSTOTA := nTGCustoTo //Total Soma das colunas de R$ Material, Combustivel e M.O
+						nRSHORA := nTGCustoHr //Total Custo total dividido por Hora Trab. Mês		
+						
+						If AllTrim(cUnidade) == "KM"
+							oSectionKm:Cell("nHORASA"):Hide()
+							oSectionKm:PrintLine()
+						ElseIf AllTrim(cUnidade) == "KW"
+							oSectionKw:Cell("nHORASA"):Hide()
+							oSectionKw:PrintLine()
+						Else
+							oSectionLt:Cell("nHORASA"):Hide()
+							oSectionLt:PrintLine()
+						EndIf
+						
+					EndIf
+					
+				Next nX
+				
+				//Limpa os totalizadores
+				aTotais := {}
+				
+				If lIniciou
+					If AllTrim(cUnidade) == "KM"
+						oSectionKm:Finish()
+						lIniciou := .F.
+					ElseIf AllTrim(cUnidade) == "KW"
+						oSectionKw:Finish()
+						lIniciou := .F.
+					Else
+						oSectionLt:Finish()
+						lIniciou := .F.	
+					EndIf	
+				EndIf
+			//Fim da verificação da mudanca de unidade
+			EndIf   
+			
+		//Fim While - Unidade
+		End
+		
+	//Fim While - Arquivo	
+	End
+	
+	NGDELETRB(cAliasTrb,cArqTrb)
+
+Return .T.
+//---------------------------------------------------------------------
+/*/{Protheus.doc} TCP001PROC
+
+Processa Registros
+
+@author Lucas Guszak
+@since 18/11/13
+/*/ 
+//------------------------------------------------------------
+Static Function TCP001PROC() 
+
+	Local cQuery := ""
+	Local cFaUnidade := ""
+	Local nX := 0
+	
+	cAliasQry := GetNextAlias()
+	cAliasTrb := GetNextAlias()
+	
+	// Custo e quantidade de insumos
+	For nX := 1 To 4
+		cQuery += "SELECT SUBSTRING(ST9.T9_CODFAMI,1,3) FAMILIA, ST9.T9_CODFAMI, " 
+		cQuery += "ST9.T9_CODBEM, ST9.T9_NOME, COUNT(*) QTD, SUM(STL.TL_CUSTO) TOT, "
+		Do Case
+			Case nx == 1
+				cQuery += " 'M' TIPO " //Mao de Obra
+			Case nx == 2
+				cQuery += " 'T' TIPO " //Terceiro
+			Case nx == 3
+				cQuery += " 'P' TIPO " //Produto
+			Case nx == 4
+				cQuery += " 'F' TIPO " //Ferramenta
+		EndCase
+		cQuery += "FROM " + RetSqlName("STL") + " STL "
+		cQuery += "JOIN " + RetSqlName("STJ") + " STJ "
+		cQuery += "	ON STL.TL_ORDEM+STL.TL_PLANO = STJ.TJ_ORDEM+STJ.TJ_PLANO "
+		cQuery += "JOIN " + RetSqlName("ST9") + " ST9 "
+		cQuery += "	ON STJ.TJ_CODBEM = ST9.T9_CODBEM "
+		cQuery += "WHERE "
+		cQuery += "   ST9.T9_CODBEM BETWEEN '" + MV_PAR01 + "' AND '" + MV_PAR02 + "' AND "
+		cQuery += "   ST9.T9_CODFAMI BETWEEN '" + MV_PAR03 + "' AND '" + MV_PAR04 + "' AND "
+		cQuery += "   ST9.T9_TIPMOD BETWEEN '" + MV_PAR05 + "' AND '" + MV_PAR06 + "' AND "
+		cQuery += "   ST9.T9_CCUSTO BETWEEN '" + MV_PAR07 + "' AND '" + MV_PAR08 + "' AND "
+		cQuery += "   STJ.TJ_SERVICO BETWEEN '" + MV_PAR09 + "' AND '" + MV_PAR10 + "' AND "
+		cQuery += "   STJ.TJ_TIPO BETWEEN '" + MV_PAR11 + "' AND '" + MV_PAR12 + "' AND "
+		cQuery += "   STL.TL_DTINICI BETWEEN '" + DToS(MV_PAR13) + "' AND '" + DToS(MV_PAR14) + "' AND "
+		cQuery += "   STL.TL_FILIAL = '" + xFilial("STL") + "' AND "
+		cQuery += "   STJ.TJ_FILIAL = '" + xFilial("STJ") + "' AND "
+		cQuery += "   ST9.T9_FILIAL = '" + xFilial("ST9") + "' AND "
+		cQuery += "   ST9.T9_CATBEM <> '1' AND "
+		cQuery += "   ST9.T9_CATBEM <> '3' AND "
+		cQuery += "   STL.D_E_L_E_T_ <> '*' AND "
+		cQuery += "   STJ.D_E_L_E_T_ <> '*' AND "
+		cQuery += "   ST9.D_E_L_E_T_ <> '*' AND "
+		cQuery += "   STL.TL_SEQRELA > '0' AND "
+		cQuery += "   STJ.TJ_SITUACA = 'L' AND "
+		cQuery += "   STJ.TJ_TERMINO = 'S' AND "
+		Do Case
+			Case nx == 1
+				cQuery += "   STL.TL_TIPOREG = 'M' " //Mao de Obra
+			Case nx == 2
+				cQuery += "   STL.TL_TIPOREG = 'T' " //Terceiro
+			Case nx == 3
+				cQuery += "   STL.TL_TIPOREG = 'P' " //Produto
+			Case nx == 4
+				cQuery += "   STL.TL_TIPOREG = 'F' " //Ferramenta
+		EndCase	
+		cQuery += "GROUP BY ST9.T9_CODFAMI, ST9.T9_CODBEM, ST9.T9_NOME "
+		cQuery += "UNION "
+	Next nX
+	
+	//Custo do abastecimento e total abastecido
+	cQuery += "SELECT SUBSTRING(ST9.T9_CODFAMI,1,3) FAMILIA, ST9.T9_CODFAMI, "
+	cQuery += "		ST9.T9_CODBEM, ST9.T9_NOME, "
+	cQuery += "		SUM(TQN.TQN_QUANT) QTD, SUM(TQN.TQN_VALTOT) TOT, 'A' TIPO "
+	cQuery += "FROM " + RetSqlName("ST9") + " ST9 "
+	cQuery += "JOIN " + RetSqlName("TQN") + " TQN "
+	cQuery += "   ON ST9.T9_PLACA = TQN.TQN_PLACA "
+	cQuery += "WHERE "
+	cQuery += "   ST9.T9_CODBEM BETWEEN '" + MV_PAR01 + "' AND '" + MV_PAR02 + "' AND "
+	cQuery += "   ST9.T9_CODFAMI BETWEEN '" + MV_PAR03 + "' AND '" + MV_PAR04 + "' AND "
+	cQuery += "   ST9.T9_TIPMOD BETWEEN '" + MV_PAR05 + "' AND '" + MV_PAR06 + "' AND "
+	cQuery += "   ST9.T9_CCUSTO BETWEEN '" + MV_PAR07 + "' AND '" + MV_PAR08 + "' AND "
+	cQuery += "   TQN.TQN_DTABAS BETWEEN '" + DToS(MV_PAR13) + "' AND '" + DToS(MV_PAR14) + "' AND "
+	cQuery += "   TQN.TQN_FILIAL = '" + xFilial("TQN") + "' AND "
+	cQuery += "   ST9.T9_FILIAL = '" + xFilial("ST9") + "' AND "
+	cQuery += "   ST9.T9_CATBEM <> '1' AND "
+	cQuery += "   ST9.T9_CATBEM <> '3' AND "
+	cQuery += "   TQN.D_E_L_E_T_ <> '*' AND "
+	cQuery += "   ST9.D_E_L_E_T_ <> '*' "
+	cQuery += "GROUP BY ST9.T9_CODFAMI, ST9.T9_CODBEM, ST9.T9_NOME "
+	
+	cQuery := ChangeQuery(cQuery)
+	dbUseArea( .T., "TOPCONN", TCGENQRY(,,cQuery),cAliasQry, .F., .T.) 
+	
+	aCampos := {{"T6_UNIDAD1"	,"C",(TAMSX3("T6_UNIDAD1")[1]),(TAMSX3("T6_UNIDAD1")[2])},;
+				 {"FAMILIA"	,"C",03,0},;
+				 {"T6_CODFAMI","C",(TAMSX3("T6_CODFAMI")[1]),(TAMSX3("T6_CODFAMI")[2])},;
+				 {"T9_CODBEM"	,"C",(TAMSX3("T9_CODBEM")[1]),(TAMSX3("T9_CODBEM")[2])},;
+				 {"T9_NOME"	,"C",(TAMSX3("T9_NOME")[1]),(TAMSX3("T9_NOME")[2])},;
+				 {"QTD"	,"N",12,0},;
+				 {"TOT"	,"N",12,2},;
+				 {"TIPO","C",13,0}}
+	
+	//-------------------------------------------
+	// Indice temporario 
+	// - Unidade de medida KM ou Kw (cabeçalho)
+	// - Tres primeros caracteres da familia (Agrupamento)
+	// - Codigo da familia (Totalizadores)
+	// - Codigo do bem (Calculo de todos os custos do bem) 
+	//------------------------------------------- 	
+	aIndex	:= {"T6_UNIDAD1+FAMILIA+T6_CODFAMI+T9_CODBEM"}
+	
+	cArqTrb   := NGCRIATRB(aCampos,aIndex,cAliasTrb,,.T.)
+	
+	DbSelectArea(cAliasQry)
+	While !(cAliasQry)->(Eof())
+		cFaUnidade := NGSeek('ST6',(cAliasQry)->T9_CODFAMI,1,'T6_UNIDAD1')
+		If AllTrim(cFaUnidade) == "KM" .OR. AllTrim(cFaUnidade) == "KW" .Or. AllTrim(cFaUnidade) == "L"
+			RecLock(cAliasTrb,.T.)			
+			(cAliasTrb)->T6_UNIDAD1	:= cFaUnidade
+			(cAliasTrb)->FAMILIA		:= (cAliasQry)->FAMILIA
+			(cAliasTrb)->T6_CODFAMI	:= (cAliasQry)->T9_CODFAMI
+			(cAliasTrb)->T9_CODBEM	:= (cAliasQry)->T9_CODBEM
+			(cAliasTrb)->T9_NOME		:= (cAliasQry)->T9_NOME
+			(cAliasTrb)->QTD			:= (cAliasQry)->QTD
+			(cAliasTrb)->TOT			:= (cAliasQry)->TOT
+			(cAliasTrb)->TIPO			:= (cAliasQry)->TIPO
+			MsUnlock(cAliasTrb)
+		EndIf	
+		(cAliasQry)->(DbSkip())
+	End
+	
+	(cAliasQry)->(DbCloseArea())
+	
+Return .T.
+ 
+//---------------------------------------------------------------------
+/*/{Protheus.doc} TCP001VL
+
+Valida códigos DE e ATE
+
+@param nOpc Indica se a opcao eh De ou Ate
+@param cParDe Conteudo do Parametro De
+@param cParAte Conteudo do Parametro Ate
+@param cTabela Tabela a ser consultada
+@author Lucas Guszak
+@since 18/11/2013
+@version MP11
+@return .T. ou .F.
+/*/ 
+//------------------------------------------------------------
+User Function TCP001VL(nOpc,cParDe,cParAte,cTabela)  
+
+If Empty(cParDe) .And. (cParAte == Replicate("Z",Len(cParAte)))
+	Return .T.
+Else
+	If nOpc == 1
+		lRet := IIf(Empty(cParDe),.T.,ExistCpo(cTabela,cParDe))
+	   If !lRet
+	      Return .F.
+	   EndIf
+	EndIf
+
+	If nOpc == 2 
+	      lRet := IIF(ATECODIGO(cTabela,cParDe,cParAte,07),.T.,.F.)
+	      If !lRet
+	         Return .F.
+	      EndIf 
+	EndIf
+EndIf
+
+Return .T.

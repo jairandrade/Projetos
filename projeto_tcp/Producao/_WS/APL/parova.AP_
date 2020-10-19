@@ -1,0 +1,550 @@
+#include "SIGAWIN.CH"
+#define CRLF CHR(13)+CHR(10)
+
+HTML Function parova(__aCookies,__aPostParms,__nProcId,__aProcParms,__cHTTPPage)
+Local __Response := ""
+
+__Response += PlainH_1()
+__Response += PlainH_2()
+__Response += PlainH_3()
+__Response += PlainH_4()
+__Response += PlainH_5()
+__Response += PlainH_6()
+__Response += PlainH_7()
+__Response += PlainH_8()
+__Response += PlainH_9()
+__Response += PlainH_10()
+__Response += PlainH_11()
+__Response += PlainH_12()
+__Response += PlainH_13()
+__Response += PlainH_14()
+__Response += PlainH_15()
+
+Return(__Response)
+
+Static Function PlainH_1()
+Local __Response := ""
+
+__Response += '<html>' + CRLF
+__Response += '<head>' + CRLF
+__Response += '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">' + CRLF
+__Response += '<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">' + CRLF
+__Response += '<title>Aprovação de Pedido de Compra</title>' + CRLF
+__Response += '</head>' + CRLF
+__Response += '' + CRLF
+__Response += "<script type='text/javascript'>" + CRLF
+__Response += '	function AtualizaStatus(cVal)' + CRLF
+__Response += '	{' + CRLF
+__Response += "		//document.getElementById('APROVACAO').value = cVal" + CRLF
+__Response += '		document.FrontPage_Form1.APROVACAO.value = cVal;' + CRLF
+__Response += '	}' + CRLF
+__Response += '</script>' + CRLF
+__Response += '' + CRLF
+__Response += '<body>' + CRLF
+__Response += '' + CRLF
+__Response += '<noscript> Esta mensagem possui rotinas em JavaScript e seu' + CRLF
+__Response += 'navegador n&atilde;o consegue execut&aacute;-las.<br>' + CRLF
+__Response += 'Favor atualiz&aacute;-lo para uma vers&atilde;o mais' + CRLF
+__Response += 'recente.<br>' + CRLF
+__Response += '</noscript>' + CRLF
+__Response += '' + CRLF
+__Response += '<form action="http://192.168.1.31/aprova_pedido.php" method="POST" name="FrontPage_Form1"><input type=hidden name="PEDIDO" value="004553">' + CRLF
+__Response += '<input type=hidden name="FORNECEDOR" value="000075">' + CRLF
+__Response += '<input type=hidden name="LB_NOME" value="ROSIBRAS MERCADO    ">' + CRLF
+__Response += '<input type=hidden name="EMISSAO" value="12/11/12">' + CRLF
+__Response += '<input type=hidden name="LB_OBS" value="MATERIAL REPOSICAO ESTOQUE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ">' + CRLF
+__Response += '<input type=hidden name="LBVALOR" value="      2.978,84">' + CRLF
+__Response += '<input type=hidden name="COTACOES" value="<table border=' + CHR(39) + '1' + CHR(39) + ' width=' + CHR(39) + '639' + CHR(39) + '><tr><td width=' + CHR(39) + '62' + CHR(39) + ' bgcolor=' + CHR(39) + '#DFEFFF' + CHR(39) + ' height=' + CHR(39) + '18' + CHR(39) + '><font face=' + CHR(39) + 'Arial' + CHR(39) + '>Fornecedor</font></td><td align=' + CHR(39) + 'right' + CHR(39) + ' width=' + CHR(39) + '101' + CHR(39) + ' bgcolor=' + CHR(39) + '#DFEFFF' + CHR(39) + ' height=' + CHR(39) + '18' + CHR(39) + '><font face=' + CHR(39) + 'Arial' + CHR(39) + '>Vlr. Total</font></td></tr><tr><td><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>ROSIBRAS COML.ATACAD.BEBIDAS E ALIMENTOS</font></td><td align=' + CHR(39) + 'right' + CHR(39) + '><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>      3.362,42</font></td></tr><tr><td><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>CONTABILISTA PAPEL E SUPRIM DE INFORMATI</font></td><td align=' + CHR(39) + 'right' + CHR(39) + '><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>      3.043,61</font></td></tr><tr><td><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>PAPELARIA WESPI LTDA</font></td><td align=' + CHR(39) + 'right' + CHR(39) + '><font size=' + CHR(39) + '2' + CHR(39) + ' face=' + CHR(39) + 'Arial' + CHR(39) + '>      2.964,65</font></td></tr></table>">' + CRLF
+__Response += '<input type=hidden name="WFMAILID" value="WF0000011d017dcbc0d6ab">' + CRLF
+Return(__Response)
+
+Static Function PlainH_2()
+Local __Response := ""
+
+__Response += '<input type=hidden name="WFRECNOTIMEOUT" value="{}">' + CRLF
+__Response += '<input type=hidden name="WFEMPRESA" value="02">' + CRLF
+__Response += '<input type=hidden name="WFFILIAL" value="01">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.1" value="0001">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.2" value="0002">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.3" value="0003">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.4" value="0004">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.5" value="0005">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.6" value="0006">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.7" value="0007">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.8" value="0008">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.9" value="0009">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.10" value="0010">' + CRLF
+__Response += '<input type=hidden name="IT.ITEM.11" value="0011">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.1" value="AL00000001     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.2" value="AL00000002     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.3" value="AL00000004     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.4" value="AL00000009     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.5" value="MC00000034     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.6" value="MC00000035     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.7" value="MC00000037     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.8" value="MC00000038     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.9" value="MC00000088     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.10" value="MC00000095     ">' + CRLF
+__Response += '<input type=hidden name="IT.CODIGO.11" value="MP88000502     ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.1" value="ACUCAR REFINADO,  1KG         ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.2" value="CHA MATE, CX C/30UND X 250GR  ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.3" value="CAFE,  VACUO,  500GR,  DAMASCO">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.4" value="LEITE EM PO, 400GRM           ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.5" value="COPO DESC 180ML, 25X100 UND   ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.6" value="GUARDANAPO PAPEL TAM 20X20, FR">' + CRLF
+Return(__Response)
+
+Static Function PlainH_3()
+Local __Response := ""
+
+__Response += '<input type=hidden name="IT.DESCRICAO.7" value="MEXEDOR PLAST GRD, PCT C/240UN">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.8" value="DESODORIZADOR, 360ML, LAVANDA,">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.9" value="COADOR CAFE GRANDE,  PANO     ">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.10" value="FOSFORO LONGO,  FIAT LUX,  1X2">' + CRLF
+__Response += '<input type=hidden name="IT.DESCRICAO.11" value="INSETICIDA SBP                ">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.1" value="    200,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.2" value="     60,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.3" value="    200,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.4" value="      1,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.5" value="     20,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.6" value="     10,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.7" value="     10,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.8" value="     10,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.9" value="      5,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.10" value="      5,00">' + CRLF
+__Response += '<input type=hidden name="IT.QUANT.11" value="     15,00">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.1" value="          1,89">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.2" value="          3,26">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.3" value="          7,25">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.4" value="          4,99">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.5" value="         34,50">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.6" value="          6,89">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.7" value="          4,40">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.8" value="          4,35">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.9" value="          2,79">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.10" value="          0,99">' + CRLF
+__Response += '<input type=hidden name="IT.PRECO.11" value="          5,65">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.1" value="        378,00">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.2" value="        195,80">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.3" value="      1.450,00">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.4" value="          4,99">' + CRLF
+Return(__Response)
+
+Static Function PlainH_4()
+Local __Response := ""
+
+__Response += '<input type=hidden name="IT.TOTAL.5" value="        690,00">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.6" value="         68,90">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.7" value="         44,00">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.8" value="         43,50">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.9" value="         13,95">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.10" value="          4,95">' + CRLF
+__Response += '<input type=hidden name="IT.TOTAL.11" value="         84,75">' + CRLF
+__Response += '' + CRLF
+__Response += '    <table border="0" width="733">' + CRLF
+__Response += '        <tr>' + CRLF
+__Response += '            <td width="62">&nbsp;</td>' + CRLF
+__Response += '			<td width="657">' + CRLF
+__Response += '				<table border="0" width="638" height="84">' + CRLF
+__Response += '					<tr>' + CRLF
+__Response += '						<td colspan="2" width="630" bgcolor="#DFEFFF" height="24">' + CRLF
+__Response += '							<p align="left">' + CRLF
+__Response += '								<font size="4" face="Arial">' + CRLF
+__Response += '									<b>Aprovação Pedido de Compra </b>: 004553' + CRLF
+__Response += '								</font>' + CRLF
+__Response += '							</p>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '					<tr>' + CRLF
+__Response += '						<td valign="top" width="315" height="24">' + CRLF
+__Response += '							<font size="2" face="Arial">' + CRLF
+__Response += '								<b>Fornecedor</b> : 000075 - ROSIBRAS MERCADO    ' + CRLF
+__Response += '							</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td valign="top" width="315" height="24">' + CRLF
+__Response += '							<font size="2" face="Arial">' + CRLF
+__Response += '								<b>Emissao</b> : 12/11/12' + CRLF
+Return(__Response)
+
+Static Function PlainH_5()
+Local __Response := ""
+
+__Response += '							</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '					<tr>' + CRLF
+__Response += '						<td valign="top" colspan="2" width="624" height="24">' + CRLF
+__Response += '							<font size="2" face="Arial">' + CRLF
+__Response += '								<b>Observação.. :</b> MATERIAL REPOSICAO ESTOQUE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ' + CRLF
+__Response += '							</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '				</table>' + CRLF
+__Response += '				<p><font color="#0000FF" face="Arial"><b>Itens</b></font></p>' + CRLF
+__Response += '				<table border="1" width="639" height="85">' + CRLF
+__Response += '					<tr>' + CRLF
+__Response += '						<td width="62" bgcolor="#DFEFFF" height="18">' + CRLF
+__Response += '							<font face="Arial">Item</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td width="190" bgcolor="#DFEFFF" height="18">' + CRLF
+__Response += '							<font face="Arial">Produto</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td align="center" width="86" bgcolor="#DFEFFF" height="18">' + CRLF
+__Response += '							<font face="Arial">Quantidade</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td align="right" width="87" bgcolor="#DFEFFF" height="18">' + CRLF
+__Response += '							<font face="Arial">Vlr.Unit</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td align="right" width="101" bgcolor="#DFEFFF" height="18">' + CRLF
+__Response += '							<font face="Arial">Vlr. Total</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '					<tr>' + CRLF
+Return(__Response)
+
+Static Function PlainH_6()
+Local __Response := ""
+
+__Response += '						<td><font size="2" face="Arial">0001</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">AL00000001      - ACUCAR REFINADO,  1KG         </font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">    200,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          1,89</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">        378,00</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0002</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">AL00000002      - CHA MATE, CX C/30UND X 250GR  </font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">     60,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          3,26</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">        195,80</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0003</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">AL00000004      - CAFE,  VACUO,  500GR,  DAMASCO</font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">    200,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          7,25</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">      1.450,00</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0004</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">AL00000009      - LEITE EM PO, 400GRM           </font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">      1,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          4,99</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          4,99</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0005</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MC00000034      - COPO DESC 180ML, 25X100 UND   </font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">     20,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         34,50</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">        690,00</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0006</font></td>' + CRLF
+Return(__Response)
+
+Static Function PlainH_7()
+Local __Response := ""
+
+__Response += '						<td><font size="2" face="Arial">MC00000035      - GUARDANAPO PAPEL TAM 20X20, FR</font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">     10,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          6,89</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         68,90</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0007</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MC00000037      - MEXEDOR PLAST GRD, PCT C/240UN</font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">     10,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          4,40</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         44,00</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0008</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MC00000038      - DESODORIZADOR, 360ML, LAVANDA,</font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">     10,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          4,35</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         43,50</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0009</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MC00000088      - COADOR CAFE GRANDE,  PANO     </font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">      5,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          2,79</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         13,95</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0010</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MC00000095      - FOSFORO LONGO,  FIAT LUX,  1X2</font></td>' + CRLF
+__Response += '						<td align="center"><font size="2" face="Arial">      5,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          0,99</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          4,95</font></td>' + CRLF
+__Response += '					</tr><tr>' + CRLF
+__Response += '						<td><font size="2" face="Arial">0011</font></td>' + CRLF
+__Response += '						<td><font size="2" face="Arial">MP88000502      - INSETICIDA SBP                </font></td>' + CRLF
+Return(__Response)
+
+Static Function PlainH_8()
+Local __Response := ""
+
+__Response += '						<td align="center"><font size="2" face="Arial">     15,00</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">          5,65</font></td>' + CRLF
+__Response += '						<td align="right"><font size="2" face="Arial">         84,75</font></td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '					<tr>' + CRLF
+__Response += '						<td colspan="4" width="498" height="22">' + CRLF
+__Response += '							<p align="right"><font face="Arial">Valor Total:</font></p>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '						<td align="right" width="101" height="22">' + CRLF
+__Response += '							<font size="2" face="Arial">      2.978,84</font>' + CRLF
+__Response += '						</td>' + CRLF
+__Response += '					</tr>' + CRLF
+__Response += '				</table>' + CRLF
+__Response += '' + CRLF
+__Response += '				<p><font color="#0000FF" face="Arial"><b>Demais Cotações</b></font></p>' + CRLF
+__Response += "				<p><table border='1' width='639'><tr><td width='62' bgcolor='#DFEFFF' height='18'><font face='Arial'>Fornecedor</font></td><td align='right' width='101' bgcolor='#DFEFFF' height='18'><font face='Arial'>Vlr. Total</font></td></tr><tr><td><font size='2' face='Arial'>ROSIBRAS COML.ATACAD.BEBIDAS E ALIMENTOS</font></td><td align='right'><font size='2' face='Arial'>      3.362,42</font></td></tr><tr><td><font size='2' face='Arial'>CONTABILISTA PAPEL E SUPRIM DE INFORMATI</font></td><td align='right'><font size='2' face='Arial'>      3.043,61</font></td></tr><tr><td><font size='2' face='Arial'>PAPELARIA WESPI LTDA</font></td><td align='right'><font size='2' face='Arial'>      2.964,65</font></td></tr></table></p>" + CRLF
+__Response += '				<p>' + CRLF
+__Response += '					<input type="submit" name="Aprovar" id="enviar" value="Aprovar" onclick="AtualizaStatus(' + CHR(39) + 'S' + CHR(39) + ');">' + CRLF
+__Response += '					<input type="submit" name="Recusar" id="recusar" value="Recusar" onclick="AtualizaStatus(' + CHR(39) + 'N' + CHR(39) + ');">' + CRLF
+__Response += '				</p>' + CRLF
+__Response += '            </td>' + CRLF
+__Response += '        </tr>' + CRLF
+__Response += '    </table>' + CRLF
+__Response += '' + CRLF
+__Response += '	<input name="APROVADOR" TEMPLATE_name="APROVADOR" value="000003" type="hidden">' + CRLF
+__Response += '	<input name="APROVACAO" TEMPLATE_name="APROVACAO" value="" type="hidden">' + CRLF
+__Response += '<script language="javaScript">' + CRLF
+__Response += 'var NIL = null;' + CRLF
+__Response += 'var LAST_ERROR = null;' + CRLF
+__Response += 'var GLOBAL_VALID_LIST = new Array();' + CRLF
+__Response += 'var GLOBAL_VALIDA = false;' + CRLF
+Return(__Response)
+
+Static Function PlainH_9()
+Local __Response := ""
+
+__Response += 'var GLOBAL_ERROR = false;' + CRLF
+__Response += 'var NS4 = (document.layers) ? 1 : 0; // Netscape 4+' + CRLF
+__Response += 'var IE4 = (document.all) ? 1 : 0;    // Explorer 4+' + CRLF
+__Response += 'var ver4 = (IE4 || NS4) ? 1 : 0;      // ver 4+' + CRLF
+__Response += 'function setColor(poElement, pcColor)' + CRLF
+__Response += '{' + CRLF
+__Response += '   if (poElement.style)' + CRLF
+__Response += '   {' + CRLF
+__Response += '     poElement.style.backgroundColor = pcColor;' + CRLF
+__Response += '   }' + CRLF
+__Response += '}' + CRLF
+__Response += 'function warning(poField, pcMsg)' + CRLF
+__Response += '{' + CRLF
+__Response += '   if (poField)' + CRLF
+__Response += '   {' + CRLF
+__Response += '      LAST_ERROR = poField;' + CRLF
+__Response += '      setColor(poField, "#ccccFF");' + CRLF
+__Response += '      if (GLOBAL_VALIDA == false)' + CRLF
+__Response += '      {' + CRLF
+__Response += '         if (poField.type.substring(0,1) != "s")' + CRLF
+__Response += '            poField.select();' + CRLF
+__Response += '         poField.focus();' + CRLF
+__Response += '      }' + CRLF
+__Response += '   }' + CRLF
+__Response += '   alert(pcMsg);' + CRLF
+__Response += '}' + CRLF
+__Response += 'function validValue(AValue, ACheckOK)' + CRLF
+__Response += '{' + CRLF
+__Response += '   var lRet = true;' + CRLF
+__Response += '   for (i = 0;  i < AValue.length;  i++)' + CRLF
+__Response += '      if (ACheckOK.indexOf(AValue.charAt(i)) == "-1")' + CRLF
+Return(__Response)
+
+Static Function PlainH_10()
+Local __Response := ""
+
+__Response += '      {' + CRLF
+__Response += '         lRet = false;' + CRLF
+__Response += '         break;' + CRLF
+__Response += '      }' + CRLF
+__Response += '   return (lRet);' + CRLF
+__Response += '}' + CRLF
+__Response += 'function doValidField(poField, pcCaption,  plRequired,  pcFieldType, pnFieldLen, pnDecimals, pxMinValue, pxMaxValue)' + CRLF
+__Response += '{' + CRLF
+__Response += '   var cValid = null;' + CRLF
+__Response += '   if (plRequired && (poField.value == "" || (poField.selectedIndex && poField.selectedIndex < 0)))' + CRLF
+__Response += '   {' + CRLF
+__Response += '      warning(poField, "O prenchimento do campo \"" + pcCaption + "\" é obrigatório.");' + CRLF
+__Response += '      return (false);' + CRLF
+__Response += '   }' + CRLF
+__Response += '   if (pcFieldType == "A")' + CRLF
+__Response += '      cValid = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþ"' + CRLF
+__Response += '   else if (pcFieldType == "I")' + CRLF
+__Response += '      cValid = "0123456789-"' + CRLF
+__Response += '   else if (pcFieldType == "N")' + CRLF
+__Response += '      cValid = "0123456789-."' + CRLF
+__Response += '   else if (pcFieldType == "D")' + CRLF
+__Response += '      cValid = "0123456789/"' + CRLF
+__Response += '   else if (pcFieldType == "P" || pcFieldType == "S" || pcFieldType == "C")' + CRLF
+__Response += '      cValid = null;' + CRLF
+__Response += '   if (cValid && !validValue(poField.value, cValid))' + CRLF
+__Response += '   {' + CRLF
+__Response += '      warning(poField, "O valor informado para \"" + pcCaption + "\", é inválido.\nCaracteres válidos para este campo:\n" + cValid);' + CRLF
+__Response += '      return (false);' + CRLF
+__Response += '   }' + CRLF
+__Response += '   if (pcFieldType == "I" || pcFieldType == "N") ' + CRLF
+__Response += '   {' + CRLF
+Return(__Response)
+
+Static Function PlainH_11()
+Local __Response := ""
+
+__Response += '      var cValue = poField.value;' + CRLF
+__Response += '      var cPos = cValue.indexOf("-");' + CRLF
+__Response += '      if (cPos != "-1")' + CRLF
+__Response += '      {' + CRLF
+__Response += '         if ( cPos != cValue.lastIndexOf("-"))' + CRLF
+__Response += '         {' + CRLF
+__Response += '            warning(poField, "O valor informado para \"" + pcCaption + "\", possui mais de uma ocorrência do sinal \"-\".");' + CRLF
+__Response += '            return (false);' + CRLF
+__Response += '         }' + CRLF
+__Response += '         if ( cPos != "0")' + CRLF
+__Response += '            poField.value = "-" + cValue.substring(0, cPos) + cValue.substring(cPos + 1, 255);' + CRLF
+__Response += '      }' + CRLF
+__Response += '      if (pcFieldType == "N")' + CRLF
+__Response += '      {' + CRLF
+__Response += '         var cValue = poField.value;' + CRLF
+__Response += '         var cPos = cValue.indexOf(".");' + CRLF
+__Response += '         if (cPos != "-1")' + CRLF
+__Response += '         {' + CRLF
+__Response += '            if ( cPos != cValue.lastIndexOf("."))' + CRLF
+__Response += '            {' + CRLF
+__Response += '               warning(poField, "O valor informado para \"" + pcCaption + "\", possui mais de uma ocorrência do ponto decimal.");' + CRLF
+__Response += '               return (false);' + CRLF
+__Response += '            }' + CRLF
+__Response += '            var cDec = cValue.substring(cPos + 1, cValue.length);' + CRLF
+__Response += '            if (cDec.length > pnDecimals)' + CRLF
+__Response += '            {' + CRLF
+__Response += '              warning(poField, "O número de decimais informado para \"" + pcCaption + "\", ultrapassa o limite de " + pnDecimals + " casas decimais.");' + CRLF
+__Response += '              return (false);' + CRLF
+__Response += '            }' + CRLF
+__Response += '         }' + CRLF
+__Response += '      }' + CRLF
+Return(__Response)
+
+Static Function PlainH_12()
+Local __Response := ""
+
+__Response += '   }' + CRLF
+__Response += '   if (pcFieldType == "D")' + CRLF
+__Response += '   {' + CRLF
+__Response += '      var cValue = poField.value;' + CRLF
+__Response += '      var cBarraDia = cValue.indexOf("/");' + CRLF
+__Response += '      var cBarraMes = cValue.lastIndexOf("/");' + CRLF
+__Response += '      if (cBarraDia == cBarraMes || cValue.length < 6)' + CRLF
+__Response += '      {' + CRLF
+__Response += '         warning(poField, "O valor informado para \"" + pcCaption + "\", é inválido.\nUse o formato DD/MM/YYYY.");' + CRLF
+__Response += '         return (false);' + CRLF
+__Response += '      }' + CRLF
+__Response += '      var cDia = cValue.substr(0, cBarraDia);' + CRLF
+__Response += '      var cMes = cValue.substr(cBarraDia + 1, cBarraMes - cBarraDia - 1);' + CRLF
+__Response += '      var cAno = cValue.substr(cBarraMes + 1, 4);' + CRLF
+__Response += '      if (cAno < 40)' + CRLF
+__Response += '         cAno = "20" + cAno' + CRLF
+__Response += '      else if (cAno.length == 2)' + CRLF
+__Response += '         cAno = "19" + cAno;' + CRLF
+__Response += '      cMes = parseInt(cMes);' + CRLF
+__Response += '      if (cMes < 1 || cMes > 12)' + CRLF
+__Response += '      {' + CRLF
+__Response += '         warning(poField, "O mês informado para \"" + pcCaption + "\", é inválido.");' + CRLF
+__Response += '         return (false);' + CRLF
+__Response += '      }' + CRLF
+__Response += '      var aDaysMonth = new Array(-1, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);' + CRLF
+__Response += '      var nMaxDays = aDaysMonth[ cMes ];' + CRLF
+__Response += '      if (cMes == 2)' + CRLF
+__Response += '      {' + CRLF
+__Response += '         if ((cAno % 4) != 0 || ((cAno % 400) != 0 && (cAno % 100) == 0))' + CRLF
+__Response += '            nMaxDays = 28;' + CRLF
+__Response += '      }' + CRLF
+Return(__Response)
+
+Static Function PlainH_13()
+Local __Response := ""
+
+__Response += '      if (cDia < 1 || cDia > nMaxDays )' + CRLF
+__Response += '      {' + CRLF
+__Response += '         warning(poField, "O dia informado para \"" + pcCaption + "\", é inválido.");' + CRLF
+__Response += '         return (false);' + CRLF
+__Response += '      }' + CRLF
+__Response += '      strDia = "A" + (100+eval(cDia));' + CRLF
+__Response += '      strMes = "A" + (100+eval(cMes));' + CRLF
+__Response += '      poField.value = strDia.substr(2,2) +' + CRLF
+__Response += '                      "/" + strMes.substr(2,2) +' + CRLF
+__Response += '                      "/" + cAno;' + CRLF
+__Response += '   }' + CRLF
+__Response += '   if (pcFieldType == "P")' + CRLF
+__Response += '   {' + CRLF
+__Response += '      if (poField.selectedIndex == 0)' + CRLF
+__Response += '      {' + CRLF
+__Response += '         warning(poField, "A primeira opção do campo \"" + pcCaption + "\", é inválido.");' + CRLF
+__Response += '         return (false);' + CRLF
+__Response += '      }' + CRLF
+__Response += '   }' + CRLF
+__Response += '   if (pxMinValue && poField.value < pxMinValue)' + CRLF
+__Response += '   {' + CRLF
+__Response += '      warning(poField, "O valor informado para \"" + pcCaption + "\", é inferior a\"" + pxMinValue + "\".");' + CRLF
+__Response += '      return (false);' + CRLF
+__Response += '   }' + CRLF
+__Response += '   if (pxMaxValue && poField.value > pxMaxValue)' + CRLF
+__Response += '   {' + CRLF
+__Response += '      warning(poField, "O valor informado para \"" + pcCaption + "\", é superior a \"" + pxMaxValue + "\".");' + CRLF
+__Response += '      return (false);' + CRLF
+__Response += '   }' + CRLF
+__Response += '   LAST_ERROR = null;' + CRLF
+__Response += '   setColor(poField, "white");' + CRLF
+Return(__Response)
+
+Static Function PlainH_14()
+Local __Response := ""
+
+__Response += '   return (true);' + CRLF
+__Response += '}' + CRLF
+__Response += 'function validField(poField)' + CRLF
+__Response += '{' + CRLF
+__Response += '   var j;' + CRLF
+__Response += '   for (j=0; j < GLOBAL_VALID_LIST.length; j++)' + CRLF
+__Response += '   {' + CRLF
+__Response += '      var nPosFinal = GLOBAL_VALID_LIST[j][0].length;' + CRLF
+__Response += '      if (poField.name.substr(0, nPosFinal) == GLOBAL_VALID_LIST[j][0])' + CRLF
+__Response += '      {' + CRLF
+__Response += '        if (!(doValidField(poField, GLOBAL_VALID_LIST[j][1], GLOBAL_VALID_LIST[j][2], GLOBAL_VALID_LIST[j][3],GLOBAL_VALID_LIST[j][4], GLOBAL_VALID_LIST[j][5], GLOBAL_VALID_LIST[j][6],GLOBAL_VALID_LIST[j][7])))' + CRLF
+__Response += '        {' + CRLF
+__Response += '          GLOBAL_ERROR = true;' + CRLF
+__Response += '          return ( false );' + CRLF
+__Response += '        }' + CRLF
+__Response += '      }' + CRLF
+__Response += '   }' + CRLF
+__Response += '   return ( true );' + CRLF
+__Response += '}' + CRLF
+__Response += 'function doSubmit(poForm)' + CRLF
+__Response += '{' + CRLF
+__Response += '  var oElements = poForm.elements;' + CRLF
+__Response += '  var lRet = true;' + CRLF
+__Response += '  for (var i = 0;  i < oElements.length; i++)' + CRLF
+__Response += '  {' + CRLF
+__Response += '    if (!(oElements[i].type == "hidden"))' + CRLF
+__Response += '	{' + CRLF
+__Response += '      lRet = validField(oElements[i]);' + CRLF
+__Response += '      if (!lRet)' + CRLF
+__Response += '      {' + CRLF
+__Response += '	    oElements[i].focus();' + CRLF
+Return(__Response)
+
+Static Function PlainH_15()
+Local __Response := ""
+
+__Response += '        break;' + CRLF
+__Response += '      }' + CRLF
+__Response += '    }' + CRLF
+__Response += '  }' + CRLF
+__Response += '  return (lRet);' + CRLF
+__Response += '}' + CRLF
+__Response += '//if (NS4) { document.forms[0].captureEvents(Event.SUBMIT) }' + CRLF
+__Response += 'document.forms[0].onsubmit = function () { return(doSubmit(this)) };' + CRLF
+__Response += 'var oElements = document.forms[0];' + CRLF
+__Response += '</script>' + CRLF
+__Response += '<noscript>' + CRLF
+__Response += 'Esta mensagem possui rotinas em JavaScript e seu navegador não consegue executá-las.' + CRLF
+__Response += '<br>' + CRLF
+__Response += 'Favor atualiza-lo para uma versão mais recente.' + CRLF
+__Response += '</noscript>' + CRLF
+__Response += '</form>' + CRLF
+__Response += '</body>' + CRLF
+__Response += '</html>' + CRLF
+Return(__Response)

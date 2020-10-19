@@ -1,0 +1,63 @@
+#include "apwebex.ch"
+#include 'protheus.ch'
+
+User Function wAcd010(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml  := ""
+	Local cHash  := HttpGet->keyvalue
+
+	Private aResult := {}
+
+	WEB EXTENDED INIT cHtml
+	//Conout('teste')
+	RPCSetType(3)
+	RPCSetEnv( "02", "01",,,"EST",,,,,,)
+        //Conout(cHash)
+		IF valtype(cHash) == "C"
+			aResult := u_AAcd010Libera(cHash)
+		EndIF   
+		//Conout(len(aResult))
+		IF len(aResult) != 2
+			aResult := {.F.,"Chave HTML de pesquisa não identificada."}
+		EndIF
+		cHtml := H_WACD10()
+
+	RPCClearEnv()
+
+	WEB EXTENDED END
+
+Return cHtml
+                                                     
+
+
+User Function wAcd010r(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml  := ""
+	Local cHash  := HttpGet->keyvalue
+	
+	Private aResult := {}
+
+	WEB EXTENDED INIT cHtml
+
+	RPCSetType(3)
+	RPCSetEnv( "02", "01",,,"EST",,,,,,)
+
+		//Conout('D')
+			//Conout(cHash)
+
+		IF valtype(cHash) == "C"  
+			aResult := U_AAcd010XRejeita(cHash)
+			//Conout('E')			
+		EndIF
+		IF len(aResult) != 2
+			aResult := {.F.,"Chave HTML de pesquisa não identificada."}
+		EndIF
+//Conout('F')
+		cHtml := H_WACD10()
+//Conout('G')
+	RPCClearEnv()
+
+	WEB EXTENDED END
+
+Return cHtml
+

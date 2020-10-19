@@ -1,0 +1,59 @@
+#INCLUDE "APWEBEX.CH"
+//#INCLUDE "WEBDEF.CH"
+#INCLUDE "TOPCONN.CH"
+#INCLUDE "RWMAKE.CH"
+#INCLUDE "TOPCONN.CH"
+#INCLUDE "TBICONN.CH"
+#INCLUDE "PROTHEUS.CH"
+
+#DEFINE CRLF (chr(13)+chr(10))
+
+/*
++-----------+--------------+----------------------------+------+-------------+
+! Função    ! APW001       ! Autor: Lucas Chagas        ! Data !  11/09/2013 !
++-----------+--------------+----------------------------+------+-------------+
+! Parâmetros!                                                                !
++-----------+----------------------------------------------------------------+
+! Descricao ! Função de entrada do Workflow                                  !
++-----------+----------------------------------------------------------------+
+*/
+User Function APW001(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+Local cHtml := ""
+
+Private cId        := ''
+Private cUrl       := ''
+Private cUrl2      := ''
+Private cUrlPortal := ''
+Private cEmpW      := ''
+Private cFilW      := ''
+
+OpenSM0()
+RPCSetType(3)
+RpcSetEnv( '02', '01',,, "FAT", "MATA010",,,,,) 
+//RpcSetEnv( '03', '02',,, "FAT", "MATA010",,,,,)
+//RpcSetEnv( '99', '01',,, "FAT", "MATA010",,,,,)
+                                       	
+web Extended init cHtml
+
+cUrl       := SuperGetMv('TCP_URL', .F., '')
+cUrl2      := SuperGetMv('TCP_URL2', .F., '')
+cUrlPortal := SuperGetMv('TCP_URLWS', .F., '')
+//Conout("[INFO] chave da cotacao enc -> "+HttpGet->id)
+cId        := u_Decripta(iif(HttpGet->id == Nil, '', HttpGet->id),1)
+//Conout("[INFO] chave da cotacao dec -> "+cId)
+RpcClearEnv()
+
+HTTPSESSION->cEmpP := substr(cId, 1,2)
+HTTPSESSION->cFilP := substr(cId, 3,2)
+HTTPSESSION->cId   := substr(cId, 5)
+
+cEmpW := HTTPSESSION->cEmpP
+cFilW := HTTPSESSION->cFilP
+cId   := HTTPSESSION->cId
+
+cHtml := H_INDEX()
+
+web Extended end
+
+return (cHtml)

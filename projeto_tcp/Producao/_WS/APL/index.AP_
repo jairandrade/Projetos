@@ -1,0 +1,302 @@
+#include "SIGAWIN.CH"
+#define CRLF CHR(13)+CHR(10)
+
+HTML Function index(__aCookies,__aPostParms,__nProcId,__aProcParms,__cHTTPPage)
+Local __Response := ""
+
+__Response += PlainH_1()
+__Response += PlainH_2()
+__Response += PlainH_3()
+__Response += PlainH_4()
+__Response += PlainH_5()
+__Response += PlainH_6()
+__Response += PlainH_7()
+__Response += PlainH_8()
+__Response += "validaId('" + cValToChar(cId) + "', '" + cValToChar(cUrl) + "', '" + cValToChar(cUrl2) + "', '" + cValToChar(cUrlPortal) + "', '" + cValToChar(cEmpW) + "', '" + cValToChar(cFilW) + "');" + CRLF
+__Response += PlainH_9()
+
+Return(__Response)
+
+Static Function PlainH_1()
+Local __Response := ""
+
+__Response += '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">' + CRLF
+__Response += '<html>' + CRLF
+__Response += '    <head>        ' + CRLF
+__Response += '        <link rel="icon" type="image/png" href="midia/images/accept.ico" />' + CRLF
+__Response += '        <link rel="stylesheet" href="midia/workflow.css" type="text/css" />' + CRLF
+__Response += '        <link rel="stylesheet" href="midia/SpryTabbedPanels.css" type="text/css"/>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/jquery-1.10.2.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/jquery.maskMoney.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/jquery-migrate-1.2.1.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/jquery.browser.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/jquery.maskedinput.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/SpryTabbedPanels.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/solvs.js"></script>' + CRLF
+__Response += '        <script type="text/javascript" src="midia/cotacao.js"></script>' + CRLF
+__Response += '        <title> ..:: TCP - Terminal de Cont&ecirc;ineres de Paranagu&aacute; ::.. </title>' + CRLF
+__Response += '        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>   ' + CRLF
+__Response += '    </head>' + CRLF
+__Response += '    <body>' + CRLF
+__Response += '        <div class="divConteudo" id=' + CHR(39) + 'conteudo' + CHR(39) + '>' + CRLF
+__Response += '            <div class="divHeader">' + CRLF
+__Response += '                <h1>TCP - Terminal de Cont&ecirc;ineres de Paranagu&aacute;</h1>' + CRLF
+__Response += '            </div>' + CRLF
+__Response += '            <div class="divBody">' + CRLF
+__Response += '                <div id="testBrowse">                    ' + CRLF
+__Response += '                </div>' + CRLF
+__Response += '' + CRLF
+__Response += '                <div id="corpo">' + CRLF
+__Response += '                    <div id="TabbedPanels" class="TabbedPanels">' + CRLF
+__Response += '                        <ul class="TabbedPanelsTabGroup">' + CRLF
+__Response += '                            <li class="TabbedPanelsTab" id="lblDetalhes">Detalhes da Cotacao</li>' + CRLF
+__Response += '                        </ul>' + CRLF
+Return(__Response)
+
+Static Function PlainH_2()
+Local __Response := ""
+
+__Response += '' + CRLF
+__Response += '                        <div class="TabbedPanelsContentGroup">' + CRLF
+__Response += '                            <div class="TabbedPanelsContent" id="pedido">' + CRLF
+__Response += '                                <div id="TabbedPanels2" class="TabbedPanels">' + CRLF
+__Response += '                                    <ul class="TabbedPanelsTabGroup">' + CRLF
+__Response += '                                        <li id="dCot" class="TabbedPanelsTab TabbedPanelsTabSelected" tabindex="0">Dados para Retorno</li>' + CRLF
+__Response += '                                        <li id="dForn" class="TabbedPanelsTab" tabindex="1">Dados do Fornecedor</li>' + CRLF
+__Response += '                                        <li id="dTcp" class="TabbedPanelsTab" tabindex="2">Dados do TCP</li>                                        ' + CRLF
+__Response += '                                    </ul>' + CRLF
+__Response += '' + CRLF
+__Response += '                                    <div class="TabbedPanelsContentGroup">' + CRLF
+__Response += '                                        <div class="TabbedPanelsContent">' + CRLF
+__Response += '                                            <table>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados01H1">Cotacao</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="cot1"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados01H2">Proposta</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="cot2"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados01H3">Validade</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="cot3"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                            </table>' + CRLF
+__Response += '                                            <hr></hr>' + CRLF
+__Response += '                                            <table>' + CRLF
+__Response += '                                                <tbody>' + CRLF
+__Response += '                                                    <tr>' + CRLF
+Return(__Response)
+
+Static Function PlainH_3()
+Local __Response := ""
+
+__Response += '                                                        <td><label id="lblNumOrc"></label></td>' + CRLF
+__Response += '                                                        <td>:</td>' + CRLF
+__Response += '                                                        <td>' + CRLF
+__Response += '                                                            <input name="numOrc" id="numOrc" size="20" tabindex="4"/>' + CRLF
+__Response += '                                                        </td>' + CRLF
+__Response += '                                                        <td><label id="lblTpPgto"></label></td>' + CRLF
+__Response += '                                                        <td>:</td>' + CRLF
+__Response += '                                                        <td>' + CRLF
+__Response += '                                                            <select name="tipoPgto" id="tipoPgto" tabindex="5">' + CRLF
+__Response += '                                                            </select>' + CRLF
+__Response += '                                                        </td>' + CRLF
+__Response += '                                                    </tr>' + CRLF
+__Response += '                                                    <tr>' + CRLF
+__Response += '                                                        <td><label id="lblTipoFrete"></label></td>' + CRLF
+__Response += '                                                        <td>:</td>' + CRLF
+__Response += '                                                        <td>' + CRLF
+__Response += '                                                            <select name="tipoFrete" id="tipoFrete" tabindex="6">' + CRLF
+__Response += '                                                                <option value=""></option>                                        ' + CRLF
+__Response += '                                                            </select>' + CRLF
+__Response += '                                                        </td>' + CRLF
+__Response += '                                                        <td><label id="lblVlrFrete"></label></td>' + CRLF
+__Response += '                                                        <td>:</td>' + CRLF
+__Response += '                                                        <td>' + CRLF
+__Response += '                                                            <input name="vlFrete" id="vlFrete" size="14" value="0,00" class="numero" tabindex="7"/>' + CRLF
+__Response += '                                                        </td>' + CRLF
+__Response += '                                                    </tr>' + CRLF
+__Response += '                                                </tbody>' + CRLF
+__Response += '                                            </table>' + CRLF
+__Response += '                                            <hr></hr>   ' + CRLF
+__Response += '                                            <table class="tblProd">' + CRLF
+__Response += '                                                <thead style="text-align: center;">' + CRLF
+Return(__Response)
+
+Static Function PlainH_4()
+Local __Response := ""
+
+__Response += '                                                    <tr>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img1' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd1"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th colspan="2" onclick="javascript:ordena(' + CHR(39) + 'img2' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd2"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img3' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd3"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img4' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd4"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img5' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd5"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img6' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd6"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th onclick="javascript:ordena(' + CHR(39) + 'img7' + CHR(39) + ');">' + CRLF
+__Response += '                                                            <span><label id="lblProd7"></label></span>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                        <th>' + CRLF
+__Response += '                                                            <label id="lblProd8"></label>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '														<th>' + CRLF
+__Response += '                                                            <label id="lblProd9"></label>' + CRLF
+__Response += '                                                        </th>' + CRLF
+__Response += '                                                    </tr>' + CRLF
+__Response += '                                                </thead>' + CRLF
+__Response += '                                                <tbody id="itens">' + CRLF
+Return(__Response)
+
+Static Function PlainH_5()
+Local __Response := ""
+
+__Response += '                                                </tbody>' + CRLF
+__Response += '                                            </table>' + CRLF
+__Response += "                                            <div id='divConfirma' class='confirma'>" + CRLF
+__Response += '                                                <input type="button" value="Confirma" id=' + CHR(39) + 'btnConfirma' + CHR(39) + ' name="btnConfirma" onclick="javascript:sendData();"  tabindex="8"/>' + CRLF
+__Response += '                                                <input type="button" value="Declinar" id=' + CHR(39) + 'btnDeclinar' + CHR(39) + ' name="btnDeclinar" onclick="javascript:declinar(true);"  tabindex="9"/>' + CRLF
+__Response += '                                            </div>' + CRLF
+__Response += '                                        </div>' + CRLF
+__Response += '                                        <div class="TabbedPanelsContent">' + CRLF
+__Response += '                                            <table>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados02H1">Codigo</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn1"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados02H2">Loja</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn2"></td>' + CRLF
+__Response += '                                                    <td>|</td>                                                ' + CRLF
+__Response += '                                                    <td id="dados02H3">Nome</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn3"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados02H4">C.N.P.J.</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn4"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados02H5">E-Mail</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn5"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+Return(__Response)
+
+Static Function PlainH_6()
+Local __Response := ""
+
+__Response += '                                                    <td id="dados02H6">Estado</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="forn6"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                            </table>' + CRLF
+__Response += '                                        </div>' + CRLF
+__Response += '                                        <div class="TabbedPanelsContent">' + CRLF
+__Response += '                                            <table>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados03H1">Nome</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp1"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados03H2">Nome Comercial</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp2"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados03H3">C.N.P.J.</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp3"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados03H4">Endereco</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp4"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados03H5">Cidade</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp5"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+Return(__Response)
+
+Static Function PlainH_7()
+Local __Response := ""
+
+__Response += '                                                    <td id="dados03H6">Estado</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp6"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados03H7">Tel</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp7"></td>' + CRLF
+__Response += '                                                    <td>|</td>' + CRLF
+__Response += '                                                    <td id="dados03H8">C.E.P.</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp8"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                                <tr>' + CRLF
+__Response += '                                                    <td id="dados03H9">Inscricao Estadual</td>' + CRLF
+__Response += '                                                    <td>:</td>' + CRLF
+__Response += '                                                    <td id="tcp9"></td>' + CRLF
+__Response += '                                                </tr>' + CRLF
+__Response += '                                            </table>' + CRLF
+__Response += '                                        </div>' + CRLF
+__Response += '                                    </div>                                    ' + CRLF
+__Response += '                                </div>' + CRLF
+__Response += '                            </div>                                                        ' + CRLF
+__Response += '                        </div>                        ' + CRLF
+__Response += '                    </div>' + CRLF
+__Response += '                </div>' + CRLF
+__Response += '            </div>' + CRLF
+__Response += '' + CRLF
+__Response += '            <div class="divFooter">' + CRLF
+__Response += '                Layout: 3.1 | Browse: <label id="lblBrowse"></label> | Vers&atilde;o: <label id="lblVersion"></label> | Todos os Direitos Reservados' + CRLF
+__Response += '            </div>			' + CRLF
+Return(__Response)
+
+Static Function PlainH_8()
+Local __Response := ""
+
+__Response += '        </div>' + CRLF
+__Response += '		' + CRLF
+__Response += '		<div class="divDeclinar" id=' + CHR(39) + 'declinar' + CHR(39) + '>' + CRLF
+__Response += '			<div class="divDeclinarH">' + CRLF
+__Response += '                <h1>Informe o motivo da recusa	</h1>' + CRLF
+__Response += '            </div>' + CRLF
+__Response += '			<TEXTAREA NAME="comments" COLS=40 ROWS=6 id="memoD"></TEXTAREA>' + CRLF
+__Response += "			<div id='divEnviar' class='confirma'>" + CRLF
+__Response += '				<input type="button" value="Enviar" id=' + CHR(39) + 'btnEnviar' + CHR(39) + ' name="btnEnviar" onclick="javascript:sendDataD();"/>' + CRLF
+__Response += '				<input type="button" value="Cancelar" id=' + CHR(39) + 'btnCancelar' + CHR(39) + ' name="btnCancelar" onclick="javascript:declinar(false);"/>' + CRLF
+__Response += '			</div>' + CRLF
+__Response += '		</div>' + CRLF
+__Response += '' + CRLF
+__Response += '        <script type="text/javascript">' + CRLF
+__Response += '            // dispara rotina para validação do browse' + CRLF
+__Response += '            if (watchBrowse()) {' + CRLF
+__Response += '                var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels");' + CRLF
+__Response += '                var TabbedPanels2 = new Spry.Widget.TabbedPanels("TabbedPanels2");' + CRLF
+Return(__Response)
+
+Static Function PlainH_9()
+Local __Response := ""
+
+__Response += '            }' + CRLF
+__Response += '        </script>' + CRLF
+__Response += '    </body>    ' + CRLF
+__Response += '</html>' + CRLF
+Return(__Response)

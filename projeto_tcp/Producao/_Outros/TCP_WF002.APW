@@ -1,0 +1,318 @@
+/*
++----------------------------------------------------------------------------+
+!                         FICHA TECNICA DO PROGRAMA                          !
++----------------------------------------------------------------------------+
+!   DADOS DO PROGRAMA                                                        !
++------------------+---------------------------------------------------------+
+!Tipo              ! Rotina                                                  !
++------------------+---------------------------------------------------------+
+!Modulo            ! Compras                                                 !
++------------------+---------------------------------------------------------+
+!Nome              ! TCP_WF002.APW                                           !
++------------------+---------------------------------------------------------+
+!Descricao         ! FunÁ„o para processar a mensagem enviada                !
++------------------+---------------------------------------------------------+
+!Autor             ! M·rio L˙cio Blasi Faria                                 !
++------------------+---------------------------------------------------------+
+!Data de Criacao   ! 17/06/2013                                              !
++------------------+---------------------------------------------------------+
+!   ATUALIZACOES                                                             !
++-------------------------------------------+-----------+-----------+--------+
+!   Descricao detalhada da atualizacao      !Nome do    ! Analista  !Data da !
+!                                           !Solicitante! Respons.  !Atualiz.!
++-------------------------------------------+-----------+-----------+--------+
+!                                           !           !           !        !
+!                                           !           !           !        !
++-------------------------------------------+-----------+-----------+--------+
+*/
+
+#INCLUDE "APWEBEX.CH"
+//#INCLUDE "WEBDEF.CH"
+#INCLUDE "TOPCONN.CH"
+#INCLUDE "RWMAKE.CH"
+#INCLUDE "TOPCONN.CH"
+#INCLUDE "TBICONN.CH"
+#INCLUDE "PROTHEUS.CH"
+
+#DEFINE CRLF (chr(13)+chr(10))
+
+/*
++-----------+--------------+----------------------------+------+-------------+
+! FunÁ„o    ! WEBMSG()     ! Autor: Mario L. B. Faria   ! Data !  17/06/2013 !
++-----------+--------------+----------------------------+------+-------------+
+! Par‚metros!                                                                !
++-----------+----------------------------------------------------------------+
+! Descricao ! FunÁ„o para chamar pagina com form para inserir a mensagem     !
++-----------+----------------------------------------------------------------+
+*/
+User Function WEBMSG(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml		:= ""
+	Local cChave	:= ""
+	Local cFiliall	:= ""
+	Local cPedCom	:= ""
+
+	Local nPosIni 	:= 0
+	Local nPosFim 	:= 0
+	Local cLink		:= HttpGet->keyvalue
+
+	Local nPosEmp	:= 0
+	Local cFiliall	:= ""
+	Local cEmprr	:= ""
+
+	web Extended init cHtml
+
+	//Conecta a empresa 02 para recuperar tamanho dos campos da chave
+	//RPCSETENV('02', '01', 'ADMIN', 'totvsteste', "SIGACOM",,,,,,'WF', {"SMO","SX1","SX2","SX3","SA2","SCR","SC7"})
+	//RPCSETENV('02', '01', 'ADMIN', 'totvsteste', "SIGACOM",,,,,,)
+    RPCSETENV('02', '01', 'ADMIN', '45010138', "SIGACOM",,,,,,)
+	cChave := Embaralha(cLink,1)
+
+ 	//Recupera empresa
+	nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_NIVEL')[1] + 1
+	cEmprr	:= SubStr(cChave,nPosEmp,2)
+
+	If Empty(AllTrim(cEmprr))
+		cEmprr := "02"
+	EndIf
+
+	nPosini := 1
+	nPosFim := TamSx3('C7_FILIAL')[1]
+	cFiliall := SubStr(cChave,nPosini,TamSx3('C7_FILIAL')[1])
+
+	//Desconecta a empresa
+	RpcClearEnv()
+
+	//RPCSETENV(cEmprr, cFiliall, 'ADMIN', 'tcp2010', "SIGACOM",,,,,,'WF', {"SMO","SX1","SX2","SX3","SA2","SCR","SC7"})
+	//RPCSETENV(cEmprr, cFiliall, 'ADMIN', 'totvsteste', "SIGACOM",,,,,,)
+    RPCSETENV('02', '01', 'ADMIN', '45010138', "SIGACOM",,,,,,)
+	nPosini := nPosFim + 1
+	nPosFim += TamSx3('C7_NUM')[1]
+	cPedido := SubStr(cChave,nPosini,TamSx3('C7_NUM')[1])
+
+	nPosini	:= nPosFim + 1
+	nPosFim += TamSx3('CR_NIVEL')[1]
+	cNivel  := substr(cChave,nPosini,TamSx3('CR_NIVEL')[1])
+
+	//Verifica se j· existe mensagem gravada
+	dbSelectArea("SC7")
+	SC7->(dbSetOrder(1))
+	SC7->(dbGoTop())
+	SC7->(dbSeek(cFiliall+cPedido))
+
+	If Empty(AllTrim(SC7->C7_OBSWF)) .And. cNivel == "03"
+
+		cHtml := H_MENSAGEM(cLink)
+
+	Else
+		cMsg := SC7->C7_OBSWF
+		cHtml := H_VISUMSG(cMsg)
+
+	EndIf
+
+	web Extended end
+
+return (cHtml)
+
+/*
++-----------+--------------+----------------------------+------+-------------+
+! FunÁ„o    ! WEBGRMSG()   ! Autor: Mario L. B. Faria   ! Data !  17/06/2013 !
++-----------+--------------+----------------------------+------+-------------+
+! Par‚metros!                                                                !
++-----------+----------------------------------------------------------------+
+! Descricao ! FunÁ„o para gravar a mensagem                                  !
++-----------+----------------------------------------------------------------+
+*/
+User Function WEBGRMSG(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+	Local cHtml		:= ""
+	Local cChave	:= ""
+	Local cPedCom	:= ""
+
+	Local nPosIni 	:= 0
+	Local nPosFim 	:= 0
+
+	Local nPosEmp	:= 0
+	Local cFiliall	:= ""
+	Local cEmprr	:= ""
+
+	Local cLink		:= HttpGet->keyvalue
+	Local cMsg  	:= HttpPOST->cmsgg
+
+	web Extended init cHtml
+
+	//Conecta a empresa 02 para recuperar tamanho dos campos da chave
+	//RPCSETENV('02', '01', 'ADMIN', 'tcp2010', "SIGACOM",,,,,,'WF', {"SMO","SX1","SX2","SX3","SA2","SCR","SC7"})
+	//RPCSETENV('02', '01', 'ADMIN', 'totvsteste', "SIGACOM",,,,,,)
+	RPCSETENV('02', '01', 'ADMIN', '45010138', "SIGACOM",,,,,,)
+	cChave := Embaralha(cLink,1)
+
+ 	//Recupera empresa
+	nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_NIVEL')[1] + 1
+	cEmprr	 := substr(cChave,nPosEmp,2)
+
+	If Empty(AllTrim(cEmprr))
+		cEmprr := "02"
+	EndIf
+
+	nPosini := 1
+	nPosFim := TamSx3('C7_FILIAL')[1]
+	cFiliall := SubStr(cChave,nPosini,TamSx3('C7_FILIAL')[1])
+
+	//Desconecta a empresa
+	RpcClearEnv()
+
+	//RPCSETENV(cEmprr, cFiliall, 'ADMIN', 'tcp2010', "SIGACOM",,,,,,'WF', {"SMO","SX1","SX2","SX3","SA2","SCR","SC7"})
+	//RPCSETENV(cEmprr, cFiliall, 'ADMIN', 'totvsteste', "SIGACOM",,,,,,)
+    RPCSETENV('02', '01', 'ADMIN', '45010138', "SIGACOM",,,,,,)
+	nPosini := 1
+	nPosFim := TamSx3('C7_FILIAL')[1]
+	cFiliall := SubStr(cChave,nPosini,TamSx3('C7_FILIAL')[1])
+
+	nPosini := nPosFim + 1
+	nPosFim += TamSx3('C7_NUM')[1]
+	cPedido := SubStr(cChave,nPosini,TamSx3('C7_NUM')[1])
+
+	dbSelectArea("SC7")
+	SC7->(dbSetOrder(1))
+	SC7->(dbGoTop())
+	SC7->(dbSeek(cFiliall+cPedido))
+
+	While !SC7->(Eof()) .And. SC7->C7_FILIAL+SC7->C7_NUM == cFiliall+cPedido
+
+		RecLock("SC7",.F.)
+		SC7->C7_OBSWF := NaoAce(cMsg)
+		SC7->(MsUnLock())
+
+		SC7->(dbSkip())
+
+	EndDo
+
+	cHtml := H_CONFGRV()
+
+	web Extended end
+
+return (cHtml)
+
+/*
++-----------+--------------+-------+--------------------+------+-------------+
+! FunÁ„o    ! NaoAce       ! Autor ! Mario L. B. Faria  ! Data !  18/06/2013 !
++-----------+--------------+-------+--------------------+------+-------------+
+! Par‚metros!                             				                     !
++-----------+----------------------------------------------------------------+
+! Descricao ! Remove os acentos de uma string                                !
++-----------+----------------------------------------------------------------+
+*/
+Static Function NaoAce(cString)
+
+	Local cChar  := ""
+	Local nX     := 0
+	Local nY     := 0
+	Local cVogal := "aeiouAEIOU"
+	Local cAgudo := "·ÈÌÛ˙"+"¡…Õ”⁄"
+	Local cCircu := "‚ÍÓÙ˚"+"¬ Œ‘€"
+	Local cTrema := "‰ÎÔˆ¸"+"ƒÀœ÷‹"
+	Local cCrase := "‡ËÏÚ˘"+"¿»Ã“Ÿ"
+	Local cTio   := "„ı√’"
+	Local cCecid := "Á«"
+	Local cECome := "&"
+	Local cApos := "'"
+	Local cCerq  := "#"
+	Local cMaMe	 := "<>"
+
+	For nX:= 1 To Len(cString)
+
+		cChar:=SubStr(cString, nX, 1)
+
+		IF cChar $ cAgudo+cCircu+cTrema+cCecid+cTio+cCrase+cECome+cApos+cCerq+cMaMe
+
+			nY:= At(cChar,cAgudo)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+			EndIf
+			nY:= At(cChar,cCircu)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+			EndIf
+			nY:= At(cChar,cTrema)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+			EndIf
+			nY:= At(cChar,cCrase)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+			EndIf
+			nY:= At(cChar,cTio)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr("aoAO",nY,1))
+			EndIf
+			nY:= At(cChar,cCecid)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr("cC",nY,1))
+			EndIf
+			nY:= At(cChar,cECome)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr("E",nY,1))
+			EndIf
+			nY:= At(cChar,cApos)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(" ",nY,1))
+			EndIf
+			nY:= At(cChar,cCerq)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr("  ",nY,1))
+			EndIf
+			nY:= At(cChar,cMaMe)
+			If nY > 0
+				cString := StrTran(cString,cChar,SubStr(" ",nY,1))
+			EndIf
+
+		Endif
+
+	Next
+
+	//+----------------------------------------------------------------------------+
+	//| Substituir " por POL.                                                      |
+	//+----------------------------------------------------------------------------+
+	For nX:=1 To Len(cString)
+		cChar:=SubStr(cString, nX, 1)
+		if cChar == '"'
+			cString := StrTran(cString,cChar," ")
+			Exit
+		endif
+	next nX
+
+	//+----------------------------------------------------------------------------+
+	//| Substituir ™ por .a                                                        |
+	//+----------------------------------------------------------------------------+
+	For nX:=1 To Len(cString)
+		cChar:=SubStr(cString, nX, 1)
+		if cChar == '™'
+			cString := StrTran(cString,cChar,".a")
+			Exit
+		endif
+	next nX
+
+	//+----------------------------------------------------------------------------+
+	//| Substituir ∫ por .o                                                        |
+	//+----------------------------------------------------------------------------+
+	For nX:=1 To Len(cString)
+		cChar:=SubStr(cString, nX, 1)
+		if cChar == '∫'
+			cString := StrTran(cString,cChar,".o")
+			Exit
+		endif
+	next nX
+
+	//+----------------------------------------------------------------------------+
+	//| Substituir ∞ por .o                                                        |
+	//+----------------------------------------------------------------------------+
+	For nX:=1 To Len(cString)
+		cChar:=SubStr(cString, nX, 1)
+		if cChar == '∞'
+			cString := StrTran(cString,cChar,".o")
+			Exit
+		endif
+	next nX
+
+Return cString

@@ -1,0 +1,90 @@
+body {    
+    background-color: gray;
+    font-family: monospace;
+}
+
+.divConteudo {
+    width: 1200px;
+    height: 800px;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+
+.divBody {
+    background-color: white;
+    color: black;
+}
+
+.divHeader {
+
+}
+
+.divFooter { 
+}
+
+.divFooter, .divHeader {
+    text-align: center;
+    color: white;
+    border: 1px solid white;
+}
+
+.TabbedPanels .confirma {    
+    text-align: right;
+}
+
+#corpo {
+    display: none;
+}
+
+table.tblTcp tbody td, table.tblForn tbody td, table.tblEmp tbody td {     
+    border: 1px solid #E0E0E0; 
+}
+
+table.tblProd tbody td {     
+    border: 1px solid #E0E0E0; 
+}
+
+table.tblProd thead th, table.tblTcp thead th, table.tblForn thead th, table.tblEmp thead th { 
+    color: white;
+    text-align: center;
+    border: 1px solid #E0E0E0; 
+    cursor: pointer;   
+    background-color: blue;
+}
+
+table.tblProd tBody td.numero {
+    text-align: right;    
+}
+
+input.numero {
+    text-align: right;    
+}
+
+.numeroR {
+    text-align: right;
+}
+
+.numeroI {
+    text-align: right;
+}
+
+.numeroRN {
+    text-align: right;
+}
+
+.obs {
+    text-align: left;
+}
+
+.divDeclinar {
+	position:absolute;
+	left:40%;
+	margin-left:-50px;
+	display: none;
+}
+
+.divDeclinarH {
+    text-align: center;
+    color: white;
+}

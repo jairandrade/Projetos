@@ -1,0 +1,846 @@
+/*------------------------+----------------+--------------------------------+
+| Rotina: Classe Endereco | Data: 16/07/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Classe Singleton para armazenar o endereco do WS               |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+var Endereco = (
+	function() {
+		// variaveis privadas
+		var instantiated;
+		//var url = new String("http://localhost:8085/wstcp/");
+		//var url2 = new String("http://localhost:8085/wstcp");
+		//var urlPortal = new String("http://localhost:8085/wstcp/PORTALCOTACOES.apw")
+		var url = new String("http://192.168.1.48:8082/ws/");
+		var url2 = new String("http://192.168.1.48:8082/ws");
+		var urlPortal = new String("http://192.168.1.48:8082/ws/PORTALCOTACOES.apw")
+		
+		// funcao de inicializacao
+		function init (){
+			// all singleton code goes here
+			return {
+				getUrl:function(){
+					return url;
+				},
+				getUrl2:function(){
+					return url2;
+				},
+				getUrlPortal:function(){
+					return urlPortal;
+				}
+			}
+		}
+ 
+		// funcao return
+		return {
+			getInstance :function() {
+				if (!instantiated) {
+					instantiated = init();
+				}
+				return instantiated; 
+			}
+		}
+	}
+)();
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: Classe Cotacao  | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Classe Singleton para armazenar dados gerais da cotacao        |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+var Cotacao = (
+	function() {
+		// variaveis privadas
+		var instantiated;
+		var numero = new String('');
+		var valida = new Date('2013-05-23');
+		var proposta = new String('');
+		
+		// funcao de inicializacao
+		function init (){
+			// all singleton code goes here
+			return {
+				setNumero:function( pNumero ){
+					numero = pNumero;
+				},
+				getNumero:function(){
+					return numero;
+				},
+				
+				setValida:function( pValida ){
+					valida = new Date(pValida);
+				},
+				getValida:function(){
+					return valida;
+				},
+				
+				setPtoposta:function( pProposta )  {
+					proposta = pProposta;
+				},
+				getProposta:function() {
+					return proposta;
+				}
+			}
+		}
+ 
+		// funcao return
+		return {
+			getInstance :function() {
+				if (!instantiated) {
+					instantiated = init();
+				}
+				return instantiated; 
+			}
+		}
+	}
+)();
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: Classe Id       | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Classe Singleton para retorno de parametros da URL             |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+var Id = (
+	function () {
+		var instantiated;
+		var id = _GET('id');
+
+		function init() {
+			return {
+				getId: function () {					
+					return id;
+				}
+			};
+		}
+
+		return {
+			getInstance: function () {
+				if (!instantiated) {
+					instantiated = init();
+				}
+				return instantiated;
+			}
+		};
+	}
+)();
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: Classe Produtos | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Classe Singleton para Manipulacao de dados                     |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+var Produtos = (
+	function () {
+		var instantiated;
+		var rows = new Array();
+		
+		function init() {
+			return {
+				// retorna o array inteiro
+				getRows: function () {				
+					return rows;
+				},
+				
+				// adiciona id da linha da tabela
+				// na ultima posicao sempre
+				addRow: function (idRow) {				
+					rows[rows.length] = new String(idRow);					
+				},
+				
+				// recria o array, caso seja necessário limpar os dados
+				clearRows: function() {
+					rows = new Array();
+				}
+			};
+		}
+
+		return {
+			getInstance: function () {
+				if (!instantiated) {
+					instantiated = init();
+				}
+				return instantiated;
+			}
+		};
+	}
+)();
+
+/*------------------------+----------------+--------------------------------+
+|Rotina: Classe Fornecedor| Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Classe Singleton para Manipulacao de dados                     |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+var Fornecedor = (
+	function () {
+		var instantiated;
+		var nome = new String('');
+		var codigo = new String('');
+		var loja = new String('');
+		var email = new String('');
+		var nacional = new Boolean(false);
+		var estado = new String('');
+		var cnpj = new String('');
+
+		function init() {
+			return {
+				// funcao para limapar os dados
+				clear: function() {
+					nome = new String('');
+					codigo = new String('');
+					loja = new String('');
+					email = new String('');
+					nacional = new Boolean(false);
+					estado = new String('');
+					cnpj = new String('');
+				},
+			
+				// getter e setter nome
+				setNome: function( pNome ) {				
+					nome = pNome;
+				},
+				
+				getNome: function() {
+					return nome;
+				},
+				
+				// getter e setter codigo
+				setCodigo: function( pCodigo ) {
+					codigo = pCodigo;
+				},
+				
+				getCodigo: function() {					
+					return codigo;
+				},
+				
+				// getter e setter loja
+				setLoja: function( pLoja ) {
+					loja = pLoja;
+				},
+				
+				getLoja: function() {
+					return loja;
+				},
+				
+				// getter e setter email
+				setEmail: function( pEmail ) {
+					email = pEmail;
+				},
+				
+				getEmail: function() {
+					return email;
+				},
+				
+				// setter nacional				
+				getNacional: function() {
+					return nacional;
+				},
+				
+				// getter e setter cnpj
+				setCnpj: function( pCnpj ) {
+					cnpj = pCnpj;
+				},
+				
+				getCnpj: function() {
+					return cnpj;
+				},
+				
+				// getter e setter cnpj
+				setEstado: function( pEstado ) {
+					estado = pEstado;
+					nacional = (estado !== 'EX');
+				},
+				
+				getEstado: function() {
+					return estado;
+				}
+			};
+		}
+
+		return {
+			getInstance: function () {
+				if (!instantiated) {
+					instantiated = init();
+				}
+				return instantiated;
+			}
+		};
+	}
+)();
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: RequisicaoAjax  | Data: 20/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Cria uma requisicao ajax para utilizacao em rotinas do Script  |  
++---------------------------------------------------------------------------+
+| Retorno: Objeto do tipo XMLHttpRequest ou ActiveXObject, dependendo do    |
+| navegador.                                                                |
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function RequisicaoAjax() {
+
+    // define array com os tipos de conexa£o
+    var XMLHttpFactories = [
+		function () {return new XMLHttpRequest();},
+		function () {return new ActiveXObject("Msxml2.XMLHTTP");},
+		function () {return new ActiveXObject("Msxml3.XMLHTTP");},
+		function () {return new ActiveXObject("Microsoft.XMLHTTP");}
+    ];
+
+    var Ajax = null;
+    var i = 0;
+    while ((i < XMLHttpFactories.length) && (Ajax === null)) {
+		try {
+    		Ajax = XMLHttpFactories[i]();
+		} catch (e) {
+        	 Ajax = null;
+            continue;
+		}
+    }
+    XMLHttpFactories = null;
+    return Ajax;
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: sendRequest     | Data: 20/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Cria uma requisicao ajax para utilizacao em rotinas do Script  |  
++---------------------------------------------------------------------------+
+| Retorno: Objeto do tipo XMLHttpRequest ou ActiveXObject, dependendo do    |
+| navegador.                                                                |
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function sendRequest( cUrl, bCallback, uPostData ,lSync, aReqHeader ) {
+    var req = RequisicaoAjax();
+	
+    if (req !== null) {	
+		var method = (uPostData) ? "POST" : "GET";
+		req.open(method,cUrl,lSync);
+    
+    	req.setRequestHeader('X-PINGOTHER', 'pingpong');
+    	req.setRequestHeader('Content-Type', 'application/xml; text/xml; charset=utf-8');
+    	req.setRequestHeader('Access-Control-Allow-Origin','*');
+    
+		// define request a partir do aReqHeader        
+		for(var i = 0; i <= aReqHeader.length - 1; i++) {
+            var val = aReqHeader[i];
+            req.setRequestHeader( val[0], val[1] );
+		}
+                
+		// define chamada de retorno
+		req.onreadystatechange = function () {				
+    		if (req.readyState !== 4) {
+				return;
+    		}
+			
+    		if (req.status !== 200 && req.status !== 304) {
+    			var erro = 'HTTP error - "' + req.statusText + '".\nStatus - ' + req.status + '.'
+				alert(erro);
+				return;
+    		}
+    		bCallback(req);
+			
+			if (req.readyState === 4) {
+            	return;
+			}
+		}
+		
+		req.send(uPostData);
+    } else {
+        alert('Objeto Ajax nao pode ser criado corretamente!!!!');		
+    }	
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: _GET            | Data: 20/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Busca o valor do parametro repassado para o link da pagina.    |  
++---------------------------------------------------------------------------+
+| Retorno: Valor do parametro quando encontrado ou nulo.                    |
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function _GET(name) {
+    var url   = window.location.search.replace("?", "");
+    var itens = url.split("&");
+
+    for(n in itens) {
+        if( itens[n].match(name) ) {
+            return decodeURIComponent(itens[n].replace(name+"=", ""));
+        }
+    }
+    return null;
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: SoapFault       | Data: 21/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Verifica se o retorno de qualquer funcao eh um soap fault.     |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function SoapFault( responseXML ) {
+
+	var erro = null;
+	
+	if (responseXML !== null) {
+		if (responseXML.childNodes[0].childNodes[0].firstChild.nodeName == "SOAP-ENV:Fault") {
+			erro = new String(responseXML.childNodes[0].childNodes[0].childNodes[0].childNodes[1].textContent);
+		}
+	} else {
+		erro = new String('ERRO000: Solicitacao nao pode ser processada. | Request can not be processed.');
+	}
+	
+	return erro;
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: validaId        | Data: 20/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Valida o Id repassado pelo link para a exibicao dos dados.     |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function validaId() {
+
+	var action = new String("SOAPAction");
+    var newUrl = new String(Endereco.getInstance().getUrl() + "GETCOM001");
+
+    var aRequest = [[action, newUrl]];
+    
+    var cSoapRequest = new String('');
+    cSoapRequest += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="'+Endereco.getInstance().getUrl2()+'">';
+    cSoapRequest += '   <soapenv:Header/>';
+    cSoapRequest += '   <soapenv:Body>';
+    cSoapRequest += '       <loc:GETCOM001>';
+    cSoapRequest += '           <loc:CHAVE>'+ Id.getInstance().getId() +'</loc:CHAVE>';
+    cSoapRequest += '       </loc:GETCOM001>';
+    cSoapRequest += '   </soapenv:Body>';
+    cSoapRequest += '</soapenv:Envelope>';
+    sendRequest( Endereco.getInstance().getUrlPortal(), retValidaId, cSoapRequest, false, aRequest, retValidaIdErro); 
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: retValidaId     | Data: 20/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: funcao de callback da validaId.                                |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function retValidaId( resp ) {
+	var divCargaJ     = document.getElementById('divCarga');
+	var divPrincipalJ = document.getElementById('divPrincipal');
+	var divDetFornJ   = document.getElementById('divDetForn');
+	var divCotacaoJ   = document.getElementById('divCotacao');
+	var divEmpJ       = document.getElementById('divEmp');
+	var divErroJ      = document.getElementById('divErro');
+	    
+    // verifica se a rotina retornou um SoapFault do protheus, se for
+    // levanta o erro com um alert na tela para o browse    
+    var erro = SoapFault(resp.responseXML);
+    if (erro == null) {
+    	// neste ponto a rotina já retornou os dados da empresa.
+    	var xml = resp.responseXML.childNodes[0].childNodes[0].childNodes[0].childNodes[0];    	
+    	
+    	divEmpJ.innerText = '';
+    	divEmpJ.innerHTML = '';
+		
+		var oCotacaoXml    = xml.childNodes[0];
+		var oEmpresaXml    = xml.childNodes[1];
+		var oFornecedorXml = xml.childNodes[2];
+		
+		// popula objeto de cotacao definido no comeco do arquivo
+		Cotacao.getInstance().setValida(oCotacaoXml.childNodes[0].childNodes[0].nodeValue);
+		Cotacao.getInstance().setNumero(oCotacaoXml.childNodes[1].childNodes[0].nodeValue);
+		
+		// popula objeto de fornecedor definido no comeco do arquivo
+		Fornecedor.getInstance().setCnpj  (oFornecedorXml.childNodes[0].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setCodigo(oFornecedorXml.childNodes[1].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setEmail (oFornecedorXml.childNodes[2].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setEstado(oFornecedorXml.childNodes[3].childNodes[0].nodeValue);		
+		Fornecedor.getInstance().setLoja  (oFornecedorXml.childNodes[4].childNodes[0].nodeValue);		
+		Fornecedor.getInstance().setNome  (oFornecedorXml.childNodes[5].childNodes[0].nodeValue);		
+
+    	var innerHtml = '';
+    	innerHtml += '<p><h2>' + oEmpresaXml.childNodes[6].childNodes[0].nodeValue + '</h2></p>';
+    	innerHtml += '<p>' + oEmpresaXml.childNodes[7].childNodes[0].nodeValue + '</p>';
+    	innerHtml += '<p>Endereco / Address: ' + oEmpresaXml.childNodes[3].childNodes[0].nodeValue + ' | CEP: ' + oEmpresaXml.childNodes[0].childNodes[0].nodeValue + ' | Cidade / City: ' + xml.childNodes[2].childNodes[0].nodeValue + ' | Estado / State: ' + oEmpresaXml.childNodes[4].childNodes[0].nodeValue + ' </p>';
+    	innerHtml += '<p>Inscricao Estadual: ' + oEmpresaXml.childNodes[5].childNodes[0].nodeValue + ' | CPF/CNPJ: ' + oEmpresaXml.childNodes[1].childNodes[0].nodeValue + ' (Brazil only) </p>';
+		innerHtml += '<p>Tel.: ' + oEmpresaXml.childNodes[8].childNodes[0].nodeValue + '</p>';
+    	divEmpJ.innerHTML = innerHtml;
+		oEmpresaXml = null;
+
+		var innerHtml = '<p><h2> Cotacao N.: ' + Cotacao.getInstance().getNumero() + '</h2></p>';		
+		divCotacaoJ.innerHTML = innerHtml;
+		
+		var innerHtml = '';
+		innerHtml += Fornecedor.getInstance().getNome() + ' | ';
+		innerHtml += Fornecedor.getInstance().getCodigo() + ' - ' + Fornecedor.getInstance().getLoja() + ' | ' + Fornecedor.getInstance().getCnpj() + ' | ';
+		innerHtml += Fornecedor.getInstance().getEmail();
+		divDetFornJ.innerHTML = innerHtml;
+		
+		oCotacaoXml    = null;
+		oEmpresaXml    = null;
+		oFornecedorXml = null;
+		xml = null;
+		
+		// busca os produtos da cotacao
+		produtos();
+		
+    	divCargaJ.style.display = "none";
+    	divPrincipalJ.style.display = "block";
+    	divErroJ.style.display = "none";
+    	
+    } else {
+    	divCargaJ.style.display = "none";
+    	divPrincipalJ.style.display = "none";
+    	divErroJ.style.display = "inline";
+    	divErroJ.innerText = erro;    	
+    }
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: retValidaIdErro | Data: 16/07/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: funcao de callback da validaId.                                |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function retValidaIdErro( resp ) {
+	var divCargaJ     = document.getElementById('divCarga');
+	var divPrincipalJ = document.getElementById('divPrincipal');
+	var divDetFornJ   = document.getElementById('divDetForn');
+	var divCotacaoJ   = document.getElementById('divCotacao');
+	var divEmpJ       = document.getElementById('divEmp');
+	var divErroJ      = document.getElementById('divErro');
+	    
+    // verifica se a rotina retornou um SoapFault do protheus, se for
+    // levanta o erro com um alert na tela para o browse    
+    var erro = SoapFault(resp.responseXML);
+    if (erro == null) {
+    	// neste ponto a rotina já retornou os dados da empresa.
+    	var xml = resp.responseXML.childNodes[0].childNodes[0].childNodes[0].childNodes[0];    	
+    	
+    	divEmpJ.innerText = '';
+    	divEmpJ.innerHTML = '';
+		
+		var oCotacaoXml    = xml.childNodes[0];
+		var oEmpresaXml    = xml.childNodes[1];
+		var oFornecedorXml = xml.childNodes[2];
+		
+		// popula objeto de cotacao definido no comeco do arquivo
+		Cotacao.getInstance().setValida(oCotacaoXml.childNodes[0].childNodes[0].nodeValue);
+		Cotacao.getInstance().setNumero(oCotacaoXml.childNodes[1].childNodes[0].nodeValue);
+		
+		// popula objeto de fornecedor definido no comeco do arquivo
+		Fornecedor.getInstance().setCnpj  (oFornecedorXml.childNodes[0].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setCodigo(oFornecedorXml.childNodes[1].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setEmail (oFornecedorXml.childNodes[2].childNodes[0].nodeValue);
+		Fornecedor.getInstance().setEstado(oFornecedorXml.childNodes[3].childNodes[0].nodeValue);		
+		Fornecedor.getInstance().setLoja  (oFornecedorXml.childNodes[4].childNodes[0].nodeValue);		
+		Fornecedor.getInstance().setNome  (oFornecedorXml.childNodes[5].childNodes[0].nodeValue);		
+
+    	var innerHtml = '';
+    	innerHtml += '<p><h2>' + oEmpresaXml.childNodes[6].childNodes[0].nodeValue + '</h2></p>';
+    	innerHtml += '<p>' + oEmpresaXml.childNodes[7].childNodes[0].nodeValue + '</p>';
+    	innerHtml += '<p>Endereco / Address: ' + oEmpresaXml.childNodes[3].childNodes[0].nodeValue + ' | CEP: ' + oEmpresaXml.childNodes[0].childNodes[0].nodeValue + ' | Cidade / City: ' + xml.childNodes[2].childNodes[0].nodeValue + ' | Estado / State: ' + oEmpresaXml.childNodes[4].childNodes[0].nodeValue + ' </p>';
+    	innerHtml += '<p>Inscricao Estadual: ' + oEmpresaXml.childNodes[5].childNodes[0].nodeValue + ' | CPF/CNPJ: ' + oEmpresaXml.childNodes[1].childNodes[0].nodeValue + ' (Brazil only) </p>';
+		innerHtml += '<p>Tel.: ' + oEmpresaXml.childNodes[8].childNodes[0].nodeValue + '</p>';
+    	divEmpJ.innerHTML = innerHtml;
+		oEmpresaXml = null;
+
+		var innerHtml = '<p><h2> Cotacao N.: ' + Cotacao.getInstance().getNumero() + '</h2></p>';		
+		divCotacaoJ.innerHTML = innerHtml;
+		
+		var innerHtml = '';
+		innerHtml += Fornecedor.getInstance().getNome() + ' | ';
+		innerHtml += Fornecedor.getInstance().getCodigo() + ' - ' + Fornecedor.getInstance().getLoja() + ' | ' + Fornecedor.getInstance().getCnpj() + ' | ';
+		innerHtml += Fornecedor.getInstance().getEmail();
+		divDetFornJ.innerHTML = innerHtml;
+		
+		oCotacaoXml    = null;
+		oEmpresaXml    = null;
+		oFornecedorXml = null;
+		xml = null;
+		
+		// busca os produtos da cotacao
+		produtos();
+		
+    	divCargaJ.style.display = "none";
+    	divPrincipalJ.style.display = "block";
+    	divErroJ.style.display = "none";
+    	
+    } else {
+    	divCargaJ.style.display = "none";
+    	divPrincipalJ.style.display = "none";
+    	divErroJ.style.display = "inline";
+    	divErroJ.innerText = erro;    	
+    }
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: produtos        | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: funcao para chamada de ws para retorno de produtos             |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function produtos() {
+
+	var action = new String("SOAPAction");
+    var newUrl = new String(Endereco.getInstance().getUrl() + "GETCOM002");
+
+    var aRequest = [[action, newUrl]];
+    
+    var cSoapRequest = new String('');
+    cSoapRequest += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="'+Endereco.getInstance().getUrl2()+'">';
+    cSoapRequest += '   <soapenv:Header/>';
+    cSoapRequest += '   <soapenv:Body>';
+    cSoapRequest += '       <loc:GETCOM002>';
+    cSoapRequest += '           <loc:CHAVE>'+ Id.getInstance().getId() +'</loc:CHAVE>';
+    cSoapRequest += '       </loc:GETCOM002>';
+    cSoapRequest += '   </soapenv:Body>';
+    cSoapRequest += '</soapenv:Envelope>';
+    sendRequest( Endereco.getInstance().getUrlPortal(), retProdutos, cSoapRequest, false, aRequest); 
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: retProdutos     | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: funcao de retorno da rotina produtos                           |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function retProdutos( resp ) {
+
+    // verifica se a rotina retornou um SoapFault do protheus, se for
+    // levanta o erro com um alert na tela para o browse    
+    var erro = SoapFault(resp.responseXML);
+    if (erro == null) {
+    	// neste ponto a rotina já retornou os dados de produtos.
+    	var xml = resp.responseXML.childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0];  
+		var innerHtml = '';
+		
+		// verifica se o fornecedor e nacional ou nao
+		if (Fornecedor.getInstance().getNacional()) {	
+			innerHtml +='<tr>'
+			innerHtml +='<th>Item</th>'
+			innerHtml +='<th>Produto</th>'
+			innerHtml +='<th>Descricao</th>'
+			innerHtml +='<th>Qtde</th>'
+			innerHtml +='<th>Vl. Unitario</th>'
+			innerHtml +='<th>Prazo(Dias)</th>'
+			innerHtml +='<th>Alq. ICMS</th>'
+			innerHtml +='<th>Alq. IPI</th>'
+			innerHtml +='<th>Observacao</th>'
+			innerHtml +='</tr>'
+		} else {
+			innerHtml +='<tr>'
+			innerHtml +='<th>Item</th>'
+			innerHtml +='<th>Product</th>'
+			innerHtml +='<th>Description</th>'
+			innerHtml +='<th>Qty</th>'
+			innerHtml +='<th>Vl. Unitarian</th>'
+			innerHtml +='<th>Term (Days)</th>'
+			innerHtml +='<th>Alquot ICMS</th>'
+			innerHtml +='<th>Alquot IPI</th>'
+			innerHtml +='<th>Observation</th>'
+			innerHtml +='</tr>'
+		}
+		
+		Produtos.getInstance().clearRows();
+		for (var i = 0; i < xml.childNodes.length; i++) {
+			var item = xml.childNodes[i];
+			Produtos.getInstance().addRow(item.childNodes[2].childNodes[0].nodeValue); // para poder procurar a linha da tabela posteriormente
+			
+			innerHtml += '<tr id="' + item.childNodes[2].childNodes[0].nodeValue + '">' // identificador do item
+			innerHtml += '<td>' + item.childNodes[2].childNodes[0].nodeValue + '</td>'; // item
+			innerHtml += '<td>' + item.childNodes[6].childNodes[0].nodeValue + '</td>'; // cod. produto
+			innerHtml += '<td>' + item.childNodes[0].childNodes[0].nodeValue + '</td>'; // descricao
+			innerHtml += '<td>' + item.childNodes[7].childNodes[0].nodeValue + '</td>'; // quantidade
+			innerHtml += '<td>' + item.childNodes[5].childNodes[0].nodeValue + '</td>'; // valor unitario
+			innerHtml += '<td>' + item.childNodes[4].childNodes[0].nodeValue + '</td>'; // prazo
+			innerHtml += '<td>' + item.childNodes[3].childNodes[0].nodeValue + '</td>'; // icms
+			innerHtml += '<td>' + item.childNodes[1].childNodes[0].nodeValue + '</td>'; // ipi
+			innerHtml += '<td>' + item.childNodes[8].childNodes[0].nodeValue + '</td>'; // observacao
+			innerHtml += '</tr>';
+		}
+
+		var tblGridJ = document.getElementById('htmlgrid');
+		tblGridJ.innerHTML = '';		
+		tblGridJ.innerHTML = innerHtml;
+		
+		editableGrid = new EditableGrid("DemoGridAttach"); 		
+
+		// we build and load the metadata in Javascript
+		editableGrid.load({ metadata: [
+			{ name: "item"        , datatype: "string"   , editable: false },
+			{ name: "cod. produto", datatype: "string"   , editable: false },
+			{ name: "descricao"   , datatype: "string"   , editable: false },
+			{ name: "qtde"        , datatype: "double(2)", editable: false },
+			{ name: "vlr"         , datatype: "double(2)", editable: true  },
+			{ name: "prazo"       , datatype: "integer"  , editable: true  },
+			{ name: "icms"        , datatype: "double(2)", editable: true  },
+			{ name: "ipi"         , datatype: "double(2)", editable: true  },
+			{ name: "obs"         , datatype: "string"   , editable: true  }
+		]});
+
+		// then we attach to the HTML table and render it
+		editableGrid.attachToHTMLTable('htmlgrid');
+		editableGrid.renderGrid();    			
+    	
+    } else {
+    	divCargaJ.style.display = "none";
+    	divPrincipalJ.style.display = "none";
+    	divErroJ.style.display = "inline";
+    	divErroJ.innerText = erro;    	
+    }
+
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: confirma        | Data: 22/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Confirma os dados da tela para o protheus                      |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function confirma( numOrc, tipoFrete ) {
+	var dataAtual = new Date();
+	
+	// verificando a data
+	if ( dataAtual > Cotacao.getInstance().getValida() ) {
+		if ( Fornecedor.getInstance().getNacional() ) {
+			var msg = "Cotacao digitada apos o prazo maximo definido para digitacao. A cotacao sera aceita, porem, esse atraso sera considerado na sua avaliacao de fornecedor e na avaliacao da cotacao."
+		} else {
+			var msg = "Quote typed after the deadline set for typing. The price will be accepted, however, this delay will be considered in its supplier evaluation and assessment of the quotation."
+		}
+		
+		alert(msg);
+		msg = null;
+	}
+	
+	var cSoap = new String('');	
+	
+	cSoap += '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:loc="'+Endereco.getInstance().getUrl2()+'">';
+	cSoap += '<soapenv:Header/>';
+	cSoap += '<soapenv:Body>';
+	cSoap += '	<loc:GETCOM003>';
+	cSoap += '		<loc:COTENTRADA>';
+	cSoap += '			<loc:ID>' + Id.getInstance().getId() + '</loc:ID>';
+	cSoap += '			<loc:ITENS>';
+	
+	var rows = Produtos.getInstance().getRows();	
+	var i = 0;
+	var linha = document.getElementById(rows[i]);
+	while (linha !== null) {
+		cSoap += '				<loc:PROCODSTRUCT>';
+		cSoap += '					<loc:C8ALIIPI>' + linha.childNodes[7].textContent + '</loc:C8ALIIPI>';
+		cSoap += '					<loc:C8ITEM>' + linha.childNodes[0].textContent + '</loc:C8ITEM>';
+		cSoap += '					<loc:C8PICM>' + linha.childNodes[6].textContent + '</loc:C8PICM>';
+		cSoap += '					<loc:C8PRAZO>' + linha.childNodes[5].textContent + '</loc:C8PRAZO>';
+		cSoap += '					<loc:C8PRECO>' + linha.childNodes[4].textContent + '</loc:C8PRECO>';
+		cSoap += '					<loc:C8PRODUTO>' + linha.childNodes[1].textContent + '</loc:C8PRODUTO>';
+		cSoap += '					<loc:C8QUANT>' + linha.childNodes[3].textContent + '</loc:C8QUANT>';
+		cSoap += '					<loc:C8XOBSWEB>' + linha.childNodes[8].textContent + '</loc:C8XOBSWEB>';
+		cSoap += '				</loc:PROCODSTRUCT>';
+		
+		i++;
+		linha = document.getElementById(rows[i]);
+	}
+	
+	cSoap += '			</loc:ITENS>';
+	cSoap += '			<loc:NUMORC>' + numOrc + '</loc:NUMORC>';
+	cSoap += '			<loc:PROPOSTA>' + Cotacao.getInstance().getProposta() + '</loc:PROPOSTA>';
+	cSoap += '			<loc:TIPOFRETE>' + tipoFrete + '</loc:TIPOFRETE>';
+	cSoap += '		</loc:COTENTRADA>';
+	cSoap += '	</loc:GETCOM003>';
+	cSoap += '</soapenv:Body>';
+	cSoap += '</soapenv:Envelope>';
+
+	var action = new String("SOAPAction");
+    var newUrl = new String(Endereco.getInstance().getUrl() + "GETCOM003");
+
+    var aRequest = [[action, newUrl]];
+    sendRequest( Endereco.getInstance().getUrlPortal(), retConfirma, cSoap, false, aRequest); 	
+}
+
+/*------------------------+----------------+--------------------------------+
+| Rotina: retConfirma     | Data: 24/05/13 | Analista: Lucas J. C. Chagas   |
++-------------------------+----------------+--------------------------------+
+| Descricao: Retorno da confirmacao de dados do fornecedor ao protheus      |  
++------------------------------------------------------+-------------+------+
+| Alteracoes                                           | Responsavel | Data |
++------------------------------------------------------+-------------+------+
+|                                                      |             |      |
+|                                                      |             |      |
++------------------------------------------------------+-------------+-----*/
+function retConfirma( resp ) {
+	// verifica se a rotina retornou um SoapFault do protheus, se for
+    // levanta o erro com um alert na tela para o browse    
+    var erro = SoapFault(resp.responseXML);
+    if (erro == null) {
+
+		var confirma = new String(resp.responseXML.childNodes[0].childNodes[0].childNodes[0].childNodes[1].textContent);
+		var divPrincipalJ = document.getElementById('divPrincipal');
+		divPrincipalJ.innerHTML = '<div>'+confirma+'</div>';
+	
+	} else {
+		alert(erro);
+	}
+}

@@ -1,0 +1,160 @@
+body {
+    font-family: monospace;
+    font-size: medium;        
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: center;
+    background: #333;
+}
+
+div .container {
+    width: 800px;
+    border: 1px solid #E0E0E0;  
+}
+
+.container {
+    background-color: white;
+}
+
+.container .header, .container .footer {
+    background-color: activecaption;
+}
+
+.container .header .itemImg, .container .header .itemTxt {
+    display: inline;
+    text-align: center;    
+    font-size: xx-large;
+    font-weight: bolder;  
+}
+
+.container .header .itemImg {
+    vertical-align: middle;
+}
+
+.container .header .itemTxt {
+    vertical-align: 30px;
+}
+
+.container .dadosGerais, .container .dadosRet {
+    text-align: justify;
+}
+
+.container .confirma {    
+    text-align: right;
+}
+
+.container .footer {
+    font-family: monospace;    
+    font-size: xx-small;
+    text-align: center;
+}
+
+#menu ul {
+    padding:0px;
+    margin:0px;
+    float: left;
+    width: 100%;
+    background-color:#EDEDED;
+    list-style:none;
+    font:80% Tahoma;
+}
+
+#menu ul li { display: inline; }
+
+#menu ul li a {
+    background-color:#EDEDED;
+    color: #333;
+    text-decoration: none;
+    border-bottom:3px solid #EDEDED;
+    padding: 2px 10px;
+    float:left;
+}
+
+#menu ul li a:hover {
+    background-color:#D6D6D6;
+    color: #6D6D6D;
+    border-bottom:3px solid #EA0000;
+}
+
+table.tblTcp tbody td, table.tblForn tbody td, table.tblEmp tbody td {     
+    border: 1px solid #E0E0E0; 
+}
+
+table.tblProd tbody td {     
+    border: 1px solid #E0E0E0; 
+}
+
+table.tblProd thead th, table.tblTcp thead th, table.tblForn thead th, table.tblEmp thead th { 
+    color: white;
+    text-align: center;
+    border: 1px solid #E0E0E0; 
+    cursor: pointer;   
+    background-color: blue;
+}
+
+table.tblProd tBody td.numero {
+    text-align: right;    
+}
+
+input.numero {
+    text-align: right;    
+}
+
+.divTitulo {
+    font-size: larger;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #E0E0E0; 
+    width: 800px;
+}
+
+.divTitulo .left {
+    float: left;
+}
+
+.divTitulo .right {
+    float: right;
+}
+
+.dados00 {
+    border: 1px solid #E0E0E0; 
+}
+
+.dados00 .dados01, .dados00 .dados02, .dados00 .dados03 {    
+    background-color: snow;
+}
+
+.divCarga {
+    text-align: center;    
+}
+
+.divCorpo {
+
+}
+
+.show {
+    color: window;
+    background-color: black;
+}
+
+.numeroR {
+    text-align: right;
+}
+
+.numeroI {
+    text-align: right;
+}
+
+.numeroRN {
+    text-align: right;
+}
+
+.obs {
+    text-align: left;
+}
+
+.divDeclinar {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}

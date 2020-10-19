@@ -1,0 +1,2491 @@
+// #INCLUDE "APWEBEX.CH"
+// //#INCLUDE "WEBDEF.CH"
+// //#include "rwmake.ch"
+// #include "topconn.ch"
+// #include "tbiconn.ch"
+// #include 'protheus.ch'
+// #INCLUDE "TOPCONN.CH"
+// #DEFINE CRLF (chr(13)+chr(10))
+
+// //--------------------------
+// /*/{Protheus.doc} WebLogR
+// Trata a rejeiÁ„o do workflow
+
+// @author ?????
+// @since ??????
+// @version 2.0
+
+// @param __aCookies, array, Cookies
+// @param __aPostParms, array, Parametros post
+// @param __nProcID, numÈrico, Proc Id
+// @param __aProcParms, array, Parametros do processo
+// @param __cHTTPPage, character, Http Page
+
+// @return cHtml Retorno com as tags html
+
+// /*/
+// //--------------------------
+// user function WebLogR(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+// Local cHtml  := ""
+// Local cEmprr := ""
+
+// Local nPosEmp	:= 0
+// Local cFiliall	:= ""
+
+// Private cPedido   := ''
+
+// Private cLink := ""
+// Private cPedido := ""
+
+// cLink 	 := HttpGet->keyvalue
+// cChave 	 := Embaralha(cLink,1)
+// //Conecta a empresa 02 para recuperar tamanho dos campos da chave
+// RpcSetEnv( '02', '01',,, "COM",,,,,,)
+
+// //Recupera empresa
+// nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_USER')[1] + tamsx3('CR_NIVEL')[1] + 1
+// cEmprr	 := substr(cChave,nPosEmp,2)
+
+// If Empty(AllTrim(cEmprr))
+// 	cEmprr := "02"
+// EndIf
+
+// nPosini:=1
+// nposFin:=tamsx3('C7_FILIAL')[1]
+// cFiliall := substr(cChave,nPosini,nposFin)
+
+// //Desconecta a empresa
+// RpcClearEnv()
+
+// web Extended init cHtml
+// OpenSM0()
+// RPCSetType(3)
+// RpcSetEnv( cEmprr, '01',,, "COM", "MATA020",,,,,)
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('C7_NUM')[1]
+// cPedido:=substr(cChave,nPosini,tamsx3('C7_NUM')[1])
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('CR_USER')[1]
+// cUserApr:=substr(cChave,nPosini,tamsx3('CR_USER')[1])
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('CR_NIVEL')[1]
+// _cNivel:=substr(cChave,nPosini,tamsx3('CR_NIVEL')[1])
+
+// nRecScr := 0
+// SCR->(dbSelectArea("SCR"))                   // Posiciona a Liberacao
+// SCR->(dbSetorder(2))
+// IF SCR->(dbSeek(cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr))
+// 	if _cNivel == SCR->CR_NIVEL
+// 		nRecScr := SCR->(RECNO())
+// 	ENDIF
+	
+// 	WHILE nRecScr == 0 .AND. cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr == SCR->(CR_FILIAL+CR_TIPO+CR_NUM+CR_USER)
+		
+// 		IF( _cNivel == SCR->CR_NIVEL)
+// 			nRecScr := SCR->(RECNO())
+// 		ELSE
+// 			SCR->(DBSkip())
+// 		ENDIF
+// 	ENDDO
+// ENDIF
+
+// SCR->(dbSelectArea("SCR"))                   // Posiciona a Liberacao
+// SCR->(dbSetorder(2))
+// IF nRecScr > 0
+// 	SCR->(DBGOTO(nRecScr))
+// 	//conout(cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr) // Paulo
+// 	IF ALLTRIM(SCR->CR_STATUS) == '02'
+// 		//conout('chegou ate aqui')
+// 		cHtml := H_GRVJUST() //H_WEBLOGIN()
+// 		//conout('passou')
+// 	ElseIF ALLTRIM(SCR->CR_STATUS) == '01'
+// 		//ConOut('N√O … TUA VEZ')
+// 		cHtml := H_nivelErrado()
+// 	ELSE
+// 		//ConOut('ja respondido')
+// 		cHtml := H_jaresp()
+// 	EndIf
+// Else
+// 	//ConOut("nao achou registro pra aprovacao")
+// 	cHtml := H_naoexiste()
+// EndIF
+	
+
+// //Desconecta a empresa
+// RpcClearEnv()
+
+// web Extended end
+// return (cHtml)
+
+
+// //**********************************************************************************//
+// //**********************************************************************************//
+// //**********************************************************************************//
+// user function GRVJUST(nRecScr)
+
+// Local cHtml  := ""
+
+// Local nPosEmp	:= 0
+// Local cFiliall	:= ""
+// Local cEmprr	:= ""
+
+// ckey  := HttpPost->Chave
+// cJus := DecodeUTF8(HttpPost->cJus)
+
+// cChave:=Embaralha(ckey,1)
+
+// //Conecta a empresa 02 para recuperar tamanho dos campos da chave
+// RpcSetEnv( '02', '01',,, "COM",,,,,,)
+
+// //Recupera empresa
+// nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_USER')[1] + tamsx3('CR_NIVEL')[1] + 1
+// cEmprr	 := substr(cChave,nPosEmp,2)
+
+// If Empty(AllTrim(cEmprr))
+// 	cEmprr := "02"
+// EndIf
+
+// nPosini  := 1
+// nposFin  := tamsx3('C7_FILIAL')[1]
+// cFiliall := substr(cChave,nPosini,nposFin)
+
+// //Desconecta a empresa
+// RpcClearEnv()
+
+// web Extended init cHtml
+// RpcSetEnv( cEmprr, cFiliall,,, "COM", "MATA020",,,,,)
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('C7_NUM')[1]
+// cPedido:=substr(cChave,nPosini,tamsx3('C7_NUM')[1])
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('CR_USER')[1]
+// cUserApr:=substr(cChave,nPosini,tamsx3('CR_USER')[1])
+
+// nPosini:=nposFin+1
+// nposFin+=tamsx3('CR_NIVEL')[1]
+// _cNivel:=substr(cChave,nPosini,tamsx3('CR_NIVEL')[1])
+
+// dbSelectArea('SCR')
+
+// if fazrej(ckey,cJus)
+// 	cHtml := H_rejped() //H_WEBLOGIN()
+// else
+// 	cHtml := H_erroRejPed()
+// endif	
+
+// //Desconecta a empresa
+// RpcClearEnv()
+
+// web Extended end
+
+// return (cHtml)
+
+// /*
+// ************************************************************************************
+// ************************************************************************************
+// *** FUNCAO CHAMADA DO E-MAIL PARA APROVAR O PEDIDO DE COMPRAS                    ***
+// ***                                                                              ***
+// ***POR:RODRIGO SLISINSKI                                        DATA:20/12/2012  ***
+// ***                                                                              ***
+// ************************************************************************************
+// ***********************************************************************************/
+// user function WebLogA(__aCookies,__aPostParms,__nProcID,__aProcParms,__cHTTPPage)
+
+// local cHtml    := ""
+// Local cFiliall := ""
+// Local cEmprr	 := ""
+// Local nPosEmp	 := 0
+
+// Private ckey	  := HttpGet->keyvalue
+// Private cPedido := ''
+
+// cChave := Embaralha(ckey,1)
+
+// If !Empty(Alltrim(cChave))
+// 	//Conecta a empresa 02 para recuperar tamanho dos campos da chave
+// //	RpcSetType(3)
+// //	RpcSetEnv( '02', '01',,, "COM",,,,,,)
+// 	PREPARE ENVIRONMENT EMPRESA '02' FILIAL '01' TABLES "SC7" MODULO "SIGACOM"
+
+// 	//Recupera empresa
+// 	nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_USER')[1] + tamsx3('CR_NIVEL')[1] + 1
+// 	cEmprr	 := substr(cChave,nPosEmp,2)
+	
+// 	If Empty(AllTrim(cEmprr))
+// 		cEmprr := "02"
+// 	EndIf
+	
+// 	nPosini:=1
+// 	nposFin:=tamsx3('C7_FILIAL')[1]
+// 	cFiliall := substr(cChave,nPosini,nposFin)
+// //	RpcClearEnv() //Desconecta a empresa
+	
+// 	RESET ENVIRONMENT
+// //	RpcSetType(3)
+// //	RpcSetEnv( cEmprr, cFiliall,,, "COM",,,,,,)
+
+// 	PREPARE ENVIRONMENT EMPRESA cEmprr FILIAL cFiliall TABLES "SC7" MODULO "SIGACOM"
+// 	//	RpcSetEnv( cEmprr, cFiliall,,, "COM",,,,,,)
+// 	nPosini := nposFin+1
+// 	nposFin += tamsx3('C7_NUM')[1]
+// 	cPedido := substr(cChave,nPosini,tamsx3('C7_NUM')[1])
+	
+// 	nPosini  := nposFin+1
+// 	nposFin  += tamsx3('CR_USER')[1]
+// 	cUserApr := substr(cChave,nPosini,tamsx3('CR_USER')[1])
+	
+// 	nPosini := nposFin+1
+// 	nposFin += tamsx3('CR_NIVEL')[1]
+// 	_cNivel  := substr(cChave,nPosini,tamsx3('CR_NIVEL')[1])
+	
+// 	//	ConOut("liberacao pedido " + cPedido)
+// 	nRecScr := 0
+// 	SCR->(dbSelectArea("SCR"))                   // Posiciona a Liberacao
+// 	SCR->(dbSetorder(2))
+// 	IF SCR->(dbSeek(cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr))
+// 		if _cNivel == SCR->CR_NIVEL
+// 			nRecScr := SCR->(RECNO())
+// 		ENDIF
+		
+// 		WHILE nRecScr == 0 .AND. cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr == SCR->(CR_FILIAL+CR_TIPO+CR_NUM+CR_USER)
+			
+// 			IF( _cNivel == SCR->CR_NIVEL)
+// 				nRecScr := SCR->(RECNO())
+// 			ELSE
+// 				SCR->(DBSkip())
+// 			ENDIF
+// 		ENDDO
+// 	ENDIF
+	
+// 	IF nRecScr > 0
+// 		//conout(cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr) // Paulo
+// 		IF ALLTRIM(SCR->CR_STATUS) == '02'
+// //			conout('chegou ate aqui11111111')
+// 			if fazAprv(cChave,nRecScr)
+// 				cHtml := H_APROVA()//H_WEBLOGIN()
+// 			else
+// 				cHtml := H_erroRejPed()
+// 			endif
+// 		ElseIF ALLTRIM(SCR->CR_STATUS) == '01'
+// 			//ConOut('N√O … TUA VEZ')
+// 			cHtml := H_nivelErrado()
+// 		ELSE
+		
+// 			//ConOut('ja respondido')
+// 			cHtml := H_jaresp()
+// 		EndIf
+// 	Else
+// 		//ConOut("nao achou registro pra aprovacao")
+// 		cHtml := H_naoexiste()
+// 	EndIF
+	
+// EndIf
+
+// RESET ENVIRONMENT
+						   
+// return (cHtml)
+
+// /*
+// ************************************************************************************
+// ************************************************************************************
+// *** FUNCAO QUE EFETUAS AS GRAVACOES DA LIBERACAO E DISPARA E-MAILS DE ACOMPANHA- ***
+// *** MENTO.                                                                       ***
+// ***                                                                              ***
+// ***POR:RODRIGO SLISINSKI                                        DATA:20/12/2012  ***
+// ***                                                                              ***
+// ************************************************************************************
+// ***********************************************************************************/
+// Static Function FazAprv(cChave,nRecScr)
+
+// Local nPosEmp	 := 0
+// Local cFiliall := ""
+// Local cEmprr	 := ""
+// Local nPrazo   := 0
+
+// //	cChave := "010054560001660102"
+
+// //	Estrutura da Chave
+// //	Nivel 01 "010054560001660102"
+// //	Nivel 02 "010054560001670202"
+// //	Nivel 03 "010054560001690302"
+// //	Nivel 04 "010054560001680402"
+// //
+// //	01			005456		000168					04			02
+// //	|			|			|						|			|
+// //	+->Filial	+->Pedido	+->Usu·rio Aprovador	+->Nivel	+->???
+
+// //Conecta a empresa 02 para recuperar tamanho dos campos da chave
+// //RpcSetEnv( '02', '01',,, "COM",,,,,,)
+
+//  	//Recupera empresa
+// 	nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_USER')[1] + tamsx3('CR_NIVEL')[1] + 1
+// 	cEmprr	 := substr(cChave,nPosEmp,2)
+
+// 	If Empty(AllTrim(cEmprr))
+// 		cEmprr := "02"
+// 	EndIf
+
+// 	nPosini:=1
+// 	nposFin:=tamsx3('C7_FILIAL')[1]
+// 	cFiliall := substr(cChave,nPosini,nposFin)
+
+// //Desconecta a empresa
+// //RpcClearEnv()
+// //RpcSetEnv( cEmprr, cFiliall,,, "COM",,,,,,)
+// cLog := " recebeu "+cChave+chr(13)+chr(10)
+// //conout("ll")
+// nPosini := nposFin+1
+// nposFin += tamsx3('C7_NUM')[1]
+// cPedido := substr(cChave,nPosini,tamsx3('C7_NUM')[1])
+
+// nPosini  := nposFin+1
+// nposFin  += tamsx3('CR_USER')[1]
+// cUserApr := substr(cChave,nPosini,tamsx3('CR_USER')[1])
+
+// nPosini := nposFin+1
+// nposFin += tamsx3('CR_NIVEL')[1]
+// _cNivel  := substr(cChave,nPosini,tamsx3('CR_NIVEL')[1])
+
+// cLog += "cPedido->"+cPedido+" cFiliall--"+cFiliall+"_cNivel--->"+_cNivel+chr(13)+chr(10)
+
+// dbSelectArea("SC7")
+// SC7->(dbSetOrder(1))
+// SC7->(dbSeek(cFiliall+cPedido))
+
+// //Testa se o registro est· bloqueado
+// if !RLock()
+// 	RETURN .f.
+// endif
+
+// If SELECT("QSAL") > 0
+// 	QSAL->(dbCloseArea())
+// Endif
+
+// BeginSql Alias "QSAL"
+// 	SELECT SAL.R_E_C_N_O_ AS RECNUM
+// 	FROM %table:SAL% SAL
+// 	WHERE SAL.AL_FILIAL = %xFilial:SAL%
+// 	AND SAL.AL_COD = %Exp:SC7->C7_APROV%
+// 	AND SAL.AL_USER = %Exp:Alltrim(cUserApr)%
+// 	AND SAL.%NotDel%
+// EndSql
+
+// While !QSAL->(EOF())
+// 	dbSelectArea("SAL")
+// 	SAL->(dbGoTo(QSAL->RECNUM))
+// 	dbSelectArea("SC7")
+// 	SC7->(dbSetOrder(1))
+// 	SC7->(dbSeek(cFiliall+cPedido))
+
+// 	If SAL->AL_TPLIBER == "N"
+// 		// Recupera os registros dos aprovadores do mesmo nÌvel
+// 		If SELECT("QSCR") > 0
+// 			QSCR->(dbCloseArea())
+// 		Endif
+
+// 		BeginSql Alias "QSCR"
+// 			SELECT SCR.R_E_C_N_O_ AS RECNUM
+// 			FROM %table:SCR% SCR
+// 			WHERE SCR.CR_FILIAL = %xFilial:SCR%
+// 			AND SCR.CR_NUM = %Exp:SC7->C7_NUM%
+// 			AND SCR.CR_TIPO = 'PC'
+// 			AND SCR.CR_USER <> %Exp:Alltrim(cUserApr)%
+// 			AND SCR.CR_NIVEL = %Exp:SAL->AL_NIVEL%
+// 			AND SCR.CR_STATUS IN ('01','02')
+// 			AND SCR.%NotDel%
+// 		EndSql
+
+// 		While !QSCR->(EOF())
+// 			// Atualiza com o status de liberado nÌvel por outro usu·rio
+// 			dbSelectArea("SCR")
+// 			SCR->(dbGoTo(QSCR->RECNUM))
+// 			BEGIN TRANSACTION
+// 			RecLock("SCR",.F.)
+// 				SCR->CR_DATALIB := dDataBase
+// 				SCR->CR_USERLIB := Alltrim(cUserApr)
+// 				SCR->CR_STATUS  := "05"
+// 			MsUnLock("SCR")
+// 			END TRANSACTION
+// 			QSCR->(dbSkip())
+// 		Enddo
+// 		QSCR->(dbCloseArea())
+// 	ElseIf SAL->AL_TPLIBER == "P"
+// 		// Recupera os registros dos demais aprovadores independente do nÌvel
+// 		If SELECT("QSCR") > 0
+// 			QSCR->(dbCloseArea())
+// 		Endif
+
+// 		BeginSql Alias "QSCR"
+// 			SELECT SCR.R_E_C_N_O_ AS RECNUM
+// 			FROM %table:SCR% SCR
+// 			WHERE SCR.CR_FILIAL = %xFilial:SCR%
+// 			AND SCR.CR_NUM = %Exp:SC7->C7_NUM%
+// 			AND SCR.CR_TIPO = 'PC'
+// 			AND SCR.CR_USER <> %Exp:Alltrim(cUserApr)%
+// 			AND SCR.CR_STATUS IN ('01','02')
+// 			AND SCR.%NotDel%
+// 		EndSql
+
+// 		While !QSCR->(EOF())
+// 			//Atualiza com o status de liberado nÌvel por outro usu·rio
+// 			dbSelectArea("SCR")
+// 			SCR->(dbGoTo(QSCR->RECNUM))
+// 			BEGIN TRANSACTION
+// 			RecLock("SCR",.F.)
+// 				SCR->CR_DATALIB := dDataBase
+// 				SCR->CR_USERLIB := Alltrim(cUserApr)
+// 				SCR->CR_STATUS  := "05"
+// 			MsUnLock("SCR")
+// 			END TRANSACTION
+// 			QSCR->(dbSkip())
+// 		Enddo
+// 		QSCR->(dbCloseArea())
+// 	Endif
+// 	QSAL->(dbSkip())
+// Enddo
+// QSAL->(dbCloseArea())
+
+// //If SELECT("AVISO") > 0
+// //	AVISO->(dbCloseArea())
+// //Endif
+// //
+// //BeginSql Alias "AVISO"
+// //	SELECT SCR.*
+// //	FROM %table:SCR% SCR
+// //	WHERE SCR.CR_FILIAL = %Exp:cFiliall%
+// //	AND SCR.CR_NUM = %Exp:SC7->C7_NUM%
+// //	AND SCR.CR_TIPO = 'PC'
+// //	AND SCR.CR_NIVEL < %Exp:_cNivel%
+// //	AND SCR.CR_NIVEL < '03'
+// //	AND SCR.%NotDel%
+// //EndSql
+// //
+// //While !AVISO->(EOF())
+// //	AVISO->(dbSkip())
+// //End
+// //If SELECT("AVISO") > 0
+// //	AVISO->(dbCloseArea())
+// //Endif
+
+// // Verifica se È o ˙ltimo aprovador
+// If SELECT("QSCR") > 0
+// 	QSCR->(dbCloseArea())
+// Endif
+
+// BeginSql Alias "QSCR"
+// 	SELECT SCR.*
+// 	FROM %table:SCR% SCR
+// 	WHERE SCR.CR_FILIAL = %Exp:cFiliall%
+// 	AND SCR.CR_NUM = %Exp:cPedido%
+// 	AND SCR.CR_TIPO = 'PC'
+// 	AND SCR.CR_STATUS IN ('01','02')
+// 	AND (SCR.CR_NIVEL > %Exp:_cNivel% OR (SCR.CR_NIVEL = %Exp:_cNivel% AND SCR.CR_USER <> %Exp:Alltrim(cUserApr)%))
+// 	AND SCR.%NotDel%
+// EndSql
+       
+// //	AND SCR.CR_USER <> %Exp:Alltrim(cUserApr)%s
+
+
+// lLast := .T.
+// If !QSCR->(EOF())
+// 	cLog += "Achou o nivel acima "+chr(13)+chr(10)
+// 	lLast := .F.
+// Else
+//    	cLog += "Nao Achou o nivel acima "+chr(13)+chr(10)	
+// EndIF
+// QSCR->(dbCloseArea())
+
+
+// If lLast
+
+// 	ConOut("LIBPC -> ultima liberacao")
+
+// 	dbSelectArea("SCR")                   // Posiciona a Liberacao
+// 	SCR->(dbSetorder(2))
+// 	SCR->(dbGoTop())
+// 	SCR->(dbGoTo(nRecScr))
+// 	RecLock("SCR",.F.)
+// 	SCR->CR_DATALIB := dDataBase
+// 	SCR->CR_USERLIB := Alltrim(cUserApr)
+// 	SCR->CR_LIBAPRO := SCR->CR_APROV
+// 	SCR->CR_STATUS  := "03"
+// 	MsUnLock("SCR")
+	
+	
+// 	dbSelectArea("SC7")
+// 	SC7->(dbGoTop())
+// 	SC7->(dbSetOrder(1))
+// 	SC7->(dbSeek(cFiliall+cPedido))
+// 	While !SC7->(EOF()) .And. SC7->C7_NUM == cPedido
+
+// 		// busca o prazo de entrega da cotaÁ„o para o pedido
+// 		/*if U_TCPSX3('C7_PRAZO')
+// 		nPrazo := SC7->C7_PRAZO
+// 		endif*/
+			
+// 		dDataCalc := (dDataBase + SC7->C7_PRAZO)  
+// 		DbSelectArea('SP3')
+// 		SP3->(DbSetOrder(1))
+// 		SP3->(DbGoTop())
+// 		If SP3->(DbSeek(xFilial('SP3')+DtoS(dDataCalc))) 
+// 			dDataCalc := dDataCalc + 1
+// 		EndIf		
+// 		If Dow(dDataCalc) == 1 //domingo
+// 			dDataCalc := dDataCalc + 1	
+// 		ElseIf Dow(dDataCalc) == 7 //sabado
+// 			dDataCalc := dDataCalc + 2
+// 		EndIf
+// 		RecLock("SC7",.F.)
+// 			SC7->C7_CONAPRO := "L"
+// 			SC7->C7_DATPRF  := dDataCalc 
+// 		SC7->(MsUnLock("SC7"))
+		
+// 		U_ZPB_ATU(SC7->C7_NUM, SC7->C7_NUMSC, SC7->C7_MEDICAO, SC7->C7_CONAPRO)
+		
+// 		SC7->(dbSkip())
+// 	Enddo
+
+
+// 	//envia E-mail para fornecedor, avisando que o pedido de compras foi aprovado
+// 	//AvisaFornecedor(cPedido)
+// 	//foi solicitado sobstituir pela desenvolida pra AFSousa
+
+	
+// 	IF FindFunction("u_RCOM008")
+// 		ConOut('RCOM008 - Inicio')
+// 		U_RCOM008(cFiliall,cPedido)
+// 		ConOut('RCOM008 - Fim')
+// 	EndIF   
+
+// 	enviaAviso("",.T.,cFiliall)	
+	
+// 	oCompras  := ClassIntCompras():new()    
+	
+// 	oCompras:registraIntegracao('2',cFiliall+cPedido,'I')  
+// 	U_ENVSAL02(oCompras:cCodInt)
+	
+// Else
+	
+// 	// Posiciona na liberaÁ„o para recuperar o prÛximo nÌvel
+// 	dbSelectArea("SCR")
+// 	SCR->(dbSetorder(2))
+// 	SCR->(dbGoTop())
+// 	SCR->(dbGoTo(nRecScr))
+// 	RecLock("SCR",.F.)
+// 	SCR->CR_DATALIB := dDataBase
+// 	SCR->CR_USERLIB := Alltrim(cUserApr)	//Substr(cUsuario,7,15)
+// 	SCR->CR_LIBAPRO := SCR->CR_APROV
+// 	SCR->CR_STATUS  := "03"
+// 	SCR->CR_VALLIB := SCR->CR_TOTAL
+// 	SCR->CR_TIPOLIM := Posicione("SAK",1,xFilial("SAK")+SCR->CR_APROV,"AK_TIPO")
+// 	MsUnLock("SCR")
+// 	_cNivel := SCR->CR_NIVEL	
+	
+
+
+// 	// Verifica se possui mesmo nÌvel pendente
+// 	dbSelectArea("SCR")
+// 	SCR->(dbSetorder(1))
+// 	SCR->(dbGoTop())
+// 	SCR->(dbSeek(xFilial("SCR")+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')))//+_cNivel
+
+// 	_lAchou := .F.
+
+// 	While !SCR->(EOF()) .And. SCR->CR_FILIAL+SCR->CR_TIPO+SCR->CR_NUM+SCR->CR_NIVEL==cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+_cNivel
+// 		conout('Usuario Logado'+cUserApr +' aprovador'+ SCR->CR_USER)
+// 		If SCR->CR_USER <> Alltrim(cUserApr)
+// 			If SCR->CR_STATUS == '02'
+// 				//conout("Mudou achou")
+// 				_lAchou := .T.
+// 				Exit
+// 			Endif
+// 		Endif
+// 		SCR->(dbSkip())
+// 	Enddo
+
+// 	/*
+//     	Alterado por Ricardo Martins - 21/08/18
+//     	Verifica se existe algum aprova? para o nivel
+// 	*/
+// 	BeginSql Alias "SEGAPR"
+// 		SELECT SCR.*
+// 		FROM %table:SCR% SCR
+// 		WHERE SCR.CR_FILIAL = %Exp:Alltrim(cFiliall)%
+// 		AND SCR.CR_NUM = %Exp:Alltrim(cPedido)%
+// 		AND SCR.CR_TIPO = 'PC'
+// 		AND SCR.CR_NIVEL = %Exp:Alltrim(_cNivel)%
+// 		AND SCR.CR_STATUS = '02'
+// 		AND SCR.CR_USER <> %Exp:Alltrim(cUserApr)%
+// 		AND SCR.%NotDel%
+// 	EndSql
+
+// 	SEGAPR->(DbGoTop())
+
+// 	If !SEGAPR->(EOF())
+// 		_lAchou := .T.
+// 	EndIf
+// 	If SELECT("SEGAPR") > 0
+// 		SEGAPR->(dbCloseArea())
+// 	Endif
+//  	/* ----------------------------------------- */
+     
+  
+// 	// Se n„o possui mesmo nÌvel pendente, segue para o prÛximo
+// 	If !_lAchou
+// 	   //	_cNivel := SOMA1(_cNivel)
+// 		// Localiza o aprovador do prÛximo nÌvel
+// 		dbSelectArea("SCR")
+		
+// 		cAliasX := getNextAlias()
+// 		BeginSQL Alias cAliasX
+			
+// 			SELECT SCR.R_E_C_N_O_ AS RECSCR
+// 			FROM  %Table:SCR% SCR
+// 			WHERE SCR.%NotDel% AND CR_TIPO = "PC" AND CR_FILIAL = %EXP:xFilial("SCR")% AND CR_NUM = %EXP:padR(cPedido,tamsx3('CR_NUM')[1],' ')%
+// 			AND CR_NIVEL > %EXP:_cNivel%
+// 			ORDER BY CR_NIVEL
+			
+// 		EndSQL
+		
+		
+// 		conout(getlastquery()[2])
+		
+		
+// 		if !(cAliasX)->(Eof())
+// 			SCR->(DBGOTO((cAliasX)->RECSCR))
+// 			//conout('nivel'+_cNivel)
+// 			dbSelectArea("SC7")
+// 			SC7->(dbSetOrder(1))
+// 			SC7->(dbSeek(xFilial("SC7")+cPedido))
+// 			//conout(" ENVIOU O E-MAIL --> "+chr(13)+chr(10))
+// 			U_WFAprPed(SCR->CR_NIVEL)
+// 			//ConOut("depois de enviar WF")
+// 		EndIF
+		
+// 		(cAliasX)->(dbCloseArea())
+		
+// 		enviaAviso("",.F.,cFiliall)				
+// 	Endif   
+	
+// Endif
+
+// Return .t.
+
+// //**********************************************************************************//
+// //**********************************************************************************//
+// Static Function enviaAviso(cComp,lulti,cFiliall)
+
+// 	Local cMailAp 	:= ""
+// 	Local cPerc		:= 0
+// 	Local nPreco	:= 0
+// 	Local nTotalR	:= 0
+// 	Local nValIPI	:= 0
+// 	Local nTotImp	:= 0
+// 	Local nTotalR	:= 0
+// 	Local cAssAux	:= ""
+// 	Local cHtmlCon	:= ""
+// 	Local cCondPag	:= ""
+// 	Local I
+
+// 	aarea:=getArea()
+// 	cMvAtt	:= GetMv("MV_WFHTML")
+// 	PutMv("MV_WFHTML","T")
+
+// 	dbSelectArea('SC7')
+// 	SC7->(dbSetOrder(1))
+// 	SC7->(dbSeek(cFiliall+cPedido))
+// 	_oProc := TWFProcess():New( "PEDFOR", "Pedido para o Fornecedor" )   
+
+// 	/*
+// 		Alterado por Ricardo Martins - 20/08/18
+// 		Caso pedido seja via contrato, pega template diferente 	
+// 	*/
+// 	if EMPTY(SC7->C7_MEDICAO)
+// 		_oProc:NewTask( "SolicitaÁ„o de Pedido", "\WORKFLOW\HTML\PEDIDOAP.HTM" )
+// 	else
+// 		_oProc:NewTask( "SolicitaÁ„o de Pedido", "\WORKFLOW\HTML\PEDIDOAP_CON.HTM" )
+// 	endif   
+
+// 	IF lulti//Processo de aprovacao do pedido xxxxx conluido.
+		
+// 		If !empty(SC7->C7_CONTRA) .AND. !EMPTY(SC7->C7_MEDICAO)
+// 			cAssAux := "Contract Measurement - Purchase Order N∫: " + SC7->C7_NUM + "  complete"
+// 		else
+// 			//cAssAux := "Purchase Order " + SC7->C7_NUM + " Approved by level " + _cNivel+iif(Empty(cComp)," (Follow)","")
+// 			cAssAux := "Purchase Order " + SC7->C7_NUM + " complete." //"Pedido de Compra " + SC7->C7_NUM + " APROVADO Pelo Nivel " + _cNivel+iif(Empty(cComp)," (Acompanhamento)","")
+			
+// 		Endif
+// 	ELSE
+// 		If !empty(SC7->C7_CONTRA) .AND. !EMPTY(SC7->C7_MEDICAO)
+// 			cAssAux := "Contract Measurement - Purchase Order N∫: " + SC7->C7_NUM + " Approved by level " + _cNivel+iif(Empty(cComp)," (follow)","")
+// 		else
+// 			cAssAux := "Purchase Order " + SC7->C7_NUM + " Approved by level " + _cNivel+iif(Empty(cComp)," (Follow)","")
+			
+// 		Endif
+// 			endif		
+	
+// 	cAssAux += iif(SC7->C7_CONTRAT == "S"," Order Under Contract ", "")
+	
+// 	_oProc:cSubject := cAssAux
+	
+// 	oHTML := _oProc:oHTML
+// 	/*** Preenche os dados do cabecalho ***/
+	
+// 	If SC7->C7_CONTRAT == "S"
+// 		cHtmlCon := '<tr>' + CRLF
+// 		cHtmlCon += '	<td colspan="4" bgcolor="#FFFF00" height="24">' + CRLF
+// 		cHtmlCon += '		<p align="left">' + CRLF
+// 		cHtmlCon += '			<font size="4" face="Arial">' + CRLF
+// 		cHtmlCon += '				<b>ORDER UNDER CONTRACT</b>' + CRLF
+// 		cHtmlCon += '			</font>' + CRLF
+// 		cHtmlCon += '		</p>' + CRLF
+// 		cHtmlCon += '	</td>' + CRLF
+// 		cHtmlCon += '</tr>' + CRLF  
+// 	Else
+// 		cHtmlCon += ''
+// 	EndIf
+	
+// 	oHtml:ValByName("cContrato",cHtmlCon)		
+// 	oHtml:ValByName("lb_empresa",SM0->M0_NOMECOM)
+// 	oHtml:ValByName("EMISSAO",SC7->C7_EMISSAO)
+// 	oHtml:ValByName("FORNECEDOR",SC7->C7_FORNECE)   
+	
+// 	_vNumContrato := SC7->C7_CONTRA
+// 	_vRevContrato := SC7->C7_CONTREV
+// 	_vNumPedido := SC7->C7_NUM
+	
+// 	cCondPag := Posicione("SE4",1,xFilial('SE4')+SC7->C7_COND,"E4_DESCRI")
+// 	oHtml:ValByName("cond_pag",AllTrim(cCondPag))
+// 	oHtml:ValByName("cod_compra",AllTrim(UsrFullName(SC7->C7_USER)))
+// 	if empty(alltrim(SC7->C7_CONTRA))
+// 		dbSelectArea('SC1')
+// 		SC1->(dbSetOrder(1))
+// 		if !empty(SC7->C7_NUMSC) .AND. SC1->(dbSeek(SC7->C7_FILIAL+SC7->C7_NUMSC+SC7->C7_ITEMSC))
+			
+// 			oHtml:ValByName("solicitante"    ,SC1->C1_SOLICIT)
+			
+// 			oHtml:ValByName("termos",AllTrim(SC7->C7_XTERMOS))
+// 			oHtml:ValByName("capex",IF(SC7->C7_XCAPEX=='1','Capex',IF(SC7->C7_XCAPEX=='2','Opex','')))
+// 		ENDIF
+// 	ENDIF
+	
+// 	/* Removido atÈ validarem o processo completo
+// 	oHtml:ValByName("lb_obs",SC7->C7_XOBSENG)
+// 	oHtml:ValByName("lb_obsPt",SC7->C7_OBS)
+// 	*/
+// 	oHtml:ValByName("lb_obs",STRTRAN( SC7->C7_OBS,Chr(13) + Chr(10) ,'</br>'))
+	
+// 	oHtml:ValByName("moeda",U_getWFMoe(SC7->C7_MOEDA))
+		
+// 	dbSelectArea('SA2')
+// 	SA2->(dbSetOrder(1))
+// 	SA2->(dbSeek(xfilial('SA2')+SC7->C7_FORNECE))
+// 	oHtml:ValByName("lb_nome",SA2->A2_NREDUZ)
+	
+// 	// Recupera o email do comprador
+// 	if Empty(cComp)
+// 		cAprov := SC7->C7_USER
+// 	Else
+// 		cAprov := cComp
+// 	EndIF
+// 	PswOrder(1)
+// 	If PswSeek(cAprov,.t.)
+// 		aInfo   := PswRet(1)
+// 		cMailAp := alltrim(aInfo[1,14])
+// 	//	conout(cAprov)
+// 	//	conout(cMailAp)
+// 		cNomeAP := aInfo[1,2]
+// 	Endif
+	
+	
+// 	If Empty(cMailAp)
+// 		conout("O comprador " + Alltrim(cAprov) + " n„o possui o e-mail informado no cadastro de usu·rios. O workflow n„o ser· enviado.")
+// 		Return
+// 	Endif
+
+	
+// 	oHtml:ValByName("PEDIDO",SC7->C7_NUM)
+// 	oHtml:ValByName("cUsuario",UsrFullName(Alltrim(cUserApr)))
+// 	cNum := SC7->C7_NUM
+// 	dEmissao := SC7->C7_EMISSAO		
+// 	_oProc:fDesc := "Pedido de Compras No "+ cPedido    
+	
+// 	nTotal := 0  
+// 	_vDesc := 0
+	
+// 	nFrete := 0
+// 	SC7->(dbSetOrder(1))
+// 	SC7->(dbSeek(cFiliall+cPedido))
+// 	aIten := {}
+// 	While !SC7->(EOF()) .And. SC7->C7_NUM = cNum
+		
+// 		AADD((oHtml:ValByName("it.item")),SC7->C7_ITEM)
+// 		AADD((oHtml:ValByName("it.codigo")),SC7->C7_PRODUTO)
+		
+// 		dbSelectArea('SB1')
+// 		SB1->(dbSetOrder(1))
+// 		SB1->(dbSeek(xFilial('SB1')+SC7->C7_PRODUTO))
+		
+// 		SB5->( dbSetOrder(1) )
+// 		SB5->( dbSeek( xFilial('SB5') + SC7->C7_PRODUTO ) )
+		
+// 		AADD((oHtml:ValByName("it.descricao")),RetDesc( SC7->C7_PRODUTO ))
+// //		AADD((oHtml:ValByName("it.quant")),TRANSFORM(SC7->C7_QUANT,'@E 999,999.99'))
+		
+// 		//Campos para o centro de custo e data de entrega
+// 		//Lucas - 11/10/13
+		
+// 		cPtoPed := 'No'
+// 		if empty(alltrim(SC7->C7_CONTRA))
+			
+// 			if ALLTRIM(SC1->C1_ORIGEM) == 'MATA170'
+// 				cPtoPed := 'Yes'                       
+// 			endif
+// 			dbSelectArea("SB2")
+// 			SB2->(dbSeek(xFilial("SB2") +SC7->C7_PRODUTO +SC7->C7_LOCAL))
+// 			nSaldo := SaldoSb2()
+			
+// 			AADD((oHtml:ValByName("it.ctt"    )), iif(empty(SC7->C7_CC), Space(TamSx3('C7_CC')[1])     , SC7->C7_CC))
+// 			AADD((oHtml:ValByName("it.cttdesc")), iif(empty(SC7->C7_CC), Space(TamSx3('CTT_DESC01')[1]), Posicione('CTT', 1, Xfilial('CTT') + SC7->C7_CC, 'CTT_DESC01')))
+// 			AADD((oHtml:ValByName("it.dtent"  )), dToC(SC7->C7_DATPRF))
+// 			AADD((oHtml:ValByName("it.garantia"  )), IF(SC7->C7_XGARANTA=='1','Sim','N„o'))
+// 			AADD((oHtml:ValByName("it.tempoGar"  )),ALLTRIM(STR(SC7->C7_XTMPGAR))+ IF(SC7->C7_XDESCGA=='1','Days',IF(SC7->C7_XDESCGA=='2','Months',IF(SC7->C7_XDESCGA=='3','Years',''))))
+// 			AADD((oHtml:ValByName("it.conta"    )), iif(empty(SC7->C7_CONTA), Space(TamSx3('C7_CONTA')[1])     , SC7->C7_CONTA))
+// 			AADD((oHtml:ValByName("it.cCont")), iif(empty(SC7->C7_CONTA), Space(TamSx3('CT1_DESC01')[1]), Posicione('CT1', 1, Xfilial('CT1') + SC7->C7_CONTA, 'CT1_DESC01')))
+			
+// 			AADD((oHtml:ValByName("it.ptPedido")),cPtoPed)
+// 			AADD((oHtml:ValByName("it.saldo")),TRANSFORM(nSaldo,'@E 999,999.99'))
+// 			AADD((oHtml:ValByName("it.ponto")),TRANSFORM(SB1->B1_EMIN,'@E 999,999.99'))
+// 			AADD((oHtml:ValByName("it.quant")),TRANSFORM(SC7->C7_QUANT,'@E 999,999.99'))
+// 			//CONOUT('111')
+// 			if SC7->C7_MOEDA > 1
+// 			//	CONOUT('3')
+// 				cPerc := Posicione("SC8",3,xFilial("SC8")+SC7->C7_NUMCOT+SC7->C7_PRODUTO+SC7->C7_FORNECE+SC7->C7_LOJA,"C8_IMPPREV")
+				
+// 				nPreco := (xMoeda(SC7->C7_PRECO + (SC7->C7_VALEMB/SC7->C7_QUANT),SC7->C7_MOEDA,1,dEmissao,2,SC7->C7_TXMOEDA))
+// 				nTotImp := nPreco + (nPreco * (cPerc/100) )
+// //				nTotalR := xMoeda(SC7->C7_TOTAL+SC7->C7_VALEMB,SC7->C7_MOEDA,1,dEmissao)
+// 				nTotalR := XMOEDA(SC7->C7_TOTAL+SC7->C7_VALEMB,SC7->C7_MOEDA,1,dEmissao,2,SC7->C7_TXMOEDA)
+// 				_vDesc := _vDesc+SC7->C7_VLDESC
+// 				//nValIPI := posicione("SC8",3,xFilial("SC8")+SC7->C7_NUMCOT+SC7->C7_PRODUTO+SC7->C7_FORNECE+SC7->C7_LOJA,"C8_VALIPI")
+// 				//nTotalR := (nTotalR + (nTotalR * (cPerc/100))) + nValIPI
+				
+// 				nTotal := nTotal+nTotalR
+				 
+			
+// 				AADD((oHtml:ValByName("it.preco")),TRANSFORM(nPreco,'@E 999,999,999.99'))
+																			  
+// 				/* --------------------------------------- */
+				
+// 				AADD((oHtml:ValByName("it.total")),TRANSFORM(nTotalR,'@E 999,999,999.99'))
+// 			//	CONOUT('222')
+// 			Else
+// 			//	CONOUT('3333')
+// 				//			nValIPI := posicione("SC8",3,xFilial("SC8")+SC7->C7_NUMCOT+SC7->C7_PRODUTO+SC7->C7_FORNECE+SC7->C7_LOJA,"C8_VALIPI")
+// 				nTotAux := SC7->C7_TOTAL + SC7->C7_VALEMB //+ nValIPI
+				
+// 				nTotImp += SC7->C7_VALIPI+SC7->C7_VALSOL
+// 				nTotal   := nTotal + nTotAux
+// 				_vDesc := _vDesc+SC7->C7_VLDESC
+// 				/*
+// 					Alterado por Ricardo Martins - 20/08/18
+// 					Caso pedido seja via contrato, apresenta o valor total do contrato 	
+// 				*/
+// 				AADD((oHtml:ValByName("it.preco")),TRANSFORM(SC7->C7_PRECO+(SC7->C7_VALEMB/SC7->C7_QUANT),'@E 999,999,999.99'))
+				
+// 				/* ------------------------------------------- */
+				
+// 				AADD((oHtml:ValByName("it.total")),TRANSFORM(nTotAux,'@E 999,999,999.99'))
+// 			//	CONOUT('444')
+// 			EndIF
+			
+// 			nFrete += SC7->C7_VALFRE
+			
+// 		else
+// 			nTotal   += SC7->C7_TOTAL + SC7->C7_VALEMB
+// 			_vValorContrato := Posicione("CN9",1,SC7->C7_FILIAL+SC7->C7_CONTRA+SC7->C7_CONTREV,"CN9_VLATU") 
+// 			//AADD((oHtml:ValByName("it.preco")),TRANSFORM(_vValorContrato,'@E 999,999,999.99'))		
+// 		ENDIF
+							 
+// 		ltem := .f.
+// 		for I := 1 to len(aIten)
+// 			if aIten[i][1] == SC7->C7_PRODUTO
+// 				lTem := .t.
+// 				aIten[i][2] += SC7->C7_QUANT
+// 			EndIF
+// 		next i
+
+// 		if !lTem
+// 			aadd(aIten,{SC7->C7_PRODUTO,SC7->C7_QUANT})
+// 		EndIF
+		
+// 		SC7->(dbSkip())
+		
+// 	Enddo  
+	
+// 	oHtml:ValByName("lbdes",TRANSFORM(_vDesc,'@E 999,999,999.99'))	    
+// 	oHtml:ValByName("lValFre",TRANSFORM(nFrete,'@E 999,999,999.99'))
+	
+// 	//CONOUT('555')
+// 	if !empty(alltrim(_vNumContrato))
+// 		_vValorSaldo := Posicione("CN9",1,xFilial('CN9')+_vNumContrato+_vRevContrato,"CN9_SALDO")
+// 		oHtml:ValByName("valorcontrato",TRANSFORM(_vValorContrato,'@E 999,999,999.99'))
+		
+		
+// 		//Retorna valor dos pedidos em aberto
+// 		nValAberto := U_pedidosAb(_vNumContrato,_vRevContrato,cNum)
+				
+// 		oHtml:ValByName("valorsaldoCn9",TRANSFORM(_vValorSaldo,'@E 999,999,999.99'))
+// 		oHtml:ValByName("valorsaldo",TRANSFORM(_vValorSaldo+nValAberto+nTotal,'@E 999,999,999.99'))
+// 		oHtml:ValByName("totalpedido",TRANSFORM(nTotal,'@E 999,999,999.99'))
+// 	endif
+// 	/*
+// 	  Alterado por Ricardo Martins - 23/08
+// 	  Adicinando listagem de aprovadores e status de cada alcada
+// 	*/     
+			   
+// 	//CONOUT('666')
+// 		vfilial := xfilial('SCR')		
+// 		BeginSql Alias "QSCRX"
+// 			SELECT SCR.*
+// 			FROM %table:SCR% SCR
+// 			WHERE SCR.CR_FILIAL = %Exp:vfilial%
+// 			AND SCR.CR_NUM = %Exp:cNum%
+// 			AND SCR.CR_TIPO = 'PC'
+// 			AND SCR.%NotDel%
+// 		EndSql
+
+
+	
+// 		while !QSCRX->(EOF())  
+
+// 		   //	conout("0")	 
+// 		   _vStatusW := QSCRX->CR_STATUS 
+// 		   if _vStatusW == "01"
+// 				_vStatusW := "Waiting for the others levels approvement"
+// 		   endif
+// 		   if _vStatusW == "02"
+// 				_vStatusW := "Pending"
+// 			endif	
+// 		   if _vStatusW == "03"
+// 				_vStatusW := "Approved"
+// 			endif	
+// 		   if _vStatusW == "04"
+// 				_vStatusW := "Blocked"	
+// 			endif	
+// 			if _vStatusW == "05"
+// 				_vStatusW := "Approved / Blocked by level"	
+// 			endif									    
+			
+// 			AADD((oHtml:ValByName("ap.nivelalcada")),QSCRX->CR_NIVEL)
+  
+// 			AADD((oHtml:ValByName("ap.nomeaprovadorresp")),UsrFullName(QSCRX->CR_USER))  
+ 
+// 			AADD((oHtml:ValByName("ap.statusalcada")),_vStatusW)  
+ 
+// 			AADD((oHtml:ValByName("ap.nomeaprovador")),u_xRetAprv(QSCRX->CR_USERLIB,STOD(QSCRX->CR_DATALIB)))  
+	  
+// 			AADD((oHtml:ValByName("ap.dataaprocacao")),STOD(QSCRX->CR_DATALIB))    
+		
+	
+// 			QSCRX->(dbSkip())
+
+// 		enddo
+// //CONOUT('777')
+//    //	endif
+// 	QSCRX->(dbCloseArea())
+
+
+// 	/*
+// 	  Adicionado por Ricardo Martins - 23/08
+// 	  Informa?s de rateio
+// 	*/
+// 	SC7->(DBSELECTAREA('SC7'))
+// 	SC7->(DBSEEK(xFilial('SC7')+_vNumPedido))
+
+// 	_cTamCol := 1100
+// 	nTotal := nTotal
+// 	if empty(alltrim(SC7->C7_CONTRA))
+		
+// 		_cTamCol := 1500
+// 		oHtml:ValByName("lbValor",TRANSFORM(nTotal,'@E 999,999,999.99'))
+// 		oHtml:ValByName("lbimp",TRANSFORM(nTotImp,'@E 999,999,999.99'))
+// 		oHtml:ValByName("lbtotal",TRANSFORM(nTotal+nTotImp + nFrete-_vDesc,'@E 999,999,999.99'))
+// 	endif
+// 	//CONOUT('888')
+
+// 	cSql :="	SELECT * " + CRLF 	
+// 	cSql +="	FROM "+RetSqlName("Z21")+" Z21 " + CRLF 
+// 	cSql +="	INNER JOIN "+RetSqlName("SED")+" SED" + CRLF 
+// 	cSql +="	ON ED_FILIAL ='"+xFilial('SED')+"'" + CRLF 
+// 	cSql +="	AND ED_CODIGO = Z21_NATURE" + CRLF 
+// 	cSql +="	AND SED.D_E_L_E_T_<>'*'" + CRLF 
+// 	cSql +="	WHERE Z21.Z21_NUMMED = '"+SC7->C7_MEDICAO+"'" + CRLF
+// 	cSql +="	AND Z21.Z21_FILIAL = '"+SC7->C7_FILIAL+"'" + CRLF
+// 	cSql +="	AND Z21.Z21_CONTRA = '"+SC7->C7_CONTRA+"'" + CRLF
+// //	 	cSql +="	AND Z21.Z21_REVISA = '"+CND->CND_REVISA+"'" + CRLF
+// 	cSql +="    AND Z21.D_E_L_E_T_<>'*' " + CRLF
+
+// 	If Select('TRBZ21')<>0
+// 		TRBZ21->(DBCloseArea())
+// 	EndIF
+// 	_cOutCot := ""
+// 	TcQuery cSql new Alias "TRBZ21"
+// 	DbSelectArea("TRBZ21")
+// 	TRBZ21->(DbGoTop())
+// 	//CONOUT('999')
+// 	If !TRBZ21->(EOF())	
+// 		While !TRBZ21->(EOF())	                                                                                                      
+// 			_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_NATURE + "</font></td>"//valor
+// 			_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->ED_DESCRIC + "</font></td>"//valor
+// 			_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_CCUSTO + '-' +POSICIONE('CTT',1,xFilial('CTT')+TRBZ21->Z21_CCUSTO,'CTT_DESC01')+"</font></td>"//valor
+// 			_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_ITEMCT + '-' +POSICIONE('CTD',1,xFilial('CTD')+TRBZ21->Z21_ITEMCT,'CTD_DESC01')+ "</font></td>"//valor
+// 			_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(TRBZ21->Z21_VALOR,'@E 999,999,999.99') + "</font></td>"//valor
+// 			_cOutCot += "</tr>"
+// 			TRBZ21->(DbSkip())
+// 		Enddo
+
+// 		_cCab :=  " <table border='1' width='"+ALLTRIM(STR(_cTamCol))+"'>"
+// 		_cCab  += " <tr>"
+// 		_cCab  += " 	<td bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Classification</font>"
+// 		_cCab  += " </td>"
+// 		_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Classification Description</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Cost Center</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Accounting Item</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Value</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " </tr>"
+	
+// 		_cOutCot +="</table>"
+// 		_cOutCot:=_cCab+_cOutCot
+// 	Else
+// 		_cOutCot := "No apportionment in this measurement."
+// 	Endif
+// 	TRBZ21->(dbCloseArea())
+// 	SC7->(DBCloseArea())
+	
+// 	oHtml:ValByName("rateio",_cOutCot)		
+	
+// 	//CONOUT(_cOutCot)
+// 	//CONOUT('1000')
+	
+// 	SC7->(DBSEEK(xFilial('SC7')+_vNumPedido))
+// 	IF  !Empty(Alltrim(SC7->C7_MEDICAO)) 
+// 		oHtml := buscaPag(oHtml,SC7->C7_CONTRA,SC7->C7_FORNECE+SC7->C7_LOJA)	 
+// 	else
+// 		oHtml := retornaCotacao(oHtml)
+// 	ENDIF
+	
+// 	_cSolic := ''
+		
+// 	dbSelectArea('SC1')
+// 	SC1->(dbSetOrder(1))
+// 	CONOUT('SOLIC '+SC7->C7_FILIAL+SC7->C7_NUMSC+SC7->C7_ITEMSC)
+// 	if !empty(SC7->C7_NUMSC) .AND. SC1->(dbSeek(SC7->C7_FILIAL+SC7->C7_NUMSC+SC7->C7_ITEMSC))
+	
+// 		PswOrder(1)
+// 		_cUsuSol := IF(!EMPTY(SC1->C1_USER),SC1->C1_USER,SC1->C1_REQUISI)
+		
+// 		If PswSeek(ALLTRIM(_cUsuSol),.t.)
+// 			aInfo := PswRet()
+// 			_cSolic := ' ; '+alltrim(aInfo[1,14])
+// 		endif
+	
+// 	endif
+	
+// 	_oProc:cTo := cMailAp +_cSolic
+	
+// 	//	_oProc:cTo := cMailAp + ";" + USRRETMAIL(getmv("MV_TCPREJ"))
+// 	_oProc:Start()
+// 	_oProc:Finish()
+// 	restarea(aarea)
+	
+// 	PutMv("MV_WFHTML",cMvAtt)
+	
+// Return
+		
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// 		//REJEICAO
+// Static Function fazrej(cKey,cJus)
+		
+// 		Local nPosEmp	:= 0
+// 		Local cFiliall	:= ""
+// 		Local cEmprr	:= ""
+// 		Local I
+		
+// 		cChave := Embaralha(ckey,1)
+		
+// 		//Conecta a empresa 02 para recuperar tamanho dos campos da chave
+// 		RpcSetEnv('02', '01','workflow','W0rk1404', "SIGACOM",,,,,,)
+		
+// 		//Recupera empresa
+// 		nPosEmp := tamsx3('C7_FILIAL')[1] + tamsx3('C7_NUM')[1] + tamsx3('CR_USER')[1] + tamsx3('CR_NIVEL')[1] + 1
+// 		cEmprr	 := substr(cChave,nPosEmp,2)
+		
+// 		If Empty(AllTrim(cEmprr))
+// 			cEmprr := "02"
+// 		EndIf
+		
+// 		nPosini:=1
+// 		nposFin:=tamsx3('C7_FILIAL')[1]
+// 		cFiliall := substr(cChave,nPosini,nposFin)
+		
+// 		//Desconecta a empresa
+// 		RpcClearEnv()
+// 		RpcSetEnv( cEmprr, cFiliall,,, "COM",,,,,,)
+		
+// 		nPosini:=nposFin+1
+// 		nposFin+=tamsx3('C7_NUM')[1]
+// 		cPedido:=substr(cChave,nPosini,tamsx3('C7_NUM')[1])
+		
+// 		nPosini:=nposFin+1
+// 		nposFin+=tamsx3('CR_USER')[1]
+// 		cUserApr:=substr(cChave,nPosini,tamsx3('CR_USER')[1])
+		
+// 		nPosini:=nposFin+1
+// 		nposFin+=tamsx3('CR_NIVEL')[1]
+// 		_cNivel:=substr(cChave,nPosini,tamsx3('CR_NIVEL')[1])
+		
+// 		dbSelectArea("SC7")
+// 		SC7->(dbSetOrder(1))
+// 		SC7->(dbSeek(cFiliall+cPedido))
+		
+// 		if RLock() 
+// 			reclock('SC7',.f.)
+// 			SC7->C7_MOTREJ:=AllTrim(cJus)
+// 			SC7->(MSUNLOCK())
+			
+// 			// Atualizar o registro da ZPB (Reparo/Garantia) caso a SC7 tenha sido gerada a partir do Monitor de GARANTIA/REPARO
+// 			U_ZPB_ATU(SC7->C7_NUM, SC7->C7_NUMSC, SC7->C7_MEDICAO, 'X')
+// 		else
+// 			conout('Pedido: '+cPedido+' Just '+cJus)
+// 			return .F.
+// 		endif
+		
+// 		nRecScr := 0
+// 		SCR->(dbSelectArea("SCR"))                   // Posiciona a Liberacao
+// 		SCR->(dbSetorder(2))
+// 		IF SCR->(dbSeek(cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr))
+// 			if _cNivel == SCR->CR_NIVEL
+// 				nRecScr := SCR->(RECNO())
+// 			ENDIF
+			
+// 			WHILE nRecScr == 0 .AND. cFiliall+"PC"+padR(cPedido,tamsx3('CR_NUM')[1],' ')+cUserApr == SCR->(CR_FILIAL+CR_TIPO+CR_NUM+CR_USER)
+				
+// 				IF( _cNivel == SCR->CR_NIVEL)
+// 					nRecScr := SCR->(RECNO())
+// 				ELSE
+// 					SCR->(DBSkip())
+// 				ENDIF
+// 			ENDDO
+// 		ENDIF
+		
+// 		dbSelectArea("SCR")
+// 		SCR->(dbSetorder(2))
+// 		SCR->(dbGoTop())
+// 		SCR->(DBGOTO(nRecScr))
+// 		RecLock("SCR",.F.)
+// 		SCR->CR_DATALIB := dDataBase
+// 		SCR->CR_USERLIB := cUserApr	//Substr(cUsuario,7,15)
+// 		SCR->CR_LIBAPRO := SCR->CR_APROV
+// 		SCR->CR_STATUS  := "04"
+// 		MsUnLock("SCR")
+// 		_cNivel := SCR->CR_NIVEL
+		
+		
+// 		// Atualiza os registros do mesmo nÌvel
+// 		dbSelectArea("SCR")
+// 		SCR->(dbSetorder(1))
+// 		SCR->(dbGoTop())
+// 		SCR->(dbSeek(xFilial("SCR")+"PC"+PADR(SC7->C7_NUM,TamSx3("CR_NUM")[1])+_cNivel))
+// 		While !SCR->(EOF()) .And. SCR->CR_FILIAL+SCR->CR_TIPO+SCR->CR_NUM+SCR->CR_NIVEL==xFilial("SCR")+"PC"+PADR(SC7->C7_NUM,TamSx3("CR_NUM")[1])+_cNivel
+// 			If SCR->CR_USER <> cUserApr
+// 				RecLock("SCR",.F.)
+// 				SCR->CR_DATALIB := dDataBase
+// 				SCR->CR_USERLIB := cUserApr
+// 				SCR->CR_LIBAPRO := Posicione("SAK",2,xFilial("SAK")+SCR->CR_USERLIB,"AK_COD")
+// 				SCR->CR_STATUS  := "05"
+// 				SCR->CR_OBS := "Doc.Bloq.Usuario: " + Alltrim(Posicione("SAK",2,xFilial("SAK")+SCR->CR_USERLIB,"AK_COD"))
+// 				MsUnLock("SCR") 
+// 				_cNivel := SCR->CR_NIVEL
+// 			Endif			
+// 			SCR->(dbSkip())
+// 		Enddo
+		
+	
+// 		dbSelectArea("SCR")
+// 		SCR->(dbSetorder(1))
+// 		SCR->(dbSeek(xFilial("SCR")+"PC"+PADR(SC7->C7_NUM,TamSx3("CR_NUM")[1])))
+// 		While !SCR->(EOF()) .And. SCR->CR_FILIAL+SCR->CR_TIPO+SCR->CR_NUM ==xFilial("SCR")+"PC"+PADR(SC7->C7_NUM,TamSx3("CR_NUM")[1])
+// 			if SCR->CR_NIVEL < _cNivel
+// 				enviaReJ(SCR->CR_USER,cFiliall)
+// 			EndIF			
+// 			SCR->(dbSkip())
+// 		Enddo		
+		
+// 		enviaReJ("",cFiliall)
+		
+// 		oCompras  := ClassIntCompras():new()    
+	
+// 		oCompras:registraIntegracao('2',cFiliall+cPedido,'A')  
+		
+// 		U_ENVSAL02(oCompras:cCodInt)
+		
+// 		//Desconecta a empresa
+// 		RpcClearEnv()
+// 	Return .T.
+		
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// Static Function enviaReJ(cEnv,cFiliall)
+		
+// 		Local cMailAp 	:= ""
+// 		Local I
+// 		Local ltem 		:= .T.
+// 		Local c,b,a,d
+// 		Local aFor		:= {}
+		
+// 		aarea:=getArea()
+// 		cMvAtt	:= GetMv("MV_WFHTML")
+// 		PutMv("MV_WFHTML","T")
+		
+// 		dbSelectArea('SC7')
+// 		SC7->(dbSetOrder(1))
+// 		SC7->(dbSeek(cFiliall+cPedido))
+// 		_oProc := TWFProcess():New( "PEDFOR", "Pedido para o Fornecedor" )   
+		
+// 		/*
+// 			Alterado por Ricardo Martins - 20/08/18
+// 			Caso pedido seja via contrato, pega template diferente 	
+// 		*/
+// 		cHtmlCon := ''
+// 		if empty(alltrim(SC7->C7_MEDICAO))
+// 	   		_oProc:NewTask( "SolicitaÁ„o de Pedido", "\WORKFLOW\HTML\PEDREP.HTM" )    
+// 	   		_oProc:cSubject := "Purchase Order N∫" + SC7->C7_NUM +  iif(SC7->C7_CONTRAT == "S"," Order Under Contract ", "")+" Rejected by Level " + _cNivel+" (Follow)"
+			
+// 			If SC7->C7_CONTRAT == "S"
+// 				cHtmlCon := '<tr>' + CRLF
+// 				cHtmlCon += '	<td colspan="2" bgcolor="#FFFF00" height="24">' + CRLF
+// 				cHtmlCon += '		<p align="left">' + CRLF
+// 				cHtmlCon += '			<font size="4" face="Arial">' + CRLF
+// 				cHtmlCon += '				<b>ORDER UNDER CONTRACT</b>' + CRLF
+// 				cHtmlCon += '			</font>' + CRLF
+// 				cHtmlCon += '		</p>' + CRLF
+// 				cHtmlCon += '	</td>' + CRLF
+// 				cHtmlCon += '</tr>' + CRLF  
+// 			Else
+// 				cHtmlCon += ''
+// 			EndIf
+			
+// 		else
+// 	   		_oProc:NewTask( "SolicitaÁ„o de Pedido", "\WORKFLOW\HTML\PEDREP_CON.HTM" )	
+// 	   		_oProc:cSubject :=  "Contract Measurement - Purchase Order N∫: " + SC7->C7_NUM + " Rejected by Level " + _cNivel+"  (Follow)"	
+// 		endif  
+// 		/* -------------------------------- */		
+// 		oHTML := _oProc:oHTML
+		
+// 		/*** Preenche os dados do cabecalho ***/     
+		
+// 		_vNumContrato := SC7->C7_CONTRA
+// 		_vRevContrato := SC7->C7_CONTREV    
+// 		_vNumPedido := SC7->C7_NUM 
+// 		oHtml:ValByName("cContrato",cHtmlCon)		
+		
+// //		oHtml:ValByName("lb_empresa",SM0->M0_NOMECOM) 
+// //		oHtml:ValByName("contrato",_vNumContrato)
+// 		oHtml:ValByName("EMISSAO",SC7->C7_EMISSAO)
+// 		oHtml:ValByName("FORNECEDOR",SC7->C7_FORNECE)
+	
+// 		/* Removido atÈ validarem o processo completo
+// 		oHtml:ValByName("lb_obs",SC7->C7_XOBSENG)
+// 		oHtml:ValByName("Pt",SC7->C7_OBS)
+// 		*/
+// 		oHtml:ValByName("lb_obs",STRTRAN( SC7->C7_OBS,Chr(13) + Chr(10) ,'</br>'))
+// //		oHtml:ValByName("moeda",U_getWFMoe(SC7->C7_MOEDA))
+		
+// 		oHtml:ValByName("MOTREJ",SC7->C7_MOTREJ)
+// 		dbSelectArea('SA2')
+// 		SA2->(dbSetOrder(1))
+// 		SA2->(dbSeek(xFilial('SA2')+SC7->C7_FORNECE))
+// 		oHtml:ValByName("lb_nome",SA2->A2_NREDUZ)
+		
+// 		// Recupera o email do comprador
+// 		if Empty(cEnv)
+// 			cAprov := SC7->C7_USER
+// 		Else
+// 			cAprov := cEnv
+// 		EndIF
+// 		PswOrder(1)
+// 		If PswSeek(cAprov,.t.)
+// 			aInfo   := PswRet(1)
+// 			cMailAp := alltrim(aInfo[1,14])
+// 			cNomeAP := aInfo[1,2]
+// 		Endif
+		
+// 		oHtml:ValByName("PEDIDO",SC7->C7_NUM)
+// 		oHtml:ValByName("cUsuario",UsrRetName(Alltrim(cUserApr)))
+// 		cNum := SC7->C7_NUM
+// 		dEmissao:=SC7->C7_EMISSAO
+// 		_oProc:fDesc := "Pedido de Compras No "+ cPedido
+// 		aIten:={}
+// 		nTotal  := 0   
+// 		_vDesc  := 0
+// 		nTotImp := 0
+// 		nFrete  := 0
+// 		SC7->(dbSetOrder(1))
+// 		SC7->(dbSeek(cFiliall+cPedido))
+// 		While !SC7->(EOF()) .And. SC7->C7_NUM = cNum
+// 			nTotal := nTotal + SC7->C7_TOTAL
+// 			AADD((oHtml:ValByName("it.item")),SC7->C7_ITEM)
+// 			AADD((oHtml:ValByName("it.codigo")),SC7->C7_PRODUTO)
+			
+// 			dbSelectArea('SB1')
+// 			SB1->(dbSetOrder(1))
+// 			SB1->(dbSeek(xFilial('SB1')+SC7->C7_PRODUTO))
+// 			SB5->( dbSetOrder(1) )
+// 			SB5->( dbSeek( xFilial('SB5') + SC7->C7_PRODUTO ) )
+			
+// 			AADD((oHtml:ValByName("it.descricao")),RetDesc( SC7->C7_PRODUTO ))
+		   														 
+		                             
+// 		   /*
+// 				Alterado por Ricardo Martins - 20/08/18
+// 				Caso pedido seja via contrato, apresenta o valor total do contrato 	
+// 			*/
+// 			 cPtoPed := 'No'
+// 			if empty(alltrim(SC7->C7_CONTRA))
+// 				if ALLTRIM(SC1->C1_ORIGEM) == 'MATA170'
+// 					cPtoPed := 'Yes'                       
+// 				endif
+// 				dbSelectArea("SB2")
+// 				SB2->(dbSeek(xFilial("SB2") +SC7->C7_PRODUTO +SC7->C7_LOCAL))
+// 				nSaldo := SaldoSb2()
+// 				dDtPrf := dToC(SC7->C7_DATPRF)
+// 				AADD((oHtml:ValByName("it.dtent"  )), dDtPrf)
+// //				AADD((oHtml:ValByName("it.style"  )), '')
+// 				AADD((oHtml:ValByName("it.conta"    )), iif(empty(SC7->C7_CONTA), Space(TamSx3('C7_CONTA')[1])     , SC7->C7_CONTA))
+// 				AADD((oHtml:ValByName("it.cCont")), iif(empty(SC7->C7_CONTA), Space(TamSx3('CT1_DESC01')[1]), Posicione('CT1', 1, Xfilial('CT1') + SC7->C7_CONTA, 'CT1_DESC01')))
+				
+// 				AADD((oHtml:ValByName("it.garantia"  )), IF(SC7->C7_XGARANTA=='1','Sim','N„o'))
+// 				AADD((oHtml:ValByName("it.tempoGar"  )),ALLTRIM(STR(SC7->C7_XTMPGAR))+ IF(SC7->C7_XDESCGA=='1','Days',IF(SC7->C7_XDESCGA=='2','Months',IF(SC7->C7_XDESCGA=='3','Years',''))))
+// 				AADD((oHtml:ValByName("it.ptPedido")),cPtoPed)
+// 				AADD((oHtml:ValByName("it.saldo")),TRANSFORM(nSaldo,'@E 999,999.99'))
+// 				AADD((oHtml:ValByName("it.ponto")),TRANSFORM(SB1->B1_EMIN,'@E 999,999.99'))
+// 				AADD((oHtml:ValByName("it.quant")),TRANSFORM(SC7->C7_QUANT,'@E 999,999.99'))
+				
+// 				IF SC7->C7_MOEDA  <> 1
+// 					nPreco := XMOEDA(SC7->C7_PRECO + (SC7->C7_VALEMB/SC7->C7_QUANT),SC7->C7_MOEDA,1,SC7->C7_EMISSAO,2,SC7->C7_TXMOEDA)
+// 					nTotal := XMOEDA(SC7->C7_TOTAL+SC7->C7_VALEMB,SC7->C7_MOEDA,1,SC7->C7_EMISSAO,2,SC7->C7_TXMOEDA)
+// 					AADD((oHtml:ValByName("it.preco")),TRANSFORM(nPreco,'@E 999,999,999.99'))
+// 					AADD((oHtml:ValByName("it.total")),TRANSFORM(nTotal,'@E 999,999,999.99'))  
+// 				ELSE
+// 					AADD((oHtml:ValByName("it.preco")),TRANSFORM(SC7->C7_PRECO+(SC7->C7_VALEMB/SC7->C7_QUANT),'@E 999,999,999.99'))
+// 					AADD((oHtml:ValByName("it.total")),TRANSFORM(SC7->C7_TOTAL,'@E 999,999,999.99'))  
+// 				ENDIF
+				
+// 				//Campos para o centro de custo e data de entrega
+// 				//Lucas - 11/10/13
+// 				AADD((oHtml:ValByName("it.ctt"    )), iif(empty(SC7->C7_CC), Space(TamSx3('C7_CC')[1])     , SC7->C7_CC))
+// 				AADD((oHtml:ValByName("it.cttdesc")), iif(empty(SC7->C7_CC), Space(TamSx3('CTT_DESC01')[1]), Posicione('CTT', 1, Xfilial('CTT') + SC7->C7_CC, 'CTT_DESC01')))
+// 			else
+// 				_vValorContrato := Posicione("CN9",1,SC7->C7_FILIAL+SC7->C7_CONTRA+SC7->C7_CONTREV,"CN9_VLATU")				
+// 				AADD((oHtml:ValByName("it.preco")),TRANSFORM(_vValorContrato,'@E 999,999,999.99'))
+			
+// 			endif
+// 			/* --------------------------------------------------------------- */
+			
+// 			_vDesc := _vDesc+SC7->C7_VLDESC
+// 			nTotImp += SC7->C7_VALIPI+SC7->C7_VALSOL
+// 			nFrete += SC7->C7_VALFRE
+			
+// 			ltem:=.f.
+// 			for I:=1 to len(aIten)
+				
+// 				if aIten[i][1] == SC7->C7_PRODUTO
+// 					lTem:=.t.
+// 					aIten[i][2]+= SC7->C7_QUANT
+// 				EndIF
+// 			next
+// 			if !lTem
+// 				aadd(aIten,{SC7->C7_PRODUTO,SC7->C7_QUANT})
+// 			EndIF
+			
+// 			SC7->(dbSkip())
+// 		Enddo
+
+//    		if !empty(alltrim(_vNumContrato))
+// 	   		_vValorSaldo := Posicione("CN9",1,xFilial('CN9')+_vNumContrato+_vRevContrato,"CN9_SALDO")
+	   		
+	   		
+// 			//Retorna valor dos pedidos em aberto
+// 			nValAberto := U_pedidosAb(_vNumContrato,_vRevContrato,cNum)
+			
+	   		
+// 			oHtml:ValByName("valorcontrato",TRANSFORM(_vValorContrato,'@E 999,999,999.99'))
+// 			oHtml:ValByName("valorsaldoCn9",TRANSFORM(_vValorSaldo,'@E 999,999,999.99'))
+// 			oHtml:ValByName("valorsaldo",TRANSFORM(_vValorSaldo+nValAberto+nTotal,'@E 999,999,999.99'))
+// 			oHtml:ValByName("totalpedido",TRANSFORM(nTotal,'@E 999,999,999.99'))
+// 		endif
+// 		/*
+// 		  Alterado por Ricardo Martins - 23/08
+// 		  Adicinando listagem de aprovadores e status de cada alcada
+// 		*/ 
+// 		dbSelectArea('SCR')
+// 		SCR->(dbSetOrder(1))	
+// 		if	SCR->(dbSeek(xfilial('SCR')+"PC"+cNum,.T.)) 	
+		
+// 			while !SCR->(EOF()) .AND. ALLTRIM(SCR->CR_NUM) ==  cNum .AND. SCR->CR_TIPO == 'PC' 
+	
+// 			   //	conout("0")	 
+// 			   	_vStatusW := SCR->CR_STATUS 
+// 			   	if _vStatusW == "01"
+// 					_vStatusW := "Waiting for the others levels approvement"
+// 			   	endif
+// 			   	if _vStatusW == "02"
+// 					_vStatusW := "Pending"
+// 				endif	
+// 			   	if _vStatusW == "03"
+// 					_vStatusW := "Approved"
+// 				endif	
+// 			  	if _vStatusW == "04"
+// 					_vStatusW := "Blocked"	
+// 				endif
+// 				if _vStatusW == "05"
+// 					_vStatusW := "Approved / Blocked by level"	
+// 				endif		
+												
+// 				AADD((oHtml:ValByName("ap.nivelalcada")),SCR->CR_NIVEL)	  
+// 				AADD((oHtml:ValByName("ap.nomeaprovadorresp")),UsrFullName(SCR->CR_USER))  	 
+// 				AADD((oHtml:ValByName("ap.statusalcada")),_vStatusW)  	 
+// 				AADD((oHtml:ValByName("ap.nomeaprovador")),u_xRetAprv(SCR->CR_USERLIB,SCR->CR_DATALIB) ) 		  
+// 				AADD((oHtml:ValByName("ap.dataaprocacao")),SCR->CR_DATALIB)   			
+		
+		 
+// 				SCR->(dbSkip())	
+// 			enddo	
+// 		endif
+// 		SCR->(DBCloseArea())   
+		
+// 		nTotal := nTotal
+// 		oHtml:ValByName("lbdes",TRANSFORM(_vDesc,'@E 999,999,999.99'))	       	    			
+// 		oHtml:ValByName("lbValor",TRANSFORM(nTotal,'@E 999,999,999.99'))
+		 
+// 		oHtml:ValByName("lValFre",TRANSFORM(nFrete,'@E 999,999,999.99'))
+// 		oHtml:ValByName("lbimp",TRANSFORM(nTotImp,'@E 999,999,999.99'))
+// 		oHtml:ValByName("lbtotal",TRANSFORM(nTotal+nTotImp+ nFrete -_vDesc,'@E 999,999,999.99'))
+		
+//    		/*
+// 		  Adicionado por Ricardo Martins - 23/08
+// 		  Informa?s de rateio
+// 		*/
+// 		SC7->(DBSELECTAREA('SC7'))
+// 		SC7->(DBSEEK(xFilial('SC7')+_vNumPedido))
+	    
+		
+// 		if !empty(alltrim(SC7->C7_CONTRA)) 
+// 			cSql :="	SELECT * " + CRLF 	
+// 			cSql +="	FROM "+RetSqlName("Z21")+" Z21 " + CRLF 
+// 			cSql +="	INNER JOIN "+RetSqlName("SED")+" SED" + CRLF 
+// 			cSql +="	ON ED_FILIAL ='"+xFilial('SED')+"'" + CRLF 
+// 			cSql +="	AND ED_CODIGO = Z21_NATURE" + CRLF 
+// 			cSql +="	AND SED.D_E_L_E_T_<>'*'" + CRLF 
+// 			cSql +="	WHERE Z21.Z21_NUMMED = '"+SC7->C7_MEDICAO+"'" + CRLF
+// 			cSql +="	AND Z21.Z21_FILIAL = '"+SC7->C7_FILIAL+"'" + CRLF
+// 			cSql +="	AND Z21.Z21_CONTRA = '"+SC7->C7_CONTRA+"'" + CRLF
+// 	   //	 	cSql +="	AND Z21.Z21_REVISA = '"+CND->CND_REVISA+"'" + CRLF
+// 			cSql +="    AND Z21.D_E_L_E_T_<>'*' " + CRLF
+		
+// 			If Select('TRBZ21')<>0
+// 				TRBZ21->(DBCloseArea())
+// 			EndIF
+// 			_cOutCot := ""
+// 			TcQuery cSql new Alias "TRBZ21"
+// 			DbSelectArea("TRBZ21")
+// 			TRBZ21->(DbGoTop())
+// 			If !TRBZ21->(EOF())	
+// 				While !TRBZ21->(EOF())	                                                                                                      
+// 					_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_NATURE + "</font></td>"//valor
+// 					_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->ED_DESCRIC + "</font></td>"//valor
+// 					_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_CCUSTO + "</font></td>"//valor
+// 					_cOutCot += "<td align='left'><font size='2' face='Arial'>" + TRBZ21->Z21_ITEMCT + "</font></td>"//valor
+// 					_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(TRBZ21->Z21_VALOR,'@E 999,999,999.99') + "</font></td>"//valor
+// 					_cOutCot += "</tr>"
+// 					TRBZ21->(DbSkip())
+// 				Enddo
+		
+// 				_cCab :=  " <table border='1' width='1100'>"
+// 				_cCab  += " <tr>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Classification</font>"
+// 				_cCab  += " </td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Classification Description</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Cost Center</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Accounting Item</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Value</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " </tr>"
+			
+// 				_cOutCot +="</table>"
+// 				_cOutCot:=_cCab+_cOutCot
+// 			Else
+// 				_cOutCot := "No apportionment in this measurement."
+// 			Endif
+// 			TRBZ21->(dbCloseArea())
+// 			SC7->(DBCloseArea())
+			
+// 			oHtml:ValByName("rateio",_cOutCot)		
+// 		endif
+		
+// 		SC7->(DBSELECTAREA('SC7'))
+// 		SC7->(DBSEEK(xFilial('SC7')+cNum))
+// 		if empty(alltrim(SC7->C7_CONTRA))
+		
+   
+// 			cSql := "	SELECT SC8.C8_NUM,SC8.C8_FORNECE,SC8.C8_PRODUTO, " + CRLF
+// 			cSql += "		SC8.C8_LOJA, A2_NOME,SC8.C8_MOEDA,sum(SC8.C8_QUANT) as C8_QUANT, SUM(C8_VALFRE) AS C8_VALFRE," + CRLF
+// 			cSql += "		sum(SC8.C8_TOTAL+C8_VALEMB) AS C8_TOTAL, SUM(C8_VALIPI) AS C8_VALIPI , SUM(C8_VLDESC) AS C8_VALDESC" + CRLF
+// 			cSql += "	FROM "+RetSqlName("SC8")+" SC8 " + CRLF
+// 			cSql += " 	INNER JOIN "+RetSqlName("SA2")+" SA2 ON " + CRLF
+// 			cSql += "			A2_COD = SC8.C8_FORNECE" + CRLF
+// 			cSql += "		AND A2_LOJA = SC8.C8_LOJA " + CRLF
+// 			cSql += "	WHERE SC8.C8_FILIAL ='"+SC7->C7_FILIAL+"'" + CRLF
+// 			cSql += "    	AND SC8.C8_NUM = '"+SC7->C7_NUMCOT+"'" + CRLF
+// 			cSql += "    	AND SC8.C8_FORNECE <> '"+SC7->C7_FORNECE+"' " + CRLF
+// 			cSql += "    	AND SA2.D_E_L_E_T_<>'*' " + CRLF
+// 			cSql += "    	AND SC8.C8_PRODUTO IN (SELECT SC7.C7_PRODUTO " + CRLF
+// 			cSql += "   							FROM "+RetSqlName("SC7")+" SC7 " + CRLF
+// 			cSql += "    						WHERE SC7.C7_NUM = '"+SC7->C7_NUM+"'" + CRLF
+// 			//	cSql +="    						AND C7_ITEMSC = C8_ITEMSC" + CRLF
+// 			cSql += "    						AND SC7.D_E_L_E_T_<>'*') " + CRLF
+// 			cSql += "		AND C8_TOTAL > 0 " + CRLF
+// 			cSql += "		AND SC8.D_E_L_E_T_<>'*' " + CRLF
+// 			cSql += "	GROUP BY SC8.C8_NUM,SC8.C8_FORNECE, SC8.C8_LOJA, A2_NOME, SC8.C8_MOEDA,SC8.C8_FORNECE,SC8.C8_PRODUTO, " + CRLF
+// 			cSql += "  			 SC8.C8_LOJA, A2_NOME " + CRLF
+			        
+// 			If Select('TRBC8')<>0
+// 				TRBC8->(DBCloseArea())
+// 			EndIF
+			
+// 			TcQuery cSql new Alias "TRBC8"
+			
+// 			//fornecedor - produto - quantidade cotada - val. Unit. Vlr. Total
+// 			cFor := Alltrim(TRBC8->A2_NOME)
+// 			nTot:=0
+// 			lAchou:=.f.
+// 			aItens:={}
+// 			aFor:={}
+// 			TRBC8->(dbGoTop())
+// 			While !TRBC8->(EOF())
+// 				AADD(aitens,{TRBC8->A2_NOME,TRBC8->C8_PRODUTO,TRBC8->C8_QUANT,TRBC8->C8_TOTAL,"",TRBC8->C8_MOEDA,TRBC8->C8_NUM + TRBC8->C8_FORNECE + TRBC8->C8_LOJA,TRBC8->C8_VALIPI,TRBC8->C8_VALDESC,TRBC8->C8_VALFRE})
+// 				if aScan(aFor,TRBC8->A2_NOME)==0
+// 					aadd(aFor,TRBC8->A2_NOME)
+// 				EndIF
+				
+// 				TRBC8->(dbSkip())
+// 			Enddo
+// 			lProd:=.f.
+// 			lPedMai:=.F.
+// 			lPedMen:=.F.
+// 			for a:=1 to len(aFor)
+// 				for b:=1 to len(aItens)
+// 					if afor[a]==aItens[b][1]//verifica o fornecedor\
+// 						for c:=1 to len(aIten)
+// 							if aiten[c][1]== aItens[b][2]
+// 								lProd:=.T.
+// 								if aiten[c][2] > aItens[b][3]
+// 									lPedMai:=.t.
+// 								EndIF
+// 								if aiten[c][2] < aItens[b][3]
+// 									lPedMen:=.t.
+// 								EndIF
+// 							EndIF
+// 						Next
+						
+// 						IF !lProd
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Cotacao com produtos que nao tem no pedido."
+// 							lProd:=.f.
+// 						EndIf
+						
+// 						If lPedMai
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Quantidade do pedido maior que a cotada."
+// 						EndIf
+						
+// 						If lPedMen
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Quantidade do pedido menor que a cotada."
+							
+// 						EndIf
+// 					EndIf
+// 				Next
+// 			Next
+// 			aForn2:={}
+// 			for c:=1 to len(aFor)
+// 				lItem:=.f.
+				
+// 				for b:=1 to len(aIten)
+// 					for d := 1 to len(aItens)
+// 						if aItens[d][1]==aFor[c]
+// 							if aItens[d][2] == aIten[b][1]
+// 								lItem:=.t.
+// 							EndIF
+// 						EndIF
+// 					Next
+// 					if !lItem
+// 						aadd(aForn2,aFor[c])
+// 					Else
+// 						lItem:=.f.
+// 					EndIf
+// 				Next
+// 			Next
+			
+// 			cMens:=""
+// 			If Len(aItens) > 0
+// 				_cOutCot:=""
+// 				lMens:=.F.
+// 				cFor:=aItens[1][1]
+				
+// 				nTot:=0
+// 				nDesc := 0
+// 				nValFre := 0
+// 				nTotImp2 := 0
+// 				_CMoeda:=aItens[1][5]
+// 				For i:=1 to len(aItens)
+// 					nDesc := 0
+// 					if cFor <> aItens[i][1]
+// 						_cOutCot += "<tr>"
+// 						_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cFor+if( _CMoeda > 1 ,"(Estimated Values - Import)","")) + "</font></td>"
+// 						nPos:=aScan(aForn2,cFor)
+// 						if nPos > 0
+// 							cMens:=alltrim(cMens)+"Fornecedor n„o cotou todos os produtos."
+// 						EndIF
+// 						if !Empty(alltrim(cMens))
+							
+// 							_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cMens) + "</font></td>"
+// 							lMens:=.t.
+// 							cMens:=""
+// 						Else
+// 							_cOutCot += "<td><font size='2' face='Arial'>&nbsp;</font></td>"
+// 						EndIF
+// 						If _CMoeda > 1
+// 							cPerc	:= posicione("SC8",1,xFilial("SC8")+_cChave,"C8_IMPPREV")
+// 							nTot	:= XMOEDA(nTot,_CMoeda,1,dEmissao)
+// 							nValFre	+= XMOEDA(aItens[i][10],_CMoeda,1,dEmissao)
+// 							nDesc	+= XMOEDA(aItens[i][9],_CMoeda,1,dEmissao)
+// 							//					nTot:=nTot+(nTot * (cPerc/100) )
+// 							nTotImp2 += XMOEDA(aItens[i][8],_CMoeda,1,dEmissao)
+// 						Else
+// 							nTotImp2 += aItens[i][8]
+							
+// 							nValFre += aItens[i][10]
+// 							nDesc += aItens[i][9]
+// 						EndI
+						
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot,'@E 999,999,999.99') + "</font></td>"//total
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTotImp2,'@E 999,999,999.99') + "</font></td>"//impostos
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot+nTotImp2 + nValFre - nDesc,'@E 999,999,999.99') + "</font></td>"//total
+// 						_cOutCot += "</tr>"
+						
+// 						cFor    := aItens[i][1]
+// 						nTot    := 0
+// 						nDesc   := 0
+// 						nValFre := 0
+// 					EndIf
+					
+// 					nTot	+= aItens[i][4]
+// 					nDesc	+= aItens[i][9]
+// 					nValFre	+= aItens[i][10]
+// 					nTotImp2+= aItens[i][8]
+// 					cMens	:= alltrim(cMens)+if(Empty(alltrim(cMens)),""," - ") + aItens[i][5]
+// 					_CMoeda	:= aItens[i][6]
+// 					_cChave	:= aItens[i][7]
+// 				Next
+// 				_cOutCot += "<tr>"
+// 				_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cFor+if( _CMoeda > 1 ,"(Valores estimados - Importacao)","")) + "</font></td>"
+// 				nPos:=aScan(aForn2,cFor)
+// 				if nPos > 0
+// 					cMens:=alltrim(cMens)+" Supplier sent an incomplete quotation (doesn't have all needed products and/or services)."
+// 				EndIF
+// 				if !Empty(alltrim(cMens))
+					
+// 					_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cMens) + "</font></td>"
+// 					lMens:=.t.
+// 				EndIF
+// 				If _CMoeda > 1
+// 					cPerc:=posicione("SC8",1,xFilial("SC8")+_cChave,"C8_IMPPREV")
+// 					nTot:=XMOEDA(nTot,_CMoeda,1,dEmissao)
+// 					nTot:=nTot+(nTot * (cPerc/100) )
+// 				EndIf
+				
+// 				If Empty(Alltrim(cMens))
+// 					_cOutCot += "<td><font size='2' face='Arial'>&nbsp;</font></td>"
+// 				EndIf
+				
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot,'@E 999,999,999.99') + "</font></td>"
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTotImp2,'@E 999,999,999.99') + "</font></td>"//impostos
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot+nTotImp2 +nValFre -nDesc,'@E 999,999,999.99') + "</font></td>"//total
+// 				_cOutCot += "</tr>"
+				
+				
+// 				_cCab :=  " <table border='1' width='1500'>"
+// 				_cCab  += " <tr>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Fornecedor</font>"
+// 				_cCab  += " </td>"
+// 				//_cCab  += " 	<td align='right' width='101' bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Observacao</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Valor</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Impostos</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Vlr. Total + Freight</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " </tr>"
+				
+// 				_cOutCot += "</table>"
+// 				_cOutCot:=_cCab+_cOutCot
+				
+// 			Else
+				
+// 				_cOutCot := "No other quotations."
+				
+// 			Endif
+// 			TRBC8->(dbCloseArea())   
+	
+// 			oHtml:ValByName("cotacoes",_cOutCot)   
+			
+			
+// 	   endif
+		
+			
+// 		SC7->(DBSELECTAREA('SC7'))
+// 		SC7->(DBSEEK(xFilial('SC7')+cNum))
+// 		IF  !Empty(Alltrim(SC7->C7_CONTRA))
+	   
+// 			oHtml := buscaPag(oHtml,SC7->C7_CONTRA, SC7->C7_FORNECE+SC7->C7_LOJA)
+		
+// 		else
+// 			oHtml:ValByName("pagamentos",'No other payments.')
+// 		ENDIF
+		
+// 		_cSolic := ''
+// 		if Empty(cEnv)
+// 			dbSelectArea('SC1')
+// 			SC1->(dbSetOrder(1))
+// 			if !empty(SC7->C7_NUMSC) .AND. SC1->(dbSeek(SC7->C7_FILIAL+SC7->C7_NUMSC+SC7->C7_ITEMSC))
+			
+// 				PswOrder(1)
+				
+// 				_cUsuSol := IF(!EMPTY(SC1->C1_USER),SC1->C1_USER,SC1->C1_REQUISI)
+				
+// 				If PswSeek(ALLTRIM(_cUsuSol),.t.)
+// 					aInfo := PswRet()
+// 					_cSolic := ' ; '+alltrim(aInfo[1,14])
+// 				endif
+			
+// 			endif
+// 		endif
+// 		_oProc:cTo := cMailAp + ";" + USRRETMAIL(getmv("MV_TCPREJ")) + _cSolic
+// 		conout(_oProc:cTo)
+// 		_oProc:Start()
+// 		_oProc:Finish()
+// 		restarea(aarea)
+		
+// 		PutMv("MV_WFHTML",cMvAtt)
+// 	Return
+		
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// 		//**********************************************************************************//
+// Static Function NaoAc(cString)
+		
+// 		Local cChar  := ""
+// 		Local nX     := 0
+// 		Local nY     := 0
+// 		Local cVogal := "aeiouAEIOU"
+// 		Local cAgudo := "·ÈÌÛ˙"+"¡…Õ”⁄"
+// 		Local cCircu := "‚ÍÓÙ˚"+"¬ Œ‘€"
+// 		Local cTrema := "‰ÎÔˆ¸"+"ƒÀœ÷‹"
+// 		Local cCrase := "‡ËÏÚ˘"+"¿»Ã“Ÿ"
+// 		Local cTio   := "„ı√’"
+// 		Local cCecid := "Á«"
+// 		Local cECome := "&"
+// 		Local cApos := "'"
+// 		Local cCerq  := "#"
+// 		Local cMaMe	 := "<>"
+		
+// 		For nX:= 1 To Len(cString)
+// 			cChar:=SubStr(cString, nX, 1)
+// 			IF cChar$cAgudo+cCircu+cTrema+cCecid+cTio+cCrase+cECome+cApos+cCerq+cMaMe
+// 				nY:= At(cChar,cAgudo)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cCircu)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cTrema)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cCrase)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr(cVogal,nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cTio)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr("aoAO",nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cCecid)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr("cC",nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cECome)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr("E",nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cApos)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr(" ",nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cCerq)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr("N",nY,1))
+// 				EndIf
+// 				nY:= At(cChar,cMaMe)
+// 				If nY > 0
+// 					cString := StrTran(cString,cChar,SubStr("  ",nY,1))
+// 				EndIf
+// 			Endif
+// 		Next
+		
+// 		//+----------------------------------------------------------------------------+
+// 		//| Substituir " por POL.                                                      |
+// 		//+----------------------------------------------------------------------------+
+// 		For nX:=1 To Len(cString)
+// 			cChar:=SubStr(cString, nX, 1)
+// 			if cChar == '"'
+// 				cString := StrTran(cString,cChar," POL.")
+// 				Exit
+// 			endif
+// 		next nX
+		
+// 		//+----------------------------------------------------------------------------+
+// 		//| Substituir ™ por .a                                                        |
+// 		//+----------------------------------------------------------------------------+
+// 		For nX:=1 To Len(cString)
+// 			cChar:=SubStr(cString, nX, 1)
+// 			if cChar == '™'
+// 				cString := StrTran(cString,cChar,".a")
+// 				Exit
+// 			endif
+// 		next nX
+		
+// 		//+----------------------------------------------------------------------------+
+// 		//| Substituir ∫ por .o                                                        |
+// 		//+----------------------------------------------------------------------------+
+// 		For nX:=1 To Len(cString)
+// 			cChar:=SubStr(cString, nX, 1)
+// 			if cChar == '∫'
+// 				cString := StrTran(cString,cChar,".o")
+// 				Exit
+// 			endif
+// 		next nX
+		
+// 		//+----------------------------------------------------------------------------+
+// 		//| Substituir ∞ por .o                                                        |
+// 		//+----------------------------------------------------------------------------+
+// 		For nX:=1 To Len(cString)
+// 			cChar:=SubStr(cString, nX, 1)
+// 			if cChar == '∞'
+// 				cString := StrTran(cString,cChar,".o")
+// 				Exit
+// 			endif
+// 		next nX
+		
+// 		Return cString
+		
+		
+// Static Function AvisaFornecedor(cPedido)
+		
+// 		Local oProcess
+// 		Local oHtml
+		
+// 		Local nTotalPedido := 0
+// 		Local nTotalItem   := 0
+// 		Local nPrecoUnitario := 0
+		
+// 	//	conout('LIBPC -> avisando o fornecedor')
+		
+// 		SC7->( dbSetOrder(1) )
+// 		SC7->( dbSeek( xFilial("SC7") + cPedido ) )
+		
+// 		SA2->( dbSetOrder(1) )
+// 		SA2->( dbSeek( xFilial("SA2") + SC7->(C7_FORNECE+C7_LOJA) ) )
+		
+// 		SE4->( dbSetOrder(1) )
+// 		SE4->( dbSeek( xFilial("SE4") + SC7->C7_COND ) )
+		
+// 		oProcess := TWFProcess():New( "PAPFOR", "Pedido Aprovado para o Fornecedor" )
+// 		oProcess:NewTask( "Pedido Aprovado", "\WORKFLOW\HTML\PEDIDOFORN.HTM" )
+// 		oProcess:cSubject := "Pedido "+cPedido+" aprovado para entrega"
+		
+// 		oHTML := oProcess:oHTML
+		
+// 		oHtml:ValByName("pedido",SC7->C7_NUM)
+		
+// 		oHtml:ValByName("cnpj",TransForm(SA2->A2_CGC,"@R 99.999.999/9999-99"))
+// 		oHtml:ValByName("fornecedor",SA2->A2_NOME)
+		
+// 		oHtml:ValByName("comprador",AllTrim(UsrFullName(SC7->C7_USER)))
+		
+// 		While !SC7->( Eof() ) .And. SC7->(C7_FILIAL+C7_NUM) == xFilial("SC7")+cPedido
+			
+// 			SB1->( dbSetOrder(1) )
+// 			SB1->( dbSeek( xFilial('SB1') + SC7->C7_PRODUTO ) )
+			
+// 			SB5->( dbSetOrder(1) )
+// 			SB5->( dbSeek( xFilial('SB5') + SC7->C7_PRODUTO ) )
+			
+// 			aAdd((oHtml:ValByName("it.item")),SC7->C7_ITEM)
+// 			aAdd((oHtml:ValByName("it.codigo")),SC7->C7_PRODUTO)
+// 			aAdd((oHtml:ValByName("it.descricao")),RetDesc( SC7->C7_PRODUTO ))
+// 			aAdd((oHtml:ValByName("it.quant")),TransForm(SC7->C7_QUANT,'@E 999,999.99'))
+// 			aAdd((oHtml:ValByName("it.dtent"  )), dToC(SC7->C7_DATPRF))
+			
+// 			SC8->( dbSetOrder(3) )
+// 			SC8->( dbSeek( xFilial("SC8") + SC7->(C7_NUMCOT+C7_PRODUTO+C7_FORNECE+C7_LOJA) ) )
+			
+// 			IF SC7->C7_MOEDA != 1
+				
+// 				nPrecoUnitario := (xMoeda(SC7->C7_PRECO + (SC7->C7_VALEMB/SC7->C7_QUANT),SC7->C7_MOEDA,1,SC7->C7_EMISSAO,2,SC7->C7_TXMOEDA))
+// 				nPrecoUnitario := nPrecoUnitario + (nPrecoUnitario * (SC8->C8_IMPPREV/100) )
+// //				nTotalItem := xMoeda(SC7->C7_TOTAL+SC7->C7_VALEMB,SC7->C7_MOEDA,1,SC7->C7_EMISSAO)
+// 				nTotalItem := XMOEDA(SC7->C7_TOTAL+SC7->C7_VALEMB,SC7->C7_MOEDA,1,SC7->C7_EMISSAO,2,SC7->C7_TXMOEDA)
+// 				nTotalItem := (nTotalItem + (nTotalItem * (SC8->C8_IMPPREV/100))) + SC8->C8_VALIPI
+				
+// 				nTotalPedido += nTotalItem
+				
+// 				/*
+// 					Alterado por Ricardo Martins - 20/08/18
+// 					Caso pedido seja via contrato, apresenta o valor total do contrato 	
+// 				*/				
+// 				if empty(alltrim(SC7->C7_CONTRA))
+// 					aAdd((oHtml:ValByName("it.preco")),TransForm(nPrecoUnitario,'@E 999,999,999.99'))
+// 				else
+// 					_vValorContrato := Posicione("CN9",1,SC7->C7_FILIAL+SC7->C7_CONTRA+SC7->C7_REVISA,"CN9_VLATU") 
+// 					aAdd((oHtml:ValByName("it.preco")),TransForm(_vValorContrato,'@E 999,999,999.99'))
+// 				endif
+// 				/* ------------------------------------------------------------- */
+				
+// 				aAdd((oHtml:ValByName("it.total")),TransForm(nTotalItem,'@E 999,999,999.99'))
+				
+				
+// 			Else
+				
+// 				nTotalItem := SC7->C7_TOTAL + SC7->C7_VALEMB + SC8->C8_VALIPI
+// 				nTotalPedido += nTotalItem
+				
+// 				/*
+// 					Alterado por Ricardo Martins - 20/08/18
+// 					Caso pedido seja via contrato, apresenta o valor total do contrato 	
+// 				*/
+// 				if empty(alltrim(SC7->C7_CONTRA))
+// 					Add((oHtml:ValByName("it.preco")),TransForm(SC7->C7_PRECO+(SC7->C7_VALEMB/SC7->C7_QUANT),'@E 999,999,999.99'))
+// 				else
+// 					_vValorContrato := Posicione("CN9",1,SC7->C7_FILIAL+SC7->C7_CONTRA+SC7->C7_REVISA,"CN9_VLATU") 
+// 					aAdd((oHtml:ValByName("it.preco")),TransForm(_vValorContrato,'@E 999,999,999.99'))
+// 				endif
+// 				/* -------------------------------------------- */
+				
+// 				aAdd((oHtml:ValByName("it.total")),TransForm(nTotalItem,'@E 999,999,999.99'))
+// 			EndIF
+			
+// 			SC7->(dbSkip())
+			
+// 		EndDO
+		
+// 		oHtml:ValByName("totalpedido",TransForm(nTotalPedido,'@E 999,999,999.99'))
+		
+// 		SC7->( dbSetOrder(1) )
+// 		SC7->( dbSeek( xFilial("SC7") + cPedido ) )
+		
+// 		oHtml:ValByName("condpagto",SE4->E4_CODIGO + " - " + SE4->E4_DESCRI)
+// 		oHtml:ValByName("dtentrega",FormDate(SC7->C7_DATPRF))
+// 		oHtml:ValByName("tpfrete"  ,substr(rettipofrete(SC7->C7_TPFRETE),3))
+		
+// 		oHtml:ValByName("data",DtoC(Date()))
+// 		oHtml:ValByName("hora",Time())
+		
+// 		oProcess:cTo := alltrim(SA2->A2_EMAIL)
+// 		oProcess:cCc := alltrim(UsrRetMail(SC7->C7_USER)) + ";" + USRRETMAIL(getmv("MV_TCPREJ"))
+		
+// 		oProcess:Start()
+// 		oProcess:Finish()
+		
+// 	Return
+		
+// static function buscaPag(oHtml, cNumCont,_cFornec)
+// lOCAL _cCab := ''
+// lOCAL _cItensPg := ''
+// Local cAliasAx2 := getNextAlias()
+		 
+// 	BeginSQL Alias cAliasAx2
+ 
+// 	  SELECT E2_BAIXA, E2_VALOR+E2_INSS+E2_IRRF+E2_ISS+E2_PIS+E2_COFINS+E2_CSLL-E2_SALDO AS VLBAIXA, E2_EMISSAO, E2_VENCREA,E2_NUM,E2_HIST, E2_FORNECE, E2_NOMFOR
+// 	  FROM %TABLE:SE2% SE2
+// 	   LEFT JOIN %TABLE:SD1% SD1 ON D1_FILIAL = E2_FILIAL AND E2_NUM = D1_DOC AND E2_PREFIXO = D1_SERIE AND E2_FORNECE = D1_FORNECE AND E2_LOJA = D1_LOJA AND SD1.%NotDel%
+// 	   LEFT JOIN %TABLE:SC7% SC7 ON C7_FILIAL = D1_FILIAL AND C7_NUM = D1_PEDIDO AND C7_ITEM = D1_ITEMPC AND SD1.%NotDel%
+	  
+// 	  WHERE SE2.%NotDel% AND E2_BAIXA != ' ' AND E2_VALOR != E2_SALDO AND  (( C7_CONTRA = %EXP:cNumCont%  AND  E2_TIPO ='NF ' AND E2_ORIGEM = 'MATA100 ') OR (E2_XCONTRA = %EXP:cNumCont% AND E2_FORNECE+E2_LOJA= %EXP:_cFornec%  ) )
+	  
+// 	   ORDER BY E2_BAIXA DESC
+// 	   OFFSET 0 ROWS FETCH NEXT 20 ROWS ONLY 
+	
+//    EndSQL
+// 	 //OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY 
+
+// 	 conout(GETLASTQUERTY()[2])
+	 
+// 	 IF !((cAliasAx2)->(Eof()))
+//  		_cCab :=  " <table border='1' width='1100'>"
+// 		_cCab  += " <tr>"
+// 		_cCab  += " 	<td colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Date</font>"
+// 		_cCab  += " </td>"
+// 		//_cCab  += " 	<td align='right' width='101' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 	<td  colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Provider</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Description</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Number</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Payment Date</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " 	<td  colspan='1' bgcolor='#DFEFFF' height='18'>"
+// 		_cCab  += " 		<font face='Arial'>Value</font>"
+// 		_cCab  += " 	</td>"
+// 		_cCab  += " </tr>"
+// 		 WHILE !(cAliasAx2)->(Eof())
+// 		 	//Adiciona pagamentos
+// 		 	_cItensPg += "<tr>"
+// 		    _cItensPg += "<td align='right'><font size='2' face='Arial'>" + DTOC(STOD((cAliasAx2)->E2_EMISSAO)) + "</font></td>"
+// 			_cItensPg += "<td align='right'><font size='2' face='Arial'>" + (cAliasAx2)->E2_FORNECE+' - '+(cAliasAx2)->E2_NOMFOR + "</font></td>"//
+// 			_cItensPg += "<td align='right'><font size='2' face='Arial'>" + (cAliasAx2)->E2_HIST + "</font></td>"//
+// 			_cItensPg += "<td align='right'><font size='2' face='Arial'>" + (cAliasAx2)->E2_NUM + "</font></td>"//
+// 			_cItensPg += "<td align='right'><font size='2' face='Arial'>" + DTOC(STOD((cAliasAx2)->E2_BAIXA)) + "</font></td>"//
+// 			_cItensPg += "<td align='right'><font size='2' face='Arial'>" + Transform((cAliasAx2)->VLBAIXA,'@E 999,999,999.99') + "</font></td>"//
+// 			_cItensPg += "</tr>"
+			
+// 		 	(cAliasAx2)->(DbSkip())
+// 		 ENDDO
+		 
+// 		_cItensPg += "</table>"
+// 		_cItensPg :=_cCab+_cItensPg
+// 	 ELSE
+// 	 	_cItensPg := "No other payments."
+// 	 ENDIF 
+// 	 (cAliasAx2)->(dbclosearea())
+
+// 	oHtml:ValByName("pagamentos",_cItensPg)   
+// return oHtml
+
+// static function retornaCotacao(oHtml)
+
+// 		Local c,b,a,d,i
+
+//    		SC7->(DBSELECTAREA('SC7'))
+// 		SC7->(DBSEEK(xFilial('SC7')+cNum))
+// 	  //	if empty(alltrim(SC7->C7_CONTRA))
+		
+// 			cSql := "	SELECT SC8.C8_NUM,SC8.C8_FORNECE,SC8.C8_PRODUTO, " + CRLF
+// 			cSql += "		SC8.C8_LOJA, A2_NOME,SC8.C8_MOEDA,sum(SC8.C8_QUANT) as C8_QUANT, SUM(C8_VALFRE) AS C8_VALFRE, " + CRLF
+// 			cSql += "		sum(SC8.C8_TOTAL+C8_VALEMB) AS C8_TOTAL, SUM(C8_VALIPI) AS C8_VALIPI, SUM(C8_VLDESC) AS C8_VALDESC " + CRLF
+// 			cSql += "	FROM "+RetSqlName("SC8")+" SC8 " + CRLF
+// 			cSql += " 	INNER JOIN "+RetSqlName("SA2")+" SA2 ON " + CRLF
+// 			cSql += "			A2_COD = SC8.C8_FORNECE" + CRLF
+// 			cSql += "		AND A2_LOJA = SC8.C8_LOJA " + CRLF
+// 			cSql += "	WHERE SC8.C8_FILIAL ='"+SC7->C7_FILIAL+"'" + CRLF
+// 			cSql += "    	AND SC8.C8_NUM = '"+SC7->C7_NUMCOT+"'" + CRLF
+// 			cSql += "    	AND SC8.C8_FORNECE <> '"+SC7->C7_FORNECE+"' " + CRLF
+// 			cSql += "    	AND SA2.D_E_L_E_T_<>'*' " + CRLF
+// 			cSql += "    	AND SC8.C8_PRODUTO IN (SELECT SC7.C7_PRODUTO " + CRLF
+// 			cSql += "   							FROM "+RetSqlName("SC7")+" SC7 " + CRLF
+// 			cSql += "    						WHERE SC7.C7_NUM = '"+SC7->C7_NUM+"'" + CRLF
+// 			//	cSql +="    						AND C7_ITEMSC = C8_ITEMSC" + CRLF
+// 			cSql += "    						AND SC7.D_E_L_E_T_<>'*') " + CRLF
+// 			cSql += "		AND C8_TOTAL > 0 " + CRLF
+// 			cSql += "		AND SC8.D_E_L_E_T_<>'*' " + CRLF
+// 			cSql += "	GROUP BY SC8.C8_NUM,SC8.C8_FORNECE, SC8.C8_LOJA, A2_NOME, SC8.C8_MOEDA,SC8.C8_FORNECE,SC8.C8_PRODUTO, " + CRLF
+// 			cSql += "  			 SC8.C8_LOJA, A2_NOME " + CRLF
+			        
+// 			If Select('TRBC8')<>0
+// 				TRBC8->(DBCloseArea()) 				
+// 			EndIF
+			
+// 			TcQuery cSql new Alias "TRBC8"
+			
+// 			//fornecedor - produto - quantidade cotada - val. Unit. Vlr. Total
+// 			cFor := Alltrim(TRBC8->A2_NOME)
+// 			nTot:=0
+// 			lAchou:=.f.
+// 			aItens:={}
+// 			aFor:={}
+// 			TRBC8->(dbGoTop())
+// 			While !TRBC8->(EOF())
+// 				AADD(aitens,{TRBC8->A2_NOME,TRBC8->C8_PRODUTO,TRBC8->C8_QUANT,TRBC8->C8_TOTAL,"",TRBC8->C8_MOEDA,TRBC8->C8_NUM + TRBC8->C8_FORNECE + TRBC8->C8_LOJA,C8_VALIPI,TRBC8->C8_VALDESC,TRBC8->C8_VALFRE})
+// 				if aScan(aFor,TRBC8->A2_NOME)==0
+// 					aadd(aFor,TRBC8->A2_NOME)
+// 				EndIF
+				
+// 				TRBC8->(dbSkip())
+// 			Enddo
+// 			lProd:=.f.
+// 			lPedMai:=.F.
+// 			lPedMen:=.F.
+// 			for a:=1 to len(aFor)
+// 				for b:=1 to len(aItens)
+// 					if afor[a]==aItens[b][1]//verifica o fornecedor\
+// 						for c:=1 to len(aIten)
+// 							if aiten[c][1]== aItens[b][2]
+// 								lProd:=.T.
+// 								if aiten[c][2] > aItens[b][3]
+// 									lPedMai:=.t.
+// 								EndIF
+// 								if aiten[c][2] < aItens[b][3]
+// 									lPedMen:=.t.
+// 								EndIF
+// 							EndIF
+// 						Next
+						
+// 						IF !lProd
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Cotacao com produtos que nao tem no pedido."
+// 							lProd:=.f.
+// 						EndIf
+						
+// 						If lPedMai
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Quantidade do pedido maior que a cotada."
+// 						EndIf
+						
+// 						If lPedMen
+// 							aitens[b][5]:=alltrim(aitens[b][5])+"Quantidade do pedido menor que a cotada."
+							
+// 						EndIf
+// 					EndIf
+// 				Next
+// 			Next
+// 			aForn2:={}
+// 			for c:=1 to len(aFor)
+// 				lItem:=.f.
+				
+// 				for b:=1 to len(aIten)
+// 					for d := 1 to len(aItens)
+// 						if aItens[d][1]==aFor[c]
+// 							if aItens[d][2] == aIten[b][1]
+// 								lItem:=.t.
+// 							EndIF
+// 						EndIF
+// 					Next
+// 					if !lItem
+// 						aadd(aForn2,aFor[c])
+// 					Else
+// 						lItem:=.f.
+// 					EndIf
+// 				Next
+// 			Next
+			
+// 			cMens:=""
+// 			If Len(aItens) > 0
+// 				_cOutCot:=""
+// 				lMens:=.F.
+// 				cFor:=aItens[1][1]
+				
+				
+// 				nDesc := 0
+// 				nTot:=0
+// 				nValFre := 0
+// 				nTotImp2 := 0
+// 				_CMoeda:=aItens[1][5]
+// 				For i:=1 to len(aItens)
+// 					if cFor <> aItens[i][1]
+// 						_cOutCot += "<tr>"
+// 						_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cFor+if( _CMoeda > 1 ,"(Estimated Values - Import)","")) + "</font></td>"
+// 						nPos:=aScan(aForn2,cFor)
+// 						if nPos > 0
+// 						EndIF
+// 						if !Empty(alltrim(cMens))
+							
+// 							_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cMens) + "</font></td>"
+// 							lMens:=.t.
+// 							cMens:=""
+// 						Else
+// 							_cOutCot += "<td><font size='2' face='Arial'>&nbsp;</font></td>"
+// 						EndIF
+// 						If _CMoeda > 1
+// 							cPerc	:= posicione("SC8",1,xFilial("SC8")+_cChave,"C8_IMPPREV")
+// 							nTot	:= XMOEDA(nTot,_CMoeda,1,dEmissao)
+// 							//					nTot:=nTot+(nTot * (cPerc/100) )
+// //							nTotImp2 += (nTot * (cPerc/100) )
+// 							nDesc	+= XMOEDA(nDesc,_CMoeda,1,dEmissao)
+// 							nValFre	+= XMOEDA(nValFre,_CMoeda,1,dEmissao)
+// 							nTotImp2	+= XMOEDA(nTotImp2,_CMoeda,1,dEmissao)
+// //						Else
+// //							nTotImp2 += aItens[i][8]
+// //							nValFre += aItens[i][10]
+// //							nDesc += aItens[i][9]
+// 						EndIf
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot,'@E 999,999,999.99') + "</font></td>"//total
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTotImp2,'@E 999,999,999.99') + "</font></td>"//impostos
+// 						_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot+nTotImp2+ nValFre- nDesc,'@E 999,999,999.99') + "</font></td>"//total
+// 						_cOutCot += "</tr>"
+						
+// 						cFor := aItens[i][1]
+// 						nTot := 0
+// 						nTotImp2 := 0
+// 						nDesc := 0
+// 						nValFre := 0
+// 					EndIf
+// 					nTot	+= aItens[i][4]
+// 					nTotImp2+= aItens[i][8]
+					
+// 					nDesc	+= aItens[i][9]
+// 					nValFre += aItens[i][10]
+// 					cMens	:= alltrim(cMens)+if(Empty(alltrim(cMens)),""," - ") + aItens[i][5]
+// 					_CMoeda	:= aItens[i][6]
+// 					_cChave	:= aItens[i][7]
+// 				Next
+// 				_cOutCot += "<tr>"
+// 				_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cFor+if( _CMoeda > 1 ,"(Estimated Values - Import)","")) + "</font></td>"
+// 				nPos:=aScan(aForn2,cFor)
+// 				if nPos > 0
+// 					cMens:=alltrim(cMens)+" Supplier sent an incomplete quotation (doesn't have all needed products and/or services)."
+// 				EndIF
+// 				if !Empty(alltrim(cMens))
+					
+// 					_cOutCot += "<td><font size='2' face='Arial'>" + Alltrim(cMens) + "</font></td>"
+// 					lMens:=.t.
+// 				EndIF
+// 				If _CMoeda > 1
+// 					cPerc:=posicione("SC8",1,xFilial("SC8")+_cChave,"C8_IMPPREV")
+// 					nTot:=XMOEDA(nTot,_CMoeda,1,dEmissao)
+// 					nTot:=nTot+(nTot * (cPerc/100) )
+// 					nDesc	+= XMOEDA(nDesc,_CMoeda,1,dEmissao)
+// 					nValFre	+= XMOEDA(nValFre,_CMoeda,1,dEmissao)
+// 					nTotImp2	+= XMOEDA(nTotImp2,_CMoeda,1,dEmissao)
+											
+// 				EndIf
+				
+// 				If Empty(Alltrim(cMens))
+// 					_cOutCot += "<td><font size='2' face='Arial'>&nbsp;</font></td>"
+// 				EndIf
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot,'@E 999,999,999.99') + "</font></td>"
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTotImp2,'@E 999,999,999.99') + "</font></td>"//impostos
+// 				_cOutCot += "<td align='right'><font size='2' face='Arial'>" + Transform(nTot+nTotImp2+nValFre- nDesc,'@E 999,999,999.99') + "</font></td>"//total
+// 				_cOutCot += "</tr>"
+				
+				
+// 				_cCab :=  " <table border='1' width='1500'>"
+// 				_cCab  += " <tr>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Provder</font>"
+// 				_cCab  += " </td>"
+// 				//_cCab  += " 	<td align='right' width='101' bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 	<td bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Note</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Unit Value</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td  bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Taxes</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " 	<td bgcolor='#DFEFFF' height='18'>"
+// 				_cCab  += " 		<font face='Arial'>Total Value + Freight</font>"
+// 				_cCab  += " 	</td>"
+// 				_cCab  += " </tr>"
+				
+// 				_cOutCot += "</table>"
+// 				_cOutCot:=_cCab+_cOutCot
+				
+// 			Else
+				
+// 				_cOutCot := "No other quotations."
+				
+// 			Endif
+// 			TRBC8->(dbCloseArea()) 
+	        
+// 			oHtml:ValByName("cotacoes",_cOutCot)    
+
+// return oHtml
+
+// Static Function RetDesc( cCodProd )
+
+// Local aArea := GetArea()
+// Local cRet  := ''
+
+// dbSelectArea('SB1')
+// SB1->(dbSetOrder(1))
+// if SB1->(dbSeek(xFilial('SB1')+cCodProd))
+// 	cRet := SB1->B1_DESC
+// endif
+
+// dbSelectArea('SB5')
+// SB5->(dbSetOrder(1))
+// if SB5->(dbSeek(xFilial('SB5')+cCodProd))
+// 	cRet := SB5->B5_CEME
+// endif
+
+// RestArea(aArea)
+
+// return cRet
+
+
+// Atualizar status do processo de garantia/reparo conforme retorno do email (aprovaÁ„o/CONAPRO = L) ou reenvio
+User Function ZPB_ATU(cNUM, cNUMSC, cMEDICAO, cCONAPRO)
+    Local cZPB_STATUS  
+
+    cQuery := " Select ZPB_PROC, ZPB_SC7, ZPB_SC1FRE, ZPB_MEDFRE "
+    cQuery += " from " + RetSqlName ("ZPB")
+    cQuery += " where D_E_L_E_T_ <> '*' "
+    cQuery += "   and ZPB_FILIAL =  '" + xFilial("ZPB") + "' "
+    cQuery += "   and (ZPB_SC7 =  '" + cNUM + "' "
+    if !empty(cNumSC)
+         cQuery += "    or ZPB_SC1FRE =  '" + cNUMSC + "' "
+    endif
+    if !empty(cMedicao)
+       cQuery += "    or ZPB_MEDFRE =  '" + cMEDICAO + "'
+    endif
+    cQuery += ") "
+    
+    conout ("SQL APROVACAO: " + cQuery)
+    If Select("QRY") > 0
+        QRY->(dbCloseArea())
+    EndIf
+        
+    dbUseArea(.T.,"TOPCONN",TCGENQRY(,,cQuery),"QRY",.F.,.T.)
+    dbSelectArea("QRY")
+    
+    if empty(QRY->ZPB_PROC)
+        return
+    endif
+
+    IF QRY->ZPB_SC7 = cNUM
+        lPC := .T.
+    else
+        lPC := .F.
+    endif
+
+    if cCONAPRO = 'L' .and. !lPC
+        cZPB_STATUS := 'TRN'
+    elseif cCONAPRO = 'L' .and. lPC
+        cZPB_STATUS := 'ARP'
+    elseif cCONAPRO = 'X' .and. !lPC
+        cZPB_STATUS := 'PFR'
+    elseif cCONAPRO = 'X' .and. lPC
+        cZPB_STATUS := 'PCR'
+    elseif !lPC
+        cZPB_STATUS := 'APF'
+    else
+        cZPB_STATUS := 'APC'
+    endif
+    
+    cUpdate := " update " + retsqlname("ZPB") + " "   
+	if lPC
+        cUpdate += " set ZPB_STATUS = '" + cZPB_STATUS + "' "
+    else
+        cUpdate += " set ZPB_STATUS = '" + cZPB_STATUS + "', ZPB_PCFRE = '" + cNUM + "' " 
+    endif
+    
+    cUpdate += " where D_E_L_E_T_ <> '*' "
+    cUpdate += "   and ZPB_FILIAL = '" + xFilial("ZPB") + "' "
+    cUpdate += "   and ZPB_PROC = '" + QRY->ZPB_PROC + "'" 
+    
+    cUpdate := UPPER(cUpdate)
+    
+    nUpdate := TcSqlExec(cUpdate)
+    if nUpdate < 0
+         conout ("N„o foi possÌvel atualizar o a tabela ZPB devido ao erro :" + Chr(13) + Chr(13) + TcSqlError())
+    endif
+    
+    cZPB_PROC := QRY->ZPB_PROC
+    
+    // Recuperando Data e Hora do Servidor Sql Server
+    cQuery := " Select CONVERT(varchar, getdate(), 103) DATA, convert(varchar, getdate(), 8) HORA"
+    
+    If Select("QRY") > 0
+        QRY->(dbCloseArea())
+    EndIf
+        
+    dbUseArea(.T.,"TOPCONN",TCGENQRY(,,cQuery),"QRY",.F.,.T.)
+    dbSelectArea("QRY")
+    
+    cData := CTOD(QRY->DATA) 
+    cHora := QRY->HORA
+    
+    cObservacao := ''
+    
+    if  cZPB_STATUS = 'TRN'
+        cObservacao := 'Pedido de compra [' + cNUM + '] aprovado'
+    elseif cZPB_STATUS = 'ARP'
+        cObservacao := 'Pedido de compra [' + cNUM + '] aprovado'
+    elseif cZPB_STATUS = 'PFR'
+        cObservacao := 'Pedido de compra [' + cNUM + '] reprovado'
+    elseif  cZPB_STATUS = 'PCR'
+        cObservacao := 'Pedido de compra [' + cNUM + '] reprovado'
+    elseif  cZPB_STATUS = 'APF'
+        cObservacao := 'Email do pedido de compra [' + cNUM + '] reenviado'
+    else
+        cObservacao := 'Email do pedido de compra [' + cNUM + '] reenviado'
+    endif
+        
+    // Inserindo registros da tabela de MOTIVOS DE NEGOCIA«√O
+    Reclock("ZPC", .T.)   
+    ZPC->ZPC_FILIAL := xFILIAL("ZPC") 
+    ZPC->ZPC_PROC   := cZPB_PROC
+    ZPC->ZPC_DATA   := cData
+    ZPC->ZPC_HORA   := cHora
+    ZPC->ZPC_STATUS := cZPB_STATUS
+    ZPC->ZPC_USER   := UsrRetName(RetCodUsr())
+    ZPC->ZPC_OBSERV := cObservacao
+    
+    ZPC->(MsUnLock())   
+    
+    if cZPB_STATUS = 'TRN'
+        U_WFGARCOL(cZPB_PROC)
+    endif
+      
+    return
+
+    

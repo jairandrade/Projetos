@@ -1,0 +1,47 @@
+#divPrincipal {
+	text-indent: 20px;
+	text-align:justify;
+	display:none;
+}
+
+#divLogo {
+	float: left;
+	height: 200;
+	text-align: justify;
+	vertical-align: middle;
+}
+
+#divEmp {
+	position: relative;
+	text-indent: 20px;
+	text-align: justify;
+	overflow: auto;
+}
+
+#divPrincipal #divCab #divLogo .spImg {
+	text-align: center;
+}
+
+#divProdutos {
+	height:400px;
+	width:400px;
+	overflow:auto;
+}
+
+
+body { 
+	font-family:'lucida grande', tahoma, verdana, arial, sans-serif; font-size:11px; 
+}
+
+h1 { 
+	font-size: 15px; 
+}
+
+a { 
+	color: #548dc4; 
+	text-decoration: none; 
+}
+
+a:hover { 
+	text-decoration: underline; 
+}

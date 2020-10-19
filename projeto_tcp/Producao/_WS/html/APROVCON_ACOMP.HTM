@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+        <title>Approval Contract Measurement</title>
+        <style type="text/css">
+            #apDiv1 {
+                position: absolute;
+                width: 653px;
+                height: 88px;
+                z-index: 1;
+                left: 84px;
+                top: 329px;
+            }
+        </style>
+    </head>
+    <body>
+        <table border="0" width="1100">
+            <tr>
+                <td width="62">&nbsp;</td>
+                <td width="657">
+                    <table border="0" width="1100" height="106">
+                        %cContrato%
+                        <tr>
+                            <td colspan="2" width="1" bgcolor="#20F823" height="24">
+                                <p align="left"><font size="4" face="Arial"><b>Approval Contract Measurement</b>: %contrato%</font></p>
+                                <p align="left"><font size="4" face="Arial"><b>Order</b>: %pedido%</font></p>								
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Provider</b> : %fornecedor% - %lb_nome%</font></td>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Date of Issue</b> : %emissao%</font></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Payment Term</b> : %cond_pag%</font></td>
+							 <td valign="top" width="315" height="24"><font size="2" face="Arial"><b>Buyer</b> : %cod_compra%</font></td>
+						</tr>
+						
+						<tr>
+                            <td valign="top" colspan="3" height="24"><font size="2" face="Arial"><b>Moeda:</b> %moeda%</font></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" colspan="3" height="24"><font size="2" face="Arial"><b>Note:</b> %lb_obs%</font></td>
+                        </tr>
+                    </table>
+					<p><font color="#0000FF" face="Arial"><b>Approval Workflow</b></font></p>
+                    <table border="1" width="1100" height="85">
+                        <tr>
+                            <td align="center" width="62" bgcolor="#DFEFFF" height="18"><font face="Arial">Level</font></td>
+                            <td align="center" width="190" bgcolor="#DFEFFF" height="18"><font face="Arial">User Responsible</font></td>
+                            <td align="center" width="100" bgcolor="#DFEFFF" height="18"><font face="Arial">Status</font></td>
+                            <td align="center" width="86" bgcolor="#DFEFFF" height="18"><font face="Arial">User Approval</font></td>
+                            <td align="center" width="87" bgcolor="#DFEFFF" height="18"><font face="Arial">Date Approval</font></td>                            
+                        </tr>
+                        <tr>
+                            <td><font size="2" face="Arial">%ap.nivelalcada%</font></td>
+                            <td><font size="2" face="Arial">%ap.nomeaprovadorresp%</font></td>
+                            <td><font size="2" face="Arial">%ap.statusalcada%</font></td>
+                            <td><font size="2" face="Arial">%ap.nomeaprovador%</font></td>
+							<td><font size="2" face="Arial">%ap.dataaprocacao%</font></td>                            					
+                        </tr>
+					</table>	
+                    <p><font color="#0000FF" face="Arial"><b>Items</b></font></p>
+                    <table border="1" width="1100" height="85">
+                        <tr>
+                            <td align="center" width="10%" bgcolor="#DFEFFF" height="18"><font face="Arial">Item</font></td>
+                            <td align="center" width="90%" colspan="4" bgcolor="#DFEFFF" height="18"><font face="Arial">Product</font></td>							
+                        </tr>
+                        <tr>
+                            <td height="18"><font size="2" face="Arial">%it.item%</font></td>
+                            <td colspan="4" height="18"><font size="2" face="Arial" >%it.codigo% - %it.descricao% </font></td>                           
+                        </tr>
+						</table>
+						<table border="1" width="1100" height="85">
+                        
+						<tr>
+                            <td colspan="4" width="85%" bgcolor="#DFEFFF" height="22">
+								<p align="right"><font face="Arial"><b>Contract Total Amount</b></font></p>
+							</td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial"><b>%valorcontrato%</b></font>
+                            </td>
+                        </tr>
+						<tr>
+                            <td colspan="4" bgcolor="#DFEFFF" height="22">
+                                <p align="right"><font face="Arial"><b>Invoice Total Amount</b></font></p>
+							</td>
+                            <td align="right"  height="22">
+                                <font size="2" face="Arial"><b>%totalpedido%</b></font>
+                            </td>
+                        </tr>						
+						<tr>
+                           <td colspan="4" width="85%" bgcolor="#DFEFFF" height="22">
+								<p align="right"><font face="Arial"><b>Current Balance</b></font></p>
+							</td>
+                            <td align="right" width="101" height="22">
+                                <font size="2" face="Arial"><b>%valorsaldo%</b></font>
+                            </td>
+						</tr>   
+
+                    </table>
+									
+
+                    <p><font color="#0000FF" face="Arial"><b>Apportionment</b></font></p>
+                    <p>%rateio%</p>
+					<p><font color="#0000FF" face="Arial"><b>Other Payments</b></font></p>
+                    <p>%pagamentos%</p>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p></td>
+            </tr>
+        </table>
+		<div style="display:none;">
+		<table border="1" width="1100" height="85"style="display:none;" >                     
+            <tr>
+				<td style="display:none;">%valorsaldoCn9%</td>
+                <td style="display:none;">%styleh% %lbempresa% %it.dtent%%it.style% %it.item% %it.codigo% - %it.descricao% %it.ctt% - %it.cttdesc% %it.dtent% %it.quant% %it.preco% %it.total% %lbvalor% %lbimp% %lbdes% %lbtotal% %cotacoes% %lbValor% %%</td>
+			</tr>
+		</table>	
+		</div>	
+    </body>
+</html>
