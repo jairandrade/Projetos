@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Renomear recurso &quot;tcp_alteracoes/resources&quot; a &quot;rotinas&quot;" description="Renomear recurso &quot;resources&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="resources" name="rotinas" stamp="1603195760185" updateReferences="true"/>&#x0A;<refactoring comment="Renomear recurso &quot;tcp_alteracoes/src&quot; a &quot;pe&quot;" description="Renomear recurso &quot;src&quot;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src" name="pe" stamp="1603195767182" updateReferences="true"/>
+</session>

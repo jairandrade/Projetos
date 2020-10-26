@@ -7,4 +7,14 @@
 		<item value="org.eclipse.platform:4.4.2.v20150204-1700"/>
 		<item value="org.eclipse.rcp:4.4.2.v20150204-1700"/>
 	</list>
+	<section name="NewWizardAction">
+		<item value="br.com.totvs.tds.sdk.ui.SDKProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="br.com.totvs.tds.sdk.ui.category"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="360" key="DIALOG_X_ORIGIN"/>
+		<item value="185" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

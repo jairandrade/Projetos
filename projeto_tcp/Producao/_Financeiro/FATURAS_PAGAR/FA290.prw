@@ -19,7 +19,8 @@ User Function FA290()
     If( lCtrApr .And. cTipo $ cTipoSol )
         //Mudo o status
         If ExistBlock("TCFIA005")
-            Execblock("TCFIA005",.F.,.F.)
+        MsAguarde({|| Execblock("TCFIA005",.F.,.F.)}, "Aguarde...", "Gravando titulo:"+SE2->E2_NUM+" Tipo:"+SE2->E2_TIPO +" Saldo:"+TransForm(SE2->E2_SALDO,"99999.99" )+" ...")
+           // Execblock("TCFIA005",.F.,.F.)
         EndIf
     EndIf
     

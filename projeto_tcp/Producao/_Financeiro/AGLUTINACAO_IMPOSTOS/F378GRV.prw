@@ -17,7 +17,8 @@ User Function F378GRV()
     Local aArea     := GetArea()   
     
     If( lCtrApr )
-        Execblock("TCFIA005",.F.,.F.)
+    MsAguarde({|| Execblock("TCFIA005",.F.,.F.)}, "Aguarde...", "Gravando titulo:"+SE2->E2_NUM+" Tipo:"+SE2->E2_TIPO +" Saldo:"+TransForm(SE2->E2_SALDO,"99999.99" )+" ...")
+       // Execblock("TCFIA005",.F.,.F.)
     EndIf
 
     RestArea( aArea )

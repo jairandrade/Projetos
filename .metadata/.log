@@ -274,3 +274,1968 @@ Caused by: org.eclipse.swt.SWTException: Widget is disposed
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
 	... 88 more
+!SESSION 2020-10-20 09:28:35.141 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 09:28:41.360
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 09:28:41.445
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+!SESSION 2020-10-20 10:12:12.177 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 10:12:13.897
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 10:12:13.934
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+!SESSION 2020-10-20 15:22:31.516 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 15:22:38.497
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-20 15:22:38.561
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.763
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.765
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.778
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.778
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.784
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 21 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.784
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.789
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.789
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.794
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.794
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.799
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.800
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.809
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.810
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.815
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.815
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.820
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 21 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.820
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.825
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.825
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.830
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.831
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-20 15:28:05.836
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-20 15:28:05.837
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+!SESSION 2020-10-21 08:57:25.096 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-21 08:57:31.683
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-21 08:57:31.809
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-21 08:57:40.385
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator", o encadeamento "Thread[Worker-2,5,main]" teve seu tempo de execução esgotado aguardando (5020ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-2,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-21 08:57:45.504
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1", o encadeamento "Thread[Worker-2,5,main]" teve seu tempo de execução esgotado aguardando (5002ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-2,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at br.com.totvs.tds.server.ui.views.ServerViewDecorator.decorate(ServerViewDecorator.java:60)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:273)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2020-10-21 16:24:00.344 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-21 16:24:07.043
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-21 16:24:07.118
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-21 16:24:15.724
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator", o encadeamento "Thread[Worker-0,5,main]" teve seu tempo de execução esgotado aguardando (5002ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-0,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2020-10-22 15:53:07.987 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-22 15:53:14.509
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-22 15:53:14.578
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-22 15:53:22.680
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator", o encadeamento "Thread[Worker-2,5,main]" teve seu tempo de execução esgotado aguardando (5013ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-2,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.814
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.815
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.825
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.825
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.843
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 21 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.843
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.853
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.853
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.856
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.856
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.868
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.868
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.884
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.884
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:101)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.884
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.884
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:104)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 21 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findFields(ModelAccess.java:70)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findFields(SdkModelAccess.java:211)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:109)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:120)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.899
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findMethods(ModelAccess.java:137)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:124)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+
+!ENTRY org.eclipse.dltk.core 4 0 2020-10-22 18:33:37.915
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.throwException(RegistryStrategyOSGI.java:194)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:176)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+Caused by: java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	... 20 more
+!SUBENTRY 1 org.eclipse.equinox.registry 4 1 2020-10-22 18:33:37.915
+!MESSAGE Plug-in br.com.totvs.tds.sdk.advpl.ui was unable to load class org.eclipse.dltk.internal.core.index.sql.SqlIndexer.
+!STACK 0
+java.lang.ClassNotFoundException: org.eclipse.dltk.internal.core.index.sql.SqlIndexer cannot be found by br.com.totvs.tds.sdk.advpl.ui_11.3.9.201806061959
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:432)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.dltk.internal.core.index2.IndexerManager.getIndexer(IndexerManager.java:78)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getIndexerParticipant(ModelAccess.java:358)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.getElementResolver(ModelAccess.java:395)
+	at br.com.totvs.tds.sdk.ui.search.SdkModelAccess.findElements(SdkModelAccess.java:51)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findElements(ModelAccess.java:263)
+	at org.eclipse.dltk.core.index2.search.ModelAccess.findTypes(ModelAccess.java:203)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.searchInWorkspace(SelectionEngine.java:127)
+	at br.com.totvs.tds.sdk.ui.selection.SelectionEngine.select(SelectionEngine.java:77)
+	at org.eclipse.dltk.internal.core.Openable.codeSelect(Openable.java:662)
+	at org.eclipse.dltk.internal.core.Openable.codeSelectAll(Openable.java:686)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:96)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:90)
+	at org.eclipse.dltk.internal.core.AbstractSourceModule.codeSelectAll(AbstractSourceModule.java:1)
+	at org.eclipse.dltk.internal.ui.text.hover.AbstractScriptEditorTextHover.getHoverInfo(AbstractScriptEditorTextHover.java:142)
+	at org.eclipse.dltk.internal.ui.text.hover.BestMatchHover.getHoverInfo(BestMatchHover.java:113)
+	at org.eclipse.dltk.internal.ui.text.hover.EditorTextHoverProxy.getHoverInfo(EditorTextHoverProxy.java:78)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:168)
+!SESSION 2020-10-23 08:52:15.808 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-23 08:52:23.821
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-23 08:52:23.913
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler} vs {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler}
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-23 08:52:32.817
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator", o encadeamento "Thread[Worker-2,5,main]" teve seu tempo de execução esgotado aguardando (5013ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-2,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-23 08:52:37.884
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1", o encadeamento "Thread[Worker-2,5,main]" teve seu tempo de execução esgotado aguardando (5001ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-2,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at br.com.totvs.tds.server.ui.views.ServerViewDecorator.decorate(ServerViewDecorator.java:60)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:273)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2020-10-26 08:38:25.110 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-10-26 08:38:44.537
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-10-26 08:38:44.691
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-26 08:38:56.051
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator", o encadeamento "Thread[Worker-0,5,main]" teve seu tempo de execução esgotado aguardando (5002ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-0,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.osgi.internal.framework.EquinoxBundle.loadClass(EquinoxBundle.java:568)
+	at org.eclipse.core.internal.registry.osgi.RegistryStrategyOSGI.createExecutableExtension(RegistryStrategyOSGI.java:174)
+	at org.eclipse.core.internal.registry.ExtensionRegistry.createExecutableExtension(ExtensionRegistry.java:905)
+	at org.eclipse.core.internal.registry.ConfigurationElement.createExecutableExtension(ConfigurationElement.java:243)
+	at org.eclipse.core.internal.registry.ConfigurationElementHandle.createExecutableExtension(ConfigurationElementHandle.java:55)
+	at org.eclipse.ui.internal.WorkbenchPlugin.createExtension(WorkbenchPlugin.java:285)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition$1.run(LightweightDecoratorDefinition.java:125)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.runtime.Platform.run(Platform.java:867)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.internalGetDecorator(LightweightDecoratorDefinition.java:120)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:255)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.osgi 2 0 2020-10-26 08:39:01.113
+!MESSAGE Ao carregar a classe "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1", o encadeamento "Thread[Worker-0,5,main]" teve seu tempo de execução esgotado aguardando (5002ms) para que o encadeamento "Thread[main,6,main]" concluísse o início do pacote "br.com.totvs.tds.server.ui_11.3.9.201806061959 [30]". Para evitar conflito, o encadeamento "Thread[Worker-0,5,main]" prosseguirá mas "br.com.totvs.tds.server.ui.views.ServerViewDecorator$1" pode não ser inicializado totalmente.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; osgi.identity="br.com.totvs.tds.server.ui"; type="osgi.bundle"; version:Version="11.3.9.201806061959"; singleton:="true" [id=30] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:329)
+	at org.eclipse.osgi.container.Module.start(Module.java:389)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:454)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:531)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:324)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:320)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:395)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:337)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:160)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at br.com.totvs.tds.server.ui.views.ServerViewDecorator.decorate(ServerViewDecorator.java:60)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:273)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:83)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:367)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:349)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:372)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:332)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

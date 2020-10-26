@@ -12,13 +12,16 @@ O ponto de entrada F376GRV será executado após a gravação de títulos de impostos
 
 User Function F376GRV()
 
-    Local lCtrApr   := GetMv("TCP_CTLIBP")
-    Local aArea     := GetArea()   
-    
-    If( lCtrApr )
-        Public __nRecSE2_ := SE2->(Recno())
-    EndIf
+	Local lCtrApr   := GetMv("TCP_CTLIBP")
+	Local aArea     := GetArea()
 
-    RestArea( aArea )
+	If( lCtrApr )
+		Public __nRecSE2_ := SE2->(Recno())
+		//Exemplo de Chamada
+		MsAguarde({|| Execblock("TCFIA005",.F.,.F.)}, "Aguarde...", "Gravando titulo:"+SE2->E2_NUM+" Tipo:"+SE2->E2_TIPO +" Saldo:"+TransForm(SE2->E2_SALDO,"99999.99" )+" ...")
+		//Execblock("TCFIA005",.F.,.F.)
+	EndIf
+
+	RestArea( aArea )
 
 Return( Nil )
