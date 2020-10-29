@@ -63,19 +63,18 @@ User Function RCOM012(aErros)
 
 	nLin += 70
 	oPrint:Say(nLin,0050,"Descrição",oFont10n)
-
+	nLin += 10	
+	oPrint:Line(nLin,0050,nLin,3000)
 	ProcRegua(RecCount())
 	For nX := 1 To Len(aErrosGer)
 		nCont++
-		nLin += 10
-		oPrint:Line(nLin,0050,nLin,3000)
+		nLin += 10		
 		VERQUEBRA("N")
 		nLin += 30
 		oPrint:Say(nLin,0050,aErrosGer[nX],oFont10n)
 		IncProc()
 	Next nX
-
-	nLin += 10
+	nLin += 20	
 	oPrint:Line(nLin,0050,nLin,3000)
 	nLin += 050
 	oPrint:Say(nLin,2350,"Total de Erros: ",oFont13n)
@@ -122,7 +121,7 @@ Static Function IMPCABEC()
 	oPrint:StartPage()
 	oPrint:SayBitmap( 080, 140,  "\sigaadv\lgrl01.bmp", 400, 150)
 	oPrint:Say(0150,1360,SM0->M0_NOME,oFont24n)
-	oPrint:Say(0220,1240,"Erros no envio de carta de avaliação de fornecedores",oFont16n)
+	oPrint:Say(0220,1240,"Log de erros no envio de carta de avaliação de fornecedores",oFont16n)
 	oPrint:Line(0245,0050,0245,3000)
 	oPrint:Line(0250,0050,0250,3000)
 	nLin := 250
