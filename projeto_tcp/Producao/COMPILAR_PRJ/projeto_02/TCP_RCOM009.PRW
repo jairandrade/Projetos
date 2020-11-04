@@ -91,15 +91,17 @@ User Function RCOM009()
 			QRYFOR->(DbSkip())
 		EndDo
 
-		If len(aErros) > 0
-			nRetMsg := Aviso("Atenção","Existem fornecedores com e-mail vazio . Verifique o Log de Erros 'Erro_SA2.txt' ", {"Gera Log.Erros","Fechar"}, 2)
-			If nRetMsg == 1
-				fSalvArq()
-			EndIf
-			//envia email de acordo com emails do parametro TCP_ALCADP
-			U_RCOM012(aErros)
-		EndIf
 	EndIf
+	If len(aErros) > 0
+		nRetMsg := Aviso("Atenção","Existem fornecedores com e-mail vazio . Verifique o Log de Erros 'Erro_SA2.txt' ", {"Gera Log.Erros","Fechar"}, 2)
+		If nRetMsg == 1
+			fSalvArq()
+		EndIf
+		//envia email de acordo com emails do parametro TCP_ALCADP
+		U_RCOM012(aErros)
+	EndIf
+
+	Return
 //-------------------------------------------------------------------------------
 /*/{Protheus.doc} EXECUTA
 E-mail com aviso de entrega do pedido já atrasado
