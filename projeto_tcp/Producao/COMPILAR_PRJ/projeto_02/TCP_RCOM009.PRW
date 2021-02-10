@@ -101,11 +101,11 @@ User Function RCOM009()
 		U_RCOM012(aErros)
 	EndIf
 
-	Return
+Return
 //-------------------------------------------------------------------------------
 /*/{Protheus.doc} EXECUTA
 E-mail com aviso de entrega do pedido já atrasado
-
+ 
 @return 
 @author Felipe Toazza Caldeira
 @since 03/09/2015
@@ -182,22 +182,27 @@ Static Function EXECUTA(cCod, cLoja)
 	EndIf
 
 	If !Empty(Alltrim(cTo))
-		U_MCOM016(cTo, cCC, cAssunto, cCorpo, cDirPdf + cNomeRel, .T. )
-		ZZB->(DBSETORDER(1))
-		RECLOCK("ZZB",.T.)
-		ZZB->ZZB_FILIAL 	:= cFilAnt
-		ZZB->ZZB_DATA		:= date()
-		ZZB->ZZB_HORA		:= Time()
-		ZZB->ZZB_FORNECE	:= SA2->A2_COD
-		ZZB->ZZB_LOJA		:= SA2->A2_LOJA
-		ZZB->ZZB_RAZAO		:= SA2->A2_NOME
-		ZZB->ZZB_USR		:= ALLTRIM(USRRETNAME(RETCODUSR()))
-		ZZB->ZZB_PONTUA		:= Posicione("Z08",1,xFilial("Z08")+SA2->A2_COD+SA2->A2_LOJA+MV_PAR05+MV_PAR06,"Z08_PONTOS")
-		ZZB->ZZB_CLASSI 	:= Z08->Z08_CLASSI
-		ZZB->ZZB_DISPARO	:= SA2->A2_EMAIL
-		ZZB->ZZB_STATUS		:= "1" // 1 = ENVIADO OU 2 = ERRO NO ENVIO
-		ZZB->(MSUNLOCK())
-		ZZB->(DBCLOSEAREA())
+		If IsEmail(Alltrim(cTo))
+			U_MCOM016(cTo, cCC, cAssunto, cCorpo, cDirPdf + cNomeRel, .T. )
+			ZZB->(DBSETORDER(1))
+			RECLOCK("ZZB",.T.)
+			ZZB->ZZB_FILIAL 	:= cFilAnt
+			ZZB->ZZB_DATA		:= date()
+			ZZB->ZZB_HORA		:= Time()
+			ZZB->ZZB_FORNECE	:= SA2->A2_COD
+			ZZB->ZZB_LOJA		:= SA2->A2_LOJA'
+			ZZB->ZZB_RAZAO		:= SA2->A2_NOME
+			ZZB->ZZB_USR		:= ALLTRIM(USRRETNAME(RETCODUSR()))
+			ZZB->ZZB_PONTUA		:= Posicione("Z08",1,xFilial("Z08")+SA2->A2_COD+SA2->A2_LOJA+MV_PAR05+MV_PAR06,"Z08_PONTOS")
+			ZZB->ZZB_CLASSI 	:= Z08->Z08_CLASSI
+			ZZB->ZZB_DISPARO	:= SA2->A2_EMAIL
+			ZZB->ZZB_STATUS		:= "1" // 1 = ENVIADO OU 2 = ERRO NO ENVIO
+			ZZB->(MSUNLOCK())
+			ZZB->(DBCLOSEAREA())
+		else
+			cErro 	:= 'E-mail não enviado ao fornecedor '+SA2->A2_COD+'/'+SA2->A2_LOJA+' - '+Alltrim(SA2->A2_NOME)+' devido a falta de cadastro de endereço de e-mail no cadastro de Fornecedores.'
+			aAdd(aErros, cErro)
+		EndIF
 	Else
 		ZZB->(DBSETORDER(1))
 		RECLOCK("ZZB",.T.)

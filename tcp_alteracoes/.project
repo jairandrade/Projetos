@@ -20,5 +20,10 @@
 			<type>1</type>
 			<location>C:/Git/projeto_tcp/Producao/_Financeiro/AGLUTINACAO_IMPOSTOS/F376BXTX.prw</location>
 		</link>
+		<link>
+			<name>rotinas/xcodbar.prw</name>
+			<type>1</type>
+			<location>C:/Git/projeto_tcp/Teste/xcodbar.prw</location>
+		</link>
 	</linkedResources>
 </projectDescription>

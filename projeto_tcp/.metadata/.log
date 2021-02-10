@@ -232,3 +232,15 @@ Caused by: org.eclipse.swt.SWTException: Widget is disposed
 	at java.lang.reflect.Method.invoke(Unknown Source)
 	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
 	... 67 more
+!SESSION 2020-11-16 15:13:34.198 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_131
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=pt_BR
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.ui 4 4 2020-11-16 15:14:33.050
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
+
+!ENTRY org.eclipse.ui 4 4 2020-11-16 15:14:33.129
+!MESSAGE Conflicting handlers for org.eclipse.ltk.ui.refactoring.commands.deleteResources: {br.com.totvs.tds.sdk.ui.refactor.TdsDeleteResourcesHandler} vs {org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler}
