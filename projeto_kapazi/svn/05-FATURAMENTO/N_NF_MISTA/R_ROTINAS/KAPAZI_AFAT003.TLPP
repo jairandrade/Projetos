@@ -1,0 +1,443 @@
+#include 'Protheus.ch'
+#INCLUDE "FWBROWSE.CH"
+
+//-----------------------------------------
+/*/{Protheus.doc} AFAT003
+Rotina criada para permitir a exclusão da nota de serviço caso a rotina automatizada não funcione.
+
+@type function
+@version 10.
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+/*/
+//-----------------------------------------
+User Function AFAT003()
+
+    Local Area  as Array
+    Local Dados as Array
+    
+
+    Private cCadastro as Char
+    Private De        as Char
+    Private Ate       as Char
+
+    cCadastro := 'Consulta NFS-e Betha'
+
+    De  := Space(TamSx3('ZP6_NOTA')[1])
+    Ate := Space(TamSx3('ZP6_NOTA')[1])
+
+    Area := GetArea()
+        if DefineParametros()
+            Erro := ErrorBlock( { |oError| U_AFAT004( oError, 'Nota para verificação' ) } )
+                begin sequence
+
+                    dbSelectArea('ZP6')
+                    ZP6->(dbSetOrder(1))
+                    
+                    FWMsgRun(, { || Dados := GetData() }, cCadastro, "Pesquisando dados. Aguarde..." )                    
+                    if (len(Dados) > 0)
+                        ExibeDados( Dados )
+                    endif
+                    
+                End Sequence			
+            ErrorBlock( Erro )
+            msUnlockAll()
+        endif
+    RestArea(Area)
+
+Return
+
+//-----------------------------------------
+/*/{Protheus.doc} DefineParametros
+Define parametros da pesquisa
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@return Logical, Verdadeiro ou Falso
+
+@protected
+/*/
+//-----------------------------------------
+Static Function DefineParametros()
+
+    Local Pergs as array
+    Local Ret   as Logical
+
+    Ret := .F.
+    Pergs := {}
+    aAdd( Pergs, {1, "Nota Betha de" , De , PesqPict('ZP6', "ZP6_NOTA"), ".T.", , ".T.", 100, .T.} )
+    aAdd( Pergs, {1, "Nota Betha ate", Ate, PesqPict('ZP6', "ZP6_NOTA"), ".T.", , ".T.", 100, .T.} )
+
+    if ParamBox( Pergs, 'Nota para verificação', ,,,,,,,,.F.,.T.)  
+        Ret := .T.
+        De := MV_PAR01
+        Ate := MV_PAR02
+    endif
+
+Return Ret
+
+//-----------------------------------------
+/*/{Protheus.doc} ExibeDados
+Monta a tela para exibição de dados.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+@param Dados, array, Dados para Exibição
+
+@protected
+/*/
+//-----------------------------------------
+Static Function ExibeDados( Dados as Array )
+
+    Local Buttons  as Array
+	Local Colunas  as Array
+    Local Size     as Array
+    Local Confirma as CodeBlock
+    Local Cancela  as CodeBlock
+    Local oDlgx    as Object
+    Local oCabec   as Object
+    Local oLayerCS as Object
+    
+    private oGridC as Object
+    private oGridR as Object
+    private oGridS as Object
+
+    Size := MsAdvSize()
+    DEFINE MSDIALOG oDlgx  TITLE 'Notas Encontradas' FROM 000, 000 TO Size[6],Size[5] COLORS 0, 16777215 PIXEL STYLE nOr(WS_VISIBLE,WS_POPUP)
+        oDlgx:lMaximized := .T.
+        oDlgx:lEscClose := .F.
+        Buttons := {}
+        Confirma := { || oDlgx:End() }
+        Cancela := { || oDlgx:End() }
+        Aadd( Buttons, {"Atualizar", { || Recarrega() }, "Atualiza dados da tela", "Atualizar" , {|| .T.}} ) 
+
+        EnchoiceBar( oDlgx , Confirma, Cancela, , Buttons, /*nRecno*/, /*cAlias*/, .f. /*lMashups*/, .f. /*lImpCad*/, .T./*lPadrao*/, .F./*lHasOk*/, .f./*[lWalkThru]*/ )
+
+        @ 000, 000 MSPANEL oCabec SIZE 500, 100 OF oDlgx COLORS 0, 16777215 RAISED        
+        oCabec:Align := CONTROL_ALIGN_TOP
+
+        oGridC := FwBrowse():New( oCabec )
+            oGridC:SetDataArray(.t.)
+            oGridC:SetArray( Dados )
+            oGridC:DisableFilter()
+            oGridC:DisableReport()
+            oGridC:DisableConfig()
+            oGridC:DisableLocate()
+            oGridC:DisableSeek()
+
+            Colunas := {}		
+
+            oGridC:AddLegend('oGridC:oData:aArray[oGridC:At(), 03] == "Não"', "GREEN", "Ativo"     )
+            oGridC:AddLegend('oGridC:oData:aArray[oGridC:At(), 03] == "Sim"', "RED"  , "Cancelado" )
+
+            aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 01] }, 'Nota Betha'    , TamSX3('ZP6_NOTA'  )[1], "C", PesqPict( "ZP6", 'ZP6_NOTA'  )) )                            
+            aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 02] }, 'Dt Emissão'    , TamSX3('ZP6_EMISSA')[1], "D", PesqPict( "ZP6", 'ZP6_EMISSA')) )
+            //aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 03] }, 'Cancelado?'    , 3                      , "C", ''                            ) )
+            aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 04] }, 'Id Nota Mista' , TamSX3('ZP6_IDNFMI')[1], "C", PesqPict( "ZP6", 'ZP6_IDNFMI')) )                            
+            aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 05] }, 'Pedido Serviço', TamSX3('ZP6_PEDSV' )[1], "C", PesqPict( "ZP6", 'ZP6_PEDSV' )) )
+            aAdd( Colunas, NovaColuna({ || oGridC:oData:aArray[oGridC:At(), 06] }, 'Pedido Produto', TamSX3('ZP6_PEDPRO')[1], "C", PesqPict( "ZP6", 'ZP6_PEDPRO')) )            
+
+            oGridC:SetColumns( Colunas )
+        oGridC:Activate()
+
+        oLayerCS := FWLayer():new()
+        oLayerCS:init( oDlgx, .F. )//Cria as colunas do Layer
+        oLayerCS:addLine( 'LIN01', 100, .T. )
+
+        oLayerCS:AddCollumn('CLN0201', 49.5, .T., 'LIN01')
+        oLayerCS:AddWindow('CLN0201', 'SC0', 'Notas Fiscais', 100, .F. ,.T.,, 'LIN01', { || }) 
+
+        oLayerCS:AddCollumn('CLN0202', 49.5, .T., 'LIN01')
+        oLayerCS:AddWindow('CLN0202', 'SC9', 'Títulos do Financeiro', 100, .F. ,.T.,, 'LIN01', { || }) 
+
+        oGridR := FwBrowse():New( oLayerCS:GetWinPanel('CLN0201', 'SC0', 'LIN01') )
+            oGridR:SetDataArray(.t.)
+            oGridR:SetArray( Dados[1, 7] )
+            oGridR:DisableFilter()
+            oGridR:DisableReport()
+            oGridR:DisableConfig()
+            oGridR:DisableLocate()
+            oGridR:DisableSeek()
+
+            Colunas := {}
+
+            oGridR:AddLegend('oGridR:oData:aArray[oGridR:At(), 03] == "Ativa"'  , "GREEN", "Ativa"   )
+            oGridR:AddLegend('oGridR:oData:aArray[oGridR:At(), 03] == "Apagada"', "RED"  , "Apagada" )
+
+            aAdd( Colunas, NovaColuna({ || oGridR:oData:aArray[oGridR:At(), 01] }, RetTitle('F2_DOC'  ), TamSX3('F2_DOC'  )[1], "C", PesqPict( "SF2", 'F2_DOC'  )) )                            
+            aAdd( Colunas, NovaColuna({ || oGridR:oData:aArray[oGridR:At(), 02] }, RetTitle('F2_SERIE'), TamSX3('F2_SERIE')[1], "C", PesqPict( "SF2", 'F2_SERIE')) )
+            //aAdd( Colunas, NovaColuna({ || oGridR:oData:aArray[oGridR:At(), 03] }, 'Status'            , 7                    , "C", ''                          ) )
+
+            oGridR:SetColumns( Colunas )
+        oGridR:Activate()
+
+        oGridS := FwBrowse():New( oLayerCS:GetWinPanel('CLN0202', 'SC9', 'LIN01') )
+            oGridS:SetDataArray(.t.)
+            oGridS:SetArray( Dados[1, 8] )
+            oGridS:DisableFilter()
+            oGridS:DisableReport()
+            oGridS:DisableConfig()
+            oGridS:DisableLocate()
+            oGridS:DisableSeek()
+
+            Colunas := {}		
+
+            oGridS:AddLegend('oGridS:oData:aArray[oGridS:At(), 05] == "Ativa"'  , "GREEN", "Ativa"   )
+            oGridS:AddLegend('oGridS:oData:aArray[oGridS:At(), 05] == "Apagada"', "RED"  , "Apagada" )
+
+            aAdd( Colunas, NovaColuna({ || oGridS:oData:aArray[oGridS:At(), 01] }, RetTitle('E1_PREFIXO'), TamSX3('E1_PREFIXO')[1], "C", PesqPict( "SC9", 'E1_PREFIXO')) )
+            aAdd( Colunas, NovaColuna({ || oGridS:oData:aArray[oGridS:At(), 02] }, RetTitle('E1_NUM'    ), TamSX3('E1_NUM'    )[1], "N", PesqPict( "SC9", 'E1_NUM'    )) )
+            aAdd( Colunas, NovaColuna({ || oGridS:oData:aArray[oGridS:At(), 03] }, RetTitle('E1_PARCELA'), TamSX3('E1_PARCELA')[1], "C", PesqPict( "SC9", 'E1_PARCELA')) )
+            aAdd( Colunas, NovaColuna({ || oGridS:oData:aArray[oGridS:At(), 04] }, RetTitle('E1_TIPO'   ), TamSX3('E1_TIPO'   )[1], "C", PesqPict( "SC9", 'E1_TIPO'   )) )
+            //aAdd( Colunas, NovaColuna({ || oGridS:oData:aArray[oGridS:At(), 05] }, 'Status'              , 10                     , "C", ''                            ) )
+            
+            oGridS:SetColumns( Colunas )
+        oGridS:Activate()
+
+        oGridC:SetChange( { || oGridR:SetArray( oGridC:oData:aArray[oGridC:At(), 07] ), oGridR:rEFRESH( .t. ), oGridS:SetArray( oGridC:oData:aArray[oGridC:At(), 08] ), oGrids:rEFRESH( .t. ) } )                    
+    ACTIVATE MSDIALOG oDlgx Centered
+
+Return
+
+//-----------------------------------------
+/*/{Protheus.doc} Recarrega
+Recarrega os dados a partir do menu.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@protected
+/*/
+//-----------------------------------------
+Static Function Recarrega()
+
+    Local Dados as Array
+
+    if DefineParametros()
+
+        FWMsgRun(, { || Dados := GetData() }, cCadastro, "Pesquisando dados. Aguarde..." )
+
+        oGridc:SetArray( dados )
+        oGridC:rEFRESH( .t. )
+        oGridc:GoTop( .t. )  
+
+        oGridR:SetArray( oGridC:oData:aArray[oGridC:At(), 07] )
+        oGridR:rEFRESH( .t. )
+        
+        oGridS:SetArray( oGridC:oData:aArray[oGridC:At(), 08] )
+        oGrids:rEFRESH( .t. ) 
+
+    endif
+
+Return
+
+//-----------------------------------------
+/*/{Protheus.doc} GetData
+Busca dados para exibição
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@return Array, Array com dados da pesquisa
+
+@protected
+/*/
+//-----------------------------------------
+Static Function GetData()
+
+    Local Dados    as Array
+    Local SF2D     as Array
+    Local Doc      as Char
+    Local Serie    as Char
+    Local Pesquisa as Char
+
+    Dados := {}
+    Pesquisa := GetNextAlias()
+    BeginSql Alias Pesquisa
+        SELECT
+            R_E_C_N_O_ AS REG
+        FROM
+            %TABLE:ZP6%
+        WHERE
+            ZP6_FILIAL = %XFILIAL:ZP6%
+            AND ZP6_NOTA BETWEEN %EXP:De% AND %EXP:Ate%
+            AND %NOTDEL%
+        ORDER BY 
+            ZP6_NOTA ASC
+    EndSql
+
+    while !(Pesquisa)->(EOF())
+
+        ZP6->(dbGoTop())
+        ZP6->(dbGoTo( (Pesquisa)->REG ))
+
+        SF2D := {}
+
+        Serie := substr( ZP6->ZP6_ID, 1, 3 )
+        Doc   := STRTRAN( ZP6->ZP6_ID, Serie, '')
+
+        aAdd( SF2D, BuscaNota( ZP6->ZP6_FILIAL, ZP6->ZP6_NFPROD ) )
+        aAdd( SF2D, BuscaNota( ZP6->ZP6_FILIAL, doc            , serie ) )
+
+        aAdd( Dados, { ZP6->ZP6_NOTA, ZP6->ZP6_EMISSA, iif(ZP6->ZP6_CANC == 'S', 'Sim', 'Não'), ZP6->ZP6_IDNFMI, ZP6->ZP6_PEDSV, ZP6->ZP6_PEDPRO, SF2D, BuscaTitulos( ZP6->ZP6_FILIAL, ZP6->ZP6_IDNFMI ) }  )
+
+        (Pesquisa)->(dbSkip())
+    enddo
+    (Pesquisa)->(dbCloseArea())
+
+Return Dados
+
+//-----------------------------------------
+/*/{Protheus.doc} BuscaNota
+Busca nota fiscal de acordo com os parâmetros.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@param FilP, character, Filial
+@param Doc, character, Documento
+@param Serie, character, Série
+
+@return Array, Array com dados da pesquisa
+
+@protected  
+/*/
+//-----------------------------------------
+Static Function BuscaNota( FilP as Char, Doc as Char, Serie as Char )
+
+    Local Pesquisa as Char
+
+    default Serie := '1  '
+
+    Pesquisa := GetNextAlias()
+    BeginSql Alias Pesquisa
+        SELECT
+            F2_DOC, F2_SERIE, D_E_L_E_T_ AS DELETADO
+        FROM
+            %TABLE:SF2%
+        WHERE
+            F2_FILIAL = %EXP:FilP%
+            AND F2_DOC = %EXP:Doc%
+            AND F2_SERIE = %EXP:Serie%
+    endSql
+
+    while !(Pesquisa)->(EOF()) 
+        Dados := { (Pesquisa)->F2_DOC, (Pesquisa)->F2_SERIE, iif( (Pesquisa)->DELETADO == '*', 'Apagada', 'Ativa' ) }
+        (Pesquisa)->(dbSkip())
+    enddo
+    (Pesquisa)->(dbCloseArea())
+
+Return Dados
+
+//-----------------------------------------
+/*/{Protheus.doc} BuscaTitulos
+Busca títulos atrelados ao processo.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@param FilP, character, Filial
+@param ChaveMista, character, Chave da Nota Mista
+
+@return Array, Array com dados da pesquisa
+
+@protected  
+/*/
+//-----------------------------------------
+Static Function BuscaTitulos( FilP as Char, ChaveMista as Char )
+
+    Local Dados as Array
+    Local Pesquisa as Char
+
+    Dados := {}
+    Pesquisa := GetNextAlias()
+    BeginSql Alias Pesquisa
+        SELECT
+            E1_PREFIXO, E1_NUM, E1_PARCELA, E1_TIPO, D_E_L_E_T_ AS DELETADO
+        FROM
+            %TABLE:SE1%
+        WHERE
+            E1_FILIAL = %EXP:FilP%
+            AND E1_XIDVNFK = %EXP:ChaveMista%
+        ORDER BY
+            E1_PREFIXO, E1_NUM, E1_PARCELA, E1_TIPO
+    endSql
+
+    while !(Pesquisa)->(EOF()) 
+        AaDD( dados, { (Pesquisa)->E1_PREFIXO, (Pesquisa)->E1_NUM, (Pesquisa)->E1_PARCELA, (Pesquisa)->E1_TIPO, iif( (Pesquisa)->DELETADO == '*', 'Apagada', 'Ativa' ) } )
+        (Pesquisa)->(dbSkip())
+    enddo
+    (Pesquisa)->(dbCloseArea())
+
+Return Dados
+
+//-----------------------------------------
+/*/{Protheus.doc} NovaColuna
+Define novo objeto de coluna.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@param Data, codeblock, Dados para exibição
+@param Titulo, character, Título da Coluna
+@param Tamanho, numeric, Tamamho
+@param Tipo, character, Tipo
+@param Picture, character, Formatação
+
+@return Object, novo Objeto FWBrwColumn
+
+@protected
+/*/
+//-----------------------------------------
+Static Function NovaColuna( Data as Block, Titulo as Char, Tamanho as Numeric, Tipo as Char, Picture as Char )
+
+	Local Coluna as Object
+    Local NovoTamanho as Numeric
+	
+    NovoTamanho := Int( Tamanho / 2 )
+    if NovoTamanho <= 0
+        NovoTamanho := 5
+    endif
+
+	Coluna := FWBrwColumn():New()
+	Coluna:SetData( Data )
+	Coluna:SetTitle( alltrim(Titulo) )
+	Coluna:SetSize( NovoTamanho )
+	Coluna:SetType( Tipo )
+	Coluna:SetPicture( Picture )
+
+    do case
+        case Tipo == 'C'
+            Coluna:NALIGN := 1
+        case Tipo == 'N'
+            Coluna:NALIGN := 2
+        case Tipo == 'D'
+            Coluna:NALIGN := 0
+        otherwise
+            Coluna:NALIGN := 1
+    endcase
+
+Return Coluna

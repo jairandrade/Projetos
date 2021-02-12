@@ -1,0 +1,722 @@
+#INCLUDE "TOTVS.CH"
+#INCLUDE "RESTFUL.CH"
+#INCLUDE "TOPCONN.CH"
+#INCLUDE "PROTHEUS.CH"
+#INCLUDE "RWMAKE.CH"
+#INCLUDE "TBICONN.CH"
+#INCLUDE "FWMVCDEF.CH"
+
+/*/
+    {Protheus.doc} REST Webservice clientes
+    @type method
+    @author Marcos Felipe Xavier
+    @since 17/07/2020
+    @version 1.1.4
+    @see https://documenter.getpostman.com/view/11053018/Szzhedx7
+/*/
+WSRESTFUL clientes DESCRIPTION "API - Kapazi | Manutencao do Cadastro de Clientes | v1.200" 
+
+    WSDATA tenantId As String   // Parametro do Header que define em qual Empresa e Filial o ambiente sera preparado. Formato do tenantId: Empresa,Filial
+    WSDATA codigo As String     // Parametro de URL que sera utilizado para consulta do cadastro de clientes
+    WSDATA loja As String       // Parametro de URL que sera utilizado para consulta do cadastro de clientes
+
+    WSMETHOD GET    DESCRIPTION "Consulta de Cliente | v1.030"  WSSYNTAX "/clientes/{codigo}/{loja}"    PATH "/clientes" PRODUCES APPLICATION_JSON 
+    WSMETHOD POST   DESCRIPTION "Inclusao de Cliente | v1.150"  WSSYNTAX "/clientes"                    PATH "/clientes" PRODUCES APPLICATION_JSON 
+    WSMETHOD PUT    DESCRIPTION "Alteração de Cliente | v1.150" WSSYNTAX "/clientes"                    PATH "/clientes" PRODUCES APPLICATION_JSON 
+
+END WSRESTFUL
+
+
+WSMETHOD GET WSRECEIVE codigo, loja  WSSERVICE clientes
+
+    Local cCodCli := ''
+    Local cLojaCli := ''
+
+    Private lOK         := .T.
+    Private nStatusCode := 200
+    Private nCodErro    := 000
+    Private oReturn := JsonObject():New()
+
+    Default ::codigo := ''
+    Default ::loja := ''
+
+    cCodCli := ::codigo
+    cLojaCli := ::loja
+
+    conout("Iniciando GET /clientes. v1.030")
+
+    BEGIN SEQUENCE
+
+        if empty(cCodCli)
+            montaErro("Cliente nao informado", 400, 30)
+            BREAK
+        endif
+
+        if empty(cLojaCli)
+            montaErro("Loja do cliente nao informada", 400, 30)
+            BREAK
+        endif
+
+        conout(cCodCli)
+        conout(cLojaCli)
+
+        /*--------------------------------------------------------------------------------------*\
+        | Sempre prepara em uma empresa e filial fixas, apenas pra realizar as validações na SM0 |
+        | caso a empresa e filial recebidas sejam válidas, faz uma nova prepação nelas           |
+        \*--------------------------------------------------------------------------------------*/
+        RpcClearEnv()
+        RPCSetType(3)
+        RpcSetEnv('04','01')
+
+        /*--------------------------------------------------------------------------------------*\
+        | Realiza as validacoes de empresa e filial                                              |
+        \*--------------------------------------------------------------------------------------*/
+        cTenantId := ::tenantId
+
+        if empty(cTenantId)
+            montaErro("Header tenantId nao foi informado", 404, 1)
+            BREAK
+        else
+            cEmpK := alltrim(substr(::tenantId,1,at(',',::tenantId)-1))
+            cFilK := alltrim(substr(::tenantId,at(',',::tenantId)+1))
+
+            Do Case
+                Case empty(cEmpK)
+                    montaErro("Header tenantId enviado no formato incorreto", 400, 2)
+                    BREAK
+                Case empty(cFilK)
+                    montaErro("Header tenantId enviado no formato incorreto", 400, 3)
+                    BREAK
+                Case len(cEmpK) <> len(alltrim(cEmpAnt))
+                    montaErro("Header tenantId enviado no formato incorreto", 400, 4)
+                    BREAK
+                Case len(cFilK) <> len(alltrim(cFilAnt))
+                    montaErro("Header tenantId enviado no formato incorreto", 400, 5)
+                    BREAK
+            EndCase
+        endif
+
+
+        /*--------------------------------------------------------------------------------------*\
+        | Realiza a alteracao de empresa e filial, caso necessario                               |
+        \*--------------------------------------------------------------------------------------*/
+        if cEmpK <> '04' .or. cFilK <> '01'
+            if !ExistCpo("SM0", cEmpK + cFilK)
+                montaErro("Empresa/Filial recebidas nao encontradas no sistema. Verificar header tenantId.", 404, 6)
+                BREAK
+            else
+                RpcClearEnv()
+                RPCSetType(3)
+                RpcSetEnv(cEmpK,cFilK)
+            endif
+        endif
+
+        /*------------------------------------------------------------------*\
+        | Define que o tipo de retorno do WS sera JSON                       |
+        \*------------------------------------------------------------------*/
+        ::SetContentType("application/json")
+
+        if select('TMPSA1') > 0 
+            TMPSA1->(DbCloseArea())
+        endif
+
+        BEGINSQL ALIAS 'TMPSA1'
+            SELECT * FROM %TABLE:SA1%
+            WHERE %NOTDEL%
+            AND A1_COD = %EXP:cCodCli%
+            AND A1_LOJA = %EXP:cLojaCli%
+        ENDSQL
+
+        if ! TMPSA1->(EoF())
+            oReturn["A1_BAIRRO"]    := TMPSA1->(A1_BAIRRO)
+            oReturn["A1_CEP"]       := TMPSA1->(A1_CEP)
+            oReturn["A1_CGC"]       := TMPSA1->(A1_CGC)
+            oReturn["A1_COD_MUN"]   := TMPSA1->(A1_COD_MUN)
+            oReturn["A1_COMPLEM"]   := TMPSA1->(A1_COMPLEM)
+            oReturn["A1_CONTATO"]   := TMPSA1->(A1_CONTATO)
+            oReturn["A1_DDD"]       := TMPSA1->(A1_DDD)
+            oReturn["A1_DDI"]       := TMPSA1->(A1_DDI)
+            oReturn["A1_DTNASC"]    := TMPSA1->(A1_DTNASC)
+            oReturn["A1_EMAIL"]     := TMPSA1->(A1_EMAIL)
+            oReturn["A1_END"]       := TMPSA1->(A1_END)
+            oReturn["A1_EST"]       := TMPSA1->(A1_EST)
+            oReturn["A1_INSCR"]     := TMPSA1->(A1_INSCR)
+            oReturn["A1_LOJA"]      := TMPSA1->(A1_LOJA)
+            oReturn["A1_NOME"]      := TMPSA1->(A1_NOME)
+            oReturn["A1_NR_END"]    := TMPSA1->(A1_NR_END)
+            oReturn["A1_NREDUZ"]    := TMPSA1->(A1_NREDUZ)
+            oReturn["A1_PAIS"]      := TMPSA1->(A1_PAIS)
+            oReturn["A1_PESSOA"]    := TMPSA1->(A1_PESSOA)
+            oReturn["A1_TEL"]       := TMPSA1->(A1_TEL)
+            oReturn["A1_TIPO"]      := TMPSA1->(A1_TIPO)
+            oReturn["A1_CEPC"]      := TMPSA1->(A1_CEPC)
+            oReturn["A1_ENDCOB"]    := TMPSA1->(A1_ENDCOB)
+            oReturn["A1_ESTC"]      := TMPSA1->(A1_ESTC)
+            oReturn["A1_MUNC"]      := TMPSA1->(A1_MUNC)
+            oReturn["A1_NATUREZ"]   := TMPSA1->(A1_NATUREZ)
+            oReturn["A1_VEND"]      := TMPSA1->(A1_VEND)
+            oReturn["A1_XCOB"]      := TMPSA1->(A1_XCOB)
+            oReturn["A1_BAIRROC"]   := TMPSA1->(A1_BAIRROC)
+            oReturn["A1_CODPAIS"]   := TMPSA1->(A1_CODPAIS)
+            oReturn["A1_CONTRIB"]   := TMPSA1->(A1_CONTRIB)
+            oReturn["A1_GRPTRIB"]   := TMPSA1->(A1_GRPTRIB)
+            oReturn["A1_SIMPNAC"]   := TMPSA1->(A1_SIMPNAC)
+            oReturn["A1_SUFRAMA"]   := TMPSA1->(A1_SUFRAMA)
+            oReturn["A1_COND"]      := TMPSA1->(A1_COND)
+            oReturn["A1_GRPVEN"]    := TMPSA1->(A1_GRPVEN)
+            oReturn["A1_K_CANAL"]   := TMPSA1->(A1_K_CANAL)
+            oReturn["A1_MOEDALC"]   := TMPSA1->(A1_MOEDALC)
+            oReturn["A1_RISCO"]     := TMPSA1->(A1_RISCO)
+            oReturn["A1_VENCLC"]    := TMPSA1->(A1_VENCLC)
+            oReturn["A1_IDDW"]      := TMPSA1->(A1_IDDW)
+            oReturn["A1_IENCONT"]   := TMPSA1->(A1_IENCONT)
+            oReturn["A1_K_EMAIL"]   := TMPSA1->(A1_K_EMAIL)
+
+        endif
+        
+    END SEQUENCE
+
+    ::SetResponse(oReturn:ToJson())
+    conout("Finalizando GET /clientes. v1.020  |  ")
+
+
+Return .T.
+
+
+WSMETHOD POST WSSERVICE clientes
+
+    Local cBody     := ::GetContent()
+    Local cTenantId := ''
+    Local cEmpK     := ''
+    Local cFilK     := ''
+
+    Private lOK         := .T.
+    Private nStatusCode := 200
+    Private nCodErro    := 000
+    Private oReturn     := NIL
+
+    Default ::tenantId := ''
+
+    conout("Iniciando POST /clientes. v1.150")
+    conout(cBody)
+
+    /*--------------------------------------------------------------------------------------*\
+    | Sempre prepara em uma empresa e filial fixas, apenas pra realizar as validações na SM0 |
+    | caso a empresa e filial recebidas sejam válidas, faz uma nova prepação nelas           |
+    \*--------------------------------------------------------------------------------------*/
+    RpcClearEnv()
+    RPCSetType(3)
+    RpcSetEnv('01','01')
+
+    /*------------------------------------------------------------------*\
+    | Montagem do objeto de retorno do WS                                |
+    \*------------------------------------------------------------------*/
+    oReturn := JsonObject():New()
+    oReturn["resultado"] := ""
+    oReturn["mensagem"] := ""
+    oReturn["codigoLoja"] := ""
+
+
+    /*--------------------------------------------------------------------------------------*\
+    | Realiza as validacoes de empresa e filial                                              |
+    \*--------------------------------------------------------------------------------------*/
+    cTenantId := ::tenantId
+
+    if empty(cTenantId)
+        montaErro("Header tenantId nao foi informado", 404, 1)
+    else
+        cEmpK := alltrim(substr(::tenantId,1,at(',',::tenantId)-1))
+        cFilK := alltrim(substr(::tenantId,at(',',::tenantId)+1))
+
+        Do Case
+            Case empty(cEmpK)
+                montaErro("Header tenantId enviado no formato incorreto", 400, 2)
+            Case empty(cFilK)
+                montaErro("Header tenantId enviado no formato incorreto", 400, 3)
+            Case len(cEmpK) <> len(alltrim(cEmpAnt))
+                montaErro("Header tenantId enviado no formato incorreto", 400, 4)
+            Case len(cFilK) <> len(alltrim(cFilAnt))
+                montaErro("Header tenantId enviado no formato incorreto", 400, 5)
+        EndCase
+    endif
+
+
+    /*--------------------------------------------------------------------------------------*\
+    | Realiza a alteracao de empresa e filial, caso necessario                               |
+    \*--------------------------------------------------------------------------------------*/
+    if lOK .and. (cEmpK <> '04' .or. cFilK <> '01')
+        if !ExistCpo("SM0", cEmpK + cFilK)
+            montaErro("Empresa/Filial recebidas nao encontradas no sistema. Verificar header tenantId.", 404, 6)
+        else
+            RpcClearEnv()
+            RPCSetType(3)
+            RpcSetEnv(cEmpK,cFilK)
+        endif
+    endif
+
+    /*------------------------------------------------------------------*\
+    | Define que o tipo de retorno do WS sera JSON                       |
+    \*------------------------------------------------------------------*/
+    ::SetContentType("application/json")
+
+    /*------------------------------------------------------------------*\
+    | Chamada da funcao que fara o processamento das infos recebidas     |
+    \*------------------------------------------------------------------*/
+    if lOK
+        U_INCCLI(cBody)
+    endif
+
+    /*------------------------------------------------------------------*\
+    | Vefica o retonro da funcao INCCLI() e monta o retorno padrao do WS |
+    \*------------------------------------------------------------------*/
+    ::SetResponse(oReturn:toJson())
+    conout(oReturn:toJson())
+
+    FreeObj(oReturn)
+
+Return .T.
+
+
+WSMETHOD PUT WSSERVICE clientes
+
+    Local cBody     := ::GetContent()
+    Local cTenantId := ''
+    Local cEmpK     := ''
+    Local cFilK     := ''
+
+    Private lOK         := .T.
+    Private nStatusCode := 200
+    Private nCodErro    := 000
+    Private oReturn     := NIL
+
+    Default ::tenantId := ''
+
+    conout("Iniciando PUT /clientes. v1.150")
+    conout(cBody)
+
+
+    /*--------------------------------------------------------------------------------------*\
+    | Sempre prepara em uma empresa e filial fixas, apenas pra realizar as validações na SM0 |
+    | caso a empresa e filial recebidas sejam válidas, faz uma nova prepação nelas           |
+    \*--------------------------------------------------------------------------------------*/
+    RpcClearEnv()
+    RPCSetType(3)
+    RpcSetEnv('04','01')
+
+    /*------------------------------------------------------------------*\
+    | Montagem do objeto de retorno do WS                                |
+    \*------------------------------------------------------------------*/
+    oReturn := JsonObject():New()
+    oReturn["resultado"] := ""
+    oReturn["mensagem"] := ""
+    oReturn["codigoLoja"] := ""
+
+
+    /*--------------------------------------------------------------------------------------*\
+    | Realiza as validacoes de empresa e filial                                              |
+    \*--------------------------------------------------------------------------------------*/
+    cTenantId := ::tenantId
+
+    if empty(cTenantId)
+        montaErro("Header tenantId nao foi informado", 404, 1)
+    else
+        cEmpK := alltrim(substr(::tenantId,1,at(',',::tenantId)-1))
+        cFilK := alltrim(substr(::tenantId,at(',',::tenantId)+1))
+
+        Do Case
+            Case empty(cEmpK)
+                montaErro("Header tenantId enviado no formato incorreto", 400, 2)
+            Case empty(cFilK)
+                montaErro("Header tenantId enviado no formato incorreto", 400, 3)
+            Case len(cEmpK) <> len(alltrim(cEmpAnt))
+                montaErro("Header tenantId enviado no formato incorreto", 400, 4)
+            Case len(cFilK) <> len(alltrim(cFilAnt))
+                montaErro("Header tenantId enviado no formato incorreto", 400, 5)
+        EndCase
+    endif
+
+
+    /*--------------------------------------------------------------------------------------*\
+    | Realiza a alteracao de empresa e filial, caso necessario                               |
+    \*--------------------------------------------------------------------------------------*/
+    if lOK .and. (cEmpK <> '04' .or. cFilK <> '01')
+        if !ExistCpo("SM0", cEmpK + cFilK)
+            montaErro("Empresa/Filial recebidas nao encontradas no sistema. Verificar header tenantId.", 404, 6)
+        else
+            RpcClearEnv()
+            RPCSetType(3)
+            RpcSetEnv(cEmpK,cFilK)
+        endif
+    endif
+
+
+    /*------------------------------------------------------------------*\
+    | Define que o tipo de retorno do WS sera JSON                       |
+    \*------------------------------------------------------------------*/
+    ::SetContentType("application/json")
+
+    /*------------------------------------------------------------------*\
+    | Chamada da funcao que fara o processamento das infos recebidas     |
+    \*------------------------------------------------------------------*/
+    if lOK
+        U_ALTCLI(cBody)
+    endif
+
+    /*------------------------------------------------------------------*\
+    | Vefica o retonro da funcao INCCLI() e monta o retorno padrao do WS |
+    \*------------------------------------------------------------------*/
+    ::SetResponse(oReturn:toJson())
+    conout(oReturn:toJson())
+
+    FreeObj(oReturn)
+
+Return .T.
+
+
+
+/*/{Protheus.doc} REST Webservice CLIENTES
+    @type function
+    @author Marcos
+    @since 17/07/2020
+    @version 1.0.2
+    @see https://centraldeatendimento.totvs.com/hc/pt-br/articles/360029074312-MP-ADVPL-Rotina-Automatica-MATA030
+/*/
+User Function INCCLI(cJSON)
+
+    // Local aDados    := {}
+    Local aJson     := {}
+
+    Local cArqLog   := ""
+    // Local cErro     := ""
+    Local cMsgErr   := ""
+    Local nlen      := 0
+
+    Local lGrava    := .T.
+
+    Local nX        := 0
+
+    Local oDados    := NIL
+    Local oModel    := NIL
+
+    Private lMsErroAuto := .F.
+
+    /*--------------------------------------------------------*\
+    | Carrega o modelo de dados do cadastro de clientes em MVC |
+    \*--------------------------------------------------------*/
+    oModel := FWLoadModel("MATA030")
+    oModel:SetOperation(3)
+    oModel:Activate()
+
+    // ID do componete addFields
+    oAux := oModel:GetModel("MATA030_SA1"):GetStruct()
+
+    // Removendo todas as validaÃ§Ãµes do modo de ediÃ§Ãµes dos campos
+    oAux:SetProperty('*',MODEL_FIELD_WHEN, FWBuildFeature(STRUCT_FEATURE_WHEN,Nil))
+
+
+    /*-------------------------------------------------------------------------------------*\
+    | Montagem do objeto JSON para tratativa das infos recebidas no body da requisicao REST |
+    \*-------------------------------------------------------------------------------------*/
+    oDados := JsonObject():New()
+    oDados:FromJson(cJson)
+    aJson := oDados:GetNames()
+
+
+    // caso ja exista o cnpj ignorar integraÃ§Ã£o
+    DbSelectArea("SA1")
+    SA1->(DbSetOrder(3)) // Filial + CGC
+    If SA1->(DbSeek(xFilial("SA1") + oDados["A1_CGC"]))
+        oReturn["resultado"] := "OK"
+        oReturn["mensagem"] := "Cliente incluido com sucesso!"
+        oReturn["codigoLoja"] := SA1->A1_COD + SA1->A1_LOJA
+
+        FreeObj(oDados)
+
+        return
+    endif
+
+    /*-------------------------------------------------------*\
+    | Montagem do modelo de dados contendo as infos recebidas |
+    \*-------------------------------------------------------*/
+    for nX := 1 to len(aJson)
+        if oAux:HasField(aJson[nX]) //Informa se um determinado campo existe na estrutura
+            if GetSx3Cache(aJson[nX],"X3_TIPO") == 'D'
+                oDados[aJson[nX]] := stod(oDados:GetJsonObject(aJson[nX]))            
+            endif
+
+            if alltrim(aJson[nX]) == "A1_NR_END"
+                LOOP
+            endif
+
+            if alltrim(aJson[nX]) == "A1_END"
+                nlen := TamSx3("A1_END") - TamSx3("A1_NR_END") - 2
+                oDados[aJson[nX]] := substr(oDados[aJson[nX]],1,nlen) + ', ' + oDados["A1_NR_END"]
+            endif
+
+            if !oModel:SetValue("MATA030_SA1", aJson[nX], substr(oDados:GetJsonObject(aJson[nX]),1,TamSx3(aJson[nX])))
+                lGrava := .F.
+                Exit
+            endif
+        endif
+    next
+
+    /*-------------------------------------------------------*\
+    | Realiza o commit, semelhante a execauto                 |
+    \*-------------------------------------------------------*/
+    if lGrava
+        lGrava :=  oModel:VldData() //Valida os Dados
+        if lGrava
+            lGrava := oModel:CommitData() //Executa Commit
+        endif
+    endif
+
+
+    if !lGrava
+        aErro := oModel:GetErrorMessage()
+        cMsgErr := GetErroMvc(aErro,{4,6,7})
+        cArqLog := 'SA2_' + fwTimeStamp(1, dDatabase, time()) + '.log'
+        MostraErro("\log", cArqLog)
+        
+        oReturn["resultado"] := "ERRO"
+        oReturn["mensagem"] := cMsgErr
+        oReturn["codigoLoja"] := ""
+
+    else
+
+        DbSelectArea("SA1")
+        SA1->(DbSetOrder(3)) // Filial + CGC
+        SA1->(DbSeek(xFilial("SA1") + oDados["A1_CGC"]))
+
+        RecLock("SA1",.F.)
+            SA1->A1_NR_END := oDados["A1_NR_END"]
+        SA1->(MsUnlock())
+
+        oReturn["resultado"] := "OK"
+        oReturn["mensagem"] := "Cliente incluido com sucesso!"
+        oReturn["codigoLoja"] := SA1->A1_COD + SA1->A1_LOJA
+
+    endif
+
+    FreeObj(oDados)
+
+Return 
+
+/*/{Protheus.doc} REST Webservice CLIENTES
+    @type function
+    @author Marcos
+    @since 17/07/2020
+    @version 1.0.2
+    @see https://centraldeatendimento.totvs.com/hc/pt-br/articles/360029074312-MP-ADVPL-Rotina-Automatica-MATA030
+/*/
+User Function ALTCLI(cJSON)
+
+    // Local aDados    := {}
+    Local aJson     := {}
+
+    Local cArqLog   := ""
+    // Local cErro     := ""
+    Local cMsgErr   := ""
+
+    Local lGrava    := .T.
+
+    Local nX        := 0
+
+    Local oDados    := NIL
+    Local oModel    := NIL
+
+    Private lMsErroAuto := .F.
+
+
+    /*-------------------------------------------------------------------------------------*\
+    | Montagem do objeto JSON para tratativa das infos recebidas no body da requisicao REST |
+    \*-------------------------------------------------------------------------------------*/
+    oDados := JsonObject():New()
+    oDados:FromJson(cJson)
+    aJson := oDados:GetNames()
+
+    
+    SA1->(DbSetOrder(3))
+    SA1->(DbSeek(xFilial("SA1") + oDados["A1_CGC"]))
+
+
+    /*--------------------------------------------------------*\
+    | Carrega o modelo de dados do cadastro de clientes em MVC |
+    \*--------------------------------------------------------*/
+    oModel := FWLoadModel("MATA030")
+    oModel:SetOperation(MODEL_OPERATION_UPDATE)
+    oModel:Activate()
+
+    // ID do componete addFields
+    oAux := oModel:GetModel("MATA030_SA1"):GetStruct()
+
+    // Removendo todas as validaÃ§Ãµes do modo de ediÃ§Ãµes dos campos
+    oAux:SetProperty('*',MODEL_FIELD_WHEN, FWBuildFeature(STRUCT_FEATURE_WHEN,Nil))
+
+
+
+
+
+    // caso ja exista o cnpj ignorar integraÃ§Ã£o
+    // DbSelectArea("SA1")
+    // SA1->(DbSetOrder(3)) // Filial + CGC
+    // If SA1->(DbSeek(xFilial("SA1") + oDados["A1_CGC"]))
+    //     oReturn["resultado"] := "OK"
+    //     oReturn["mensagem"] := "Cliente incluido com sucesso!"
+    //     oReturn["codigoLoja"] := SA1->A1_COD + SA1->A1_LOJA
+
+    //     FreeObj(oDados)
+
+    //     return
+    // endif
+
+    /*-------------------------------------------------------*\
+    | Montagem do modelo de dados contendo as infos recebidas |
+    \*-------------------------------------------------------*/
+
+
+
+    for nX := 1 to len(aJson)
+        if oAux:HasField(aJson[nX]) //Informa se um determinado campo existe na estrutura
+            if GetSx3Cache(aJson[nX],"X3_TIPO") == 'D'
+                oDados[aJson[nX]] := stod(oDados:GetJsonObject(aJson[nX]))            
+            endif
+
+            if alltrim(aJson[nX]) $ "A1_NR_END|A1_COD|A1_LOJA"
+                LOOP
+            endif
+
+            if alltrim(aJson[nX]) == "A1_END"
+                oDados[aJson[nX]] += ', ' + oDados["A1_NR_END"]
+            endif
+
+            if !oModel:SetValue("MATA030_SA1", aJson[nX], oDados:GetJsonObject(aJson[nX]))
+                lGrava := .F.
+                Exit
+            endif
+        endif
+    next
+
+    /*-------------------------------------------------------*\
+    | Realiza o commit, semelhante a execauto                 |
+    \*-------------------------------------------------------*/
+    if lGrava
+        lGrava :=  oModel:VldData() //Valida os Dados
+        if lGrava
+            lGrava := oModel:CommitData() //Executa Commit
+        endif
+    endif
+
+
+    if !lGrava
+        aErro := oModel:GetErrorMessage()
+        cMsgErr := GetErroMvc(aErro,{4,6,7})
+        cArqLog := 'SA1_' + fwTimeStamp(1, dDatabase, time()) + '.log'
+        MostraErro("\log", cArqLog)
+        
+        oReturn["resultado"] := "ERRO"
+        oReturn["mensagem"] := cMsgErr
+        oReturn["codigoLoja"] := ""
+
+    else
+
+        DbSelectArea("SA1")
+        SA1->(DbSetOrder(3)) // Filial + CGC
+        SA1->(DbSeek(xFilial("SA1") + oDados["A1_CGC"]))
+
+        RecLock("SA1",.F.)
+            SA1->A1_NR_END := oDados["A1_NR_END"]
+        SA1->(MsUnlock())
+
+        oReturn["resultado"] := "OK"
+        oReturn["mensagem"] := "Cliente alterado com sucesso!"
+        oReturn["codigoLoja"] := SA1->A1_COD + SA1->A1_LOJA
+
+    endif
+
+    FreeObj(oDados)
+
+Return 
+
+
+/*---------------------------------------------------------------------------+
+!                       FICHA TECNICA DO PROGRAMA                            !
++----------------------------------------------------------------------------+
+!                          DADOS DO PROGRAMA                                 !
++------------------+---------------------------------------------------------+
+!Autor             ! Calandrine Maximiliano                                  !
++------------------+---------------------------------------------------------+
+!Descricao         ! Retorna mensagem de Erro gerada pela Rotina AutomÃ¡tica. !
++------------------+---------------------------------------------------------+
+!Data de Criacao   ! 20/08/2019                                              !
++------------------+--------------------------------------------------------*/
+Static function GetErroMvc(aErro, aIndice)
+    
+    Local cRet      := ""
+    Local nX        := 0
+    Local aDescErro := {}
+
+    Aadd(aDescErro, encodeutf8("FormulÃ¡rio de origem: "))
+    Aadd(aDescErro, encodeutf8("FormulÃ¡rio de erro: "))
+    Aadd(aDescErro, encodeutf8("Campo de origem: "))
+    Aadd(aDescErro, encodeutf8("Campo de erro: "))
+    Aadd(aDescErro, encodeutf8("Id do erro: "))
+    Aadd(aDescErro, encodeutf8("Mensagem do erro: "))
+    Aadd(aDescErro, encodeutf8("Mensagem da soluÃ§Ã£o: "))
+    Aadd(aDescErro, encodeutf8("Valor atribuÃ­do: "))
+    Aadd(aDescErro, encodeutf8("Valor anterior: "))
+
+    for nX := 1 To Len(aIndice)
+	    cRet += aDescErro[aIndice[nX]] + AllToChar(aErro[aIndice[nX]]) + chr(13) + chr(10)
+    next nX
+					
+Return cRet
+
+
+/*/{Protheus.doc} montaErro
+    (long_description)
+    @type  Static Function
+    @author Marcos Felipe Xavier
+    @since 10/07/2020
+    @version 1.0.1
+    @param cMensagem, character, Mensagem de erro.
+    @param nHTTPCod, numeric, Codigo HTTP de status da requisicao
+    @param nCodWS, numeric, Codigo proprio de erro para controle de mensagens e localizacao do erro
+    @param param_name, param_type, param_descr
+    /*/
+Static Function montaErro(cMensagem, nHTTPCod, nCodWS)
+
+    /*---------------------------------------------------------------*\
+    | Preenche objeto de retorno e 'seta' variaveis de controle       |
+    \*---------------------------------------------------------------*/
+    oReturn["resultado"] := "ERRO"
+    oReturn["mensagem"] := encodeUTF8(cMensagem)
+    oReturn["codigoLoja"] := ""
+    
+    nStatusCode := nHTTPCod
+    nCodErro    := nCodWS
+    lOK := .F.
+    
+Return
+
+/*/{Protheus.doc} Tgasto
+    (long_description)
+    @type  Static Function
+    @author user
+    @since 31/08/2020
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+// Static Function Tgasto()
+
+//     Local cDiff := ''
+//     Local cElapsed := ''
+//     Local nNow      := timecounter() 
+
+//     cDiff := cvaltochar(nNow - nHrIni)
+//     cElapsed := substr(cDiff,1,at('.',cDiff)+3) + 'ms'
+
+// return cElapsed

@@ -1,0 +1,101 @@
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** CLIENTE    : Kapazi Indústria Brasileira Ltda                                                                  **/
+/** SOLICITANTE: Luis Fernando                                                                                     **/
+/** DATA       : 19/02/2018                                                                                        **/
+/** MODULO     : Planejaento e controle de producao                                                                **/
+/** FINALIDADE : Ponto de entrada que valida o apontamento pcp modelo 2                                            **/
+/** RESPONSAVEL: RSAC Solucoes                                                                                     **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/**                                          DECLARACAO DAS BIBLIOTECAS                                            **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+#INCLUDE "PROTHEUS.CH"
+#INCLUDE "RWMAKE.CH"
+#INCLUDE "TOPCONN.CH"
+
+/**--------------------------------------------------------------------------------------------------------------- **/
+/**                                             DEFINICAO DE PALAVRAS                                              **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+#Define ENTER CHR(13)+CHR(10)
+
+
+
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** NOME DA FUNCAO: MT680VAL                                                                                       **/
+/** DESCRICAO     : Inicio do ponto de entrada.                                                                    **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/**                                      CRIACAO / ALTERACOES / MANUTENCOES                                        **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** Data         | Desenvolvedor          | Solicitacao             | Descricao                                    **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** 19/02/2018   | Luiz Henrique Jacinto  |                         |                                              **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/**                                                  PARAMETROS                                                    **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** Nenhum parametro esperado.                                                                                     **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/**                                                   RETORNO                                                      **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+/** lRet         | pode confirmar o apontamento                                                                    **/
+/**--------------------------------------------------------------------------------------------------------------- **/
+User Function MT680VAL()
+	// retorno
+	Local lRet		:= .T.
+	// validacao ativada
+	Local lVldData	:= GetMv("KA_APOVLDT",,.F.)
+	// mensagem
+	Local cMsg		:= ""
+
+	// se validacao ativada e rotina mata681 apontamento pcp modelo 2
+	If lVldData .and. l681
+		
+		// valida se a data e hora inicial sao maiores que a data e hora atual
+		If DtoS(M->H6_DATAINI)+" "+M->H6_HORAINI > DtoS(Date())+" "+Substr(Time(),1,5)
+			// altera o retorno
+			lRet := .F.
+			// monta msg de erro
+			cMsg += "A data e hora do início do apontamento não podem ser maiores que a data e hora atuais."+ENTER
+			// monta msg de erro
+			cMsg += "Data Informada: "+ DtoC(M->H6_DATAINI)+" "+Substr(M->H6_HORAINI,1,5)+ENTER
+			// monta msg de erro
+			cMsg += "Data Atual: "+ DtoC(Date())+" "+Substr(Time(),1,5)+ENTER
+		Endif
+		
+		// se valido e a data e hora final sao maiores que a data de hora atual 
+		If DtoS(M->H6_DATAFIN)+" "+M->H6_HORAFIN > DtoS(Date())+" "+Substr(Time(),1,5)
+			// altera o retorno
+			lRet := .F.
+			
+			// se já deu erro
+			If !Empty(AllTrim(cMsg) )
+				// pula mais uma linha
+				cMsg += ENTER
+			Endif
+			
+			// monta msg de erro
+			cMsg += "A data e hora do fim do apontamento não podem ser maiores que a data e hora atuais."+ENTER
+			// monta msg de erro
+			cMsg += "Data Informada: "+ DtoC(M->H6_DATAFIN)+" "+Substr(M->H6_HORAFIN,1,5)+ENTER
+			// monta msg de erro
+			cMsg += "Data Atual: "+ Dtoc(Date())+" "+Substr(Time(),1,5)+ENTER
+		Endif
+
+	Endif
+	
+	// se deu erro
+	If !lRet 
+	
+		// printa msg no console
+		conout( DtoS( Date() ) + " " + Time() + " MT680VAL " + cMsg )
+
+		// se possui tela
+		If !isBlind()
+			// exibe a mensagem de erro
+			MsgStop(cMsg)
+		endif
+	Endif
+	
+	// retorna
+Return lRet
+
+
+

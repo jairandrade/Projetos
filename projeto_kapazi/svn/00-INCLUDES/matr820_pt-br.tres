@@ -1,0 +1,76 @@
+0001#STR0001#ALL#Este programa ira imprimir a Relacao das Ordens de Producao
+0002#STR0002#ALL#Por Numero
+0003#STR0003#ALL#Por Produto
+0004#STR0004#ALL#Por Centro de Custo
+0005#STR0005#ALL#Por Prazo de Entrega
+0006#STR0006#ALL#Zebrado
+0007#STR0007#ALL#Administracao
+0008#STR0008#ALL#Selecionando Registros...
+0009#STR0009#ALL#CANCELADO PELO OPERADOR
+0010#STR0010#ALL#ORDEM  DE  PRODUCAO    NRO :
+0011#STR0011#ALL#  C O M P O N E N T E S                                     |     |       |                 |             |   
+0012#STR0012#ALL#CODIGO          DESCRICAO                      QUANTIDADE   |   UM|     AM| DESCRICAO       | ENDERECO    |SEQ
+0013#STR0013#ALL#Produto: 
+0014#STR0014#ALL#Emissao:
+0015#STR0015#ALL#Fol:
+0016#STR0016#ALL#Cliente :
+0017#STR0017#ALL#Qtde Prod.:
+0018#STR0018#ALL#Qtde Orig.:
+0019#STR0019#ALL#Quantidade :
+0020#STR0020#ALL#INICIO             F I M
+0021#STR0021#ALL#Unid. Medida : 
+0022#STR0022#ALL#Prev. : 
+0023#STR0023#ALL#C.Custo: 
+0024#STR0024#ALL#Ajuste: 
+0025#STR0025#ALL#Status: OP Sacramentada
+0026#STR0026#ALL#Status: OP Suspensa
+0027#STR0027#ALL#Status: OP Normal
+0028#STR0028#ALL#Real  :   /  /      Real  :   /  / 
+0029#STR0029#ALL#Observacao: 
+0030#STR0030#ALL#              ROTEIRO DE OPERACOES              NRO :
+0031#STR0031#ALL#RECURSO                       FERRAMENTA               OPERACAO
+0032#STR0032#ALL#INICIO  ALOC.: 
+0033#STR0033#ALL# INICIO  REAL :
+0034#STR0034#ALL#TERMINO ALOC.: 
+0035#STR0035#ALL# TERMINO REAL :
+0036#STR0036#ALL#Quantidade Produzida :               Perdas :
+0037#STR0037#ALL#               RELACAO DE MEDIDAS             NRO :
+0038#STR0038#ALL#MAQUINA                       FERRAMENTA               OPERACAO
+0039#STR0039#ALL#Ordens de Producao
+0040#STR0040#ALL#Emissao
+0041#STR0041#ALL#Qtde. a Prod.
+0042#STR0042#ALL#Qtde. Orig.
+0043#STR0043#ALL#Quantidade
+0044#STR0044#ALL#Real Ini   .
+0045#STR0045#ALL#Real Fim  .
+0046#STR0046#ALL#INICIO  REAL 
+0047#STR0047#ALL#TERMINO REAL 
+0048#STR0048#ALL#Quantidade Produzida
+0049#STR0049#ALL#Perdas
+0050#STR0050#ALL#Ordens de Produção
+0051#STR0051#ALL#Empenhos
+0052#STR0052#ALL#Operações
+0053#STR0053#ALL#Tempo Rot. Oper.
+0054#STR0054#ALL#O R D E M   D E   P R O D U C A O                                      NRO :
+0055#STR0055#ALL#  C O M P O N E N T E S                                   |    |    |              |                 |     |            |
+0056#STR0056#ALL#CODIGO          DESCRICAO                      QUANTIDADE | UM | AM | DESCRICAO    | ENDERECO        | SEQ | LOTE       | SUB-LOTE
+0057#STR0057#ALL#Sublote
+0058#STR0058#ALL#Codigo
+0059#STR0059#ALL#Descricao
+0060#STR0060#ALL#Qtde.
+0061#STR0061#ALL#UM
+0062#STR0062#ALL#AM
+0063#STR0063#ALL#Endereco
+0064#STR0064#ALL#Seq
+0065#STR0065#ALL#Lote
+0066#STR0066#ALL#Empresa: 
+0067#STR0067#ALL#Filial: 
+0068#STR0068#ALL#  C O M P O N E N T E S                                                     |  |        |              |    
+0069#STR0069#ALL#CODIGO                         DESCRICAO                         QUANTIDADE |UM| ARM    | ENDERECO     | SEQ
+0070#STR0070#ALL#  C O M P O N E N T E S                                                     |  |        |              |     |            |
+0071#STR0071#ALL#CODIGO                         DESCRICAO                         QUANTIDADE |UM| ARM    | ENDERECO     | SEQ | LOTE       | SUB-LOTE
+0072#STR0072#ALL#ARM
+0073#STR0073#ALL#Ordem Produção
+0074#STR0074#ALL#Validade inicial
+0075#STR0075#ALL#Validade Final
+0076#STR0076#ALL#PECAS COM

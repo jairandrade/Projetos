@@ -1,0 +1,76 @@
+0001#STR0001#ALL#This program will print the Report of Production Orders
+0002#STR0002#ALL#By Number
+0003#STR0003#ALL#By Product
+0004#STR0004#ALL#By Cost Center
+0005#STR0005#ALL#By Delivery Term   
+0006#STR0006#ALL#Z.Form
+0007#STR0007#ALL#Management
+0008#STR0008#ALL#Selecting Records...
+0009#STR0009#ALL#CANCELLED BY THE OPERATOR
+0010#STR0010#ALL#PRODUCTION ORDER       No.:
+0011#STR0011#ALL#  C O M P O N E N T                                      |     |       |                 |             |   
+0012#STR0012#ALL#CODE          DESCRIPTION                     QUANTITY   |   UM|     AM| DESCRIPTION       | ADDRESS    |SEQ
+0013#STR0013#ALL#Product: 
+0014#STR0014#ALL#Issue:
+0015#STR0015#ALL#Sh.:
+0016#STR0016#ALL#Custom.:
+0017#STR0017#ALL#Qtty Prod.:
+0018#STR0018#ALL#Orig.Qtty.:
+0019#STR0019#ALL#Quantity :
+0020#STR0020#ALL#START              E N D
+0021#STR0021#ALL#Unit of Meas.:   
+0022#STR0022#ALL#Estimated : 
+0023#STR0023#ALL#CCenter: 
+0024#STR0024#ALL#Adjustment: 
+0025#STR0025#ALL#Status: PO Fixed
+0026#STR0026#ALL#Status: PO Cancelled
+0027#STR0027#ALL#Status: Normal PO
+0028#STR0028#ALL#Act.  :   /  /      Act.  :   /  / 
+0029#STR0029#ALL#Observat.: 
+0030#STR0030#ALL#              ROUTINE OF TRANSACTIONS           NUM :
+0031#STR0031#ALL#RESOURCE                      TOOLS                    TRANSACTION
+0032#STR0032#ALL#INIT. ALLOC. : 
+0033#STR0033#ALL#EFFECTIVE END: 
+0034#STR0034#ALL#FINAL ALLOC..: 
+0035#STR0035#ALL#EFFECTIVE END:
+0036#STR0036#ALL#Quantity Produced :               Losses :
+0037#STR0037#ALL#               LIST OF MEASURES               NUM :
+0038#STR0038#ALL#MACHINE                       TOOLS                    TRANSACTION
+0039#STR0039#ALL#Production Order
+0040#STR0040#ALL#Issued 
+0041#STR0041#ALL#Qty to Prod
+0042#STR0042#ALL#Qty. Orig. 
+0043#STR0043#ALL#Quantity  
+0044#STR0044#ALL#Actual Init.
+0045#STR0045#ALL#ActualFinal
+0046#STR0046#ALL#ACTUAL START 
+0047#STR0047#ALL#ACTUAL END   
+0048#STR0048#ALL#Quantity produced   
+0049#STR0049#ALL#Losses
+0050#STR0050#ALL#Production Orders 
+0051#STR0051#ALL#Allocat.
+0052#STR0052#ALL#Operations
+0053#STR0053#ALL#Oper. Proc. Time
+0054#STR0054#ALL#P R O D U C T I O N   O R D E R                                         No.:
+0055#STR0055#ALL#  C O M P O N E N T S                                   |    |    |              |                 |     |            |
+0056#STR0056#ALL#CODE          DESCRIPTION                      QUANTITY | UM | AM | DESCRIPTION    | ADDRESS        | SEQ | BATCH       | SUB-BATCH
+0057#STR0057#ALL#Sublot
+0058#STR0058#ALL#Code
+0059#STR0059#ALL#Description
+0060#STR0060#ALL#Qty.
+0061#STR0061#ALL#MU
+0062#STR0062#ALL#AM
+0063#STR0063#ALL#Address
+0064#STR0064#ALL#Seq
+0065#STR0065#ALL#Lot
+0066#STR0066#ALL#Company: 
+0067#STR0067#ALL#Branch: 
+0068#STR0068#ALL#  C O M P O N E N T S                                                       |  |        |              |    
+0069#STR0069#ALL#CODE                           DESCRIPT.                         QUANTITY   |UM| ARM    | ADDRESS      | SEQ
+0070#STR0070#ALL#  C O M P O N E N T S                                                       |  |        |              |     |            |
+0071#STR0071#ALL#CODE                           DESCRIPT.                         QUANTITY   |UM| ARM    | ADDRESS      | SEQ | LOT        | SUB-LOT 
+0072#STR0072#ALL#ARM
+0073#STR0073#ALL#Production Order:
+0074#STR0074#ALL#Start Validity
+0075#STR0075#ALL#End Validity
+0076#STR0076#ALL#PARTS WITH

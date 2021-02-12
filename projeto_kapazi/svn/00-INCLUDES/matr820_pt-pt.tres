@@ -1,0 +1,49 @@
+0001#STR0001#ALL#Este Programa Irá Imprimir A Relação Das Ordens De Produção
+0002#STR0002#ALL#Por Número
+0003#STR0003#ALL#Por Artigo
+0004#STR0004#ALL#Por Centro De Custo
+0005#STR0005#ALL#Por Prazo De Entrega
+0006#STR0006#ALL#Código de barras
+0007#STR0007#ALL#Administração
+0008#STR0008#ALL#A Seleccionar Registos...
+0009#STR0009#ALL#Cancelado Pelo Operador
+0010#STR0010#ALL#ORDEM  DE  PRODUÇÃO    NR. :
+0013#STR0013#ALL#Artigo: 
+0014#STR0014#ALL#Emissão:
+0017#STR0017#ALL#Quantidade De Artigos:
+0018#STR0018#ALL#Quantidade Original:
+0020#STR0020#ALL#Início             F I M
+0021#STR0021#ALL#Unid. medida : 
+0023#STR0023#ALL#C. Custo:
+0025#STR0025#ALL#Status: Op Sacramentada
+0026#STR0026#ALL#Estado: Op Suspensa
+0027#STR0027#ALL#Estado: Op Normal
+0028#STR0028#ALL#Real  :   /  /      real  :   /  / 
+0029#STR0029#ALL#Observação: 
+0030#STR0030#ALL#              roteiro de operações              nro :
+0031#STR0031#ALL#Recurso                       Ferramenta               Operação
+0032#STR0032#ALL#Inicio  aloc.: 
+0033#STR0033#ALL# inicio  real :
+0034#STR0034#ALL#Termino aloc.: 
+0035#STR0035#ALL# termino real :
+0036#STR0036#ALL#Quantidade produzida :               perdas :
+0037#STR0037#ALL#               relação de medidas             nro :
+0038#STR0038#ALL#Maquina                       Ferramenta               Operação
+0039#STR0039#ALL#Ordens De Produção
+0040#STR0040#ALL#Emissão
+0042#STR0042#ALL#Qtd. Orig.
+0044#STR0044#ALL#Real iní.  .
+0045#STR0045#ALL#Real fim  .
+0046#STR0046#ALL#Início  real 
+0047#STR0047#ALL#Término real 
+0050#STR0050#ALL#Ordens de produção
+0051#STR0051#ALL#Alocações
+0054#STR0054#ALL#O R D E M   D E   P R O D U Ç Ã O                                      NR. :
+0057#STR0057#ALL#Sub-lote
+0058#STR0058#ALL#Código
+0059#STR0059#ALL#Descrição
+0061#STR0061#ALL#Um
+0062#STR0062#ALL#Am
+0063#STR0063#ALL#Morada
+0069#STR0069#ALL#CÓDIGO                         DESCRIÇÃO                         QUANTIDADE |UM| ARM    | LOCAL.     | SEQ
+0071#STR0071#ALL#CÓDIGO                         DESCRIÇÃO                         QUANTIDADE |UM| ARM    | LOCAL.     | SEQ | LOTE       | SUB-LOTE

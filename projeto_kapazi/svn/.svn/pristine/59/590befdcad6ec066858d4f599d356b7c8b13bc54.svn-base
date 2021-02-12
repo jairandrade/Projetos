@@ -1,0 +1,30 @@
+#include 'Protheus.ch'
+
+//-----------------------------------------
+/*/{Protheus.doc} AFAT004
+Rotina executada para tratamento de erro customizado.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 14/01/2021
+
+@param oError, object, Objeto com as informações do erro.
+@param Titulo, character, Título para a tela de alerta
+/*/
+//-----------------------------------------
+User Function AFAT004( oError as Object, Titulo as Character )
+	
+	if inTransact()
+		DisarmTransaction()
+		EndTran()
+	endif
+
+    conout(alltrim(Titulo) + ' - ' + alltrim(oError:Description))
+    if !isBlind()
+        MsgStop( alltrim(oError:Description), alltrim(Titulo) )    
+    endif
+    Break
+
+return

@@ -1,0 +1,53 @@
+#include "rwmake.ch"
+#include "protheus.ch"
+#include "topconn.ch"
+
+/*/{Protheus.doc} User Function MT380EXC
+    O Ponto de Entrada MT380EXC e utilizado para realizar validação extras para exclusão de um item de ajuste de empenho.
+    @type  Function
+    @author Luis
+    @since 22/01/2021
+    @version 12.1.25
+    @return (lRet, return_type logical, return_true or false)
+    @see (https://tdn.totvs.com/pages/releaseview.action?pageId=6087775)
+/*/
+User Function MT380EXC()
+Local aArea         as array
+Local lRet          as logical
+Local cSenhaK       as string
+Private aFiltros    as array
+Private oDlg        as object
+Private oGrpFil     as object
+Private oSayAtr     as object
+Private oGetAtr     as object     
+Private nBtoOk      as numeric
+
+aArea       := GetArea()
+lRet        := .f.
+cSenhaK     := SuperGetMV("KP_SENEMPE",.F.,"12345678")
+aFiltros    := {Space(10)}
+/*
+Define MsDialog oDlg TITLE "Liberacao de exclusao" From 001,001 to 250,935 Pixel
+
+oGrpFil := TGroup():New(035,005,90,460,"Informe a senha",oDlg,CLR_HBLUE,,.T.)
+
+oSayAtr := tSay():New(052,070,{|| "Senha"   },oGrpFil,,,,,,.T.,CLR_BLACK,CLR_WHITE,50,9)
+oGetAtr := tGet():New(050,090,{|u| if(PCount()>0,aFiltros[1]:=u,aFiltros[1])}, oGrpFil,40,9,'@!',,,,,,,.T.,,,,,,,.F.,,'','aFiltros[1]')
+
+ACTIVATE MSDIALOG oDlg CENTERED ON INIT ENCHOICEBAR( oDlg,{ || nBtoOk := 1, oDlg:End() },{ || nBtoOk := 0, oDlg:End() } )
+
+If nBtoOk == 0
+        MsgAlert("Cancelado pelo usuário!")
+        lRet := .F.
+    Else
+        If Alltrim(aFiltros[1]) == Alltrim(cSenhaK)
+                lRet := .t.
+            Else
+                MsgAlert("Senha incorreta!!!")
+                lRet := .F.
+        EndIf
+EndIf
+*/
+
+RestArea(aArea)
+Return(lRet)

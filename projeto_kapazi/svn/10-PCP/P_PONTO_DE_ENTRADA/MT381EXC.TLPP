@@ -1,0 +1,27 @@
+#include "rwmake.ch"
+#include "protheus.ch"
+#include "topconn.ch"
+
+/*/{Protheus.doc} User Function MT381EXC
+    O ponto de entrada MT381EXC é executado na confirmação da exclusão, utilizado para confirmar a exclusão do Ajuste de Empenho Modelo 2.
+    @type  Function
+    @author Luis
+    @since 22/01/2021
+    @version 12.1.25
+    @return (lRet, return_type logical, return_true or false)
+    @see (https://tdn.totvs.com/pages/releaseview.action?pageId=6087775)
+/*/
+User Function MT381EXC()
+Local lRet  as logical
+Local i     as numeric
+
+lRet := .T.
+//nPosOper  := aScan(aHeader,{ |x| ALLTRIM(x[2]) == "D1_X_OPER" })
+/*
+For i := 1 To len(Acols)
+	Acols[i,nPosTes] := Acols[1,nPosTes]
+	
+	
+Next
+*/
+Return lRet
