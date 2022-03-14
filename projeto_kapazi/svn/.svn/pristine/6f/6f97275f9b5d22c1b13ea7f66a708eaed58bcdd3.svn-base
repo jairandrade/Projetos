@@ -1,0 +1,371 @@
+/*
++----------------------------------------------------------------------------+
+!                         FICHA TECNICA DO PROGRAMA                          !
++----------------------------------------------------------------------------+
+!   DADOS DO PROGRAMA                                                        !
++------------------+---------------------------------------------------------+
+!Tipo              ! Atualização                                             !
++------------------+---------------------------------------------------------+
+!Modulo            ! FAT - FATURAMENTO                                       !
++------------------+---------------------------------------------------------+
+!Nome              ! AFAT005                                                 !
++------------------+---------------------------------------------------------+
+!Descricao         ! Cópia de Pedido - 0401 -> 0408                          !
+!                  ! Pedido de Venda                                         !
++------------------+---------------------------------------------------------+
+!Atualizacao       ! Andre Sakai                                             !
++------------------+---------------------------------------------------------+
+*/
+#include "rwmake.ch"
+#include "topconn.ch"
+#include "totvs.ch"
+#include "protheus.ch"
+#include "tbiconn.ch"
+#include "ap5mail.ch"
+#INCLUDE "FWMVCDEF.CH"
+
+User Function AFAT005()
+
+Local aArea    := GetArea()
+Local aAreaC5  := SC5->(GetArea())
+
+Local _lRet  	:= .T.
+Local _nI 		:= 0
+Local _nJ := 0
+
+Local _cCodFil, _cCodPed,_cCodEmp,_cChave
+
+Local _cAliasQ
+Local _ASB2 := {}
+
+Private _oBody
+Private lMsErroAuto
+Private lAutoErrNoFile
+Private cArquivo := '/temp/AFAT005-log-AFAT005-'+dtos(date())+'_'+strtran(time(),':','')+'.log'
+Private _cWSname := 'pedidovenda'
+Private _aCabec,_aItens, _aItem,_aValidC5,_aValidC6
+
+_cAliasQ := getnextalias()
+
+_aCabec := {}
+_aItem  := {}
+_aItens := {}
+
+_aValidC5 :=  U_WS3CAMPOS("COMPLETO",'SC5',.T.)
+_aValidC5 := FWVetByDic(_aValidC5,'SC5',.f.,5)
+		
+_aValidC6 :=  U_WS3CAMPOS("COMPLETO",'SC6',.T.)
+_aValidC6 := FWVetByDic(_aValidC6,'SC6',.f.,5)
+
+_cCodEmp := cEmpAnt
+_cCodFil := SC5->C5_FILIAL
+If(_cCodFil <> '01')
+	msgalert('Deve ser selecionado um pedido da Filial 01 para essa rotina!',"Transferência de Pedido")
+	return .f.
+EndIf
+
+_cCodPed := SC5->C5_NUM
+
+_cChave := _cCodEmp+_cCodFil+_cCodPed
+
+
+
+If(Select(_cAliasQ)<>0)
+	(_cAlias)->(dbCloseArea())
+EndIf
+
+BEGINSQL ALIAS _cAliasQ
+	SELECT C5_FILIAL,C5_NUM FROM %TABLE:SC5% SC5 (NOLOCK) WHERE C5_FILIAL='08' AND C5_XPEDTRA=%EXP:_cChave+''% AND D_E_L_E_T_=' '
+ENDSQL
+
+IF((_cAliasQ)->(!EOF()))
+	IF(FWISADMIN())
+		IF(!MSGYESNO('Pedido já transferido ('+(_cAliasQ)->C5_FILIAL+'-'+(_cAliasQ)->C5_NUM+') DESEJA CONTINUAR?','Transferencia de Pedido'))
+			return .t.
+		EndIf
+		
+	ELSE
+		MSGALERT('Pedido já transferido ('+(_cAliasQ)->C5_FILIAL+'-'+(_cAliasQ)->C5_NUM+')','Transferencia de Pedido')
+		return .t.
+	EndIf
+	
+EndIf
+
+SC5->(DBSETORDER(1))
+SC5->(DBGOTOP())
+SC6->(DBSETORDER(1))
+If(SC5->(DBSEEK(_cCodFil+_cCodPed)))
+	//CONOUT('ACHOU PEDIDO '+_cCodFil+_cCodPed)
+	For _nI := 1 to Len(_aValidC5)
+		IF(ALLTRIM(_aValidC5[_nI][5]) $ "C5_FILIAL#C5_NUM#C5_BLOQ#C5_LIBEROK#C5_TIPLIB#C5_XSITLIB#C5_XDTLIBP#C5_XDTLIBF#C5_XDTLIBE#C5_XCODSTA#C5_XDESSTA#"	)
+		ElseIF(ALLTRIM(_aValidC5[_nI][5]) $ "C5_XGERASV#")
+			aadd(_aCabec,{_aValidC5[_nI][5]	,'N' , nil})
+			IF(FWISADMIN())
+				conOut('_aCabec:'+_aValidC5[_nI][5],SC5->(&(_aValidC5[_nI][5])))
+			EndIf
+		Else
+			//CONOUT('VALOR 2: ',SC5->(&(_aValidC5[_nI][5])))
+			aadd(_aCabec,{_aValidC5[_nI][5]	,SC5->(&(_aValidC5[_nI][5])) , nil})
+			conOut('_aCabec:'+_aValidC5[_nI][5],SC5->(&(_aValidC5[_nI][5])))
+		EndIf	
+			
+	Next _nI
+	aadd(_aCabec,{"C5_XPEDTRA",_cChave , nil})
+
+	SC6->(DBSEEK(_cCodFil+_cCodPed))
+	WHILE (!SC6->(EOF()) .AND. SC6->(C6_FILIAL+C6_NUM) =  _cCodFil+_cCodPed)
+		_aItem := {}
+		aadd(_aItem,{"C6_ITEM",SC6->C6_ITEM , nil})
+		For _nJ := 1 to Len(_aValidC6)
+			If(ALLTRIM(_aValidC6[_nJ][5]) $ 'C6_FILIAL#C6_NUM#C6_QTDLIB#C6_VALOR#C6_TES#C6_USERLGI#C6_USERLGA#C6_XPRECPC#C6_X_PRCVE#C6_QTDEMP#C6_QTDEMP2#C6_VALDESC')
+			ElseIf(ALLTRIM(_aValidC6[_nJ][5]) $ 'C6_PRCVEN')
+				aadd(_aItem,{_aValidC6[_nJ][5]	,SC6->C6_PRUNIT , nil})
+			ElseIf(ALLTRIM(_aValidC6[_nJ][5])='C6_QTDVEN')
+				If(SC6->C6_XLARG=0 .AND. SC6->C6_XCOMPRI=0)
+					aadd(_aItem,{_aValidC6[_nJ][5]	,SC6->(&(_aValidC6[_nJ][5])) , nil})
+				EndIf
+			ElseIf(SUBSTR(_aValidC6[_nJ][5],1,3)='C6_')
+				If(!EMPTY(SC6->(&(_aValidC6[_nJ][5]))) .OR. ALLTRIM(_aValidC6[_nJ][5]) $ 'C6_XPRCVE' )							
+					aadd(_aItem,{_aValidC6[_nJ][5]	,SC6->(&(_aValidC6[_nJ][5])) , nil})
+				EndIf
+			EndIf
+		Next
+
+		aadd(_ASB2,{SC6->C6_PRODUTO,SC6->C6_LOCAL})	
+		aadd(_aItens,_aItem)
+		SC6->(DBSKIP())
+	EndDo
+
+
+	cFilAnt := '08'
+
+	/*cria saldo do produto*/
+	dbSelectArea("SB2")
+	dbSetOrder(1)
+	for _nI := 1 TO LEN(_ASB2)
+		If ( !SB2->(MsSeek(xFilial("SB2")+_ASB2[_nI,1]+_ASB2[_nI,2]) ))
+			CriaSB2(_ASB2[_nI,1],_ASB2[_nI,2])
+		EndIf
+	Next
+
+
+    lMsErroAuto := .F.
+	lAutoErrNoFile := .T.
+	_lRet := .T.
+	conout('AFAT005 - INICIO EXECAUTO '+DTOS(DATE())+' - '+TIME())
+			
+	// rotina automatica do pedido de venda
+	MsExecAuto({|x,y,z| Mata410(x,y,z)},_aCabec,_aItens,3) // 3-inclusao
+
+	
+	If !lMsErroAuto  // operacao ok		
+		conout('AFAT005 - Pedido Transferido',SC5->C5_FILIAL,SC5->C5_NUM)
+		MsgInfo('Pedido Alterado Transferido: Novo Numero '+SC5->C5_FILIAL+SC5->C5_NUM,'Transferencia de Pedido')
+		reclock('SC5',.F.)
+			SC5->C5_LIBEROK := ' '
+		SC5->(MSUNLOCK())
+		//remover id do dw
+		If(SC5->(DBSEEK(SUBSTR(_cChave,2))))
+			If(_lRet .AND. !EMPTY(SC5->C5_IDDW))
+				reclock('SC5',.F.)
+					CONOUT('PEDIDO:'+SC5->C5_NUM+' IDDW:'+SC5->C5_IDDW)
+					SC5->C5_IDDW := ''
+				SC5->(MSUNLOCK())
+			EndIf
+		EndIf
+	Else	//erro
+		conout('AFAT005 - Erro ao transferir pedido '+_cCodFil+_cCodPed)
+		_aErroAuto := GetAutoGRLog()
+		//cMsg:= "ERRO - PEDIDO VENDA -Arquivo: "+cArquivo
+        cMsg := ''
+		For _nI := 1 To Len(_aErroAuto)
+			cMsg += StrTran(StrTran(StrTran(StrTran(_aErroAuto[_nI],"<",""),"-",""),"   "," "),chr(13),'') + (" ")
+		Next _nI	
+		MSGALERT('AFAT005 - Erro ao transferir pedido '+_cCodFil+'-'+_cCodPed,'Transferencia de Pedido')
+		
+		//If(fwisadmin())
+			EECVIEW(cMsg,)
+		//EndIf
+
+		_lRet	:= .F.
+	EndIf	
+	
+	cFilAnt := '01'
+Else
+	conout('AFAT005','pedido '+_cCodFil+'/'+_cCodPed+' nao encontrado!')
+EndIf
+
+
+RESTAREA(aArea)
+RESTAREA(aAreaC5)
+
+Return()
+
+
+
+User Function WS3CAMPOS(_cTipo,_cTabela,_lInclui)
+
+	Local 	_aCampos 	:= {}
+	Local 	_aPadrao	:= {}
+	Local 	_nPos		:= 0, _nJ := 0
+	
+	Local _cAliasSX3 := getnextalias()
+ 
+	Local lOpen 		:= .f.
+
+	Default _cTipo 		:= ''
+	Default _cTabela 	:= ''
+	
+	Default _cInclui 	:= .f.
+	
+	//_aAreaX3 := (_cAliasSX3)->(GetArea())
+
+	lOpen := Select(_cAliasSX3) > 0
+	iF(!lOpen)
+    	OpenSXs(NIL, NIL, NIL, NIL, cEmpAnt, _cAliasSX3, "SX3", NIL, .F.)
+	EndIf
+
+	_aCampos := {}
+	
+	If(Empty(_cTipo))	
+			
+		If((_cTabela = 'SA1'))
+
+			aAdd(_aCampos, {'FILIAL'	,.F.,'C',TAMSX3('A1_FILIAL')[1]	,'A1_FILIAL', NIL})
+			aAdd(_aCampos, {'CODIGO'	,.F.,'C',TAMSX3('A1_COD')[1]	,'A1_COD', NIL})
+			aAdd(_aCampos, {'LOJA'		,.F.,'C',TAMSX3('A1_LOJA')[1]	,'A1_LOJA', NIL})
+			aAdd(_aCampos, {'CNPJ'		,.F.,'C',TAMSX3('A1_CGC')[1]	,'A1_CGC', NIL})
+			aAdd(_aCampos, {'VENCLC'	,.F.,'D',TAMSX3('A1_VENCLC')[1]	,'A1_VENCLC', NIL})
+			aAdd(_aCampos, {'LIMITE'	,.F.,'N',TAMSX3('A1_LC')[1]		,'A1_LC', NIL})
+
+
+		ElseIf(_cTabela = 'SC5')
+
+			aAdd(_aCampos, {'FILIAL'	,.T.,'C',TAMSX3('C5_FILIAL')[1]		,'C5_FILIAL'		,NIL})				
+			aAdd(_aCampos, {'PEDIDO'	,.T.,'C',TAMSX3('C5_NUM')[1]		,'C5_NUM'		,NIL})	
+
+
+		EndIf
+		
+		//busca descrição dos campos
+		(_cAliasSX3)->(DBSETORDER(2))
+		For _nJ := 1 to Len(_aCampos)
+			(_cAliasSX3)->(DBGOTOP())
+			If((_cAliasSX3)->(dbSeek(padr(_aCampos[_nJ][5],10))))
+				If(Empty(_aCampos[_nJ][6]) .AND. !EMPTY((_cAliasSX3)->X3_CBOX))
+					_aCampos[_nJ][6] := AllTrim((_cAliasSX3)->X3_CBOX)
+				EndIf
+				
+				If(Len(_aCampos[_nJ])=6)
+					aAdd(_aCampos[_nJ],AllTrim((_cAliasSX3)->X3_DESCRIC))
+				ElseIF(Len(_aCampos[_nJ])>=7)
+					_aCampos[_nJ][7] := AllTrim(NOACENTO((_cAliasSX3)->X3_DESCRIC))
+				EndIf
+			EndIf
+		Next
+		
+	EndIf
+	
+	If(Upper(_cTipo)= 'COMPLETO')
+		_aPadrao := U_WS3CAMPOS('',_cTabela,_lInclui)
+
+		 (_cAliasSX3)->(DBSEEK(_cTabela))
+		While( (_cAliasSX3)->X3_ARQUIVO = _cTabela .AND. !(_cAliasSX3)->(EOF()) )
+			If((_cAliasSX3)->X3_CONTEXT!='V')//(X3USO((_cAliasSX3)->X3_USADO) .OR. ALLTRIM((_cAliasSX3)->X3_CAMPO) $ 'C5_FILIAL#C5_NUM#C5_XVLRCRD#C5_XDATCRD#C5_XUSRLIB#C5_XHORCRD#C5_XCPGLIB#C5_XJUSTCR#C5_XJUSTUS#C5_XJUSHOR#C5_XJUSDAT#C5_XDEPSCR#C5_XDEPSMT#C5_XINOUT#') .AND. (_cAliasSX3)->X3_CONTEXT!='V')
+				_nPos := aScan(_aPadrao,{|x| x[5] == AllTrim((_cAliasSX3)->X3_CAMPO) })
+				If(_nPos)
+					aAdd(_aCampos, {_aPadrao[_nPos,1],;
+									_aPadrao[_nPos,2],;
+									(_cAliasSX3)->X3_TIPO,;
+									TAMSX3((_cAliasSX3)->X3_CAMPO)[1],;
+									AllTrim((_cAliasSX3)->X3_CAMPO),;
+									IIF(!EMPTY(_aPadrao[_nPos,6]),_aPadrao[_nPos,6],AllTrim((_cAliasSX3)->X3_CBOX)),;
+									alltrim((_cAliasSX3)->X3_DESCRIC)})
+				Else
+					_nAT1 := 0
+					_nAT1 := At( '_', (_cAliasSX3)->X3_CAMPO)+1
+					aAdd(_aCampos, {AllTrim(SUBSTR((_cAliasSX3)->X3_CAMPO,_nAT1)),;
+									X3OBRIGAT((_cAliasSX3)->X3_CAMPO),;
+									(_cAliasSX3)->X3_TIPO,;
+									TAMSX3((_cAliasSX3)->X3_CAMPO)[1],;
+									AllTrim((_cAliasSX3)->X3_CAMPO),;
+									AllTrim((_cAliasSX3)->X3_CBOX),;
+									AllTrim(NOACENTO((_cAliasSX3)->X3_DESCRIC))})
+				EndIf
+			EndIf	
+
+			(_cAliasSX3)->(DBSKIP())
+		EndDo
+
+	ElseIf(Upper(_cTipo)= 'OBRIGATORIO')
+		_aPadrao := U_WS3CAMPOS('',_cTabela,_lInclui)
+
+		(_cAliasSX3)->(DBSEEK(_cTabela))
+		While(!(_cAliasSX3)->(EOF()) .AND. (_cAliasSX3)->X3_ARQUIVO=_cTabela)
+			If(X3USO((_cAliasSX3)->X3_USADO) .AND. (_cAliasSX3)->X3_CONTEXT!='V' .AND. X3OBRIGAT((_cAliasSX3)->X3_CAMPO))
+				_nPos := aScan(_aPadrao,{|x| x[5] == AllTrim((_cAliasSX3)->X3_CAMPO) })
+				If(_nPos)
+					aAdd(_aCampos, {_aPadrao[_nPos,1],;
+									_aPadrao[_nPos,2],;
+									(_cAliasSX3)->X3_TIPO,;
+									TAMSX3((_cAliasSX3)->X3_CAMPO)[1],;
+									AllTrim((_cAliasSX3)->X3_CAMPO),;
+									IIF(!EMPTY(_aPadrao[_nPos,6]),_aPadrao[_nPos,6],AllTrim((_cAliasSX3)->X3_CBOX)),;
+									alltrim((_cAliasSX3)->X3_DESCRIC)})
+				Else
+					_nAT1 := 0
+					_nAT1 := At( '_', (_cAliasSX3)->X3_CAMPO)+1
+					aAdd(_aCampos, {AllTrim(SUBSTR((_cAliasSX3)->X3_CAMPO,_nAT1)),;
+									X3OBRIGAT((_cAliasSX3)->X3_CAMPO),;
+									(_cAliasSX3)->X3_TIPO,;
+									TAMSX3((_cAliasSX3)->X3_CAMPO)[1],;
+									AllTrim((_cAliasSX3)->X3_CAMPO),;
+									AllTrim((_cAliasSX3)->X3_CBOX),;
+									AllTrim(NOACENTO((_cAliasSX3)->X3_DESCRIC))})
+				EndIf
+						
+			EndIf
+		
+			(_cAliasSX3)->(DBSKIP())
+		EndDo
+
+	Endif	
+
+	(_cAliasSX3)->(dbclosearea())
+
+	//restares(_aAreaX3)
+
+Return _aCampos
+
+
+User Function WS002RET(_aErros)
+ 
+//    Local _cJson 
+    Local _nI := 0
+    Local _cRet := ''
+    
+    For _nI := 1 to Len(_aErros)
+	    if(_nI > 1)
+	    	_cRet += CRLF+','
+	    endif
+    	_cRet += '{"Erro":"'+_aErros[_nI,2]+'"}'
+    Next _nI
+    
+Return _cRet
+
+User Function WS003RET(_aErros)
+ 
+//    Local _cJson 
+    Local _nI := 0
+    Local _nErro := 0
+    Local _vErros := {}
+    
+    for _nI := 1 to Len(_aErros)
+    	aadd(_vErros,{_aErros[_nI][2]})
+    	_cErros := _aErros[_nI][2] + ','+ CRLF
+    	_nErro := _aErros[_nI][1]
+    Next _nI
+
+    _cRet := FWJsonSerialize(_aErros,.T.,.T.)
+    
+return _cRet

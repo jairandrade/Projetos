@@ -1,0 +1,192 @@
+
+#include "rwmake.ch"
+#INCLUDE "protheus.ch"
+#include "topconn.ch"
+#include 'protheus.ch'
+#include 'parmtype.ch'
+#include "rwmake.ch"
+#include "totvs.ch"
+#include "tbiconn.ch"
+#include "TbiCode.ch"
+#include "TOPCONN.CH"
+//==================================================================================================//
+//	Programa: RETSLDKI 	|	Autor: Luis Paulo									|	Data: 04/03/2021//
+//==================================================================================================//
+//	Descri豫o: Funcoes para estorno em caso de erro do processo de tranf CD.                        //
+//																									//
+//==================================================================================================//
+User Function ExcNFSTF(_cFilEnv,_nRegNF) //Exclui NF de saida
+Local aArea         := GetArea()
+Local _cFilAnt      := cFilAnt
+Local aCab          := {}
+Private lMSHelpAuto := .T.
+Private lMsErroAuto := .F.
+
+cFilant		:= 	_cFilEnv		
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilEnv ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+DbSelectArea("SF2")
+SF2->(DbSetOrder(1))
+SF2->(DbGotop())
+SF2->(DbGoto(_nRegNF))
+
+aAdd(aCab,{"F2_DOC"  ,SF2->F2_DOC  ,nil})
+aAdd(aCab,{"F2_SERIE",SF2->F2_SERIE,nil})
+
+lMSHelpAuto := .T.
+lMsErroAuto := .F.
+
+MSExecAuto({|x| MATA520(x)},aCab)
+If lMsErroAuto 
+    MostraErro()
+EndIf
+
+cFilant		:= _cFilAnt			
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilAnt ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+RestArea(aArea)
+Return()
+
+
+//Exclui PV
+User Function ExcPVSTF(_cFilEnv,_nRegPV)
+Local aArea     := GetArea()
+Local _cFilAnt  := cFilAnt
+Local aCabPed   := {}
+Local aLinhaPed := {}
+Local aItensPed := {}
+Private lMsErroAuto := .f.
+
+cFilant		:= 	_cFilEnv		
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilEnv ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+//Processa exclusao
+DbSelectArea("SC5")
+SC5->(DbSetOrder(1))
+SC5->(DbGoTop())
+SC5->(DbGoTo(_nRegPV))
+
+If U_NFMESTPV(SC5->C5_NUM,"")//Estorna o pedido da SC9
+    Conout("Pedido liberado - SC9")
+EndIf
+
+//旼컴컴컴컴컴컴컴컴컴컴컴컴컴커
+//쿒uarda o Cabecalho do Pedido�
+//읕컴컴컴컴컴컴컴컴컴컴컴컴컴켸
+aAdd(aCabPed, {"C5_NUM"		,SC5->C5_NUM		,Nil})  // Nro.do Pedido
+aAdd(aCabPed, {"C5_CLIENTE"	,SC5->C5_CLIENTE	,Nil})  // Cod. Cliente
+aAdd(aCabPed, {"C5_LOJACLI"	,SC5->C5_LOJACLI	,Nil})  // Loja Cliente
+
+DbSelectArea("SC6")
+DbSetOrder(1)	//Filial + Pedido
+If DbSeek(SC5->C5_FILIAL + SC5->C5_NUM)
+
+    While !SC6->(Eof()) .AND. SC5->C5_FILIAL + SC5->C5_NUM == SC6->C6_FILIAL + SC6->C6_NUM
+            //旼컴컴컴컴컴컴컴컴컴컴컴컴컴커
+            //쿒uarda os Itens do Pedido   �
+            //읕컴컴컴컴컴컴컴컴컴컴컴컴컴켸
+        Aadd(aLinhaPed,{"C6_ITEM"	,SC6->C6_ITEM		,NIL })
+        Aadd(aLinhaPed,{"C6_PRODUTO",SC6->C6_PRODUTO	,NIL })
+        aAdd(aLinhaPed,{"C6_NUM"	,SC6->C6_NUM		,NiL}) // Pedido
+        aAdd(aLinhaPed,{"C6_PRODUTO",SC6->C6_PRODUTO	,Nil}) // Cod.Item
+        aAdd(aLinhaPed,{"C6_UM"		,SC6->C6_UM			,Nil}) // Unidade
+        aAdd(aLinhaPed,{"C6_QTDVEN"	,SC6->C6_QTDVEN		,Nil}) // Quantidade
+        aAdd(aLinhaPed,{"C6_PRCVEN"	,SC6->C6_PRCVEN		,Nil}) // Preco Unit.
+        aAdd(aLinhaPed,{"C6_PRUNIT"	,SC6->C6_PRUNIT		,Nil}) // Preco Unit.
+        aAdd(aLinhaPed,{"C6_VALOR"	,SC6->C6_VALOR		,Nil}) // Valor Tot.
+        aAdd(aLinhaPed,{"C6_TES"	,SC6->C6_TES		,Nil}) // Tipo de Saida
+        aAdd(aLinhaPed,{"C6_LOCAL"	,SC6->C6_LOCAL		,Nil}) // Almoxarifado
+        Aadd(aItensPed, aLinhaPed)
+        aLinhaPed := {}
+        SC6->(DbSkip())
+    EndDo
+EndIf
+
+MSExecAuto( {|x,y,z| Mata410(x,y,z)} , aCabPed, aItensPed, 5) //"Excluindo Pedido"
+If lMsErroAuto
+    MostraErro()
+EndIf
+
+cFilant		:= _cFilAnt			
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilAnt ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+RestArea(aArea)
+Return()
+
+
+//Exclui NF de entrada
+User Function ExcNFETF(_cFilEnv,_nRegNFE)
+Local aArea         := GetArea()
+Local _cFilAnt      := cFilAnt
+Local aDel140Cab    := {}
+Local aDel140Item   := {}
+Private lMsErroAuto	:= .F.
+Private lMSHelpAuto := .F. // para mostrar os erro na tela
+
+cFilant		:= 	_cFilEnv		
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilEnv ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+//Processa exclusao 
+DbSelectArea("SF1")
+SF1->(DbSetOrder(1))
+SF1->(DbGotop())
+SF1->(DbGoto(_nRegNFE))
+
+aDel140Cab   :={ {"F1_DOC"      ,SF1->F1_DOC  		,NIL},; 
+				 {"F1_SERIE"    ,SF1->F1_SERIE   	,NIL},; 
+				 {"F1_FORNECE"  ,SF1->F1_FORNECE 	,NIL},; 
+				 {"F1_LOJA"     ,SF1->F1_LOJA  		,NIL}} 
+
+aDel140Item   :={{"D1_DOC"      ,SF1->F1_DOC  		,NIL},; 
+				 {"D1_SERIE"    ,SF1->F1_SERIE   	,NIL},; 
+				 {"D1_FORNECE"	,SF1->F1_FORNECE 	,NIL},; 
+				 {"D1_LOJA"     ,SF1->F1_LOJA   	,NIL}} 
+
+MSExecAuto({|x,y,z| MATA103(x,y,z)},aDel140Cab,{aDel140Item},5) 
+If lMsErroAuto 
+    MostraErro()
+EndIF 
+
+cFilant		:= _cFilAnt			
+DbSelectArea("SM0")
+SM0->(DbGoTop())
+SM0->(DbSeek( "04" + _cFilAnt ) )
+
+Conout("")
+ConOut(SM0->M0_CODIGO+" - "+SM0->M0_CODFIL)
+Conout("")
+
+RestArea(aArea)
+Return()
+
+

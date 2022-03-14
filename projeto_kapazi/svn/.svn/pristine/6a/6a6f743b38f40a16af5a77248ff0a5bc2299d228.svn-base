@@ -1,0 +1,552 @@
+#include "rwmake.ch"
+#include "topconn.ch"
+#include "totvs.ch"
+#include "protheus.ch"
+#include "tbiconn.ch"
+#include "ap5mail.ch"
+#INCLUDE "FWMVCDEF.CH"
+
+
+/*
++----------------------------------------------------------------------------+
+!                         FICHA TECNICA DO PROGRAMA                          !
++----------------------------------------------------------------------------+
+!   DADOS DO PROGRAMA                                                        !
++------------------+---------------------------------------------------------+
+!Tipo              ! Atualização                                             !
++------------------+---------------------------------------------------------+
+!Modulo            ! FAT - FATURAMENTO                                       !
++------------------+---------------------------------------------------------+
+!Nome              ! AFAT006                                                 !
++------------------+---------------------------------------------------------+
+!Descricao         ! Aglutinação de Pedido de Transferencia                  !
+!                  ! Pedido de Venda                                         !
++------------------+---------------------------------------------------------+
+!Atualizacao       ! Andre Sakai                                             !
++------------------+---------------------------------------------------------+
+*/
+
+User Function AFAT006()
+
+Local aArea    := GetArea()
+Local aAreaC5  := SC5->(GetArea())
+
+Local nContFlds As Numeric
+Local _aFields As Array
+Local _aColumns As Array
+
+Local _cQry
+Private _oMark As Object
+Private _xAlFWB As Character
+
+Private cPedidos := space(100),cNum1 :=space(6),cNum2:=space(6)
+
+
+//SetKey(VK_F9, {|| U_AFAT006X()})
+
+_xAlFWB := GetNextAlias()
+_aFields := {}
+_aColumns := {}
+_oMark := FWMarkBrowse():New()
+ 
+
+ZTP->(DBSETORDER(1))
+ 
+aAdd( _aFields, {"FILIAL", "Filial",TAMSX3('ZTP_FILIAL')[1]} )
+aAdd( _aFields, {"PEDIDO", "Pedido",TAMSX3('ZTP_PEDIDO')[1]} )
+aAdd( _aFields, {"ITEM", "Item",TAMSX3('ZTP_ITEM')[1]} )
+aAdd( _aFields, {"PRODUTO", "Produto",TAMSX3('B1_COD')[1]} )
+aAdd( _aFields, {"DESCRICAO", "Descricao",TAMSX3('B1_DESC')[1]} )
+//QTDVEN,C6_XLARG XLARG,C6_XCOMPRI XCOMPRI,C6_XQTDPC XQTDPC
+aAdd( _aFields, {"QTDVEN", "Quantidade",TAMSX3('ZTP_QUANT')[1]+5} )
+aAdd( _aFields, {"XLARG", "Lagura",TAMSX3('C6_XLARG')[1]+5} )
+aAdd( _aFields, {"XCOMPRI", "Comprimento",TAMSX3('C6_XCOMPRI')[1]+5} )
+aAdd( _aFields, {"XQTDPC", "Quant. Pecas",TAMSX3('C6_XQTDPC')[1]+5} )
+ 
+For nContFlds := 1 To Len( _aFields )
+ 
+      AAdd( _aColumns, FWBrwColumn():New() )
+ 
+      _aColumns[Len(_aColumns)]:SetData( &("{ || " + _aFields[nContFlds][1] + " }") )
+      _aColumns[Len(_aColumns)]:SetTitle( _aFields[nContFlds][2] )
+      _aColumns[Len(_aColumns)]:SetSize( _aFields[nContFlds][3] )
+      _aColumns[Len(_aColumns)]:SetID( _aFields[nContFlds] )
+      
+Next nContFlds
+ 
+_oMark:SetColumns( _aColumns )
+_oMark:SetDataQuery()
+//_oMark:SetQuery( "SELECT ZTP_OK,ZTP_FILIAL,ZTP_PEDIDO,ZTP_ITEM,ZTP_QUANT FROM "+RetSqlName("ZTP")+" ZTP WHERE ZTP_CHAVE= '"+xFilial('SC5')+M->C5_NUM+"' AND D_E_L_E_T_=' ' " )
+
+
+_cQry := " SELECT '    ' OK, C6_FILIAL FILIAL, C6_NUM PEDIDO,C6_ITEM ITEM,C6_PRODUTO PRODUTO,C6_DESCRI DESCRICAO,C6_QTDVEN QTDVEN,C6_XLARG XLARG,C6_XCOMPRI XCOMPRI,C6_XQTDPC XQTDPC from "+RetSqlName('SC6')+" SC6 (NOLOCK) "
+_cQry += " INNER JOIN "+RetSqlName('SB1')+" SB1 (NOLOCK) ON B1_COD=C6_PRODUTO AND SB1.D_E_L_E_T_=' ' "
+_cQry += " INNER JOIN "+RetSqlName('SC9')+" SC9 (NOLOCK) ON C9_FILIAL=C6_FILIAL AND C9_PEDIDO=C6_NUM AND C9_ITEM=C6_ITEM AND C9_BLEST NOT IN ( '10') AND SC9.D_E_L_E_T_=' ' "
+_cQry += " WHERE C6_FILIAL = '08' AND SC6.D_E_L_E_T_=' ' AND NOT EXISTS (SELECT 1 FROM "+RetSqlName('ZTP')+" ZTP WHERE ZTP_FILIAL = C6_FILIAL AND ZTP_PEDIDO = C6_NUM AND ZTP_ITEM=C6_ITEM AND D_E_L_E_T_=' ')"
+_cQry += " ORDER BY C6_NUM,C6_ITEM "
+_oMark:SetQuery(_cQry)
+_oMark:SetAlias( _xAlFWB )
+_oMark:SetFieldMark( 'OK' )
+_oMark:AddButton("Pedido Transferencia" ,{|| MsAguarde({|| U_AFAT006X() },'Gerando Pedido Transferencia...')     },,3,,.F.)
+_oMark:AddButton("Filtrar Pedidos" ,{|| U_AFAT006F() },,3,,.F.)
+IF(__CUSERID $ '000587')
+_oMark:AddButton("Pedidos" ,{|| U_AFAT006T() },,3,,.F.)
+ENDIF
+
+_oMark:Activate()
+
+//SetKey(VK_F8, {|| U_AFAT006F()})
+
+ 
+RESTAREA(aAreaC5)
+RESTAREA(aArea)
+
+return 
+
+USER FUNCTION AFAT006F()
+Local aPergs as array
+Local cFilBrwK := '', _cFiltro1 := '', _cFiltro2 := ''
+Private cPedidos := space(300),cNum1 :=space(6),cNum2:=space(6)
+xFilAnt := CFilAnt
+cFilant := '08'
+
+aPergs := {}
+aAdd(aPergs, {1, "Pedidos",    cPedidos, "",             ".T.",        "",    ".T.", 400, .F.})
+aAdd(aPergs, {1, "Pedido De",  cNum1,  "",             ".T.",        "SC5", ".T.", 80,  .F.})
+aAdd(aPergs, {1, "Pedido Até", cNum2,  "",             ".T.",        "SC5", ".T.", 80,  .F.})
+
+if(parambox(aPergs,''))
+    If(!empty(MV_PAR01))
+        _cFiltro1 := "  PEDIDO $ '"+alltrim(MV_PAR01)+"'  "
+    EndIf
+    if(!empty(MV_PAR02) .and. !empty(MV_PAR03))
+        If(!empty(MV_PAR02))
+            _cFiltro2 := " PEDIDO >=  '"+alltrim(MV_PAR02)+"' "
+        EndIf
+        If(!empty(MV_PAR03))
+            If(!empty(MV_PAR02))
+                _cFiltro2 += " .AND.  "
+            EndIf
+            _cFiltro2 += " PEDIDO <=  '"+alltrim(MV_PAR03)+"' "
+        EndIf
+    EndIf
+
+    cFilBrwK := iif(!empty(MV_PAR01),_cFiltro1,'')
+    if(!empty(_cFiltro2))
+         cFilBrwK += iif(!empty(cFilBrwK), ' .OR. ('+_cFiltro2 + ') ',_cFiltro2)
+    endif
+
+    if(empty(cFilBrwK))
+        cFilBrwK := ' 1==1 '
+    EndIf
+    //_oMark:AddFilter(< cFilter >, < cExpAdvPL >, < lNoCheck >, < lSelected >, < cAlias >, < lFilterAsk >, < aFilParser >, < cID >)-> NIL   
+    //dbselectarea(_xAlFWB)
+    //set filter to &('@ '+cFilBrwK)
+    conout(cFilBrwK)
+    _oMark:SetFilterDefault(cFilBrwK)
+    _oMark:refresh()
+    CFilAnt := xFilAnt 
+EndIf
+
+RETURN
+
+USER FUNCTION AFAT006M()
+Local aPergs as array
+Local cFilBrwK := '', _cFiltro1 := '', _cFiltro2 := ''
+xFilAnt := CFilAnt
+cFilant := '08'
+
+aPergs := {}
+aAdd(aPergs, {11, "Pedidos",    cPedidos, "",             ".T.",        "",    ".T.", 400, .F.})
+aAdd(aPergs, {1, "Pedido De",  cNum1,  "",             ".T.",        "SC5", ".T.", 80,  .F.})
+aAdd(aPergs, {1, "Pedido Até", cNum2,  "",             ".T.",        "SC5", ".T.", 80,  .F.})
+
+if(parambox(aPergs,''))
+    If(!empty(cPedidos))
+        _cFiltro1 := " ( PEDIDO IN "+FORMATIN(MV_PAR01,',')+"  ) "
+    EndIf
+    If(!empty(MV_PAR02))
+        _cFiltro2 := " PEDIDO >=  '"+alltrim(MV_PAR02)+"' "
+    EndIf
+    If(!empty(MV_PAR03))
+        If(!empty(MV_PAR02))
+            _cFiltro2 += " AND  "
+        EndIf
+        _cFiltro2 += " PEDIDO <=  '"+alltrim(MV_PAR03)+"' "
+    EndIf
+
+    cFilBrwK := iif(!empty(cPedidos),cPedidos,'')
+    cFilBrwK += iif(!empty(cFilBrwK), ' OR ('+_cFiltro2 + ') ',_cFiltro2)
+    //_oMark:AddFilter(< cFilter >, < cExpAdvPL >, < lNoCheck >, < lSelected >, < cAlias >, < lFilterAsk >, < aFilParser >, < cID >)-> NIL   
+    dbselectarea(_xAlFWB)
+    set filter to &('@ '+cFilBrwK)
+    (_xAlFWB)->(DBGOTOP())
+
+    WHILE(!(_xAlFWB)->(EOF()))
+
+
+        IF((_xAlFWB)->OK == _oMark:Mark())
+            (_xAlFWB)->OK := _oMark:Mark()
+        Else
+            _oMark:Mark() := space(4)
+        ENDIF
+
+        (_xAlFWB)->(DBSKIP())
+    ENDDO
+    
+
+
+    set filter to 
+    (_xAlFWB)->(DBGOTOP())
+
+    _oMark:refresh()
+    CFilAnt := xFilAnt 
+EndIf
+
+RETURN
+
+/*
+USER FUNCTION AFAT006C()
+
+Local cPerg := padr('AFAT006C',10,'')
+Local _aPedidos:=''
+Local lPerg := .f.
+Local _nX
+Local _lZTP
+
+Local _xAlias2 := getnextalias()
+
+While(lPerg := Pergunte(cPerg))
+    _xFilial    := MV_PAR01
+    _aPedidos   := explode(MV_PAR02,',')
+    _xLimpa     := MV_PAR03
+
+    For _nX := 1 to len(_aPedidos)
+        If(Select(_xAlias2)<>0)
+            (_xAlias2)->(DBCloseArea())
+        EndIf
+
+        BEGINSQL ALIAS _xAlias2
+            SELECT C6_FILIAL,C6_NUM,C6_ITEM,C6_QUANT, FROM %TABLE:SC6% SC6 (NOLOCK) WHERE C6_FILIAL = %EXP:_xFilial% AND C6_NUM=%EXP:_aPedidos[_nX]% and D_E_L_E_T_=' '
+            AND NOT EXISTS (SELECT 1 FROM %TABLE:ZTP% WHERE ZTP_CHAVE=%EXP:(M->C5_FILIAL+M->C5_NUM)% AND ZTP_FILIAL=C6_FILIAL AND ZTP_PEDIDO = C6_NUM AND ZTP_ITEM=C6_ITEM AND ZTP.D_E_L_E_T_=' ') 
+        ENDSQL
+
+        While ((_xAlias2)->(!EOF()))
+            IF(ZTP->(DBSEEK((_xAlias2)->(CFILIAL+PEDIDO+ITEM))))
+                _lZTP := .T.
+            Else
+                _lZTP := .F.
+            EndIf
+
+            RECLOCK('ZTP',!_lZTP)
+                ZTP->ZTP_OK     := 'XX'
+                ZTP->ZTP_FILIAL := XFILIAL('ZTP')
+                ZTP->ZTP_PEDIDO := SC6->C6_NUM
+                ZTP->ZTP_ITEM   := SC6->C6_ITEM
+                ZTP->ZTP_QUANT  := SC6->C6_QUANT
+                ZTP->ZTP_CHAVE  := M->C5_FILIAL+M->C5_NUM
+                ZTP->ZTP_DATA   := DATE()
+            ZTP->(MSUNLOCK())
+
+        
+            
+        EndDo
+
+    Next
+EndDo
+
+
+
+
+Return
+*/
+/*
+
+USER FUNCTION AFAT006D()
+
+Local _nX
+Local _cChave := dtos(date())+replace(time(),':','')
+
+Private _cAliasP := getnextalias()
+
+(_cAlias)->(dbgotop())
+
+While (_cAlias)->(!eof())
+    IF(!empty((_xAlias2)->OK))
+        IF(ZTP->(DBSEEK((_xAlias2)->(C6_FILIAL+C6_NUM+C6_ITEM))))
+            _lZTP := .T.
+        Else
+            _lZTP := .F.
+        EndIf
+
+        RECLOCK('ZTP',!_lZTP)
+            ZTP->ZTP_FILIAL := SC6->C6_NUM
+            ZTP->ZTP_PEDIDO := SC6->C6_PEDIDO
+            ZTP->ZTP_ITEM   := SC6->C6_ITEM
+            ZTP->ZTP_QUANT  := SC6->C6_QUANT
+            ZTP->ZTP_CHAVE  := _cChave
+            ZTP->ZTP_DATA   := DATE()
+        ZTP->(MSUNLOCK())
+    EndIf
+    (_cAlias)->(dbskip())
+enddo
+
+BeginSql alias _cAliasP
+
+RETURN
+
+*/
+
+
+User Function AFAT006X()
+
+Local aArea    := GetArea()
+Local aAreaC5  := SC5->(GetArea())
+
+Local _lRet  	:= .T.
+Local _nI 		:= 0
+Local _nX 		:= 0
+Local _nZ 		:= 0
+
+Local _cCodFil
+
+Local _cAliasQ
+
+Private _oBody
+Private lMsErroAuto
+Private lAutoErrNoFile
+Private cArquivo := '/temp/AFAT005-log-AFAT006-'+dtos(date())+'_'+strtran(time(),':','')+'.log'
+Private _cWSname := 'pedidotransferencia'
+Private _aCabec,_aItens, _aItem,_aValidC5,_aValidC6
+
+Private _xAliasM1 := (_xAlFWB)->(GETAREA())
+
+_aPedidos := {}
+
+
+_cAliasQ := getnextalias()
+
+_aCabec := {}
+_aItem  := {}
+_aItens := {}
+
+_aValidC5 :=  U_WS3CAMPOS("",'SC5',.T.)
+_aValidC5 := FWVetByDic(_aValidC5,'SC5',.f.,5)
+		
+_aValidC6 :=  U_WS3CAMPOS("",'SC6',.T.)
+_aValidC6 := FWVetByDic(_aValidC6,'SC6',.f.,5)
+
+_cCodEmp := cEmpAnt
+_cCodFil := cFilAnt
+
+If(_cCodFil <> '01')
+	msgalert('Deve ser selecionada a Filial 01 para essa rotina!',"Transferência de Produtos - 01->08")
+	return .f.
+EndIf
+
+
+SC5->(DBSETORDER(1))
+SC5->(DBGOTOP())
+SC6->(DBSETORDER(1))
+
+//Campos do Cabecalho do pedido
+
+aadd(_aCabec,{'C5_TIPO'	,'N' , nil})
+aadd(_aCabec,{'C5_CLIENTE'	,'092693' , nil})
+aadd(_aCabec,{'C5_LOJA'	,'01' , nil})
+aadd(_aCabec,{'C5_TPFRETE'	,'S' , nil})
+aadd(_aCabec,{'C5_CONDPAG'	,'001' , nil})
+aadd(_aCabec,{'C5_TABELA'	,'T01' , nil})
+aadd(_aCabec,{'C5_XTPPED'	,'000' , nil})
+aadd(_aCabec,{'C5_K_OPER'	,'06' , nil})
+
+
+_xAliasM := (_xAlFWB)->(getarea())
+_cItem :='00'
+DBSELECTAREA(_xAlFWB)
+ (_xAlFWB)->(dbGOTOP())
+
+_aRef:= {}
+
+_nCount := 0
+
+while((_xAlFWB)->(!eof()))
+    IF(_omark:ismark())
+        _nCount++
+    EndIf
+    (_xAlFWB)->(dbskip())
+enddo
+
+if(!msgyesno("Foram marcados "+cvaltochar(_nCount)+" itens, deseja continuar?","Geração de pedidos"))
+    return .t.
+endif
+
+_nCount := 0
+(_xAlFWB)->(dbgotop())
+
+while((_xAlFWB)->(!eof()))
+    _aItem := {}
+    IF(_omark:ismark())
+   		_nCount ++
+        _cItem := soma1(_cItem) 
+        
+        IF(!SC6->(DBSEEK((_xAlFWB)->(FILIAL+PEDIDO+ITEM))))
+            (_xAlFWB)->(dbskip())    
+            LOOP
+        ENDIF
+
+        aadd(_aItem,{"C6_ITEM",_cItem , nil})
+        aadd(_aItem,{"C6_PRODUTO",SC6->C6_PRODUTO , nil})
+        If(SC6->C6_XLARG <> 0 .AND. SC6->C6_XCOMPRI <> 0)
+            aadd(_aItem,{"C6_XLARG",SC6->C6_XLARG , nil})
+            aadd(_aItem,{"C6_XCOMPRI",SC6->C6_XCOMPRI , nil})
+            aadd(_aItem,{"C6_XQTDPC",SC6->C6_XQTDPC , nil})
+        Else
+            aadd(_aItem,{"C6_QTDVEN",SC6->C6_QTDVEN , nil})
+        EndIf
+        
+        aadd(_aItem,{"C6_K_TPFAT",'1', nil})
+        aadd(_aItem,{"C6_OPER",'06' , nil})
+        aadd(_aItens,_aItem)
+
+        aadd(_aRef,{SC6->C6_FILIAL,SC6->C6_NUM,SC6->C6_ITEM,SC6->C6_PRODUTO,IIF(SC6->C6_XLARG <> 0 .AND. SC6->C6_XCOMPRI <> 0, SC6->C6_XQTDPC, SC6->C6_QTDVEN),_cItem})
+
+		if(_nCount == 50)
+			aadd(_aPedidos,{_aCabec,_aItens,_aRef})
+			_aItens := {}
+			_aRef := {}
+			_nCount := 0
+        	_cItem := '00'
+		endif
+
+    EndIf
+	(_xAlFWB)->(DBSKIP())
+EndDo
+
+
+If(_nCount >0)
+    aadd(_aPedidos,{_aCabec,_aItens,_aRef})
+EndIf
+
+for _nX := 1 to len(_aPedidos)
+
+	lMsErroAuto := .F.
+	lAutoErrNoFile := .T.
+	_lRet := .T.
+	conout('AFAT006 - INICIO EXECAUTO '+DTOS(DATE())+' - '+TIME() + ' - exec: '+cvaltochar(_nX))
+			
+	// rotina automatica do pedido de venda
+	MsExecAuto({|x,y,z| Mata410(x,y,z)},_aPedidos[_nX,1],_aPedidos[_nX,2],3) // 3-inclusao
+
+	conout('AFAT006 - FIM EXECAUTO '+DTOS(DATE())+' - '+TIME())
+	If !lMsErroAuto  // operacao ok		
+		conout('AFAT006 - Pedido de Transferencia Criado',SC5->C5_FILIAL,SC5->C5_NUM)
+		EECVIEW('Pedido de Transferencia Criado:  Numero '+SC5->C5_FILIAL+SC5->C5_NUM,'Pedido de Transferencia de Armazens')
+		
+
+		RESTAREA(_xAliasM1) 
+
+		//(_xAlFWB)->(dbskip(-1))
+		_aRef := _aPedidos[_nX,3]
+		for _nZ :=1 to len (_aRef)
+			IF(ZTP->(DBSEEK(_aRef[_nZ,1]+_aRef[_nZ,2]+_aRef[_nZ,3])))
+				conout('registro duplicado ZTP: '+_aRef[_nZ,1]+_aRef[_nZ,2]+_aRef[_nZ,3])
+				_lZTP := .T.
+			Else 
+				_lZTP := .F.
+
+                RECLOCK('ZTP',!_lZTP)
+                    ZTP->ZTP_FILIAL  := _aRef[_nZ,1]
+                    ZTP->ZTP_PEDIDO  := _aRef[_nZ,2]
+                    ZTP->ZTP_ITEM  := _aRef[_nZ,3]
+                    ZTP->ZTP_QUANT  := _aRef[_nZ,5]
+                    ZTP->ZTP_CHAVE  := SC5->(C5_FILIAL+C5_NUM)+(_aRef[_nZ,6])
+                    ZTP->ZTP_DATA   := DATE()
+                ZTP->(MSUNLOCK())
+			EndIf
+				
+		Next
+
+	Else	//erro
+		conout('AFAT006 - Erro ao criar pedido ')
+		_aErroAuto := GetAutoGRLog()
+		//cMsg:= "ERRO - PEDIDO VENDA -Arquivo: "+cArquivo
+		cMsg := ''
+		For _nI := 1 To Len(_aErroAuto)
+			cMsg += StrTran(StrTran(StrTran(StrTran(_aErroAuto[_nI],"<",""),"-",""),"   "," "),chr(13),'') + (" ")
+		Next _nI	
+		
+		//If(fwisadmin())
+			EECVIEW(cMsg,'Pedido de Transferencia de Armazens')
+		//else
+			//MSGALERT('AFAT006 - Erro ao criar pedido de transferencia ','Pedido de Transferencia de Armazens')
+		//EndIf
+
+	
+	EndIf	
+Next _nX
+cFilAnt := '01'
+
+_cQry := " SELECT '    ' OK, C6_FILIAL FILIAL, C6_NUM PEDIDO,C6_ITEM ITEM,C6_PRODUTO PRODUTO,C6_DESCRI DESCRICAO,C6_QTDVEN QTDVEN,C6_XLARG XLARG,C6_XCOMPRI XCOMPRI,C6_XQTDPC XQTDPC from "+RetSqlName('SC6')+" SC6 (NOLOCK) "
+_cQry += " INNER JOIN "+RetSqlName('SB1')+" SB1 (NOLOCK) ON B1_COD=C6_PRODUTO AND SB1.D_E_L_E_T_=' ' "
+_cQry += " INNER JOIN "+RetSqlName('SC9')+" SC9 (NOLOCK) ON C9_FILIAL=C6_FILIAL AND C9_PEDIDO=C6_NUM AND C9_ITEM=C6_ITEM AND C9_BLEST NOT IN ( '  ','10') AND SC9.D_E_L_E_T_=' ' "
+_cQry += " WHERE C6_FILIAL = '08' AND SC6.D_E_L_E_T_=' ' AND NOT EXISTS (SELECT 1 FROM "+RetSqlName('ZTP')+" ZTP WHERE ZTP_FILIAL = C6_FILIAL AND ZTP_PEDIDO = C6_NUM AND ZTP_ITEM=C6_ITEM AND D_E_L_E_T_=' ')"
+_cQry += " ORDER BY C6_NUM,C6_ITEM "
+_oMark:SetQuery(_cQry)
+_oMark:Refresh(.T.)
+
+
+RESTAREA(aArea)
+RESTAREA(aAreaC5)
+
+Return()
+
+
+
+
+Static Function GetCampo(cCampo,cTab,aDados,cTitulo,lSeek,lFiltro)
+	Local aCpo		:= TamSx3(cCampo)
+	Local cPicture	:= PesqPict(cTab,cCampo)
+	Local aRet		:= {}
+	Local aCampos	:= aClone(aDados[1]) 
+	Local aSeek		:= aClone(aDados[2])
+	Local aFiltro	:= aClone(aDados[3])
+
+	Default cTitulo	:= RetTitle(cCampo)
+	Default lSeek	:= .T.
+	Default lFiltro	:= .T.
+
+	// //Campos que irão compor o combo de pesquisa na tela principal
+	If aCpo[3] <> "N" .and. !"_FILIAL" $ cCampo .and. lSeek
+		Aadd(aSeek,{cTitulo, {{"",aCpo[3],aCpo[1],aCpo[3],cCampo,cPicture}}, Len(aSeek)+1, .T. } )
+	Endif
+	
+	If lFiltro
+		//Campos que irão comp or a tela de filtro
+		Aadd(aFiltro,{cCampo,cTitulo,aCpo[3], aCpo[1],aCpo[2],cPicture})
+	Endif
+
+	aadd(aCampos,{cCampo,aCpo[3],aCpo[1],aCpo[2]})
+
+	aRet := {aCampos,aSeek,aFiltro}
+
+Return aRet
+
+
+
+User Function AFAT006T()
+
+
+
+
+oBrowse1 := FWMarkBrowse():New() 
+oBrowse1:SetAlias('SC5')       
+oBrowse1:SetDescription("[AFAT006T] - PEDIDOS")                                            
+		
+oBrowse1:SetFilterDefault( "C5_NOTA=' ' .AND. C5_FILIAL =='08' ")
+oBrowse1:Activate()
+
+//4=Bloq estoque;
+//5=Bloq cred e estoque;
+
+Return

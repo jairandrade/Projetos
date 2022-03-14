@@ -1,0 +1,1328 @@
+#include 'protheus.ch'
+
+//-------------------------------------------------
+/*/{Protheus.doc} M410PVNF
+Ponto de entrada na rotina de Preparacao de Documento.
+Verifica se o cliente está bloqueado, se estiver nao permite faturamento.
+
+@type function
+@version 1.0
+@author Marcio A.Sugahara 
+
+@since 21/07/2016   
+
+@return Logical, Verdadeiro ou Falso
+/*/
+//-------------------------------------------------
+User Function M410PVNF()
+	Local aAreaC5  := SC5->(GetArea())
+	Local aAreaC6  := SC6->(GetArea())
+	Local aAreaC9  := SC9->(GetArea())
+	Local lRet     := .T.
+	Local cMsBlq
+	Local nReco    := 0
+	Local lAtvNFM  := .F.  //Verifica se a NF mista esta ativa
+	Local lContPD  := .F.
+	Local lValProd := .F.
+	Local cNUmPv   := SC5->C5_NUM
+	
+	Local Error 	as CodeBlock
+
+	Local cUsrLBa		:= SuperGetMv("KP_CDUSALT",.F.,"000494")
+
+	Private cXIDVNFK := ""
+	Private lRetPvP	 := .T.
+	Private lIncPNF	 := .F.
+	Private cCondPGK := SC5->C5_CONDPAG
+	Private cCondPGS := ""
+	Private nOrdLF   := ""
+	Private _cTpPvK	 := ""
+	PRIVATE cAliasPV := ''
+	
+	DbSelectArea("SE4")
+	SE4->(DbSetOrder(1))
+	
+	lRet := .F.
+	Error := ErrorBlock( { |oError| TrataErro( oError ) } )
+		Begin SEQUENCE
+			
+			If cEmpAnt == "04" .And. Alltrim(SC5->C5_TIPO) == "N" //.And. !(__cUserId $ cUsrLBa) //.And. !l410Auto
+
+				DbSelectArea("SA1")
+				SA1->(DbSetOrder(1))
+				SA1->(DbGoTop())
+				If SA1->(DbSeek( xFilial("SA1") + SC5->C5_CLIENTE + SC5->C5_LOJACLI))
+
+					cFilSA1	:= Alltrim(SA1->A1_XFILFAT)
+
+					If Alltrim(SA1->A1_PESSOA) == "F" .And. cFilAnt == "08"
+						MsgAlert("Nao é permitido lancar PV de pessoa fisica no CD","Kapazi")
+						Return .F.
+					EndIf 
+
+					If Alltrim(SA1->A1_PESSOA) == "J"
+						If Alltrim(cFilSA1) == "08" .And. cFilAnt == "01"
+							MsgAlert("Este cliente PJ TEM sua parametrizacao para faturar pelo CD","Kapazi")
+							Return .F.
+						EndIf
+
+						If Alltrim(cFilSA1) == "01" .And. cFilAnt == "08"
+							MsgAlert("Este cliente PJ NAO TEM sua parametrizacao para faturar pelo CD","Kapazi")
+							Return .F.
+						EndIf
+
+					EndIf 
+
+				EndIf
+
+				If Alltrim(SC5->C5_XGERASV) == "S" .And.  cFilAnt == "08"
+					MsgAlert("Nao é permitida NFMISTA no CD","Kapazi")
+					Return .F.
+				EndIf
+
+			EndIf
+			
+			cMsBlq := POSICIONE('SA1',1,XFILIAL('SA1')+SC5->C5_CLIENTE+SC5->C5_LOJACLI,'A1_MSBLQL')		
+			If (cMsBlq == '1')
+				UserException("Cadastro do Cliente está bloqueado!!" + chr(13)+chr(10) + SA1->A1_COD +"-" + SA1->A1_NOME)				
+			EndIf
+
+			If (Alltrim(SA1->A1_TIPO) <> Alltrim(SC5->C5_TIPOCLI)) .And. (Alltrim(SC5->C5_TIPO) =="N")
+				UserException("O Tipo do Cliente do PEDIDO DE PRODUTO esta diferente do CADASTRO DE CLIENTES(Revendedor, cliente final....)," + chr(13)+chr(10)+ ;
+				" essas divergencias GERAM INCONSISTENCIAS DE TES INTELIGENTES!!!" + chr(13)+chr(10)+ ;
+				" favor verificar o cadastro de clientes e deixar conforme o PEDIDO, OU AJUSTE O PEDIDO!!!!" + chr(13)+chr(10)+ ;
+				SA1->A1_COD +"-" + SA1->A1_NOME)
+			EndIf
+
+			//Se o cliente nao esta bloqueado
+			If (SC5->C5_K_OPER !="01") .And. (SC5->C5_XGERASV =="S")
+				UserException("Não é permitido gerar NF de servicos de pedidos com tipo de operacao diferente de 01!!!")
+			EndIf
+			
+			If (cEmpAnt =="04") .and. ((Alltrim(SC5->C5_XGERASV) == 'S' .And. SC5->C5_MOEDA != 1) .OR. (Alltrim(SC5->C5_XPVSPC) =="S" .And. SC5->C5_MOEDA != 1))
+				UserException("Este pedido é supplier OU NFMista, porém a MOEDA é diferente de 1, favor verificar!!!")
+			EndIf
+			
+			lContPD  := (Empty(SC5->C5_LIBEROK) .And. Empty(SC5->C5_NOTA) .And. Empty(SC5->C5_BLQ))
+			If lContPD //Verifica se foi liberado
+				UserException("Não é permitido gerar NF-E de pedidos sem liberação!!!")
+			EndIf
+			
+			lValProd := ValProd()
+			If Empty(SC5->C5_XIDVNFK) .And. Alltrim(SC5->C5_XTIPONF) == '1' .And. !lValProd .And. lRet
+				UserException("Não é permitido gerar NFSE!!!")
+			EndIf
+			
+			If (Alltrim(SC5->C5_XTIPONF) =="2") .And. !Empty(SC5->C5_XIDVNFK) .And. lRet //NFSE KAPAZI
+				UserException("Não é permitido gerar NFSE manualmente!!!")
+			EndIf
+			
+			//Valida se o pedido esta como intangivel NAO-"N" e já foi cortado o valor de algum item - Alinhado com o ALuisio em 13/07/18 - Luis/RSAC
+			If SC5->C5_PVINTAN == 'N' .And. !ValItPv() .And. lRet 
+				UserException("Este pedido já foi intangível e possui itens que já sofreram reduções! favor excluir o pedido e incluir um novo com o campo de INTANGIVEIS igual a N.")
+			EndIf
+			
+			If Empty(SC5->C5_XIDVNFK) .And. Alltrim(SC5->C5_XTIPONF) == '1' .And. !lValProd .And. lRet
+				UserException("Não é permitido gerar NFSE!!!")
+			EndIf
+
+			//Validacoes e processos da NFMista e supplier da empresa 0401
+			If (cEmpAnt == '04') .And. (cFilAnt =="01")
+				If (Alltrim(SC5->C5_XPVSPC) == 'S') //Validacoes supplier
+
+					If ( ( Alltrim(SC5->C5_XPVSPC) == 'S' .And. !(Alltrim(SC5->C5_XSTSSPP) $ '3|4')) .OR. ( Alltrim(SC5->C5_XPVSPC) == 'S' .And. (Alltrim(SC5->C5_XSTSSPP) $ '3|4')) ) .And. Empty(SC5->C5_XCODPAU)
+						UserException("Não é permitido gerar a NF de pedidos não autorizados pela supplier!!!")
+					EndIf
+						
+					SE4->(DbGoTOP())
+					If SE4->(DbSeek(xFilial("SE4") + cCondPGK))
+						If Empty(SE4->E4_XCONDPM)
+							UserException("Este é um pedido supplier, porém a condição de pagamento não possui a condição prazo médio informada(condição supplier)!!!")
+						EndIf
+						
+						cCondPGS := SE4->E4_XCONDPM
+						SE4->(DbGoTOP())
+						If !SE4->(DbSeek(xFilial("SE4") + cCondPGS))
+							UserException("Este é um pedido supplier, porém possui condição de pagamento prazo médio inválida!!!")
+						EndIf
+					EndIf
+					
+				Else //Valida se o pedido deixou de ser supplier e continua com a condicao supplier
+					If !ValConSP(SC5->C5_CONDPAG) 
+						UserException("Esse pedido não é mais supplier, escolha uma condicao de pagamento que não seja supplier!")
+					EndIf
+				EndIf
+			EndIf
+
+			If (cEmpAnt == '04' .And. cFilAnt =="01" ) //Se GeraSV na empresa 04
+				If Empty(SC5->C5_XIDVNFK) .And. !l410Auto .And. (SC5->C5_K_OPER =="01") .And. (SC5->C5_XGERASV =="S") .And. (SC5->C5_TIPO =="N") .And. !( (SC5->C5_K_INTAN > 0) .and. SC5->C5_PVINTAN $ ' S') //.And. Empty(SC5->C5_XIDVNFK)
+				
+					lAtvNFM := GetMv("KP_ATVNFM",,.F.) //Verifica se a NF mista esta ativa					
+					VerVZPV()//Faz o relacionamento caso necessário com a ZPV
+					
+					If !xLValVZPV() .And. lAtvNFM //Verifica se tem vinculos com a ZPV
+						
+						If MsgYesNo("Este pedido possui produtos vinculados a serviços, deseja continuar?","NFSE KAPAZI")
+							If xValLFin() //Valida bloqueio de financeiro 
+							
+								If xValLEst() //Valida bloqueio estoque
+									nReco	:= SC5->(RECNO())
+									
+									If (cFilAnt =="01")
+										xProcPvNFSE() //Cria o Pedido da NFSE
+									Else //Cria o pedido de SV na 0401
+										nOrdLF  := IndLF()
+										cXIDVNFK :=	GetSx8Num("SC5","C5_XIDVNFK","C5_XIDVNFK" +"\system\"+RetSqlName("SC5"),nOrdLF) //Id Vinc PVS 
+										ConfirmSx8()
+										
+										If !StartJob("U_NWPVNFM", GetEnvServer(), .T., SC5->C5_FILIAL, SC5->C5_NUM,cXIDVNFK,SC5->C5_CLIENTE)
+											lIncPNF := .F.
+											UserException("Pedido NFMista nao incluído, informe o TI")
+										Else
+											lIncPNF :=  .T. //Incluiu o PV
+										EndIf
+									EndIf
+									
+									If lIncPNF //Se incluiu PV SV
+										SC5->(dbGoTop())
+										SC5->(DbGoto(nReco))
+										
+										RecLock("SC5",.F.)
+											SC5->C5_XIDVNFK	:= cXIDVNFK
+											SC5->C5_XTIPONF := "1"
+										SC5->(MsUnlock())
+
+										xAltPedOri(cXIDVNFK)		//Altera o pedido original
+										xGrvVTot(cXIDVNFK,nReco)	//Grava o valor total dos pedidos
+										
+										If lRetPvP //Alterou o pedido de produto
+											LibBlCre(cNUmPv,2) //Liberacao de crédito
+											MATA455(cNUmPv,"") //Libera estoque automatico - FAZ ISSO COMO STATIC FUNCTION
+										Else
+											RecLock("SC5",.F.)
+												SC5->C5_XIDVNFK	:= ""
+												SC5->C5_XTIPONF := "1"
+											SC5->(MsUnlock())
+											
+											xExcPedN(cXIDVNFK) //Excluir PV SV
+											
+											lRet := .F.
+										EndIf											
+										(cAliasPV)->(DBCloseArea())
+									EndIf
+								Else
+									UserException("Esse pedido possui bloqueio de ESTOQUE, como possui produtos da NF Mista, Favor liberar o estoque para todos os produtos!!!")
+								EndIf
+									
+							Else
+								UserException("Esse pedido possui bloqueio de CRÉDITO, como possui produtos da NF Mista, Favor liberar o crédito para todos os produtos!!!")
+							EndIf
+						EndIf	
+					EndIf
+				EndIf
+			EndIf
+			
+			lRet := .T.
+		End SEQUENCE
+	ErrorBlock( Error )
+
+	RestArea(aAreaC9)
+	RestArea(aAreaC6)
+	RestArea(aAreaC5)
+
+Return(lRet)  
+
+//-------------------------------------------------
+/*/{Protheus.doc} ValConSP
+Valida se o pedido deixou de ser supplier
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016 
+
+@param cCondPg, character, Código da Condição de Pagamento
+
+@return Logical, Verdadeirou ou False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function ValConSP(cCondPg)
+
+	Local aArea	:= GetArea()
+	Local lRet	:= .T.
+
+	SE4->(DbGoTOP())
+	If SE4->(DbSeek(xFilial("SE4") + cCondPg))
+		If SE4->E4_XCONDSP == 'S' //Se a condicao é a condicao suppler
+			lRet := .F.
+		EndIf
+	EndIf
+
+	RestArea(aArea)
+
+Return(lRet)
+
+//-------------------------------------------------
+/*/{Protheus.doc} xLValVZPV
+Valida se os produtos possuem vinculo
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016 
+
+@return Logical, Verdadeirou ou False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function xLValVZPV()
+
+/*
+cSql += " SELECT SC6.C6_QTDVEN,SC6.C6_NUM,
+cSql += " 		SC6.C6_VALOR,SC6.C6_ITEM,
+cSql += "		SC6.C6_VALOR * ((100-ISNULL(SA1.A1_XPERSV,0))/100) VLR_TOTALPROD,
+cSql += "		(SC6.C6_VALOR * ((100-ISNULL(SA1.A1_XPERSV,0))/100)/SC6.C6_QTDVEN) VLR_ITPRD,
+cSql += "		(((ISNULL(SA1.A1_XPERSV,0)) * SC6.C6_VALOR)/100) AS VLR_ITSV
+cSql += " FROM SC6040 SC6
+cSql += " INNER JOIN SB1010 SB1 ON SC6.C6_PRODUTO = SB1.B1_COD AND SB1.B1_XGERASV = 'S' AND SB1.D_E_L_E_T_ = ''
+//cSql += " INNER JOIN ZPV040 ZPV ON SC6.C6_PRODUTO = ZPV.ZPV_PROD AND ZPV_CLIENT = '"+SC5->C5_CLIENTE+"' AND ZPV.D_E_L_E_T_ = '' 
+cSql += " INNER JOIN SC5040 SC5 ON SC6.C6_FILIAL = SC5.C5_FILIAL AND SC6.C6_NUM = SC5.C5_NUM AND SC5.D_E_L_E_T_ = ''
+cSql += " INNER JOIN SA1010 SA1 ON SC5.C5_CLIENT = SA1.A1_COD AND SC5.C5_LOJACLI = SA1.A1_LOJA AND SA1.D_E_L_E_T_ = ''  AND SA1.A1_XGERASV = 'S' AND SA1.A1_XPERSV > 0
+cSql += " WHERE	SC6.D_E_L_E_T_ = ''
+cSql += "		AND SC6.C6_FILIAL = '"+SC5->C5_FILIAL+"'
+cSql += "		AND SC6.C6_NUM = '"+SC5->C5_NUM+"'
+cSql += " ORDER BY C6_NUM,C6_ITEM
+*/
+
+cAliasPV := GetNextAlias()
+
+/*
+BeginSql Alias cAliasPV
+	SELECT 
+		SC6.C6_QTDVEN, SC6.C6_NUM,
+		SC6.C6_VALOR, SC6.C6_ITEM,
+		SC6.C6_VALOR -((ZPV.ZPV_PORCPR * SC6.C6_VALOR)/100) AS VPVPROD,
+		((SC6.C6_VALOR -((ZPV.ZPV_PORCPR * SC6.C6_VALOR)/100))/C6_QTDVEN) AS VLRVEND,
+		(((ISNULL(ZPV_PORCPR,0)) * SC6.C6_VALOR)/100) AS VALOR
+	FROM %TABLE:SC6% SC6
+	INNER JOIN %TABLE:ZPV% ZPV ON SC6.C6_PRODUTO = ZPV.ZPV_PROD AND ZPV_CLIENT = %EXP:SC5->C5_CLIENTE% 	AND ZPV.%NOTDEL%
+	WHERE		
+		SC6.C6_FILIAL = %EXP:SC5->C5_FILIAL%
+		AND SC6.C6_NUM = %EXP:SC5->C5_NUM%
+		AND SC6.%NOTDEL%
+	ORDER BY 
+		C6_NUM,C6_ITEM
+endSql
+*/
+
+BeginSql Alias cAliasPV
+	SELECT 
+		SC6.C6_QTDVEN, SC6.C6_NUM,
+		SC6.C6_VALOR, SC6.C6_ITEM,
+		SC6.C6_VALOR -((SA1.A1_XPERSV * SC6.C6_VALOR)/100) AS VPVPROD,
+		((SC6.C6_VALOR -((SA1.A1_XPERSV * SC6.C6_VALOR)/100))/C6_QTDVEN) AS VLRVEND,
+		(((ISNULL(SA1.A1_XPERSV,0)) * SC6.C6_VALOR)/100) AS VALOR
+	FROM %TABLE:SC6% SC6 (NOLOCK)
+	INNER JOIN SB1010 SB1 (NOLOCK) ON SC6.C6_PRODUTO = SB1.B1_COD AND SB1.B1_XGERASV = 'S' AND SB1.%NOTDEL%
+	INNER JOIN SC5040 SC5 (NOLOCK) ON SC6.C6_FILIAL = SC5.C5_FILIAL AND SC6.C6_NUM = SC5.C5_NUM AND SC5.%NOTDEL%
+	INNER JOIN SA1010 SA1 (NOLOCK) ON SC5.C5_CLIENT = SA1.A1_COD AND SC5.C5_LOJACLI = SA1.A1_LOJA AND SA1.%NOTDEL%  AND SA1.A1_XGERASV = 'S' AND SA1.A1_XPERSV > 0
+	WHERE		
+		SC6.C6_FILIAL = %EXP:SC5->C5_FILIAL%
+		AND SC6.C6_NUM = %EXP:SC5->C5_NUM%
+		AND SC6.%NOTDEL%
+	ORDER BY 
+		C6_NUM,C6_ITEM
+endSql
+
+aLastQuery    := GetLastQuery()
+cLastQuery    := aLastQuery[2]
+
+(cAliasPV)->(DBGoTop())
+
+Return (cAliasPV)->(EOF())
+
+//-------------------------------------------------
+/*/{Protheus.doc} xProcPvNFSE
+Gera o pedido para NFSE
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function xProcPvNFSE()
+
+	Local 	aCabec 		:= {}
+	Local	aItens 		:= {}
+	Local 	aLinha 		:= {}
+	Local 	cProd		:= Alltrim( SuperGetMV("KP_PRODPV"	,.F. ,"099999999999999"))
+	Local 	cOP			:= Alltrim( SuperGetMV("KP_OPPVNF"	,.F. ,"52")) //PRESTACAO DE SERVICOS
+	Local 	aBloqueio	:= {}
+	Local 	aPvlNfs		:= {}
+	Local 	nCount		:= 0
+	Local 	dBkpDTEm	:= SC5->C5_EMISSAO
+	Local 	dBkpDTBS	:= dDataBase
+	Local 	cPvSPP		:= SC5->C5_XPVSPC
+	Local 	cCDSPP 		:= SC5->C5_XCODPAU
+	Local 	cStSPP 		:= SC5->C5_XSTSSPP
+
+	Private lMsErroAuto	:= .F.
+
+	nOrdLF   := IndLF()
+	cXIDVNFK :=	GetSx8Num("SC5","C5_XIDVNFK","C5_XIDVNFK" +"\system\"+RetSqlName("SC5"),nOrdLF) //Id Vinc PVS 
+	ConfirmSx8()
+	
+	aadd(aCabec,{"C5_TIPO" 		,"N"			,Nil})
+	aadd(aCabec,{"C5_CLIENTE"	,SC5->C5_CLIENTE,Nil})
+	aadd(aCabec,{"C5_LOJACLI"	,SC5->C5_LOJACLI,Nil})
+	aadd(aCabec,{"C5_LOJAENT"	,SC5->C5_LOJAENT,Nil})
+	aadd(aCabec,{"C5_CONDPAG"	,SC5->C5_CONDPAG,Nil})
+	aadd(aCabec,{"C5_TPFRETE"	,SC5->C5_TPFRETE,Nil})
+	aadd(aCabec,{"C5_K_TPCL"	,SC5->C5_K_TPCL ,Nil})
+	aadd(aCabec,{"C5_TIPOCLI"	,SC5->C5_TIPOCLI,Nil})
+	aadd(aCabec,{"C5_CONDPAG"	,SC5->C5_CONDPAG,Nil})
+	aadd(aCabec,{"C5_VEND1"		,SC5->C5_VEND1  ,Nil})
+	aadd(aCabec,{"C5_USER"		,SC5->C5_USER  ,Nil})
+	aadd(aCabec,{"C5_K_OPER"	,cOP  			,Nil})
+	aadd(aCabec,{"C5_XIDVNFK"	,cXIDVNFK		,Nil})
+	aadd(aCabec,{"C5_XTIPONF"	,"2"			,Nil})
+	aadd(aCabec,{"C5_XSITLIB"	,"6"			,Nil})
+	aadd(aCabec,{"C5_XGERASV"	,"S"			,Nil})
+	aAdd(aCabec,{'C5_XTPPED' 	, SC5->C5_XTPPED, Nil})
+
+	If Alltrim(SC5->C5_XPVSPC) =="S" .And. !(Empty(SC5->C5_XCODPAU))
+		aadd(aCabec,{"C5_XPVSPC"	,SC5->C5_XPVSPC		,Nil})
+		aadd(aCabec,{"C5_XCODPAU"	,SC5->C5_XCODPAU	,Nil})
+	EndIf
+
+	(cAliasPV)->(DBGoTop())
+
+	While !(cAliasPV)->(EOF())
+		
+		nCount++
+		aLinha := {}
+		aadd(aLinha,{"C6_ITEM"	 , StrZero(nCount,2)               , Nil})
+		aadd(aLinha,{"C6_PRODUTO", cProd			               , Nil})		
+		aadd(aLinha,{"C6_QTDVEN" , 1				               , Nil})
+		aadd(aLinha,{"C6_OPER"	 , cOP			                   , Nil})
+		aadd(aLinha,{"C6_PRCVEN" , (cAliasPV)->VALOR               , Nil})
+		aadd(aLinha,{"C6_PRUNIT" , (cAliasPV)->VALOR               , Nil})
+		aadd(aLinha,{"C6_XIDVNFK", cXIDVNFK+"-"+(cAliasPV)->C6_ITEM, Nil})
+		
+		aadd(aItens,aLinha)
+		
+		(cAliasPV)->(DBSkip())
+	EndDo
+
+	DbSelectArea("SFM")
+	SFM->(dbSetOrder(1))
+
+	dDataBase := dBkpDTEm
+
+	lIncPNF	:= .T.
+
+	BeginTran()
+		MATA410(aCabec,aItens,3)
+		If lMsErroAuto
+			lIncPNF	:= .F.
+			MostraErro()
+			UserException("Erro na inclusao do pedido de venda de serviço, informe o TI!")
+		EndIf
+	EndTran()
+
+	dDataBase := dBkpDTBS
+
+	If lIncPNF
+		// Liberacao de pedido
+		Ma410LbNfs(2,@aPvlNfs,@aBloqueio)
+		// Checa itens liberados
+		Ma410LbNfs(1,@aPvlNfs,@aBloqueio)
+		
+		RECLOCK("SC5", .F.)  
+			SC5->C5_XSITLIB :="7"
+			SC5->C5_XIDVNFK	:= cXIDVNFK
+			SC5->C5_XPVSPC	:= cPvSPP 
+			SC5->C5_XCODPAU	:= cCDSPP 
+			SC5->C5_XSTSSPP	:= cStSPP
+		MSUNLOCK()
+		
+		LibBlCre(SC5->C5_NUM,1)	//Liberacao de crédito
+	EndIf
+
+Return()
+
+//-------------------------------------------------
+/*/{Protheus.doc} IndLF
+Identifica a ordem do indice XIDNFSE
+
+@type function
+@version 1.0
+@author Luis Paulo
+
+@since 02/01/2018 
+
+@return Numeric, Ordenação do Indice
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function IndLF()
+	Local aArea    := GetArea()
+	Local nOrdLF
+	Local nOrdSC5
+
+	DbSelectArea("SC5")
+	nOrdSC5 := IndexOrd()
+
+	SC5->(dbOrderNickName("XIDNFSE"))
+	nOrdLF := IndexOrd()
+	SC5->(DbSetorder(nOrdSC5))
+
+	RestArea(aArea)
+Return(nOrdLF)
+
+//-------------------------------------------------
+/*/{Protheus.doc} xAltPedOri
+Funcao responsavel por alterar o pedido original de produto
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@param cIdNFSE, character, Pedido NFSE
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function xAltPedOri(cIdNFSE)
+	
+	Local aPedCab	:= {}
+	Local aPedIte	:= {}
+	Local aPedIts	:= {}
+
+	Local aAreaC5	:= SC5->(GetArea())
+	Local aAreaC6	:= SC6->(GetArea())
+	Local aAreaC9	:= SC9->(GetArea())
+	Local cUm		:=""
+	Local lAchou		:= .F.
+	Local 	cOP			:=""
+	Local 	aBloqueio	:= {}
+	Local 	aPvlNfs		:= {}
+
+	Local nQtd			:= 0
+	Local cMsgCli		:=""
+	Local cMsgPdv		:=""
+
+	Private lMsErroAuto	:= .F.
+
+	Public _AItensA		:= {}
+
+	(cAliasPV)->(DBGoTop())
+
+	DbSelectArea("SC5")
+	SC5->(DbOrderNickName("XIDNFSE"))
+	SC5->(DbGoTop())
+	If SC5->(DbSeek(xFilial("SC5") + cIdNFSE +"1" )) //Posiciona no pedido de produto
+		cPedido		:= SC5->C5_NUM
+		cOP			:= SC5->C5_K_OPER
+		
+		cMsgCli 	:= SC5->C5_MSGCLI
+		cMsgPdv		:= SC5->C5_MSGNOTA 
+		
+		aAdd(aPedCab,{'C5_NUM'    , SC5->C5_NUM 	, Nil}) //Numero do Pedido
+		aAdd(aPedCab,{'C5_TIPO'   , SC5->C5_TIPO   	, Nil}) //Tipo do Pedido
+		aAdd(aPedCab,{'C5_CLIENTE', SC5->C5_CLIENTE	, Nil}) //Codigo do Cliente
+		aAdd(aPedCab,{'C5_LOJACLI', SC5->C5_LOJACLI	, Nil}) //Loja do Cliente
+		aAdd(aPedCab,{'C5_TIPOCLI', SC5->C5_TIPOCLI	, Nil}) //Tipo do Cliente
+		aAdd(aPedCab,{'C5_EMISSAO', SC5->C5_EMISSAO , Nil}) //Data de Emissao
+		aAdd(aPedCab,{'C5_CONDPAG', SC5->C5_CONDPAG	, Nil}) //Condicao de Pagamanto
+		aAdd(aPedCab,{'C5_K_OPER' , cOP				, Nil}) //Condicao de Pagamanto
+		aAdd(aPedCab,{'C5_XTPPED' , SC5->C5_XTPPED	, Nil}) 
+		
+		
+		(cAliasPV)->(DBGoTop())
+		
+		DbSelectArea("SC6")
+		DbSetOrder(1) //C6_FILIAL+C6_NUM
+		SC6->(DbGoTop())
+		If DbSeek(SC5->C5_FILIAL + cPedido)
+			
+			While SC6->C6_FILIAL == SC5->C5_FILIAL .And. SC6->C6_NUM == cPedido .And. !SC6->(EOF())
+				lAchou	:= .T.
+				cUm		:= SC6->C6_UM
+				
+				aAdd(_AItensA,{SC6->C6_ITEM,SC6->C6_XLARG,SC6->C6_XCOMPRI,SC6->C6_XQTDPC,SC6->C6_QTDVEN})
+				
+				If (cAliasPV)->C6_ITEM == SC6->C6_ITEM
+						
+						nQtd	:= SC6->C6_XQTDPC
+						
+						aPedIte	:= {}
+						aadd(aPedIte,{"C6_ITEM"		,SC6->C6_ITEM		,Nil})
+						aadd(aPedIte,{"C6_PRODUTO"	,SC6->C6_PRODUTO	,Nil})
+						aadd(aPedIte,{"C6_DESCRI"	,SC6->C6_DESCRI		,Nil})
+						
+						If Alltrim(cUm) =="M2"
+								aadd(aPedIte,{"C6_XLARG	"	,SC6->C6_XLARG		,Nil})
+								aadd(aPedIte,{"C6_XCOMPRI"	,SC6->C6_XCOMPRI	,Nil})
+								aadd(aPedIte,{"C6_XQTDPC"	,SC6->C6_XQTDPC		,Nil})
+								aadd(aPedIte,{"C6_QTDVEN"	,SC6->C6_QTDVEN	,Nil})
+							Else
+								aadd(aPedIte,{"C6_QTDVEN"	,SC6->C6_QTDVEN		,Nil})
+						EndIf
+						
+						aadd(aPedIte,{"C6_OPER"		,cOP			,Nil})
+						aadd(aPedIte,{"C6_TES"		,SC6->C6_TES		,Nil})
+						
+						aadd(aPedIte,{"C6_PRCVEN"	,Round((cAliasPV)->VLRVEND, 2 )	,Nil})
+						//aadd(aPedIte,{"C6_PRUNIT"	,Round((cAliasPV)->VLRVEND, 2 )	,Nil})
+						//aadd(aPedIte,{"C6_XPRECPC"	,Round((cAliasPV)->VLRVEND, 2 )	,Nil})
+						
+						//aadd(aPedIte,{"C6_X_PRCVE"	,Round((cAliasPV)->VLRVEND, 4 )	,Nil})
+						aadd(aPedIte,{"C6_X_OBSPR"	,SC6->C6_X_OBSPR	,Nil}) 
+						aadd(aPedIte,{"C6_XVLRRNF"	,SC6->C6_PRCVEN		,Nil}) 
+						aadd(aPedIte,{"C6_XIDVNFK"	,cIdNFSE			,Nil})  
+						
+						(cAliasPV)->(DbSkip())
+						aAdd(aPedIts, aPedIte)
+						
+					Else
+						nQtd	:= SC6->C6_XQTDPC
+						aPedIte	:= {}
+						aadd(aPedIte,{"C6_ITEM"		,SC6->C6_ITEM		,Nil})
+						aadd(aPedIte,{"C6_PRODUTO"	,SC6->C6_PRODUTO	,Nil})
+						aadd(aPedIte,{"C6_DESCRI"	,SC6->C6_DESCRI		,Nil})
+						
+						If Alltrim(cUm) =="M2"
+								aadd(aPedIte,{"C6_XLARG	"	,SC6->C6_XLARG		,Nil})
+								aadd(aPedIte,{"C6_XCOMPRI"	,SC6->C6_XCOMPRI	,Nil})
+								aadd(aPedIte,{"C6_XQTDPC"	,SC6->C6_XQTDPC		,Nil})
+								aadd(aPedIte,{"C6_QTDVEN"	,SC6->C6_QTDVEN		,Nil})
+							Else
+								aadd(aPedIte,{"C6_QTDVEN"	,SC6->C6_QTDVEN		,Nil})
+						EndIf
+						
+						aadd(aPedIte,{"C6_OPER"		,cOP			,Nil})
+						aadd(aPedIte,{"C6_TES"		,SC6->C6_TES		,Nil})
+						
+						aadd(aPedIte,{"C6_PRCVEN"	,SC6->C6_PRCVEN		,Nil})
+						//aadd(aPedIte,{"C6_PRUNIT"	,SC6->C6_PRUNIT		,Nil})
+						//aadd(aPedIte,{"C6_XPRECPC"	,SC6->C6_PRCVEN		,Nil})
+						
+						//aadd(aPedIte,{"C6_X_PRCVE"	,Round((cAliasPV)->VLRVEND, 4 )	,Nil})
+						
+						aadd(aPedIte,{"C6_X_OBSPR"	,SC6->C6_X_OBSPR	,Nil}) 
+						aadd(aPedIte,{"C6_XVLRRNF"	,SC6->C6_PRCVEN		,Nil}) 
+						aadd(aPedIte,{"C6_XIDVNFK"	,cIdNFSE			,Nil})  
+						aAdd(aPedIts, aPedIte)
+						
+				EndIf
+				SC6->(DbSkip())
+				
+			EndDo
+			
+			If lAchou
+				//Conout("")
+				//VARINFO ("aPedIts",aPedIts)
+				Conout("")
+							
+				MSExecAuto({|x,y,z|Mata410(x,y,z)}, aPedCab, aPedIts, 4) //Opção para Alteração
+				If lMsErroAuto
+						MostraErro()
+						lRetPvP		:= .F.
+					Else	
+						//MsgInfo("Pedido(Produto/NFSE) alterado com sucesso->"+SC5->C5_NUM)
+				EndIf
+				
+				RecLock("SC5",.F.)
+				SC5->C5_MSGNOTA := cMsgPdv
+				SC5->C5_MSGCLI	:= cMsgCli  
+				SC5->(MsUnLock())
+				
+				If !lMsErroAuto
+					// Liberacao de pedido
+					Ma410LbNfs(2,@aPvlNfs,@aBloqueio)
+					// Checa itens liberados
+					Ma410LbNfs(1,@aPvlNfs,@aBloqueio)
+				EndIf
+
+			EndIf
+		EndIf
+	EndIf
+
+	RestArea(aAreaC5)
+	RestArea(aAreaC6)
+	RestArea(aAreaC9)
+
+Return()
+
+//-------------------------------------------------
+/*/{Protheus.doc} xGrvVTot
+Funcao responsavel por gravar o valor total dos pedidos de produto e servico, no cabecalho do pedido de produto.
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@param cIdNFSE, character, Pedido da NFSE
+@param nReco, numeric, Recno Anterior
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function xGrvVTot(cIdNFSE,nReco)
+
+	Local aArea		:= GetArea()
+	Local cAliasTT  := GetNextAlias()
+	Local nValTotNF	:= 0
+	
+	BeginSql Alias cAliasTT
+		%noParser%
+		SELECT 
+			SUM(C5_XTOTMER) AS VLRTOTAL
+		FROM 
+			%table:SC5% SC5 WITH(NOLOCK)
+		WHERE 
+			C5_XIDVNFK = %Exp:cIdNFSE%
+			AND %NOTDEL% 
+	EndSql
+
+	while !(cALiasTT)->(EOF())
+		nValTotNF += (cALiasTT)->VLRTOTAL
+		(cALiasTT)->(dbSkip())
+	enddo
+	(cALiasTT)->(dbCloseArea())
+
+	DbSelectArea("SC5")
+	SC5->(DbGoto(nReco))
+	
+	RecLock("SC5",.F.)
+		SC5->C5_XVLRNFM	:= nValTotNF
+	SC5->(MsUnlock())
+
+	RestArea(aArea)
+
+Return()
+
+//-------------------------------------------------
+/*/{Protheus.doc} xValLEst
+Valida bloqueio de estoque
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@return Logical, Verdadeiro ou False
+/*/
+//-------------------------------------------------
+Static Function xValLEst()
+
+	Local cAliasC9 := GetNextAlias()
+	Local nRegs    := 0
+	Local lRet	   := .T.
+
+	/*
+	C9_BLCRED:
+	"" – Liberado
+	01 – Bloqueio de Credito por Valor
+	02 – Por Estoque – MV_BLQCRED = T
+	04 – Vencto do Limite de Credito
+	05 – Bloqueio de Credito por Estorno
+	06 – Bloqueio de Credito por Risco
+	09 – Rejeicao de Credito
+	10 – Faturado
+
+	C9_BLEST:
+	"" – Liberado
+	02 – Bloqueio de Estoque
+	03 – Bloqueio Manual de Estoque
+	10 – Faturado
+
+	C9_BLWMS:
+	01 – Bloqueio de Enderecamento do WMS/Somente SB2
+	02 – Bloqueio de Enderecamento do WMS
+	03 – Bloqueio de WMS – Externo
+	05 – Liberacao para Bloqueio 01
+	06 – Liberacao para Bloqueio 02
+	07 – Liberacao para Bloqueio 03
+	*/
+
+	BeginSql Alias cAliasC9
+		SELECT 
+			C9_BLEST 
+		FROM 
+			%table:SC9%
+		WHERE 
+			C9_FILIAL = %exp:SC5->C5_FILIAL%
+			AND C9_PEDIDO = %exp:SC5->C5_NUM%
+			AND (C9_BLEST IN ('02','03') OR C9_BLWMS <> '')
+			AND %NOTDEL%			
+	endSql
+
+	(cAliasC9)->(dbEval( { || nRegs++ } ) )
+	(cAliasC9)->( dbCloseArea() )
+	
+	If nRegs > 0
+		lRet := .F.
+	EndIf
+
+Return(lRet)
+
+//-------------------------------------------------
+/*/{Protheus.doc} xValLFin
+Valida bloqueio de estoque
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@return Logical, True or False
+/*/
+//-------------------------------------------------
+Static Function xValLFin()
+
+	Local cAliasC9  := GetNextAlias()
+	Local nRegs		:= 0
+	Local lRet		:= .T.
+
+	/*
+	C9_BLCRED:
+	"" – Liberado
+	01 – Bloqueio de Credito por Valor
+	02 – Por Estoque – MV_BLQCRED = T
+	04 – Vencto do Limite de Credito
+	05 – Bloqueio de Credito por Estorno
+	06 – Bloqueio de Credito por Risco
+	09 – Rejeicao de Credito
+	10 – Faturado
+
+	C9_BLEST:
+	"" – Liberado
+	02 – Bloqueio de Estoque
+	03 – Bloqueio Manual de Estoque
+	10 – Faturado
+
+	C9_BLWMS:
+	01 – Bloqueio de Enderecamento do WMS/Somente SB2
+	02 – Bloqueio de Enderecamento do WMS
+	03 – Bloqueio de WMS – Externo
+	05 – Liberacao para Bloqueio 01
+	06 – Liberacao para Bloqueio 02
+	07 – Liberacao para Bloqueio 03
+	*/
+
+	BeginSql Alias cAliasC9
+		SELECT 
+			C9_BLEST 
+		FROM 
+			%table:SC9%
+		WHERE 
+			C9_FILIAL = %exp:SC5->C5_FILIAL%
+			AND C9_PEDIDO = %exp:SC5->C5_NUM%
+			AND C9_BLCRED <> ''
+			AND %NOTDEL%			
+	endSql
+
+	(cAliasC9)->(dbEval( { || nRegs++ } ) )
+	(cAliasC9)->( dbCloseArea() )
+
+	If nRegs > 0
+		lRet	:= .F.
+	EndIf
+
+Return(lRet)
+
+//-------------------------------------------------
+/*/{Protheus.doc} LibBlCre
+//Função para Liberacao de Credito - pedido de venda
+@author Luis Paulo
+@since 02/09/2016
+@version undefined
+@param cNumPed, characters, descricao
+@type function
+/*/
+//-------------------------------------------------
+Static Function LibBlCre( cPedido , nOpNF)
+Local aAreaAtu 	:= GetArea()
+Local aAreaSC5 	:= SC5->( GetArea() )
+Local aAreaSC6 	:= SC6->( GetArea() )
+Local aAreaSC9 	:= SC9->( GetArea() )
+Default nOpNF 	:= 1
+
+dbSelectArea("SC9")
+SC9->( dbSetOrder(1) ) //C9_FILIAL, C9_PEDIDO, C9_ITEM, C9_SEQUEN, C9_PRODUTO, C9_BLEST, C9_BLCRED, R_E_C_N_O_, D_E_L_E_T_
+SC9->( dbGoTop() )
+If SC9->( dbSeek(FwxFilial('SC9') + cPedido ) )
+	While SC9->(!Eof()) .And. SC9->C9_FILIAL + SC9->C9_PEDIDO == FwxFilial("SC9") + cPedido
+	//-- Libera de Credito para o item da liberacao do Pedido de Venda ( SC9 )   --             
+		If nOpNF == 1 //NF servico
+				RecLock("SC9",.F.)
+				SC9->C9_BLCRED  :=""
+				SC9->(MsUnlock())
+			Else //Nota produto
+				a450Grava(1,.T.,.F.)
+		EndIf
+		SC9->(dbSkip() )
+	EndDO
+EndIF
+
+RestArea(aAreaSC9)
+RestArea(aAreaSC6)
+RestArea(aAreaSC5)
+RestArea(aAreaAtu)
+
+Return
+
+//-------------------------------------------------
+/*/{Protheus.doc} MATA455
+Faz a liberação do estoque bloqueado
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@param cNumPed, character, Número do Pedido de Vendas
+@param cMsgErro, character, Mensagem de Erro
+
+@return Logical, True or False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function MATA455(cNumPed, cMsgErro)
+	// variaveis auxiliares
+	Local aArea := GetArea()
+	Local lEnd := .F.
+	Local cPerg :="LIBAT2"
+	Local lRet := .F.
+	Local cAlias :="SC9"  
+			
+
+	//inicializa as variaveis
+	cMsgErro :=""
+	DbSelectArea("SC9")
+	SC9->(DbSetOrder(1))
+
+	//preenche os parametros de liberação
+	Pergunte(cPerg, .F.)
+	mv_par01 := cNumPed
+	mv_par02 := cNumPed
+	mv_par03 := Space(6)
+	mv_par04 := Replicate("Z", 6)
+	mv_par05 := Stod("")
+	mv_par06 := Stod("20491231")
+	mv_par07 = 1
+	
+	//chama a rotina para liberar o estoque
+	Processa({|lEnd| Ma450Processa(cAlias, .F., .T., @lEnd, Nil, MV_PAR07 == 2)}, Nil, Nil, .T.)
+						
+	//restaura a area
+	RestArea(aArea)
+
+	//valida se o pedido foi totalmente liberado
+	if IsPedLib(cNumPed)
+		// procedimento concluido
+		lRet := .T.
+		//cMsgErro :="Procedimento concluido, pedido separado" //Alterado por Marcellus mensagem retorno 01/04/2016
+	else
+		// procedimento concluido
+		lRet := .F.
+		cMsgErro :="Erro na liberacao de estoque do pedido de produto, informe o setor responsável pela liberação de estoque!"  //Alterado por Marcellus mensagem retorno 01/04/2016
+		userException(cMsgErro)
+	endIf
+ 
+Return(lRet)
+
+//-------------------------------------------------
+/*/{Protheus.doc} IsPedLib
+retorna se o pedido foi liberado estoque 
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@param cNumPed, character, Número do Pedido de Vendas
+
+@return Logical, True or False
+
+@protected
+/*/  
+//-------------------------------------------------   
+static function IsPedLib(cNumPed)
+
+	// variaveis auxiliares
+	local cQr  := getNextAlias()
+	local lRet := .t.
+
+	BeginSql Alias cQr
+		SELECT 
+			COUNT(*) AS C9_TOTAL, C9_PRODUTO
+		FROM
+			%TABLE:SC9% SC9
+		WHERE 
+			C9_FILIAL = %XFILIAL:SC9%
+			AND SC9.C9_PEDIDO = %EXP:CNUMPED%
+			AND SC9.C9_BLEST <> ''
+			AND %NOTDEL%
+		GROUP BY 
+			C9_PRODUTO
+	endsql
+
+	while !(cQr)->(EOF()) .and. lRet
+		lRet := ((cQr)->C9_TOTAL == 0)
+	
+		(cQr)->(dbSkip())
+	enddo
+	(cQr)->(dbCloseArea())
+
+return lRet 
+
+//
+//-------------------------------------------------
+/*/{Protheus.doc} VerVZPV
+Verifica e cria o vinculo com a ZPV caso necessário
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@return Logical, True or False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function VerVZPV()
+
+	// variaveis auxiliares
+	local cQr 	  := GetNextAlias()
+	local lRet 	  := .T.
+	local cCodZPV := ''
+	local nCount  := 0
+
+	BeginSql Alias cQr
+		%noParser%
+		SELECT 
+			ISNULL(ZPV.ZPV_CODIGO,'') AS ZPV_CODIGO,
+			ZPV_PORCPR, SC6.C6_NUM, SB1.B1_XGERASV,
+			SB1.B1_COD, SA1.A1_COD, SA1.A1_LOJA,
+			SA1.A1_XPERSV, A1_XDATASV, A1_XHORASV,
+			A1_XQUEMSV, SA1.A1_XGERASV
+		FROM 
+			%table:SC6% SC6 WITH(NOLOCK)
+		LEFT JOIN ZPV040 ZPV WITH(NOLOCK) ON 
+			SC6.C6_PRODUTO = ZPV.ZPV_PROD 
+			AND ZPV.ZPV_CLIENT = %exp:SC5->C5_CLIENTE% 
+			AND ZPV.ZPV_CLILOJ = %exp:SC5->C5_LOJACLI% 
+			AND ZPV.%notdel%
+		INNER JOIN SC5040 SC5 WITH(NOLOCK) ON 
+			SC6.C6_FILIAL = SC5.C5_FILIAL 
+			AND SC6.C6_NUM = SC5.C5_NUM  
+			AND SC5.%notdel% 
+			AND SC5.C5_CLIENTE = %exp:SC5->C5_CLIENTE% 
+			AND C5_XGERASV = 'S'
+		INNER JOIN SA1010 SA1 WITH(NOLOCK) ON 
+			SC5.C5_CLIENT = SA1.A1_COD 
+			AND SC5.C5_LOJACLI = SA1.A1_LOJA 
+			AND SA1.%notdel% 
+			AND SA1.A1_XPERSV <> 0
+		INNER JOIN SB1010 SB1 WITH(NOLOCK) ON 
+			SC6.C6_PRODUTO = SB1.B1_COD 
+			AND SB1.%notdel%
+		WHERE 
+			SC6.%notdel%
+			AND SC6.C6_FILIAL = %exp:SC5->C5_FILIAL%
+			AND SC6.C6_NUM = %exp:SC5->C5_NUM%
+		ORDER BY 
+			SC6.C6_ITEM
+	endsql
+
+
+	DbSelectArea("ZPV")
+	ZPV->(DbSetOrder(2))
+
+	While !(cQr)->(EOF())
+				
+		ZPV->(DbGoTop())
+		If ZPV->(DbSeek(xFilial("ZPV")+ (cQr)->A1_COD + (cQr)->A1_LOJA + (cQr)->B1_COD +"1"))
+			
+				If (cQr)->A1_XPERSV != ZPV->ZPV_PORCPR
+					Reclock("ZPV",.F.)
+						ZPV->ZPV_QUEMEX	:= (cQr)->A1_XQUEMSV
+						ZPV->ZPV_DATAEX := STOD((cQr)->A1_XDATASV)
+						ZPV->ZPV_HORAEX := (cQr)->A1_XHORASV
+						ZPV->ZPV_ORIEXC	:= "SA1"
+					ZPV->(MsUnlock())
+					
+					Reclock("ZPV",.F.)
+						ZPV->(DbDelete())
+					ZPV->(MsUnlock())
+					
+					nCount++
+					
+					If nCount == 1
+						cCodZPV	:= GETSXENUM("ZPV","ZPV_CODIGO")
+					EndIf
+					
+					Reclock("ZPV", .T.)
+						ZPV->ZPV_FILIAL	:= ""
+						ZPV->ZPV_CODIGO := cCodZPV
+						ZPV->ZPV_CLIENT	:= (cQr)->A1_COD	
+						ZPV->ZPV_CLILOJ	:= (cQr)->A1_LOJA
+						ZPV->ZPV_PORCPR	:= (cQr)->A1_XPERSV
+						ZPV->ZPV_PROD	:= (cQr)->B1_COD
+						ZPV->ZPV_STATUS	:= "1"
+						ZPV->ZPV_DATAIN	:= STOD((cQr)->A1_XDATASV) 
+						ZPV->ZPV_TIMEIN	:= (cQr)->A1_XHORASV
+						ZPV->ZPV_QUEMIN	:= (cQr)->A1_XQUEMSV
+					ZPV->(MsUnLock())
+				EndIf
+				
+			Else 
+				If Alltrim((cQr)->B1_XGERASV) =="S" .And. Alltrim((cQr)->A1_XGERASV) =="S"
+					
+					nCount++
+					
+					If nCount == 1
+						cCodZPV	:= GETSXENUM("ZPV","ZPV_CODIGO")
+					EndIf
+					
+					Reclock("ZPV", .T.)
+						ZPV->ZPV_FILIAL	:= ""
+						ZPV->ZPV_CODIGO := cCodZPV
+						ZPV->ZPV_CLIENT	:= (cQr)->A1_COD	
+						ZPV->ZPV_CLILOJ	:= (cQr)->A1_LOJA
+						ZPV->ZPV_PORCPR	:= (cQr)->A1_XPERSV
+						ZPV->ZPV_PROD	:= (cQr)->B1_COD
+						ZPV->ZPV_STATUS	:= "1"
+						ZPV->ZPV_DATAIN	:= STOD((cQr)->A1_XDATASV) 
+						ZPV->ZPV_TIMEIN	:= (cQr)->A1_XHORASV
+						ZPV->ZPV_QUEMIN	:= (cQr)->A1_XQUEMSV
+					ZPV->(MsUnLock())
+				EndIf
+			
+		EndIf
+		
+		(cQr)->(DbSkip())
+	EndDo
+	(cQr)->(DbCloseArea())
+
+Return(lRet)
+
+
+//
+//-------------------------------------------------
+/*/{Protheus.doc} xExcPedN
+Exclui o pedido de NF Serviço
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@param cIdNFSE, character, Número do Pedido de Vendas
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function xExcPedN(cIdNFSE)
+	Local aCabPed		:={}
+	Local aLinhaPed		:={}
+	Local aItensPed		:={}
+	Private lMsErroAuto	:= .F.
+
+	DbSelectArea("SC5")
+	SC5->(DbOrderNickName("XIDNFSE"))
+	SC5->(DbGoTop())
+	If SC5->(DbSeek(xFilial("SC5")+ cIdNFSE  +"2")) //__NFMIST
+		
+		cPedido	:= SC5->C5_NUM
+		If U_NFMESTPV(cPedido,cIdNFSE)//Estorna o pedido da SC9
+			Conout("Pedido liberado - SC9")
+		EndIf
+		
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³Guarda o Cabecalho do Pedido³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		aAdd(aCabPed, {"C5_NUM"		,SC5->C5_NUM		,Nil})  // Nro.do Pedido
+		aAdd(aCabPed, {"C5_CLIENTE"	,SC5->C5_CLIENTE	,Nil})  // Cod. Cliente
+		aAdd(aCabPed, {"C5_LOJACLI"	,SC5->C5_LOJACLI	,Nil})  // Loja Cliente
+
+		DbSelectArea("SC6")
+		DbSetOrder(1)	//Filial + Pedido
+		If DbSeek(SC5->C5_FILIAL + SC5->C5_NUM)
+
+			While !SC6->(Eof()) .AND. SC5->C5_FILIAL + SC5->C5_NUM == SC6->C6_FILIAL + SC6->C6_NUM
+					//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+					//³Guarda os Itens do Pedido   ³
+					//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+				Aadd(aLinhaPed,{"C6_ITEM"	,SC6->C6_ITEM		,NIL })
+				Aadd(aLinhaPed,{"C6_PRODUTO",SC6->C6_PRODUTO	,NIL })
+				aAdd(aLinhaPed,{"C6_NUM"	,SC6->C6_NUM		,NiL}) // Pedido
+				aAdd(aLinhaPed,{"C6_PRODUTO",SC6->C6_PRODUTO	,Nil}) // Cod.Item
+				aAdd(aLinhaPed,{"C6_UM"		,SC6->C6_UM			,Nil}) // Unidade
+				aAdd(aLinhaPed,{"C6_QTDVEN"	,SC6->C6_QTDVEN		,Nil}) // Quantidade
+				aAdd(aLinhaPed,{"C6_PRCVEN"	,SC6->C6_PRCVEN		,Nil}) // Preco Unit.
+				aAdd(aLinhaPed,{"C6_PRUNIT"	,SC6->C6_PRUNIT		,Nil}) // Preco Unit.
+				aAdd(aLinhaPed,{"C6_VALOR"	,SC6->C6_VALOR		,Nil}) // Valor Tot.
+				aAdd(aLinhaPed,{"C6_TES"	,SC6->C6_TES		,Nil}) // Tipo de Saida
+				aAdd(aLinhaPed,{"C6_LOCAL"	,SC6->C6_LOCAL		,Nil}) // Almoxarifado
+				Aadd(aItensPed, aLinhaPed)
+				aLinhaPed := {}
+				SC6->(DbSkip())
+			EndDo
+		EndIf
+
+		//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+		//³exclui o Pedido de Venda.   ³
+		//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+		DbSelectArea("SC5")
+		SC5->(DbOrderNickName("XIDNFSE"))
+		SC5->(DbGoTop())
+		If SC5->(DbSeek(xFilial("SC5")+cIdNFSE +"2"))
+		
+			MSExecAuto( {|x,y,z| Mata410(x,y,z)} , aCabPed, aItensPed, 5) //"Excluindo Pedido"
+			If lMsErroAuto
+				MostraErro()
+			EndIf
+		EndIf
+	EndIf
+
+Return()
+
+//-------------------------------------------------
+/*/{Protheus.doc} ValProd
+Valida se tem produto diferente de NF Mista
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@return logical, True or False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function ValProd()
+
+	Local cSql	:= GetNextAlias()
+	Local cProd := Alltrim( SuperGetMV("KP_PRODPV"	,.F. ,"099999999999999"))
+	Local nRegs := 0
+
+	BeginSql Alias cSql
+		SELECT 
+			COUNT(*) AS REGS
+		FROM 
+			%TABLE:SC6%
+		WHERE 
+			C6_FILIAL = %EXP:SC5->C5_FILIAL%
+			AND C6_NUM = %EXP:SC5->C5_NUM%
+			AND C6_PRODUTO = %EXP:CPROD%
+			AND %NOTDEL%
+	EndSql
+	
+	while !(cSql)->(EOF())
+		nRegs += (cSql)->REGS
+	
+		(cSql)->(dbSkip())
+	enddo
+	(cSql)->(dbCloseArea())
+
+Return (nRegs == 0)
+
+//-------------------------------------------------
+/*/{Protheus.doc} ValItPv
+Verifica o campo customizado C6_K_INTAN para o pedido de vendas posicionado.
+
+@type function
+@version 1.0
+@author Desconhecido
+
+@since 21/07/2016
+
+@return Logical, Verdadeiro ou False
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function ValItPv()
+
+	Local lRet	:= .T.
+	Local cQry  := getNextAliaS()
+
+	BeginSql Alias cQry
+		SELECT
+			C6_K_INTAN
+		FROM
+			%TABLE:SC6%
+		WHERE
+			C6_FILIAL = %XFILIAL:SC6%
+			AND C6_NUM = %EXP:SC5->C5_NUM%
+			AND %NOTDEL%
+	EndSql
+
+	while !(cQry)->(EOF())
+
+		If ((cQry)->C6_K_INTAN > 0)
+			lRet	:= .F.
+		EndIf
+
+		(cQry)->(dbSkip())
+	enddo
+	(cQry)->(DbCloseArea())
+
+Return(lRet)
+
+//-------------------------------------------------
+/*/{Protheus.doc} TrataErro
+Rotina para tratamento de erros.
+
+@type function
+@version 1.0
+@author Lucas José Corrêa Chagas
+
+@since 21/12/2020
+
+@param oError, object, Objeto com informações do erro.
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function TrataErro( oError as Object )
+
+    if InTransact() // se estiver em uma transação de banco, aborta a mesma
+        DisarmTransaction()
+        EndTran()
+    endif
+
+    if !isBlind()
+        MsgStop( alltrim(oError:Description), 'KAPAZI - Geração de notas fiscais - Erro' )    
+    endif
+    Break
+
+return

@@ -690,7 +690,7 @@ User Function OMS105L()
 	Local aLeg := {}
 	AAdd(aLeg,{"BR_VERDE"    , "Pedidos agrupados sem EDI"  } )
 	AAdd(aLeg,{"BR_AZUL"     , "Enviado EDI para transportadora"     } )
-	AAdd(aLeg,{"BR_PINK"     , "Aguardando lib. pedidos"     } )
+	AAdd(aLeg,{"BR_PINK"     , "Aguardando lib. WMS"     } )
 	AAdd(aLeg,{"BR_BRANCO"   , "Aguardando faturamento"     } )
 	AAdd(aLeg,{"BR_VERMELHO" , "EDI / pedidos cancelados"} )
 	AAdd(aLeg,{"BR_AMARELO"   , "Solic. Cancelamento transportadora"    } )

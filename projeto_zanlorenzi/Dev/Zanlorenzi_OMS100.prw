@@ -145,6 +145,8 @@ Static Function GeraArquivo(cOpc)
 			Else//Numerico
 				If SUBSTR(Alltrim(ZA0->ZA0_CONTEU),1,1) =='"'
 					cConteudo := STRTRAN(Alltrim(ZA0->ZA0_CONTEU), '"', "")
+				ElseIf Alltrim(ZA0->ZA0_CONTEU) == "C5_PBRUTO"
+					cConteudo := Alltrim(STR((cAliasZA7)->C9_QTDLIB * (Posicione("SB1",1,xFilial("SB1")+(cAliasZA7)->C9_PRODUTO,"B1_PESBRU"))))
 				Else
 					cMacro := STRTRAN(Alltrim(ZA0->ZA0_CONTEU), '"', "")
 					cConteudo :=&((cAliasZA7)+"->"+cMacro)

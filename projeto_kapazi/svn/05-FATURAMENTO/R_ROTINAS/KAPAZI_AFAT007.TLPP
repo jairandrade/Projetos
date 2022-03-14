@@ -1,0 +1,254 @@
+#include 'Protheus.ch'
+
+//-----------------------------------------------------
+/*/{Protheus.doc} AFAT007
+A partir de registro posicionado na rotina M460FIM, verifica se deve realizar ou não o processamento
+de Supplier para empresa e filial logada.
+
+@type function
+@version 1.0
+@author Lucas
+
+@param PedProduto, logical, Define se é um pedido de produtos
+@param PedSupplier, logical, Define se é um pedido Supplier
+
+@since 09/03/2021
+/*/
+//-----------------------------------------------------
+User Function AFAT007( PedProduto as Logical, PedSupplier as Logical )
+
+    Local Cabecalho   as Array
+    Local Itens       as Array    
+    Local Parcelas    as Array
+    
+    Local CondPag     as Char
+    Local Filtro      as Char
+    Local Liquidacao  as Char
+    Local Natureza    as Char 
+
+    Local bError      as CodeBlock
+       
+    Local EmTransacao as Logical
+
+    Local I           as Numeric
+    Local Moeda       as Numeric
+    Local PorcJuros   as Numeric
+    Local Total       as Numeric
+    
+    Private lMsErroAuto    as Logical
+    Private lMsHelpAuto    as Logical
+    Private lAutoErrNoFile as Logical
+
+    CondPag     := SC5->C5_CONDPAG
+    PorcJuros   := IIf( SF2->F2_TIPO $ "B|D", 0, SA1->A1_PORCJUR )
+    lMsErroAuto := .F.
+    lMsHelpAuto	:= .T.    // força a gravação das informações de erro em array para manipulação da gravação ao invés de gravar direto no arquivo temporário 
+    lAutoErrNoFile := .T. 
+    EmTransacao := .F.
+    ITENS := {}
+    cabecalho := {}
+
+    bError := ErrorBlock( { |oError| TrataErro( oError ) } )
+        Begin SEQUENCE
+            if (PedProduto .and. PedSupplier)
+                // atualiza cabeçalho da nota para informar que pedido é supplier
+                Reclock("SF2",.F.)                
+                    SF2->F2_XPVSPP := 'S'
+                SF2->(MsUnlock())
+
+                Filtro := " (E1_FILIAL == '" + xFilial("SE1") + "') "
+                Filtro += " .AND. (E1_PREFIXO == '" + SF2->F2_SERIE + "') "
+                Filtro += " .AND. (E1_NUM == '" + SF2->F2_DOC + "') "
+                Filtro += " .AND. (E1_CLIENTE == '" + SF2->F2_CLIENTE + "') "
+                Filtro += " .AND. (E1_LOJA == '" + SF2->F2_LOJA + "') "
+                Filtro += " .AND. (E1_SITUACA $ '0FG') " 
+                Filtro += " .AND. (E1_SALDO > 0) "
+                Filtro += " .AND. (DTOS(E1_EMISSAO) == '" + DTOS(dDataBase) + "') "
+                Filtro += " .AND. (E1_NUMLIQ == '" + Space(TamSx3("E1_NUMLIQ")[1]) + "')"
+
+                dbSelectArea('SE4')
+                SE4->(dbSetOrder(1))
+                If SE4->(DbSeek( fwXFilial('SE4') + CondPag))
+
+                    If !Empty(SE4->E4_XCONDPM)
+
+                        GetTotal( @Total, @Natureza, @Moeda )
+                        cabecalho := {;	
+                            { "cCondicao"	, SE4->E4_XCONDPM },;
+                            { "cNatureza"	, Natureza        },;
+                            { "E1_TIPO"		, "FT"            },;
+                            { "cCliente"	, "999999"        },;
+                            { "nMoeda"		, Moeda		      },;		
+                            { "cLoja"		, "01"            }; 
+                        }
+                        Parcelas := Condicao( Total, SE4->E4_XCONDPM,, dDataBase )
+
+                        Liquidacao := GetMv("MV_NUMLIQ")
+                        while !NLiqui(Liquidacao)
+                            Liquidacao := Soma1(Liquidacao)                    
+                        enddo
+                        PutMv( "MV_NUMLIQ", Liquidacao )
+
+                        for i := 1 to len(Parcelas)
+                            aAdd( Itens, {;
+                                {"E1_PREFIXO"	,"FAT"  		},;//Prefixo
+                                {"E1_BCOCHQ" 	,""  			},;//Banco
+                                {"E1_AGECHQ" 	,""  			},;//Agencia
+                                {"E1_CTACHQ" 	,""  			},;//Conta
+                                {"E1_NUM"  		,Liquidacao		},;//Nro. cheque (dará origem ao numero do titulo)
+                                {"E1_PARCELA"  	,StrZero(i,2)   },;//Parcela
+                                {"E1_VENCTO" 	, Parcelas[i,1] },;//Data boa 
+                                {"E1_VLCRUZ" 	, Parcelas[i,2] },;//Valor do cheque/titulo
+                                {"E1_ACRESC" 	,0    			},;//Acrescimo
+                                {"E1_DECRESC" 	,0    			};//Acrescimo
+                            } )
+                        next I
+
+                        pergunte("AFI460",.F.)
+                        MV_PAR08 := "FAT"
+
+                        BeginTran()
+                            if !IsBlind() // tratamento para execução automática
+                                FWMsgRun(,{ || MSExecAuto({|a,b,c,d,e|FINA460(a,b,c,d,e)},,cabecalho,Itens,3,Filtro) },"Liquidação Supplier","Gerando liquidação para títulos do Supplier. Aguarde...") 
+                            else
+                                MSExecAuto({|a,b,c,d,e|FINA460(a,b,c,d,e)},,cabecalho,Itens,3,Filtro)
+                            endif
+                            
+                            If lMsErroAuto
+                                MostraErro()
+                                UserException( "Erro na geracao de faturas! Informe o TI e envie o print desta tela("+ Dtoc( dDatabase ) + " - " + Time()+")" )
+                            EndIf
+                        endTran()
+                    endif
+                endif
+            endif
+
+        End SEQUENCE
+    ErrorBlock( bError )
+    
+Return
+
+//-------------------------------------------------
+/*/{Protheus.doc} TrataErro
+Rotina para tratamento de erro.
+
+@type function
+@version 1.0
+@author Lucas
+
+@since 09/03/2021
+
+@param oError, object, Objeto com informações do erro
+/*/
+//-------------------------------------------------
+Static Function TrataErro( oError as Object )
+
+	Local info as char
+	info := 'Erro na execução da rotina:" - ' + oError:Description
+
+    if InTransact() // se estiver em uma transação de banco, aborta a mesma
+        DisarmTransaction()
+        EndTran()
+    endif
+	Conout(info)	
+
+    if !IsBlind()
+        MsgStop( info, cCadastro )
+    endif
+
+    Break
+
+return
+
+//-----------------------------------------------------
+/*/{Protheus.doc} NLiqui
+Verifica se número da liquidação existe.
+
+@type function
+@version 1.0
+@author Lucas
+
+@since 09/03/2021
+
+@param Numero, character, Número da Liquidação > Valor Padrão = 0
+
+@return Logical, Verdadeiro ou Falso
+/*/
+//-----------------------------------------------------
+Static Function NLiqui( Numero as Char )
+    
+    Local Pesquisa  as Char
+    Local Registros as Numeric
+
+    default Numero := '0'
+
+    Registros := 0
+
+    Pesquisa := GetNextAlias()
+    BeginSql Alias Pesquisa
+        SELECT
+            E1_VALOR, E1_NATUREZ, E1_MOEDA
+        FROM 
+            %Table:SE1%
+        WHERE	
+            E1_FILIAL      = %xFilial:SE1%
+            AND E1_PREFIXO = 'FAT'
+            AND E1_TIPO    = 'FT'
+            AND E1_NUM     = %EXP:(StrZero(Val(Numero),9))%
+            AND %NOTDEL%
+    EndSql
+
+    (Pesquisa)->(dbEval( { || Registros++ } ))
+    (Pesquisa)->( dbCloseArea() )
+
+Return (Registros == 0)
+
+//-----------------------------------------------------
+/*/{Protheus.doc} GetTotal
+Recupera total dos títulos a partir da nota fiscal.
+
+@type function
+@version 1.0
+@author Lucas
+
+@param Total, numeric, Variável passada por referencia para o Total
+@param Natureza, character, Variável passada por referencia para a Natureza
+@param Moeda, numeric, Variável passada por referencia para a Moeda
+
+@since 09/03/2021
+/*/
+//-----------------------------------------------------
+Static Function GetTotal( Total as Numeric, Natureza as Char, Moeda as Numeric )
+
+    Local Pesquisa as Char
+
+    Total := 0
+    Natureza := ''
+    Moeda := 0
+
+    Pesquisa := GetNextAlias()
+    BeginSql Alias Pesquisa
+        SELECT
+            E1_VALOR, E1_NATUREZ, E1_MOEDA
+        FROM 
+            %Table:SE1%
+        WHERE	
+            E1_FILIAL       = %xFilial:SE1%
+            AND E1_NUM      = %exp:SF2->F2_DOC%
+            AND E1_PREFIXO  = %exp:SF2->F2_SERIE%
+            AND E1_CLIENTE 	= %exp:SF2->F2_CLIENTE%
+            AND E1_LOJA 	= %exp:SF2->F2_LOJA%
+            AND E1_EMISSAO  = %exp:DTOS(dDatabase)%
+            AND %NOTDEL%
+    EndSql
+
+    while !(Pesquisa)->(EOF())
+        Total += (Pesquisa)->E1_VALOR
+        Natureza := (Pesquisa)->E1_NATUREZ
+        Moeda := (Pesquisa)->E1_MOEDA
+
+        (Pesquisa)->(dbSkip())
+    enddo
+    (Pesquisa)->(dbCloseArea())
+
+Return total

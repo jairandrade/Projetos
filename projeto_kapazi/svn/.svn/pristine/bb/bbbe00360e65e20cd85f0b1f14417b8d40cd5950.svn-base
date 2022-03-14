@@ -1,0 +1,285 @@
+#include "rwmake.ch"
+#INCLUDE "protheus.ch"
+#include "topconn.ch"
+/**********************************************************************************************************************************/
+/** Faturamento                                                                                                                  **/
+/** liberaçaõ pedido de venda                                                                                                		 **/
+/** Ponto de entrada MTA455E                               																																		 **/
+/** RSAC Soluções Ltda.                                                                                                          **/
+/** Kapazi                                                                                                                    	 **/
+/**********************************************************************************************************************************/
+/** Data       | Responsável                    | Descrição                                                                      **/
+/**********************************************************************************************************************************/
+/**********************************************************************************************************************************/
+//TODO Liberacao de estoque Automatico.
+//@since 13/04/2018
+//@version 1.0
+
+User Function MTA455E()
+Local aArea 		:= GetArea() 
+Local nRet			:= 1
+Local lGeraOp		:= .F.
+Local cPar01		:= "" 
+Local cPar02		:= "" 
+Local cPar03		:= "" 
+Local cPar04		:= "" 
+Local aRetProd		:= {}
+Local cXIDTRFCD		:= ""
+Local bError 		:= {||}
+Local aParam455		:= Array(7)
+
+Local lErro         := .f.
+
+Private nRegPV		:= 0
+Private nRegNF		:= 0
+Private nRegNFEn	:= 0
+Private cPVOri08	:= ""
+
+Private cMsgErro 	:= ""
+Private cAliasLG	:= GetNextAlias()
+
+If cEmpAnt == "04" .And. cFilAnt != "08" // Diferente do CD
+
+	if nRet == 1
+		lGeraOp :=  ExistBlock("KFATA13") .and. StaticCall(M521CART,TGetMv,"  ","KA_PERSALL","L",.F.,"M440STTS - Ativar a geração de ordem de produção de pedidos de personalizado (grupo KA_PERSGRP)?" )
+
+		// se nao gera a ordem
+		If !lGeraOp
+			// se existe a funcao e a geracao esta ativada no parametro e o pedido do fluig
+			lGeraOp := ExistBlock("KFATA13") .and. GetMv("KA_PERSATV",,.F.) .and. StaticCall(KFATA13,fromFluig,SC9->C9_PEDIDO)
+		Endif
+
+		// se deve gerar a ordem de producao
+		If lGeraOp
+			// apontar ordem de producao de pedido personalizado
+			Processa( { || nRet := U_KFATA13A() },"Processando...","Aguarde..." )
+		Endif
+	Endif
+	
+EndIf 
+
+If cEmpAnt == "04" .And. cFilAnt == "08" // Igual ao CD
+	
+	For nX := 1 to Len(aParam455)
+		aParam455[nX]	:= &("Mv_Par"+StrZero(nX,2))
+	Next nX
+
+	cPar01	:= MV_PAR01 //Pedido de 
+	cPar02	:= MV_PAR02 //Pedido ate
+	cPar03	:= MV_PAR03 //Cliente de
+	cPar04	:= MV_PAR04 //Cliente ate
+
+	//verifica se tem Saldo dos produtos para os pedidos selecionarios
+	/*
+	aRetProd[x] [1] -> Produto 
+	aRetProd[x] [2] -> Quantidade que precisa ser transferida.
+	*/
+	If ValQtDcl(cPar01,cPar02,cPar03,cPar04)
+
+			aRetProd := u_ANSLDCDT(cPar01,cPar02,cPar03,cPar04)
+
+			//Cria o pedido da 0401 para transferir os produtos
+			If Len(aRetProd) > 0
+
+				cXIDTRFCD 	:= GetSx8Num("ZLG","ZLG_ID") //Id Vinc PVS 
+				ConfirmSx8()
+
+				Conout("Gerando NFSE")
+				If !u_JBTRFPRD(cXIDTRFCD,aRetProd) //StartJob("u_JBTRFPRD", GetEnvServer(), .T., )
+						MsgInfo("Transferencia não incluida, informe o TI","KAPAZI")
+						lErro  := .t.
+
+					Else
+
+						If u_NFTRFENT(cXIDTRFCD,@nRegNFEn)	//Tem que dar entrada da NF e Tem que endereçar
+							
+								//Grava tabela de log - ZLG
+								DbSelectArea("ZLG")
+								
+								Reclock("ZLG",.T.)
+								ZLG->ZLG_FILIAL	:= xFilial("ZLG")
+								ZLG->ZLG_ID		:= cXIDTRFCD
+								ZLG->ZLG_RECPVS	:= nRegPV
+								ZLG->ZLG_RECNFS	:= nRegNF
+								ZLG->ZLG_PVCD	:= cPVOri08
+								ZLG->ZLG_RECNFE	:= nRegNFEn
+								ZLG->(MsUnlock())
+
+								GrvPvOrig(cXIDTRFCD,cPar01,cPar02,cPar03,cPar04)
+							
+							Else 
+								//Faz o estorno de todo processo
+								lErro  := .t.
+						EndIf 
+				EndIf
+
+			EndIf 
+
+			If lErro
+				
+				If nRegNF > 0
+					u_ExcNFSTF("01",nRegNF)
+				EndIf
+
+				If nRegPv > 0
+					u_ExcPVSTF("01",nRegPv)
+				EndIf
+
+				If nRegNFEn > 0
+					u_ExcNFETF("08",nRegNFEn)
+				EndIf
+
+			EndIf
+
+			For nX := 1 to Len(aParam455)
+				&("Mv_Par"+StrZero(nX,2)) := aParam455[nX]
+			Next nX
+
+			Sleep(1000)
+		Else 
+			nRet := 2  //2=Mantêm o bloqueio
+
+	EndIf 
+
+EndIf
+
+RestArea(aArea)   		
+Return(nRet)// 1= Libera    2=Mantêm o bloqueio  	 
+
+
+/*/{Protheus.doc} nomeStaticFunction
+	Funcao responsavel por 
+	@type  Static Function
+	@author user
+	@since 05/03/2021
+	@version version
+	@param param_name, param_type, param_descr
+	@return return_var, return_type, return_description
+	@example
+	(examples)
+	@see (links_or_references)
+	/*/
+Static Function GrvPvOrig(cXIDTRFCD,cPar01,cPar02,cPar03,cPar04)
+Local aArea 	:= GetArea()
+Local cAliasC5 	:= GetNextAlias()
+
+BeginSql Alias cAliasC5
+
+	SELECT DISTINCT SC5.R_E_C_N_O_ RECORECO
+ 	FROM SC5040 SC5 (NOLOCK)  
+    WHERE SC5.D_E_L_E_T_ = ''  
+    AND SC5.C5_FILIAL = %EXP:xFilial("SC9")%  
+    AND SC5.C5_NUM >= %EXP:cPar01%  
+    AND SC5.C5_NUM <= %EXP:cPar02%   
+    AND SC5.C5_CLIENTE >= %EXP:cPar03%   
+    AND SC5.C5_CLIENTE <= %EXP:cPar04%  
+
+EndSql 
+
+DbSelectArea((cAliasC5))
+(cAliasC5)->(DbGoTop())
+
+While !(cAliasC5)->(Eof())
+
+	DbSelectArea("SC5")
+	SC5->(DbGoTop())
+	SC5->(DbGoTo((cAliasC5)->RECORECO))
+
+	If Empty(SC5->C5_XHISTRF)
+			Reclock("SC5",.f.)
+			SC5->C5_XHISTRF := cXIDTRFCD 
+			SC5->(MsUnlock())
+		Else 
+			Reclock("SC5",.f.)
+			SC5->C5_XHISTRF := cXIDTRFCD + "/" + Alltrim(SC5->C5_XHISTRF)
+			SC5->(MsUnlock())
+	EndIf
+
+	(cAliasC5)->(DbSkip())
+EndDo
+
+
+RestArea(aArea)
+Return()
+
+//-------------------------------------------------
+/*/{Protheus.doc} TrataErro
+Rotina para tratamento de erros.
+
+@type function
+@version 1.0
+@author Luis
+
+@since 27/02/2021
+
+@param oError, object, Objeto com informações do erro.
+
+@protected
+/*/
+//-------------------------------------------------
+Static Function TrataErro( oError as Object )
+
+if InTransact() // se estiver em uma transação de banco, aborta a mesma
+    DisarmTransaction()
+    EndTran()
+endif
+
+if !isBlind()
+    MsgStop( alltrim(oError:Description), 'KAPAZI - Erro na transferência entre filiais - Erro' )    
+endif
+
+Break
+
+return()
+
+
+/*/{Protheus.doc} nomeStaticFunction
+	Valida a quantidade de PV selecionados para evitar erros de transferencias desncessarias
+	@type  Static Function
+	@author user
+	@since 07/03/2021
+	@version version
+	@param param_name, param_type, param_descr
+	@return return_var, return_type, return_description
+	@example
+	(examples)
+	@see (links_or_references)
+	/*/
+Static Function ValQtDcl(cPar01,cPar02,cPar03,cPar04)
+Local lRet 		:= .t.
+Local cAliasC9  := GetNextAlias()
+Local aLastQuery    := {}
+Local cLastQuery    := ""
+
+BeginSql Alias cAliasC9
+    
+	SELECT COUNT(*) AS TOTALCLI
+	FROM (
+	SELECT DISTINCT C9_PEDIDO
+	FROM SC9040 SC9 (NOLOCK)
+	WHERE SC9.D_E_L_E_T_ = ''  
+    AND SC9.C9_FILIAL = '08' 
+    AND SC9.C9_PEDIDO >= %EXP:cPar01%  
+    AND SC9.C9_PEDIDO <= %EXP:cPar02%   
+    AND SC9.C9_CLIENTE >= %EXP:cPar03%   
+    AND SC9.C9_CLIENTE <= %EXP:cPar04%   
+	) SC908
+
+EndSql
+
+aLastQuery    := GetLastQuery()
+cLastQuery    := aLastQuery[2]
+
+DbSelectArea((cAliasC9))
+(cAliasC9)->(DbGoTop())
+
+If (cAliasC9)->TOTALCLI > 1
+		lRet := .f.
+		MsgAlert("Devido a rastreabilidade e também para evitar problemas na transferências de saldos(erro humano), a liberação de pedidos na 0408-CD deve ser feito pedido a pedido.")
+	
+	ElseIf (cAliasC9)->TOTALCLI == 0
+		lRet := .f.
+EndIf
+
+(cAliasC9)->(DbCloseArea())
+Return(lRet)
