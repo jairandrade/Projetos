@@ -1,0 +1,19 @@
+0001#STR0001#ALL#Compatibilizador de tabla VAM con a CC2
+0002#STR0002#ALL#Este programa efectuara una compatibilizacion de la informacion existente en las tablas 'RCE - Archivo de Sindicatos', 'RCO - Archivo de Registro Patronal',
+0003#STR0003#ALL#'SRA - Archivo de Empleados' y 'RGC - Archivo de Localidad de Pago' existente en la base de datos, de acuerdo con la tabla de municipio oficial.
+0004#STR0004#ALL#Relacion de Municipios Compatibilizados
+0005#STR0005#ALL#Tabla: 
+0006#STR0006#ALL#( Antes de la compatibilizacion )
+0007#STR0007#ALL#( Luego compatibilizacion )
+0008#STR0008#ALL#RCE - Archivo de Sindicatos
+0009#STR0009#ALL#RCO - Archivo de Registro Patronal
+0010#STR0010#ALL#RGC - Archivo de Localidad de Pago
+0011#STR0011#ALL#Ejecutar
+0012#STR0012#ALL#Para que la compatibilizacion se efectue es necesario que la tabla 'CC2 - Archivo de Municipios' este creado y completo.
+0013#STR0013#ALL#Para que se efectue la compatibilizacion es necesario que la tabla 'VAM - Archivo de Ciudades' este creado y completo.
+0014#STR0014#ALL#Codigo del CC2
+0015#STR0015#ALL#SRA -  Archivo de Empleados
+0016#STR0016#ALL#No se localizaron registros para que se compatibilicen en las tablas 'RCE - Archivo de Sindicatos', 'RCO - Archivo de Registro Patronal', 'RGC - Archivo de Localidad de Pago' y SRA - Archivo de Empleados.
+0017#STR0017#ALL#Es necesario informar el municipio correspondiente para todos los registros presentados en la lista.
+0018#STR0018#ALL#No se encontraron los registros en la tabla
+0019#STR0019#ALL#para que se compatibilicen

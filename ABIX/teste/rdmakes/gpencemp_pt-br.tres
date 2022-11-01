@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Geração analítica dos Encargos Empresa
+0002#STR0002#ALL#Gera os lançamentos dos encargos empresa por funcionário
+0003#STR0003#ALL#Geração de Lançamentos dos Encargos Empresa
+0004#STR0004#ALL#Assistente para geração dos lançamentos das verbas que correspondem aos encargos empresa, para os acumulados anuais(SRD), de acordo à parametrização informada a seguir.
+0005#STR0005#ALL#Essa opção deve ser utilizada apenas para os períodos em que os cálculos do Gestão de Pessoal foram realizados utilizando o parâmetro MV_ENCINSS com 'N'.
+0006#STR0006#ALL#Uma vez realizado, esse processo não poderá ser desfeito.
+0007#STR0007#ALL#ATENÇÃO: Realize backup do ambiente antes de prosseguir.
+0008#STR0008#ALL#Seleção de Período e Filiais
+0009#STR0009#ALL#Selecione o período e as filiais para geração dos lançamentos
+0010#STR0010#ALL#Gerando lançamentos
+0011#STR0011#ALL#Aguarde o Final do Processamento
+0012#STR0012#ALL#Período De
+0013#STR0013#ALL#Mês inválido!
+0014#STR0014#ALL#Mês: 
+0015#STR0015#ALL#Ano inválido!
+0016#STR0016#ALL#Ano: 
+0017#STR0017#ALL#Período Até
+0018#STR0018#ALL#Dados inválidos!
+0019#STR0019#ALL#Mês e ano finais não podem ser menores que mês e ano iniciais. Para que todos os registros sejam convertidos, deixe todos os campos em branco.
+0020#STR0020#ALL#Efetuando a geração dos lançamentos...
+0021#STR0021#ALL#Preencha o período De/Ate para geração dos encargos.
+0022#STR0022#ALL#Esse procedimento não poderá ser desfeito. Prossiga apenas caso tenha realizado backup do seu ambiente.
+0023#STR0023#ALL#Deseja continuar?
+0024#STR0024#ALL#Filial: 
+0025#STR0025#ALL#Processo: 

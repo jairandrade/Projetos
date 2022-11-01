@@ -1,0 +1,42 @@
+0001#STR0001#ALL#Treinamentos Solicitados ou Baixados
+0002#STR0002#ALL#Sera impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Nome
+0007#STR0007#ALL#Zebrado
+0008#STR0008#ALL#Administracao
+0009#STR0009#ALL#Treinamentos Solicitados ou Baixados
+0010#STR0010#ALL#Treinamentos Solicitados ou Baixados     Periodo:
+0011#STR0011#ALL# a 
+0012#STR0012#ALL#Selecionando Registros...
+0013#STR0013#ALL#   SITUACAO
+0014#STR0014#ALL#   FIL. MATR.  NOME                            GRUPO           DEPARTAMENTO         CARGO                          SITUACAO
+0015#STR0015#ALL#   NOME                           FIL. MATR.   GRUPO           DEPARTAMENTO         CARGO                          SITUACAO
+0016#STR0016#ALL#Data
+0017#STR0017#ALL#CURSO: 
+0018#STR0018#ALL# TURMA: 
+0019#STR0019#ALL#CENTRO DE CUSTO: 
+0020#STR0020#ALL# CALENDARIO: 
+0021#STR0021#ALL# PERIODO: 
+0022#STR0022#ALL#SOLICITACAO
+0023#STR0023#ALL#RESERVA
+0024#STR0024#ALL#LISTA ESPERA
+0025#STR0025#ALL#CONCLUIDO
+0026#STR0026#ALL#SINONIMO DE CURSO: 
+0027#STR0027#ALL#Curso:
+0028#STR0028#ALL#Sinônimo:
+0029#STR0029#ALL#Período:
+0030#STR0030#ALL#Total Participantes Programados
+0031#STR0031#ALL#Total Participantes já Baixados
+0032#STR0032#ALL#Calendário:
+0033#STR0033#ALL#Turma:
+0034#STR0034#ALL#Grupo
+0035#STR0035#ALL#Departamento
+0036#STR0036#ALL#Cargo
+0037#STR0037#ALL#Situação
+0038#STR0038#ALL#Participantes
+0039#STR0039#ALL#Este relatorio efetua a impressao  dos treinamentos que foram solicitados ou baixados 
+0040#STR0040#ALL#Treinamento
+0041#STR0041#ALL#Fil.
+0042#STR0042#ALL#AUSENTE

@@ -1,0 +1,26 @@
+0001#STR0001#ALL#Relatorio de Aprovacao do Aumento de Quadro de Funcionarios.
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Centro de Custo
+0005#STR0005#ALL#Zebrado
+0006#STR0006#ALL#Administraçäo
+0007#STR0007#ALL#     ANO/MES FUNCAO                          VL.ATUAL  VL.PREVISTO  VL.APROVADO QT.ATUAL QT.PREV. QT.APROV. DT. APROV. APROVADOR 
+0008#STR0008#ALL# Aprovação do Aumento de Quadro 
+0009#STR0009#ALL#Centro de Custo: 
+0010#STR0010#ALL#Total C.Custo - 
+0011#STR0011#ALL#Total Geral: 
+0012#STR0012#ALL#Total do Periodo - 
+0013#STR0013#ALL#Total -
+0014#STR0014#ALL#Aprovação de Vagas
+0015#STR0015#ALL#Quadro de Funcionário por Função
+0016#STR0016#ALL#Vl.Atual
+0017#STR0017#ALL#Vl.Previ
+0018#STR0018#ALL#Qtd.Atual
+0019#STR0019#ALL#Qtd.Previ
+0020#STR0020#ALL#Qtd.Aprov
+0021#STR0021#ALL#Aprovador
+0022#STR0022#ALL#Qtd.Aprov
+0023#STR0023#ALL#Total Função: 
+0024#STR0024#ALL#Total Período: 
+0025#STR0025#ALL#Total C.Custo: 
+0026#STR0026#ALL#Este Programa Emite Relatorio de Aprovacao de Vagas

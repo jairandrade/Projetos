@@ -1,0 +1,15 @@
+0001#STR0001#ALL#Realize o backup da base antes de executar esse processo.
+0002#STR0002#ALL#Ferramenta para ajuste das faltas na tabela de Controle de Dias de Direito (SRF).
+0003#STR0003#ALL#UPDFASRF - Atualiza faltas na SRF.
+0004#STR0004#ALL#Ao final do processamento as faltas dos funcionários das filiais selecionadas estarão atualizadas de acordo com a SRD na SRF.
+0005#STR0005#ALL#Seleção de Filiais
+0006#STR0006#ALL#Selecione as filiais cujos dados serão atualizados
+0007#STR0007#ALL#Realizando atualização da base...
+0008#STR0008#ALL#Aguarde enquanto o processamento é executado.
+0009#STR0009#ALL#Executando atualização das faltas...
+0010#STR0010#ALL#O backup da base já foi realizado?
+0011#STR0011#ALL#Filial sendo processada: 
+0012#STR0012#ALL#Matrícula sendo processada: 
+0013#STR0013#ALL#Realize o backup e execute a rotina novamente.
+0014#STR0014#ALL#Faltas atualizadas com sucesso.
+0015#STR0015#ALL#Não existem faltas na SRD para atualização.

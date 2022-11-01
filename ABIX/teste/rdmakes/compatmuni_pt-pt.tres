@@ -1,0 +1,12 @@
+0002#STR0002#ALL#Este programa efectuará uma compatibilização das informações existentes nas tabelas 'RCE - Registo de Sindicatos', 'RCO - Registo Patronal',
+0003#STR0003#ALL#'SRA - Registo de Colaboradores' e 'RGC - Registo de Localidade de Pagamento' existente na base de dados, de acordo com a tabela de município oficial.
+0004#STR0004#ALL#Lista de Municípios Compatibilizados
+0008#STR0008#ALL#RCE - Registo de Sindicatos
+0009#STR0009#ALL#RCO - Registo Patronal
+0010#STR0010#ALL#RGC - Registo de Localidade de Pagamento
+0012#STR0012#ALL#Para que a compatibilização seja efectuada, é necessário que a tabela 'CC2 - Registo de Municípios' esteja criada e populada.
+0013#STR0013#ALL#Para que a compatibilização seja efectuada, é necessário que a tabela 'VAM - Registo de Municípios' esteja criada e populada.
+0015#STR0015#ALL#SRA - Registo de Colaboradores
+0016#STR0016#ALL#Não foram localizados registos para serem compatibilizados nas tabelas 'RCE - Registo de Sindicatos', 'RCO - Registo Patronal', 'RGC - Registo de Localidade de Pagamento' e SRA - Registo de Colaboradores.
+0017#STR0017#ALL#É necessário informar o município correspondente para todos os registos apresentados na lista.
+0018#STR0018#ALL#Não foram localizados registos na tabela

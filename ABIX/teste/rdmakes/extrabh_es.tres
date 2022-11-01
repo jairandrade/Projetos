@@ -1,0 +1,39 @@
+0001#STR0001#ALL#A Rayas
+0002#STR0002#ALL#Administracion
+0003#STR0003#ALL#Extracto Banco de Horas
+0004#STR0004#ALL#Se imprimira segun los parametros solicitados por el
+0005#STR0005#ALL#usuario.
+0006#STR0006#ALL#Matricula
+0007#STR0007#ALL#Centro de Costos
+0008#STR0008#ALL#Nombre
+0009#STR0009#ALL#Turno
+0010#STR0010#ALL#C. Costos + Nombre
+0011#STR0011#ALL#Extracto Banco de Horas
+0012#STR0012#ALL#Firma del Empleado
+0013#STR0013#ALL#Emp...:
+0014#STR0014#ALL# Matr..: 
+0015#STR0015#ALL#  Placa : 
+0016#STR0016#ALL#Dir...: 
+0017#STR0017#ALL# Nom..: 
+0018#STR0018#ALL#CGC...: 
+0019#STR0019#ALL#Funcion: 
+0020#STR0020#ALL#C. C...: 
+0021#STR0021#ALL# Categ.: 
+0022#STR0022#ALL#Turno.: 
+0023#STR0023#ALL#  Fecha    Evento                       Debito    Credito       Saldo  Estado
+0024#STR0024#ALL#Saldo Anterior 
+0025#STR0025#ALL#Fecha
+0026#STR0026#ALL#Evento
+0027#STR0027#ALL#Debito
+0028#STR0028#ALL#Credito
+0029#STR0029#ALL#Saldo
+0030#STR0030#ALL#Estado
+0031#STR0031#ALL#Consulta de Banco de Horas
+0032#STR0032#ALL#Departamento
+0033#STR0033#ALL#No hay asientos en el banco de horas.
+0034#STR0034#ALL#Imprimir
+0035#STR0035#ALL#Volver
+0036#STR0036#ALL#Lista del Banco de Horas
+0037#STR0037#ALL#Débt.Valorizado
+0038#STR0038#ALL#Créd.Valorizado
+0039#STR0039#ALL#Sal.Valorizado

@@ -1,0 +1,48 @@
+0001#STR0001#ALL#Training Cost
+0002#STR0002#ALL#The Training Cost Report displays, either in a summarized or detailed manner, the costs
+0003#STR0003#ALL#for training employees according to the parameters requested by the user. 
+0004#STR0004#ALL#Registrat.
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Name
+0007#STR0007#ALL#Z.Form
+0008#STR0008#ALL#Management
+0009#STR0009#ALL#Training Cost
+0010#STR0010#ALL#Training Cost            Period:
+0011#STR0011#ALL# to 
+0012#STR0012#ALL#Selecting Records...
+0013#STR0013#ALL#                                                QTTY.         COST       HOURS   %PRES   GRADES
+0014#STR0014#ALL#   BRA. ENROLL. NAME                            QTTY.         COST       HOURS   %PRES   GRADES
+0015#STR0015#ALL#   BRAN. NAME                           ENROLL. QTTY.         COST       HOURS   %PRES   GRADES
+0016#STR0016#ALL#Date
+0017#STR0017#ALL#COURSE: 
+0018#STR0018#ALL# GROUP: 
+0019#STR0019#ALL#COST CENTER: 
+0020#STR0020#ALL# CALENDAR: 
+0021#STR0021#ALL# PERIOD: 
+0022#STR0022#ALL#GENERAL TOTAL:         
+0023#STR0023#ALL#COST CENTER TOTAL    : 
+0024#STR0024#ALL#ENTITY  : 
+0025#STR0025#ALL# INSTRUCTOR: 
+0026#STR0026#ALL# TIME   : 
+0027#STR0027#ALL# DURATION: 
+0028#STR0028#ALL# PLACE: 
+0029#STR0029#ALL#Total
+0030#STR0030#ALL#COURSE SYNONYM: 
+0031#STR0031#ALL#Course
+0032#STR0032#ALL#Synonym 
+0033#STR0033#ALL#Period 
+0034#STR0034#ALL#Entity  
+0035#STR0035#ALL#Enrol. 
+0036#STR0036#ALL#Name
+0037#STR0037#ALL#Cost 
+0038#STR0038#ALL#Hours
+0039#STR0039#ALL#%Pres
+0040#STR0040#ALL#Grade
+0041#STR0041#ALL#Training
+0042#STR0042#ALL#Cost by employee
+0043#STR0043#ALL#   BRAN. ENROLL. NAME                           QTTY.         COST       HOURS   %PRES  GRADES  CALEND COURSE CLASS PERIOD
+0044#STR0044#ALL#COURSE TOTAL:
+0045#STR0045#ALL#                                                QTTY.         COST       HOURS
+0046#STR0046#ALL#Inconsistences in role or position
+0047#STR0047#ALL#Branch Enrollment Employee                      Calendar   Course
+0048#STR0048#ALL#There are inconsistences in the Role vs. Position binding. Generate log?

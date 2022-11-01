@@ -1,0 +1,9 @@
+0001#STR0001#ALL#Realize o backup da base antes de executar esse processo.
+0002#STR0002#ALL#Ferramenta para ajuste das datas de pagamento das verbas de mês seguinte na SRD.
+0003#STR0003#ALL#UPDDTFER - Atualizada data de pagamento de férias
+0004#STR0004#ALL#Ao final do processamento as datas de pagamento da SRD das verbas vindas das férias que transitaram para o mês seguinte estarão corrigidas.
+0005#STR0005#ALL#Realizando atualização da base...
+0006#STR0006#ALL#Aguarde enquanto o processamento é executado.
+0007#STR0007#ALL#Executando atualização das datas...
+0008#STR0008#ALL#O backup da base já foi realizado?
+0009#STR0009#ALL#Realize o backup e execute a rotina novamente.

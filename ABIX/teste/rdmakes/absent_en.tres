@@ -1,0 +1,28 @@
+0001#STR0001#ALL#Absentism
+0002#STR0002#ALL#Will be printed according to parameters selected
+0003#STR0003#ALL#by the user.
+0004#STR0004#ALL#Reg.Number
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Name
+0007#STR0007#ALL#Shift
+0008#STR0008#ALL#Z.Form
+0009#STR0009#ALL#Management
+0010#STR0010#ALL#(1) Description                Hours      % (2) Description                Hours      %  (3) Description                Hours      %
+0011#STR0011#ALL#R.Num. Name                  Period   Est.Hrs.   Eff.Hrs.     %  (1)Adit.Hrs.     %  (2)Not Att.Hrs.    %  (3)Granted Hrs.     %   
+0012#STR0014#ALL# Shift: 
+0013#STR0015#ALL#TOTALS OF THE BRANCH 
+0014#STR0016#ALL#Period      Est.Hrs.      Eff.Hrs.       % (1)Adit.Hrs.      % (2)Not Att.Hrs.     % (3)Granted Hrs.      %
+0015#STR0017#ALL#(1) Description                Hours      % (2) Description                Hours      %  (3) Description                Hours      %
+0016#STR0018#ALL#TOTALS OF THE COMPANY 
+0017#STR0019#ALL#TOTALS OF THE SHIFT 
+0018#STR0020#ALL#TOTALS OF THE COST CENTER 
+0019#STR0027#ALL#Branch: 
+0020#STR0030#ALL#C.C.:
+0021#STR0031#ALL#Period        Est.Hrs.      Eff.Hrs.       % (1)Adit.Hrs.      % (2)Not Att.Hrs.     % (3)Granted Hrs.      %
+0022#STR0032#ALL#Inconsistence
+0023#STR0033#ALL#Invalid entered period
+0024#STR0034#ALL#Select the printing option.
+0025#STR0035#ALL#By Period
+0026#STR0036#ALL#By Dates
+0027#STR0037#ALL#Department
+0028#STR0038#ALL#Cost C.+Name

@@ -1,0 +1,41 @@
+0001#STR0001#ALL#Matricula
+0002#STR0002#ALL#Centro de Custo
+0003#STR0003#ALL#Nome
+0004#STR0004#ALL#Centro de Custo + Nome
+0005#STR0005#ALL#Emissao de Recibos de Pagamento de Autonomo.
+0006#STR0006#ALL#Serao Impressos de Acordo com os Paramentos Solicitados Pelo
+0007#STR0007#ALL#Usuario
+0008#STR0008#ALL#Zebrado
+0009#STR0009#ALL#Administracao
+0010#STR0010#ALL#Verificando Integridade do Arquivo de Movimento Mensal Anterior...
+0011#STR0011#ALL#       RECIBO DE PAGAMENTO DE AUTONOMO  - RPA     +-------- No.RECIBO ---------+
+0012#STR0012#ALL#                                                  |                            |
+0013#STR0013#ALL#+-------------------------------------------------+----------------------------+
+0014#STR0014#ALL#| NOME OU RAZAO SOCIAL DA EMPRESA                 |   MATRICULA (CNPJ ou INSS) |
+0015#STR0015#ALL#|                                                 |                            |
+0016#STR0016#ALL#+-------------------------------------------------+----------------------------+
+0017#STR0017#ALL#|          RECEBI DA EMPRESA ACIMA IDENTIFICADA, PELA PRESTACAO DOS SERVICOS DE|
+0018#STR0018#ALL#|                                                                              |
+0019#STR0019#ALL#|A IMPORTANCIA DE:                                                             |
+0020#STR0020#ALL#|                                                                              |
+0021#STR0021#ALL#+--------- NUMERO DE INSCRICAO ---------+ ESPECIFICACAO:                       |
+0022#STR0022#ALL#| NO INSS :                             | I VALOR DO SERVICO.....              |
+0023#STR0023#ALL#| NO CPF  :                             | II OUTROS..............              |
+0024#STR0024#ALL#+------------- IDENTIDADE --------------+      SOMA..............              |
+0025#STR0025#ALL#| NUMERO :                              |                                      |
+0026#STR0026#ALL#| ORGAO EMISSOR :          UF :         | DESCONTOS:                           |
+0027#STR0027#ALL#+-------------- ENDERECO ---------------+ III  I.R.R.F...........              |
+0028#STR0028#ALL#|                                       | IV   INSS..............              |
+0029#STR0029#ALL#|                                       | V    OUTROS............              |
+0030#STR0030#ALL#|                                       |                                      |
+0031#STR0031#ALL#|                                       | VALOR LIQUIDO..........              |
+0032#STR0032#ALL#+------- LOCALIDADE -------+--- DATA ---+ +------------ ASSINATURA ------------+
+0033#STR0033#ALL#|                          |            | |                                    |
+0034#STR0034#ALL#+--------------------------+------------+ +------------------------------------+
+0035#STR0035#ALL#| C.CUSTO:                              | +----------- NOME COMPLETO ----------+
+0036#STR0036#ALL#|                                       | |                                    |
+0037#STR0037#ALL#+---------------------------------------+ +------------------------------------+
+0038#STR0038#ALL#RS
+0039#STR0039#ALL#Selecionando Registros de Movimentos Anteriores
+0040#STR0040#ALL#Depto.
+0041#STR0041#ALL#Depto. + Nome

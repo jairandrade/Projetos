@@ -1,0 +1,51 @@
+0001#STR0001#ALL#Quadro de Horário
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuário.
+0004#STR0004#ALL#Zebrado
+0005#STR0005#ALL#Administraçäo
+0006#STR0006#ALL# de Trabalho
+0007#STR0007#ALL#Filial: 
+0008#STR0008#ALL# - CGC: 
+0009#STR0009#ALL# - End.: 
+0010#STR0010#ALL#Data       |Dia      |1a. Entrada| 1a. Saida |2a. Entrada| 2a. Saida |3a. Entrada| 3a. Saida |4a. Entrada| 4a. Saida |  Tipo do Dia | Tipo H.E. Normal |Tipo H.E. Noturna |Excecao|Turno|Seq.|Hrs.Trab.|Hrs.Int.|Cod.Refeic.
+0011#STR0011#ALL#Trabalhado
+0012#STR0012#ALL#Nao Trabalhado
+0013#STR0013#ALL#D.S.R.
+0014#STR0014#ALL#Compensado
+0015#STR0015#ALL#Feriado
+0016#STR0016#ALL#Mat.
+0017#STR0017#ALL#Periodo de Apontamento: 
+0018#STR0018#ALL#Calend&aacute;rio de Marca&ccedil;&otilde;es
+0019#STR0019#ALL#Turno/Seq.: 
+0020#STR0020#ALL#Per&iacute;odo de Apontamento: 
+0021#STR0021#ALL#Data
+0022#STR0022#ALL#Dia
+0023#STR0023#ALL#1&#170; Ent.
+0024#STR0024#ALL#1&#170; Sai.
+0025#STR0025#ALL#2&#170; Ent.
+0026#STR0026#ALL#2&#170; Sai.
+0027#STR0027#ALL#3&#170; Ent.
+0028#STR0028#ALL#3&#170; Sai.
+0029#STR0029#ALL#4&#170; Ent.
+0030#STR0030#ALL#4&#170; Sai.
+0031#STR0031#ALL#Tipo do Dia
+0032#STR0032#ALL#Tipo H.E. Normal
+0033#STR0033#ALL#Tipo H.E. Noturna
+0034#STR0034#ALL#Exce&ccedil;&atilde;o
+0035#STR0035#ALL#Turno
+0036#STR0036#ALL#Seq.
+0037#STR0037#ALL#Hrs.Trab.
+0038#STR0038#ALL#Hrs.Int.
+0039#STR0039#ALL#Cod.Refeic.
+0040#STR0040#ALL#Nome
+0041#STR0041#ALL#Admissao
+0042#STR0042#ALL#Cargo/Descricao
+0043#STR0043#ALL#Centro de Custo/Descricao
+0044#STR0044#ALL#Categoria
+0045#STR0045#ALL#Situacao
+0046#STR0046#ALL#Turno Atual/Descricao
+0047#STR0047#ALL#Seq.Atual
+0048#STR0048#ALL#Por Período
+0049#STR0049#ALL#Por Datas
+0050#STR0050#ALL#Selecione a opção de impressão: 
+0051#STR0051#ALL#Departamento/Descrição

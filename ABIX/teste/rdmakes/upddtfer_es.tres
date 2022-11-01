@@ -1,0 +1,9 @@
+0001#STR0001#ALL#Realice la copia de seguridad de la base antes de ejecutar este proceso.
+0002#STR0002#ALL#Herramienta para ajuste de las fechas de pago de los conceptos del mes siguiente en la SRD.
+0003#STR0003#ALL#UPDDTFER - Se actualizó la fecha de pago de vacaciones
+0004#STR0004#ALL#Al final del procesamiento, las fechas de pago de la SRD de los conceptos resultantes de las vacaciones transferidas al mes siguiente estarán corregidas.
+0005#STR0005#ALL#Realizando actualización de la base...
+0006#STR0006#ALL#Espere mientras se ejecuta el procesamiento.
+0007#STR0007#ALL#Ejecutando la actualización de las fechas...
+0008#STR0008#ALL#¿Se realizó la copia de seguridad de la base?
+0009#STR0009#ALL#Realice la copia de seguridad y ejecute la rutina nuevamente.

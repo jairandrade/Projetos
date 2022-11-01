@@ -1,0 +1,45 @@
+0001#STR0001#ALL#|02 Razao Social/nome:
+0002#STR0002#ALL#Termo De Rescisão Do Contrato De Trabalho
+0003#STR0003#ALL#Termo de rescisão do contrato de trabalho ( complementar )
+0004#STR0004#ALL#|09 Cnpj/cei Tomador/obra:
+0005#STR0005#ALL#|__________________________________________________identificação Do Empregador____________________________________________________|
+0006#STR0006#ALL#|_________________________________________________ Identificação Do Trabalhador___________________________________________________|
+0007#STR0007#ALL#|20 nome da mae: 
+0008#STR0008#ALL#|______________________________________________________ Dados Do Contrato_________________________________________________________|
+0009#STR0009#ALL#|21 remun.fins resc.: 
+0010#STR0010#ALL#|22 admis.: 
+0011#STR0011#ALL# morada: 
+0012#STR0012#ALL#|18 Cpf:
+0013#STR0013#ALL# cep: 
+0014#STR0014#ALL# freguesia: 
+0015#STR0015#ALL# munic.: 
+0016#STR0016#ALL# uf: 
+0017#STR0017#ALL#|08 cnae: 
+0018#STR0018#ALL#|23 Dt.av.previo:
+0019#STR0019#ALL# A Assistencia No Acto De Rescisão Contratual E Gratuita
+0024#STR0024#ALL#|17 ctps/serie/uf :
+0025#STR0025#ALL#|10 Pis/pasep:
+0028#STR0028#ALL#| carimbo e assinatura do assistente                            |                                |                                |
+0029#STR0029#ALL#| local e data                                                  |                                |                                |
+0030#STR0030#ALL#|24 dt. afast.: 
+0033#STR0033#ALL#|27 Pens.alim.:
+0035#STR0035#ALL#|26 cód. afastamento:
+0036#STR0036#ALL#|28 categoria: 
+0038#STR0038#ALL#|30-total bruto              
+0039#STR0039#ALL#|total descontos             
+0040#STR0040#ALL#|liquido a receber           
+0041#STR0041#ALL#|___________________________________________________formalização Da Rescisão______________________________________________________|
+0042#STR0042#ALL#|56 local e data do recebimento
+0043#STR0043#ALL#|58 assinatura do trabalhador
+0044#STR0044#ALL#|57 carimbo e assinatura do empregador ou preposto
+0045#STR0045#ALL#|59 assinatura responsavel legal
+0046#STR0046#ALL#|60 Homologação
+0047#STR0047#ALL#|61 digital do trabalhador       |62 digital do responsavel legal
+0051#STR0051#ALL#Termos do art. 477,inc.1. da clt, sendo comprovado, neste acto  
+0052#STR0052#ALL#O efetivo pagamento das verbas rescisorias acima especificadas.
+0053#STR0053#ALL#64 recepção pela base (data e carimbo) 
+0054#STR0054#ALL#|63 identificação do órgão homologador:  
+0055#STR0055#ALL# filial: 
+0056#STR0056#ALL#|01 cnpj/cei: 
+0057#STR0057#ALL#|matricula: 
+0058#STR0058#ALL#Chave identif.: 

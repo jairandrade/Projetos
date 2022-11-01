@@ -1,0 +1,51 @@
+0001#STR0001#ALL#Matricula
+0002#STR0002#ALL#REQUERIMENTO DE BENEFICIO POR INCAPACIDADE
+0003#STR0003#ALL#Será impresso de acordo com os parametros solicitados pelo usuario
+0004#STR0004#ALL#Obs. Deverá ser impresso um Mapa para cada Tipo de Contrato.
+0005#STR0005#ALL#Zebrado
+0006#STR0006#ALL#Administraçäo
+0007#STR0007#ALL#REQUERIMENTO DE BENEFICIO POR INCAPACIDADE 
+0008#STR0008#ALL#PREVIDENCIA SOCIAL-Inst Nacional do Seguro Social 
+0009#STR0009#ALL#Pagina:
+0010#STR0010#ALL#T O T A L     G E R A L
+0011#STR0011#ALL#Filial :
+0012#STR0012#ALL#C.Custo:
+0013#STR0013#ALL#|Nome                                 Data Nascimento        Nacionalidade
+0014#STR0014#ALL#|Endereco    : 
+0015#STR0015#ALL#|Complemento :                        Bairro :
+0016#STR0016#ALL#|Cidade      :                        Estado : 
+0017#STR0017#ALL#|Sexo        :                        DOC.Inscricao(No.e Serie):
+0018#STR0018#ALL#|Estado Civil:                         Tem outra atividade com vinculacao
+0019#STR0019#ALL#|                                     a Previd.Social? 
+0020#STR0020#ALL#| Assinatura 
+0021#STR0021#ALL#| Nome do Procurador ou Curador:  
+0022#STR0022#ALL#|                    Endereco :   
+0023#STR0023#ALL#ATESTADO DE AFASTAMENTO DO TRABALHO
+0024#STR0024#ALL#|Empresa                                                   No.CNPJ
+0025#STR0025#ALL#|Ultimo dia de trabalho do segurado : 
+0026#STR0026#ALL#|Afastado por: 
+0027#STR0027#ALL#DEPENDENTES PARA SALARIO FAMILIA 
+0028#STR0028#ALL#|Prenome dos Filhos                                 Data Nascimento
+0029#STR0029#ALL#|Localidade                     Data 
+0030#STR0030#ALL#INSTRUCOES 
+0031#STR0031#ALL#1- O Requerimento deve ser sem rasuras e preenchido de preferencia a maquina
+0032#STR0032#ALL#2- No caso de segurado empregado, a empresa e responsavel pelo preenchimento
+0033#STR0033#ALL# Atestado de Afastamento do Trabalho
+0034#STR0034#ALL#3- No mes de afastamento do trabalho, a empresa efetuara o pagamento integral
+0035#STR0035#ALL#do Salario - Familia, e o INSS fara o mesmo no mes da cessacao do beneficio, 
+0036#STR0036#ALL#evitando-se assim, calculo de valores fracionados.
+0037#STR0037#ALL#Filial             ?
+0038#STR0038#ALL#Matricula          ?
+0039#STR0039#ALL#Tipo Afastamento   ?
+0040#STR0040#ALL#Data de Referencia ?
+0041#STR0041#ALL#Ult. Dia Trabalhado?
+0042#STR0042#ALL#Curador/Procurador ?
+0043#STR0043#ALL#Endereco           ?
+0044#STR0044#ALL#| Assinatura do Responsavel 
+0045#STR0045#ALL#| e carimbo do CGC da Empresa 
+0046#STR0046#ALL#C.I.D.
+0047#STR0047#ALL#Arquivo Impresso !!!
+0048#STR0048#ALL# Finalização 
+0049#STR0049#ALL#Selecione o Arquivo
+0050#STR0050#ALL#Arquivo Gerado: 
+0051#STR0051#ALL#Não foi possivel gerar o arquivo.  Erro de abertura, codigo DOS: 

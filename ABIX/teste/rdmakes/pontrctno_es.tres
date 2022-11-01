@@ -1,0 +1,8 @@
+0001#STR0001#ALL#La ejecución de esta rutina corregirá todos los registros que están con los campos PF_TURNODE, PF_SEQUEDE, PF_REGRADE, PF_TURNOPA, PF_SEQUEPA, PF_REGRAPA, RA_TNOTRAB, RA_REGRA, RA_SEQTURN vacíos después del cierre mensual. ¿Desea continuar?
+0002#STR0002#ALL#Actualización SPF y SRA
+0003#STR0003#ALL#Se modificaron
+0004#STR0004#ALL#registro(s).
+0005#STR0005#ALL#Proceso ejecutado
+0006#STR0006#ALL#Ningún registro modificado.
+0007#STR0007#ALL#De sucursal
+0008#STR0008#ALL#A sucursal

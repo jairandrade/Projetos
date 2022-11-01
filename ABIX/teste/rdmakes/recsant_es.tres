@@ -1,0 +1,32 @@
+0001#STR0001#ALL#GENERACIÓN DE ARCHIVO SANTANDER P/RECIBOS DE PAGOS
+0002#STR0002#ALL#Generación de boleta de pago electrónica - Bco Santander
+0003#STR0003#ALL#Este programa generará el archivo magnético para envío
+0004#STR0004#ALL#al Banco Santander para poner a disposición la boleta de pago electrónica
+0005#STR0005#ALL#Archivo generado
+0006#STR0006#ALL#Grabe el número del lote de este archivo para eventual sustitución:
+0007#STR0007#ALL#INCONSISTENCIAS EN LA
+0008#STR0008#ALL#Por favor, analice las tablas de composición del recibo, pues pueden existir inconsistencias en estas.
+0009#STR0009#ALL#SRA - Empleados
+0010#STR0010#ALL#RCH - Período de cálculos
+0011#STR0011#ALL#SRD - Historial de movimientos
+0012#STR0012#ALL#SRC - Movimiento del período
+0013#STR0013#ALL#SRV - Conceptos
+0014#STR0014#ALL#AVISO
+0015#STR0015#ALL#No existen registros por grabarse. La generación del archivo
+0016#STR0016#ALL#se interrumpió ...
+0017#STR0017#ALL#OK
+0018#STR0018#ALL#Ocurrieron problemas al intentar borrar el archivo
+0019#STR0019#ALL#Ocurrieron problemas al cerrar el archivo
+0020#STR0020#ALL#Ocurrieron problemas al intentar borrar el archivo
+0021#STR0021#ALL#Procesando...
+0022#STR0022#ALL#¿Desea sustituir el
+0023#STR0023#ALL#existente?
+0024#STR0024#ALL#Nombre del archivo en los parámetros en blanco.
+0025#STR0025#ALL#¡Atención!
+0026#STR0026#ALL#no puede crearse! Verifique los parámetros.
+0027#STR0027#ALL#¡El archivo
+0028#STR0028#ALL#Ocurrió un error en la grabación del archivo
+0029#STR0029#ALL#. ¿Continua?
+0030#STR0030#ALL#es obligatorio, pero está vacío o es menor que cero.
+0031#STR0031#ALL#El campo
+0032#STR0032#ALL#del empleado

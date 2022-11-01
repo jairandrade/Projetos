@@ -1,0 +1,137 @@
+0001#STR0001#ALL#Perfil Profesiografico de Seg. Social
+0002#STR0002#ALL#Se imprimira de acuerdo con los param. solicitados por el
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de costo
+0006#STR0006#ALL#PERFIL PROFESIOGRAFICO DE SEG. SOCIAL
+0007#STR0007#ALL#A rayas
+0008#STR0008#ALL#Administrac.
+0009#STR0009#ALL#Eligiendo Registros...
+0010#STR0010#ALL#PERFIL PROFESIOGRAFICO PREVIDENCIARIO - PPP
+0011#STR0011#ALL#SECCION DE DATOS ADMINISTR.
+0012#STR0012#ALL#1 - CNPJ del Domicilio Tributario/CEI
+0013#STR0013#ALL#2 - Nombre Empres.
+0014#STR0014#ALL#3 - CNAE
+0015#STR0015#ALL#4 - Nombre del Trabaj.
+0016#STR0016#ALL#5 - BR/PDH
+0017#STR0017#ALL#6 - NIT
+0018#STR0018#ALL#BR
+0019#STR0019#ALL#PDH
+0020#STR0020#ALL#NA
+0021#STR0021#ALL#7 - Fch. de Nacimiento
+0022#STR0022#ALL#8 - Sexo(F/M)
+0023#STR0023#ALL#9 - Lib. Trab.(Nº, Serie y Estado)
+0024#STR0024#ALL#10 - Fecha de Ingreso
+0025#STR0025#ALL#11 - Reg. Alternacion
+0026#STR0026#ALL#CAT (Com.Accid.Trab.) REGISTRADA
+0027#STR0027#ALL#12.1 - Fch de Registro
+0028#STR0028#ALL#12.2 - Numero del CAT (Com.Accid.Trab.)  
+0029#STR0029#ALL#CAPACIDAD Y ATRIBUC.
+0030#STR0030#ALL#13.1 - Periodo
+0031#STR0031#ALL#13.2 - CNPJ/
+0032#STR0032#ALL#13.3 - Sector
+0033#STR0033#ALL#13.4 - Cargo 
+0034#STR0034#ALL#13.5 - Funcion
+0035#STR0035#ALL#13.6 - CBO
+0036#STR0036#ALL#CEI 
+0037#STR0037#ALL#GFIP
+0038#STR0038#ALL#PROFESIOGRAFIA
+0039#STR0039#ALL#14.1 - Periodo
+0040#STR0040#ALL#14.2 - Descrip. de Actividades
+0041#STR0041#ALL#SECCION DE REG. AMBIENTALES
+0042#STR0042#ALL#EXPOSICION A FACT. DE RIESGO
+0043#STR0043#ALL#15.1 - Periodo
+0044#STR0044#ALL#15.2 - Tipo
+0045#STR0045#ALL#15.3 -Factor
+0046#STR0046#ALL#15.4 - Intens/
+0047#STR0047#ALL#15.5 - Tecnica Utilizada
+0048#STR0048#ALL#15.6 - EPC 
+0049#STR0049#ALL#15.7 - EPI 
+0050#STR0050#ALL#de Riesgo
+0051#STR0051#ALL#Conc.
+0052#STR0052#ALL#Eficaz(S/N)
+0053#STR0053#ALL#CA-EPI
+0054#STR0054#ALL#RESPONSABLE POR LOS REGISTROS DEL AMBIENTE
+0055#STR0055#ALL#16.1 - Periodo
+0056#STR0056#ALL#16.2 - NIT
+0057#STR0057#ALL#16.3 - Registro Consejo de Clase
+0058#STR0058#ALL#16.4 - Nombre del Profesional Legalmente Autorizado
+0059#STR0059#ALL#SECCION DE RESULTADOS DE MONITOREO BIOLOGICO
+0060#STR0060#ALL#EXAMENES MED. CLIN. Y COMPLEM. (Cuadros I y II, de la NR-07)
+0061#STR0061#ALL#17.1 - FECHA
+0062#STR0062#ALL#17.2 - TIPO 
+0063#STR0063#ALL#17.3 - MODALIDAD
+0064#STR0064#ALL#17.4 - EXAMEN(R/S)
+0065#STR0065#ALL#17.5 - INDICACION DE RESULT.
+0066#STR0066#ALL#(  ) Normal
+0067#STR0067#ALL#( )Modificado
+0068#STR0068#ALL#(  ) Estable
+0069#STR0069#ALL#( ) Agravamiento
+0070#STR0070#ALL#(  ) Ocupacional
+0071#STR0071#ALL#(  ) No Ocupacional
+0072#STR0072#ALL#RESPONSABLE POR EL MONITOREO BIOLOGICO
+0073#STR0073#ALL#18.1 - Periodo
+0074#STR0074#ALL#18.2 - NIT
+0075#STR0075#ALL#18.3 - Registro Consejo de Clase
+0076#STR0076#ALL#18.4 - Nombre del Profes. Legalmente Autorizado
+0077#STR0077#ALL#RESPONSABLES POR LAS INFORMAC.
+0078#STR0078#ALL# Declaramos, para todos los fines de derecho, que las inform. prestadas en este docum. son verdaderas y se transcribieron
+0079#STR0079#ALL# fielmente de los registros administr., de los estados del ambiente y de los 
+0080#STR0080#ALL#programas medicos de responsab. de la empresa.
+0081#STR0081#ALL# Reconocemos que la declaracion de informaciones falsas en este documento constituye crimen de falsificacion de documento
+0082#STR0082#ALL#publico, segun los term. del art. 297 del Cod. Penal, y ademas, que tales 
+0083#STR0083#ALL#informac. son de carater privativo del trabajador, constituyendo crimen, de acuerdo con la Ley nº 9.029/95, practicas de distincion
+0084#STR0084#ALL# resultantes de su exigibilidad por otros, ademas de su divulgacion a terceros, exceptuando cuando exigida
+0085#STR0085#ALL# por los org. publicos competentes.
+0086#STR0086#ALL#19-Fecha Emision PPP
+0087#STR0087#ALL#20- REPRESENT. LEGAL DE LA EMPRESA
+0088#STR0088#ALL#20.1 - NIT
+0089#STR0089#ALL#20.2 - NOMB
+0090#STR0090#ALL#(Sello)
+0091#STR0091#ALL#(Firma)
+0092#STR0092#ALL#OBSERVAC.
+0093#STR0093#ALL#Observ. del PPP
+0094#STR0094#ALL#No se pudo grabar el archivo de observaciones: 
+0095#STR0095#ALL#¿Tentar Nuevamente?
+0096#STR0096#ALL#¡Aviso!
+0097#STR0097#ALL#La nueva observacion no se grabara. 
+0098#STR0098#ALL#¿Confirma?
+0099#STR0099#ALL#Medico Trabajo
+0100#STR0100#ALL#Enfermero Trabajo
+0101#STR0101#ALL#Auxiliar Enferm. Trab.
+0102#STR0102#ALL#Ing. Seguridad Trabajo
+0103#STR0103#ALL#Tec. Seguridad Trabajo
+0104#STR0104#ALL#Medico
+0105#STR0105#ALL#Enfermero
+0106#STR0106#ALL#Aux. Enfermeria
+0107#STR0107#ALL#Otros
+0108#STR0108#ALL#Funcion del Respons.
+0109#STR0109#ALL#COMPROBANTE DE ENTREGA DEL PERFIL PROFESIOGRAFICO DE SEGURIDAD SOCIAL (PPP)
+0110#STR0110#ALL#DATOS ADMINISTRATIVOS
+0111#STR0111#ALL#CNPJ del Domicilio Tributario/CEI
+0112#STR0112#ALL#Nombre Empresarial
+0113#STR0113#ALL#CNAE
+0114#STR0114#ALL#Nome del Trabajador
+0115#STR0115#ALL#BR/PDH
+0116#STR0116#ALL#NIT
+0117#STR0117#ALL#Fecha de Nacimiento
+0118#STR0118#ALL#Sexo(F/M)
+0119#STR0119#ALL#CTPS(Nº, Serie y UF)
+0120#STR0120#ALL#Fecha de Ingreso
+0121#STR0121#ALL#Regimen Relevo
+0122#STR0122#ALL#Funcion
+0123#STR0123#ALL#Firma del Empleado
+0124#STR0124#ALL#Se intento la implement. de medidas de proteccion colectiva, de caracter administrativo o de organiz. del trabajo, optandose por el EPI por inviabilidad tecnica, insuficiencia o interinidad, o incluso en caracter complementario o de emergencia
+0125#STR0125#ALL#Se cumplio con las condic. de funcionam. y de uso ininterrump. del EPI a lo largo del tiempo, segun especif. tecnica del fabricante, ajustada a las cond. de campo.
+0126#STR0126#ALL#Se cumplio el plazo de vigencia, segun el Certificado de Aprobacion-CA del MTE.
+0127#STR0127#ALL#Se cumplio la periodicidad de cambio definida por los programas ambientales, comprob. mediante rec. firmado por el usuario en la epoca aprop.
+0128#STR0128#ALL#Se cumplio la higienizacion.
+0129#STR0129#ALL#Atencion a los requis. informados por los EPI
+0130#STR0130#ALL#15.9 - Cumplimiento de los requisitos de las NR-06 E NR-09 del MTE por los EPI informados:
+0131#STR0131#ALL#Se intento la implement. de medidas de protecc. colectiva, de caracter administrativo o de organiz. del trabajo optandose por el EPI por inviab. tecnica, insuficiencia o
+0132#STR0132#ALL#interinidad, o incluso en caracter complem. o de emergencia.
+0133#STR0133#ALL#Item no completado de acuerdo con la resolución  nº 1715, del 8 de enero de 2004, del consejo federal de medicina.
+0134#STR0134#ALL#ANEXO XV - INSTRUCCION NORMATIVA Nº 45, INSS/PRES, DEL 6 DE AGOSTO DE 2010
+0135#STR0135#ALL#Obs.: Es optativa la inclusion de informacion complementaria o adicional al PPP.
+0136#STR0136#ALL#ANEXO XV - RESOLUCIÓN NORMATIVA Nº 77 INSS/PRES, DEL 21 DE ENERO DE 2015
+0137#STR0137#ALL#ANEXO XV - RESOLUCIÓN NORMATIVA Nº 85 INSS/PRES, DEL viernes, 19 de febrero de 2016

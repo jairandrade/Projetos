@@ -1,0 +1,44 @@
+0001#STR0001#ALL#Ficha de Asignacion Familiar
+0002#STR0002#ALL#Sera impresa de acuerdo con los parametros solicitados por
+0003#STR0003#ALL#el usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Costo
+0006#STR0006#ALL#A Rayas
+0007#STR0007#ALL#Administracion
+0008#STR0008#ALL# FICHA DE ASIGN FAMILIAR  
+0009#STR0009#ALL#FICHA DE ASIGN FAMILIAR   
+0010#STR0011#ALL#Empresa: 
+0011#STR0012#ALL#CGC/Matricula INSS:    
+0012#STR0013#ALL#Direccion: 
+0013#STR0014#ALL#Barrio: 
+0014#STR0015#ALL#  CP:  
+0015#STR0016#ALL#  Ciudad: 
+0016#STR0017#ALL#  PV: 
+0017#STR0018#ALL#Empleado:  
+0018#STR0019#ALL#CTPS: 
+0019#STR0020#ALL# Serie: 
+0020#STR0021#ALL#    Fch Ingreso: 
+0021#STR0022#ALL#Fch Despido: 
+0022#STR0023#ALL#  Barrio: 
+0023#STR0024#ALL#CP:  
+0024#STR0025#ALL#  Ciudad: 
+0025#STR0026#ALL#PV: 
+0026#STR0027#ALL#HIJOS MENORES DE 14 AÑOS - (Datos retirados de certificados)
+0027#STR0028#ALL#|No. |             NOMBRE DEL HIJO            | FCH. NAC.|            LUGAR DE            |  REGISTRO  | N.REG. |  No.  |   No. |               MATRICULA             | FCH.     | FCH. DE  |            VISTO             |
+0028#STR0029#ALL#|Ord.|                                        |          |           NACIMIENTO           |            |        | LIBRO | PAGINA|                                     | ENTR.    | BAJA     |          FISC.INSS           |
+0029#STR0030#ALL#| VALOR DE UNA ASIGNACION FAMILIAR                                        | VALOR TOTAL DE LAS ASIGNACIONES FAMILIARES POR PAGAR                  |VALOR TOTAL DE LA ASIG. FAMILIAR POR PAGAR                              |
+0030#STR0031#ALL#| El          _____ de ___________________ de _____  R$ _________________ | A partir de _____ de ___________________ de ______  R$ ______________ | A partir de _____ de ___________________ de ______  R$ _______________ |
+0031#STR0032#ALL#| Modificado el____ de ___________________ de _____  R$ _________________ | A partir de _____ de ___________________ de ______  R$ ______________ | A partir de _____ de ___________________ de ______  R$ _______________ |
+0032#STR0033#ALL#RECIBI LOS DOCUMENTOS ARRIBA
+0033#STR0034#ALL#FIRMA     
+0034#STR0035#ALL#Anulado por el Operador
+0035#STR0036#ALL#COMPROB. DE LA ENTREGA ANUAL DE CERTIFICADOS DE VACUNAS - Hijos hasta 5 anos (Art. 67 da Ley 8.213/91)
+0036#STR0037#ALL#|           Hijo            |     Fecha de Entrega     |           Hijo            |    Fecha de Entrega      |           Hijo            |     Fecha de Entrega     |           Hijo            |     Fecha de Entrega    |
+0037#STR0038#ALL#|Nº  |          NOMBRE DEL HIJO       | FCH.NAC. |  LUGAR DE  |  NOTARIA   | N.REG. |  Nº   |   Nº  | FCH.  | FCH.DE|    VISTO     |
+0038#STR0039#ALL#|Ord.|                                |          | NACIMENTO  |            |        | LIBRO | PAGINA| ENTR. | BAJA  | FISCAL INSS  |
+0039#STR0040#ALL#| VALOR DE UNA ASIGNACION FAMILIAR                                | VALOR TOTAL DE LAS ASIGNACIONES FAMILIARES POR PAGAR           |
+0040#STR0041#ALL#| El          ___ de __________________ de _____  R$ ____________ | A partir del ___ de _________________ de _____  R$ ___________ |
+0041#STR0042#ALL#| Modificado el ___ de __________________ de _____  R$ ____________ | A partir del ___ de _________________ de _____  R$ _________ |
+0042#STR0043#ALL#Atencion
+0043#STR0044#ALL#Antes de proseguir, es necesario ejecutar los procedimientos del boletin tecnico - Campo Matricula Civil en la Ficha de Asignacion Familiar.
+0044#STR0045#ALL#Ok

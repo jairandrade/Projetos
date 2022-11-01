@@ -1,0 +1,29 @@
+0001#STR0001#ALL#Quadro de horário
+0002#STR0002#ALL#Será impresso de acordo com os parâmetros solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Código de barras
+0005#STR0005#ALL#Administração
+0008#STR0008#ALL# - NIF: 
+0009#STR0009#ALL# - Mor.: 
+0010#STR0010#ALL#Data       |Dia      |1a. Entrada| 1a. Saida |2a. Entrada| 2a. Saida |3a. Entrada| 3a. Saida |4a. Entrada| 4a. Saida |  Tipo do Dia | Tipo H.E. Normal |Tipo H.E. Noturna |Exceção|Turno|Seq.|Hrs.Trab.|Hrs.Int.|Cod.Refeic.
+0012#STR0012#ALL#Não Trabalhado
+0016#STR0016#ALL#Reg.
+0017#STR0017#ALL#Período de registo
+0018#STR0018#ALL#Calend&aacute;rio De Marca&ccedil;&otilde;es
+0019#STR0019#ALL#Turno/Seq.:
+0020#STR0020#ALL#Per&í&odo de registo
+0031#STR0031#ALL#Tipo De Dia
+0032#STR0032#ALL#Tipo Hr. Ext. Normal
+0033#STR0033#ALL#Tipo Hr. Ext. Nocturna
+0034#STR0034#ALL#Exce&pç&ão
+0037#STR0037#ALL#Hrs. trab.
+0038#STR0038#ALL#Hrs. interv.
+0039#STR0039#ALL#Cód. refeição
+0041#STR0041#ALL#Admissão
+0042#STR0042#ALL#Categoria/descrição
+0043#STR0043#ALL#Centro De Custo/descrição
+0045#STR0045#ALL#Situação
+0046#STR0046#ALL#Turno Actual/descrição
+0047#STR0047#ALL#Seq.actual
+0050#STR0050#ALL#Seleccionar a opção  de impressao: 
+0051#STR0051#ALL#Departamento/descrição 

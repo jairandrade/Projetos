@@ -1,0 +1,65 @@
+0001#STR0001#ALL#GRCS - Formulario de pago de la contribucion sindical
+0002#STR0002#ALL#Datos del ente sindical
+0003#STR0003#ALL#Nombre del ente
+0004#STR0004#ALL#Vencimiento
+0005#STR0005#ALL#Ejercicio
+0006#STR0006#ALL#Codigo del ente sindical
+0007#STR0007#ALL#Direccion
+0008#STR0008#ALL#Numero
+0009#STR0009#ALL#Complemento
+0010#STR0010#ALL#CNPJ del Ente
+0011#STR0011#ALL#Barrio/Distrito
+0012#STR0012#ALL#Ciudad/Municipio
+0013#STR0013#ALL#UF
+0014#STR0014#ALL#Datos del contribuyente
+0015#STR0015#ALL#Nombre/Razon social/Denominacion social
+0016#STR0016#ALL#CPF/CNPJ/Codigo Contribuyente
+0017#STR0017#ALL#Codigo Actividad
+0018#STR0018#ALL#Datos de referencia de la contribucion
+0019#STR0019#ALL#Categoria
+0020#STR0020#ALL#Patronal/Empleador
+0021#STR0021#ALL#Empleados
+0022#STR0022#ALL#Prof. Liberal
+0023#STR0023#ALL#Autonomos
+0024#STR0024#ALL#Capital social - Empresa
+0025#STR0025#ALL#Nº Empleados contribuyentes
+0026#STR0026#ALL#Capital Social Establecimiento
+0027#STR0027#ALL#Total remuneracion - Contribuyentes
+0028#STR0028#ALL#Total de empleados - Establecimiento
+0029#STR0029#ALL#Datos de la contribucion
+0030#STR0030#ALL#Valor del documento
+0031#STR0031#ALL#Descuento
+0032#STR0032#ALL#Deduccion
+0033#STR0033#ALL#Otras
+0034#STR0034#ALL#Otros
+0035#STR0035#ALL#Deducciones
+0036#STR0036#ALL#Mora
+0037#STR0037#ALL#Multa
+0038#STR0038#ALL#Aumentos
+0039#STR0039#ALL#Valor cobrado
+0040#STR0040#ALL#Código cedente
+0041#STR0041#ALL#Nuestro numero
+0042#STR0042#ALL#Fecha
+0043#STR0043#ALL#Autenticacion
+0044#STR0044#ALL#Mecanica
+0045#STR0045#ALL#Lugar de pago
+0046#STR0046#ALL#Cedente
+0047#STR0047#ALL#Fecha del documento
+0048#STR0048#ALL#Numero del documento
+0049#STR0049#ALL#Tipo Docum.
+0050#STR0050#ALL#Aceptacion
+0051#STR0051#ALL#Fecha procesamiento
+0052#STR0052#ALL#Instrucciones
+0053#STR0053#ALL#Aceptante
+0054#STR0054#ALL#Aceptante
+0055#STR0055#ALL#Garante
+0056#STR0056#ALL#Uso del Banco
+0057#STR0057#ALL#Cartera
+0058#STR0058#ALL#Codigo de barras
+0059#STR0059#ALL#Tipo
+0060#STR0060#ALL#Cantidad
+0061#STR0061#ALL#Valor
+0062#STR0062#ALL#Agencia
+0063#STR0063#ALL#Ficha de Compensacion
+0064#STR0064#ALL#CP
+0065#STR0065#ALL#Fecha de Vencimiento

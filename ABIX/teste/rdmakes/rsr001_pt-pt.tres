@@ -1,0 +1,35 @@
+0001#STR0001#ALL#Este programa tem como objectivo imprimir os currículos
+0002#STR0002#ALL#Conforme parâmetros seleccionados.
+0003#STR0003#ALL#Currículo
+0005#STR0005#ALL#Código de barras
+0006#STR0006#ALL#Administração
+0007#STR0007#ALL#Currículos
+0008#STR0008#ALL#Currículo
+0009#STR0009#ALL#Cancelado pelo utilizador
+0010#STR0010#ALL#A Seleccionar Registos...
+0011#STR0011#ALL#Cancelado Pelo Operador
+0012#STR0012#ALL#Dados Pessoais
+0015#STR0015#ALL#Dt.nasc.: 
+0016#STR0016#ALL#Est.civil: 
+0017#STR0017#ALL#Endereço: 
+0018#STR0018#ALL#Rg: 
+0019#STR0019#ALL#Cic: 
+0020#STR0020#ALL#área De Interesse
+0022#STR0022#ALL#Pret.salarial: 
+0024#STR0024#ALL#Qualificações
+0025#STR0025#ALL#*** qualificações não registadas ***
+0026#STR0026#ALL#Análise
+0027#STR0027#ALL#*** análise não registada ***
+0028#STR0028#ALL#Histórico profissional 
+0029#STR0029#ALL#Admissão   Demissão   área                                Empresa                        Função
+0030#STR0030#ALL#Actividades:
+0031#STR0031#ALL#*** actividade não registada ***
+0032#STR0032#ALL#*** histórico profissional não registado ***
+0033#STR0033#ALL#Formação Escolar
+0034#STR0034#ALL#Cursos Extracurriculares
+0035#STR0035#ALL#Dt.formação   Entidade                       Curso
+0036#STR0036#ALL#*** formação escolar não registada ***
+0037#STR0037#ALL#*** curso extracurricular não registado ***
+0038#STR0038#ALL#Experiência
+0039#STR0039#ALL#*** experiência não registada ***
+0040#STR0040#ALL#Grupo              Factor                             Grau

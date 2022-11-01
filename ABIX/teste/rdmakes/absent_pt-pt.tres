@@ -1,0 +1,22 @@
+0001#STR0001#ALL#Ausência
+0002#STR0002#ALL#Será impresso de acordo com os parâmetros solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Registo
+0005#STR0005#ALL#Centro De Custo
+0008#STR0008#ALL#Código de barras
+0009#STR0009#ALL#Administração
+0010#STR0010#ALL#(1) descrição                  horas      % (2) descrição                  horas      %  (3) descrição                  horas      %
+0011#STR0011#ALL#Regist.Nome                  período  hrs.prev.  hrs.real     %  (1)hrs.adic.     %  (2)hrs.n.trab.     %  (3)hrs.abonadas     %   
+0012#STR0014#ALL#Turno:
+0013#STR0015#ALL#Totais para a filial 
+0014#STR0016#ALL#Período     hrs.prev.     hrs.real       % (1)hrs.adic.      % (2)hrs.n.trab.      % (3)hrs.abonadas      %
+0015#STR0017#ALL#(1) descrição                  horas      % (2) descrição                  horas      %  (3) descrição                  horas      %
+0016#STR0018#ALL#Totais para a empresa 
+0017#STR0019#ALL#Totais para o turno 
+0018#STR0020#ALL#Totais para o centro de custo 
+0020#STR0030#ALL#C.c.:
+0021#STR0031#ALL#Período       hrs.prev.     hrs.real       % (1)hrs.adic.      % (2)hrs.n.trab.      % (3)hrs.abonadas      %
+0022#STR0032#ALL#Inconsistência
+0023#STR0033#ALL#Período Fornecido Inválido
+0024#STR0034#ALL#Seleccionar a opção  de impressao
+0025#STR0035#ALL#Por Período

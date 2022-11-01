@@ -1,0 +1,21 @@
+0001#STR0001#BRA#Realice la copia de seguridad de la base antes de ejecutar este proceso.
+0002#STR0002#BRA#Herramienta para eliminar registros de la tabla de Control de días de derecho (SRF) que se generaron indebidamente durante el cierre del procedimiento de Vacaciones.
+0003#STR0003#BRA#UPDSRF - Actualización de los datos de la tabla SRF.
+0004#STR0004#BRA#Al final del procesamiento se eliminarán los registros de vacaciones activos que estaban con fecha inferior a otros períodos que estaban liquidados.
+0005#STR0005#BRA#Selección de sucursales
+0006#STR0006#BRA#Seleccione las sucursales cuyos datos se actualizarán
+0007#STR0007#BRA#Realizando actualización de la base...
+0008#STR0008#BRA#Espere mientras se ejecuta el procesamiento.
+0009#STR0009#BRA#Ejecutando actualización de la tabla control días de derecho...
+0010#STR0010#BRA#¿La copia de seguridad de la base ya se realizó?
+0011#STR0011#BRA#Sucursal siendo procesada:
+0012#STR0012#BRA#Matrícula siendo procesada:
+0013#STR0013#BRA#Realice la copia de seguridad y ejecute la rutina nuevamente.
+0014#STR0014#BRA#Simulación de los datos que se procesarán
+0015#STR0015#BRA#¿Desea efectuar la simulación para generar el LOG de los registros que serán afectados?
+0016#STR0016#BRA#Si se marca esta opción, los datos no se actualizarán.
+0017#STR0017#BRA#Se mostrará un LOG con los registros que pueden ser afectados en el procesamiento real.
+0018#STR0018#BRA#SIMULACIÓN - generación de LOG de los registros que serán afectados
+0019#STR0019#BRA#UPDSRF - Log de procesamiento
+0020#STR0020#BRA#(SIMULACIÓN)
+0021#STR0021#BRA#No se encontraron registros para procesar.

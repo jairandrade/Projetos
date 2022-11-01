@@ -1,0 +1,29 @@
+0001#STR0001#ALL#Entrenamiento
+0002#STR0002#ALL#Sera impreso de acuerdo con los parametros solicitados por
+0003#STR0003#ALL#el usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Costo
+0006#STR0006#ALL#Nombre
+0007#STR0007#ALL#A Rayas
+0008#STR0008#ALL#Administracion
+0009#STR0009#ALL#SOLICITUD/RESERVA DE ENTRENAMIENTO
+0010#STR0010#ALL#CURSO: 
+0011#STR0011#ALL#SUC. MATR.  NOMBRE                      DIVISION           DEPARTAMENTO         CARGO                        SITUACION    FC.SOLIC.  CALENDARIO                        PERIODO         GRUPO C.COSTO
+0012#STR0012#ALL#RESERVADO
+0013#STR0013#ALL#LISTA ESPERA
+0014#STR0014#ALL#SOLICITUD
+0015#STR0015#ALL#Seleccionando registros...
+0016#STR0016#ALL#Orden de 
+0017#STR0017#ALL#Este programa tiene como objetivo imprimir la Solicitud de Capacitacion conforme parametros seleccionados
+0018#STR0018#ALL#Curso
+0019#STR0019#ALL#Suc.
+0020#STR0020#ALL#Matr.
+0021#STR0021#ALL#Nombre
+0022#STR0022#ALL#Grupo
+0023#STR0023#ALL#Depto
+0024#STR0024#ALL#Cargo
+0025#STR0025#ALL#Sit
+0026#STR0026#ALL#Fch.Solic.
+0027#STR0027#ALL#Calend
+0028#STR0028#ALL#Periodo
+0029#STR0029#ALL#Total de Empleado

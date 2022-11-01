@@ -1,0 +1,34 @@
+0001#STR0001#ALL#Custo De Formação Anual
+0002#STR0002#ALL#Neste Relatório Serão Impressos Os Custos De Formação Anual Separados Por Mês(Jan. A Dez.).
+0003#STR0003#ALL#Utilizador.
+0005#STR0005#ALL#Centro De Custo
+0006#STR0006#ALL#Código de barras
+0007#STR0007#ALL#Administração
+0008#STR0009#ALL#Investimento em formação no ano de 
+0012#STR0013#ALL#A Seleccionar Registos...
+0013#STR0014#ALL#Centro de custo: 
+0014#STR0015#ALL#Total Do Centro De Custo
+0015#STR0016#ALL#Total crial:            
+0016#STR0017#ALL#                                           jan         fev         mar         abr         mai         jun         jul         ago         set         out         nov         dez 
+0017#STR0018#ALL#Curso                                     Valor       Valor       Valor       Valor       Valor       Valor       Valor       Valor       Valor       Valor       Valor       Valor           Total
+0018#STR0019#ALL#Curso                                     Horas       Horas       Horas       Horas       Horas       Horas       Horas       Horas       Horas       Horas       Horas       Horas           Total
+0019#STR0020#ALL#Jan
+0020#STR0021#ALL#Fev
+0021#STR0022#ALL#Mar
+0022#STR0023#ALL#Abr
+0023#STR0024#ALL#Mai
+0024#STR0025#ALL#Jun
+0025#STR0026#ALL#Jul
+0026#STR0027#ALL#Ago
+0027#STR0028#ALL#Set
+0028#STR0029#ALL#Nov
+0029#STR0030#ALL#Nov
+0030#STR0031#ALL#Dez
+0031#STR0032#ALL#Total
+0032#STR0033#ALL#Valor
+0033#STR0034#ALL#Horas
+0034#STR0035#ALL#Custo Por Curso
+0035#STR0036#ALL#Total Por C.custo
+0036#STR0037#ALL#Custo Por C.custo
+0038#STR0039#ALL#Filial Registo Empregado                    Calendário Curso
+0039#STR0040#ALL#Foram Encontradas Inconsistências No Vínculo Função X Cargo. Deseja Criar Log?

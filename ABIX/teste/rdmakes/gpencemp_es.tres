@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Generación analítica de las Cargas de la empresa
+0002#STR0002#ALL#Genera los asientos de las cargas de la empresa por empleado
+0003#STR0003#ALL#Generación de asientos de las cargas de la empresa
+0004#STR0004#ALL#Asistente para la generación de los asientos de los conceptos que corresponden a las cargas de la empresa, para los acumulados anuales (SRD), de acuerdo con la siguiente parametrización informada.
+0005#STR0005#ALL#Esta opción solo debe utilizarse para los períodos en que los cálculos de Gestión de personal se realizaron utilizando el parámetro MV_ENCINSS con 'N'.
+0006#STR0006#ALL#Después de esto, este proceso no podrá revertirse.
+0007#STR0007#ALL#ATENCIÓN: Realice la copia de seguridad del entorno antes de continuar.
+0008#STR0008#ALL#Selección de período y sucursales
+0009#STR0009#ALL#Seleccione el período y las sucursales para la generación de los asientos
+0010#STR0010#ALL#Generando asientos
+0011#STR0011#ALL#Espere el final del procesamiento
+0012#STR0012#ALL#De período
+0013#STR0013#ALL#¡Mes inválido!
+0014#STR0014#ALL#Mes: 
+0015#STR0015#ALL#¡Año inválido!
+0016#STR0016#ALL#Año: 
+0017#STR0017#ALL#A período
+0018#STR0018#ALL#Datos no válidos
+0019#STR0019#ALL#Mes y año finales no pueden ser menores que mes y año iniciales. Para que todos los registros se conviertan, deje todos los campos en blanco.
+0020#STR0020#ALL#Efectuando la generación de los asientos...
+0021#STR0021#ALL#Complete el período De/A para la generación de las cargas.
+0022#STR0022#ALL#Este procedimiento no podrá revertirse. Solo continúe si realizó la copia de seguridad del entorno.
+0023#STR0023#ALL#¿Desea continuar?
+0024#STR0024#ALL#Sucursal: 
+0025#STR0025#ALL#Proceso: 

@@ -1,0 +1,19 @@
+0001#STR0001#ALL#Compatibility program of table VAM with table CC2
+0002#STR0002#ALL#This program will perform a compatibility of data in tables 'RCE - Union Registration', 'RCO - Employer Registration',
+0003#STR0003#ALL#'SRA - Employee Registration' and 'RGC - Payment Location Registration' in data base, according the official city table.
+0004#STR0004#ALL#Compatibilized Cities List
+0005#STR0005#ALL#Table: 
+0006#STR0006#ALL#(Before compatibilization )
+0007#STR0007#ALL#( After compatibilization )
+0008#STR0008#ALL#RCE - Unions Registration
+0009#STR0009#ALL#RCO - Employer Registration
+0010#STR0010#ALL#RGC - Payment Location Registration
+0011#STR0011#ALL#Run
+0012#STR0012#ALL#To run the compatibility program, the table 'CC2 - City Registration' must be created and completed.
+0013#STR0013#ALL#To run the compatibility program, the table 'VAM - City Registration' must be created and completed.
+0014#STR0014#ALL#CC2 Code
+0015#STR0015#ALL#SRA - Employee Registration
+0016#STR0016#ALL#No register was found to be compatibilized in tables 'RCE - Union Registration', 'RCO - Employer Number Registration', 'RGC - Payment Location Registration' and SRA - Employee Registration.
+0017#STR0017#ALL#You must enter the corresponding city for all the registers in the list.
+0018#STR0018#ALL#No register found in table
+0019#STR0019#ALL#to be compatibilized.

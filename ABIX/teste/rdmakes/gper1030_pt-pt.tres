@@ -1,0 +1,141 @@
+0001#STR0001#ALL#Registo
+0002#STR0002#ALL#C.custo
+0004#STR0004#ALL#Registo
+0005#STR0005#ALL#C.custo + Nome
+0006#STR0006#ALL#Emissão De Recibos De Pagamento.
+0007#STR0007#ALL#Devido a utilização de caracteres de compressão,  é necessário que na impressão
+0008#STR0008#ALL# em formulario seja selecionado, no Tipo de Impressäo, a opcäo 'Direta na Porta'. 
+0009#STR0009#ALL#Código de barras
+0010#STR0010#ALL#Administração
+0011#STR0011#ALL#Emissão De Recibos De Pagamentos
+0012#STR0012#ALL#A Seleccionar Registos...
+0017#STR0017#ALL#Recibo de pagamento  
+0018#STR0018#ALL#| empresa   : 
+0019#STR0019#ALL# local : 
+0020#STR0020#ALL#| c custo   : 
+0023#STR0023#ALL#| registo : 
+0026#STR0026#ALL#| função    : 
+0027#STR0027#ALL#| p r o v e n t o s 
+0030#STR0030#ALL#Continua !!!
+0031#STR0031#ALL#| total bruto     
+0032#STR0032#ALL# total descontos     
+0033#STR0033#ALL#| Crédito:
+0034#STR0034#ALL#| líquido a receber     
+0035#STR0035#ALL#| Conta:
+0036#STR0036#ALL#| recebi o valor acima em ___/___/___ 
+0037#STR0037#ALL#Continua !!!
+0038#STR0038#ALL#F e l i z   a n i v e r s á r i o  ! !
+0039#STR0039#ALL#Créd:
+0040#STR0040#ALL#Conta:
+0041#STR0041#ALL#A Verificar Integridade Do Ficheiro De Movimento Mensal Anterior...
+0042#STR0042#ALL#Email enviado com sucesso 
+0044#STR0044#ALL# demonstrativo de pagamento 
+0047#STR0047#ALL#C.custo   - 
+0049#STR0049#ALL#Bco/conta - 
+0050#STR0050#ALL#Cód.  descrição 
+0053#STR0053#ALL#Total bruto 
+0054#STR0054#ALL#Total descontos 
+0055#STR0055#ALL#Líquido a receber 
+0056#STR0056#ALL#Base Segurança Social/valor Segurança Social
+0057#STR0057#ALL#Base IRS Folha/férias
+0062#STR0062#ALL#Adto Sub.Natal.
+0063#STR0063#ALL#Sub.Natal.
+0065#STR0065#ALL#Total bruto: 
+0066#STR0066#ALL#Total de descontos: 
+0067#STR0067#ALL#L&iacute;quido a receber: 
+0068#STR0068#ALL#C&oacute;digo
+0069#STR0069#ALL#Descri&ccedil;&atilde;o
+0070#STR0070#ALL#Refer&ecirc;ncia
+0071#STR0071#ALL#| fec.ult.dep.: 
+0073#STR0073#ALL#Dep.en bco: 
+0074#STR0074#ALL#| beneficiário: 
+0075#STR0075#ALL#Cuil 
+0076#STR0076#ALL#| fec. De ing. 
+0077#STR0077#ALL#Calif. Prof 
+0078#STR0078#ALL#Tarefa cump. 
+0079#STR0079#ALL#| adiantar correspondente ao mês de 
+0081#STR0081#ALL#| recebi de acordo com o montante em pesos 
+0084#STR0084#ALL#| lugar e data 
+0085#STR0085#ALL#| são € 
+0086#STR0086#ALL#| original 
+0087#STR0087#ALL#| empregador: 
+0088#STR0088#ALL#| domicílio: 
+0089#STR0089#ALL#| carta de condução: 
+0090#STR0090#ALL#Recibo De Valores
+0091#STR0091#ALL#| v a l o r e s 
+0092#STR0092#ALL#Deduções
+0093#STR0093#ALL#Adicionais
+0094#STR0094#ALL# total de haveres 
+0095#STR0095#ALL#| custo líquido 
+0096#STR0096#ALL#| quantia líquida a cobrar 
+0098#STR0098#ALL#Morada:
+0102#STR0102#ALL#Banco/agência/conta:
+0103#STR0103#ALL#Fun&ccedil;&atilde;o
+0106#STR0106#ALL#Registo:
+0107#STR0107#ALL#Ctps (só Brasil):
+0109#STR0109#ALL#Nif:
+0110#STR0110#ALL#Centro De Custo:
+0111#STR0111#ALL#Admissão:
+0112#STR0112#ALL#Dep. Ir:
+0114#STR0114#ALL#Válido como comprovante mensal de rendimentos
+0115#STR0115#ALL#(Artigo no. 41 e 464 da clt, portaria mtps/gm 3.626 de 13/11/1991) (só Brasil)
+0116#STR0116#ALL#Base Ss
+0117#STR0117#ALL#| Proccesso  :
+0118#STR0118#ALL#Mapa: 
+0120#STR0120#ALL#Num. pgt: 
+0122#STR0122#ALL#Fechamento a ser executado, tente mais tarde
+0124#STR0124#ALL#| Total Proveitos 
+0125#STR0125#ALL#Descontos
+0126#STR0126#ALL#Total Descontos
+0127#STR0127#ALL#C.i.c.: 
+0128#STR0128#ALL#Seguro s.: 
+0129#STR0129#ALL#Lucro
+0130#STR0130#ALL#Fecha: 
+0131#STR0131#ALL#Hora: 
+0133#STR0133#ALL#Título De Pagamento De Pagamento
+0134#STR0134#ALL#Planilha Mensal
+0135#STR0135#ALL#Líquido A Pagar
+0136#STR0136#ALL#Bolivianos
+0137#STR0137#ALL#Ciente
+0138#STR0138#ALL#Código: 
+0139#STR0139#ALL## dias: 
+0140#STR0140#ALL#H. extras: 
+0141#STR0141#ALL#T.c.: 
+0146#STR0146#ALL#Mensagem
+0147#STR0147#ALL#Registo: 
+0151#STR0151#ALL#Seguro De Acidentes De Trabalho
+0152#STR0152#ALL#Apolice : 
+0154#STR0154#ALL#N.COLAB.
+0157#STR0157#ALL#N.beneficiario.
+0158#STR0158#ALL#N.contribuinte
+0159#STR0159#ALL#P R O V E N T O S
+0160#STR0160#ALL#Total bruto..... : 
+0162#STR0162#ALL#Líquido a receber: 
+0163#STR0163#ALL#Crédito..: 
+0165#STR0165#ALL#Declaro que recebi o valor acima referido em ___/___/___ 
+0167#STR0167#ALL#Horas Domingo Trabajado: 
+0168#STR0168#ALL#Morada  :
+0170#STR0170#ALL#Proccesso :
+0172#STR0172#ALL#Sem Registo
+0173#STR0173#ALL#Empregado
+0179#STR0179#ALL#Município: 
+0180#STR0180#ALL#Distrito: 
+0181#STR0181#ALL#Remuneração base 
+0204#STR0204#ALL#Fecha de pago del 
+0205#STR0205#ALL#| Recibi el valor anterior el (fecha y firma del trabajador)___/___/___ 
+0206#STR0206#ALL#*** inexistente ***
+0218#STR0218#ALL#C.Costo + Matrícula
+0220#STR0220#ALL#PERIODO:
+0221#STR0221#ALL#PAGO:
+0222#STR0222#ALL#PERIODO DE PAGO:
+0223#STR0223#ALL#FECHA DE PAGO:
+0224#STR0224#ALL#RECIBO NO.
+0226#STR0226#ALL#HABERES
+0227#STR0227#ALL#DESCUENTOS
+0229#STR0229#ALL#CONCEPTO
+0230#STR0230#ALL#HRS/DÍAS/FACT
+0231#STR0231#ALL#IMPORTES
+0232#STR0232#ALL#: Gs 
+0233#STR0233#ALL#Neto Recibido
+0235#STR0235#ALL#RECIBI EL VALOR ANTERIOR EL   
+0236#STR0236#ALL#EMPLEADO

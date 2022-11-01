@@ -1,0 +1,43 @@
+0001#STR0001#ALL#Espelho Do Ponto
+0002#STR0002#ALL#Sera impresso de acordo com os parâmetro s solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Matrícula
+0005#STR0005#ALL#Centro De Custo
+0008#STR0008#ALL#Código de barras
+0009#STR0009#ALL#Administração
+0012#STR0015#ALL#Cód descrição                cálc.            cód descrição                cálc.          
+0013#STR0016#ALL#Cód Descrição                         Infor.  Cód Descrição                         Infor.
+0014#STR0017#ALL#Cód Descrição                Cálc.    Infor.  Cód Descrição                Cálc.    Infor.
+0015#STR0018#ALL#** excepção não trabalhada **
+0016#STR0019#ALL#** feriado **
+0017#STR0020#ALL#** ausente **
+0018#STR0021#ALL#** d.s.r. **
+0019#STR0022#ALL#** Compensado
+0021#STR0024#ALL#Emp.:
+0022#STR0025#ALL#Reg.:
+0023#STR0026#ALL#  CArtão: 
+0024#STR0027#ALL#E.n.d.:
+0026#STR0029#ALL#N.º contribuinte
+0027#STR0030#ALL# função: 
+0028#STR0031#ALL#C.c.:
+0030#STR0033#ALL#Turno:
+0031#STR0034#ALL#DAta     Dia     
+0032#STR0035#ALL#A.e.
+0033#STR0036#ALL#A s. 
+0034#STR0037#ALL#Observação  Horas  Tipo Da Marcação
+0035#STR0038#ALL#C.custo + Nome
+0036#STR0039#ALL#Período De Apontamento Inválido.
+0037#STR0040#ALL#Consultar Marcações
+0038#STR0041#ALL#Motivo De Autorização
+0041#STR0044#ALL#&#170;e.
+0042#STR0045#ALL#&#170;s.
+0043#STR0046#ALL#Observa&çõe&s
+0044#STR0047#ALL#Horas   Tipo Da Marca&çã&o
+0045#STR0048#ALL#Turno
+0046#STR0049#ALL#Turnos:
+0047#STR0050#ALL#Processo + registo
+0049#STR0052#ALL#Seleccionar a opção  de impressao: 
+0050#STR0053#ALL#Por período
+0053#STR0056#ALL#Período
+0054#STR0057#ALL#Mapa: 
+0055#STR0058#ALL#Num. pgt: 

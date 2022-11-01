@@ -1,0 +1,8 @@
+0001#STR0001#ALL#Running this routine will correct all records that have the PF_TURNODE, PF_SEQUEDE, PF_REGRADE, PF_TURNOPA, PF_SEQUEPA, PF_REGRAPA, RA_TNOTRAB, RA_REGRA, RA_SEQTURN fields empty after the monthly closing. Continue?
+0002#STR0002#ALL#SPF and SRA update
+0003#STR0003#ALL#Changed
+0004#STR0004#ALL#record(s).
+0005#STR0005#ALL#Process Executed
+0006#STR0006#ALL#No record changed.
+0007#STR0007#ALL#From Branch
+0008#STR0008#ALL#To Branch

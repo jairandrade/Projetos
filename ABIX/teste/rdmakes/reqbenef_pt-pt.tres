@@ -1,0 +1,48 @@
+0001#STR0001#ALL#Matrícula
+0002#STR0002#ALL#Requerimento De Benefício Por Incapacidade
+0003#STR0003#ALL#Será impresso de acordo com os parâmetros solicitados pelo utilizador
+0004#STR0004#ALL#Obs. Deverá Ser Impresso Um Mapa Para Cada Tipo De Contrato.
+0005#STR0005#ALL#Código de barras
+0006#STR0006#ALL#Administração
+0007#STR0007#ALL#Requerimento de benefício por incapacidade 
+0008#STR0008#ALL#Segurança social-inst. nacional da segurança social 
+0009#STR0009#ALL#Página:
+0012#STR0012#ALL#C.custo:
+0013#STR0013#ALL#|nome                                 Data Nascimento        Nacionalidade
+0014#STR0014#ALL#|morada    : 
+0015#STR0015#ALL#|complemento :                        freguesia :
+0016#STR0016#ALL#|concelho      :                        distrito : 
+0017#STR0017#ALL#|sexo        :                        Doc.inscrição(nº De Série):
+0018#STR0018#ALL#|estado civil:                         exerce outra actividade com vinculação
+0019#STR0019#ALL#|                                     à segur.social? 
+0020#STR0020#ALL#| assinatura 
+0021#STR0021#ALL#| nome do procurador ou notário:  
+0022#STR0022#ALL#|                    morada :   
+0023#STR0023#ALL#Atestado De Afastamento Do Trabalho
+0024#STR0024#ALL#|empresa                                                   Nº.contribuinte
+0025#STR0025#ALL#|último dia de trabalho do segurado : 
+0026#STR0026#ALL#|afastado por: 
+0027#STR0027#ALL#Dependentes para salário-família 
+0028#STR0028#ALL#|prenome Dos Filhos                                 Data Nascimento
+0029#STR0029#ALL#|localidade                     data 
+0030#STR0030#ALL#Instruções 
+0031#STR0031#ALL#1- o requerimento deve estar sem rasuras e preenchido de preferência à máquina
+0032#STR0032#ALL#2- no caso de um segurado empregado, a empresa é responsável pelo preenchimento
+0033#STR0033#ALL# Atestado De Afastamento Do Trabalho
+0034#STR0034#ALL#3- no mês de afastamento do trabalho, a empresa efectuará o pagamento integral
+0035#STR0035#ALL#Do salário-família, e o ss fará o mesmo no mês da cessação do benefício, 
+0036#STR0036#ALL#Evitando-se, assim, o cálculo de valores fraccionados.
+0038#STR0038#ALL#Registo          ?
+0039#STR0039#ALL#Tipo afastamento   ?
+0040#STR0040#ALL#Data de referência ?
+0041#STR0041#ALL#últ. Dia Trabalhado?
+0042#STR0042#ALL#Notário/procurador ?
+0043#STR0043#ALL#Morada           ?
+0044#STR0044#ALL#| assinatura do responsável 
+0045#STR0045#ALL#| e carimbo do número de contribuinte da empresa 
+0046#STR0046#ALL#C.i.d.
+0047#STR0047#ALL#Ficheiro impresso !!!
+0048#STR0048#ALL# finalização 
+0049#STR0049#ALL#Seleccione O Arquivo
+0050#STR0050#ALL#Ficheiro criado: 
+0051#STR0051#ALL#Não foi possivel criar o arquivo.  erro de abertura, código  dos: 

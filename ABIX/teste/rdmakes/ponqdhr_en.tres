@@ -1,0 +1,51 @@
+0001#STR0001#ALL#Schedule Chart
+0002#STR0002#ALL#It will be printed according to the parameters selected by the
+0003#STR0003#ALL#user.
+0004#STR0004#ALL#Z.Form
+0005#STR0005#ALL#Management
+0006#STR0006#ALL# for Work
+0007#STR0007#ALL#Branch: 
+0008#STR0008#ALL# - CGC: 
+0009#STR0009#ALL# - Loc.: 
+0010#STR0010#ALL#Date       |Day      |1st. Inflow|1st.Outflow|2nd. Inflow|2nd.Outflow|3rd. Inflow|3rd.Outflow|4th. Inflow|4th.Outflow|  Type of Day | Type H.E. Normal |Tipo H.E. Night Sf|Except.|Shift|Seq.|Hrs.Wrkd.|Hrs.Int.|Meal Code  
+0011#STR0011#ALL#Worked
+0012#STR0012#ALL#Not Worked
+0013#STR0013#ALL#P.W.R.
+0014#STR0014#ALL#Compensated
+0015#STR0015#ALL#Holiday
+0016#STR0016#ALL#Mat.
+0017#STR0017#ALL#Annotation Period: 
+0018#STR0018#ALL#Marks Calendar
+0019#STR0019#ALL#Shift/Seq.: 
+0020#STR0020#ALL#Annotation Period: 
+0021#STR0021#ALL#Date
+0022#STR0022#ALL#Day
+0023#STR0023#ALL#1st Infl.
+0024#STR0024#ALL#1st Outfl.
+0025#STR0025#ALL#2nd Infl.
+0026#STR0026#ALL#2nd Outfl.
+0027#STR0027#ALL#3rd Infl.
+0028#STR0028#ALL#3rd Outfl.
+0029#STR0029#ALL#4th Infl.
+0030#STR0030#ALL#4th Outfl.
+0031#STR0031#ALL#Day Type
+0032#STR0032#ALL#Type I.T. Normal
+0033#STR0033#ALL#Type I.T. Nocturnal
+0034#STR0034#ALL#Exception
+0035#STR0035#ALL#Shift
+0036#STR0036#ALL#Seq.
+0037#STR0037#ALL#Work Hrs.
+0038#STR0038#ALL#Int.Hrs.
+0039#STR0039#ALL#Meal Code
+0040#STR0040#ALL#Name
+0041#STR0041#ALL#Admission
+0042#STR0042#ALL#Position/Description
+0043#STR0043#ALL#Cost Center/Description
+0044#STR0044#ALL#Category
+0045#STR0045#ALL#Status
+0046#STR0046#ALL#Current Shift/Description
+0047#STR0047#ALL#Curr.Seq.
+0048#STR0048#ALL#By Period
+0049#STR0049#ALL#By Dates
+0050#STR0050#ALL#Select the printing option: 
+0051#STR0051#ALL#Department/Description

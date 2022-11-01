@@ -1,0 +1,51 @@
+0001#STR0001#ALL#Registration
+0002#STR0002#ALL#REQUEST OF INCAPACITY BENEFIT
+0003#STR0003#ALL#To be printed according to the parameters required by the user
+0004#STR0004#ALL#Note. It is necessary to print a Mapa for each Type of Contract.
+0005#STR0005#ALL#Z. Form
+0006#STR0006#ALL#Management
+0007#STR0007#ALL#REQUEST OF INCAPACITY BENEFIT 
+0008#STR0008#ALL#SOCIAL SECURITY-Inst Nacional do Seguro Social 
+0009#STR0009#ALL#Page:
+0010#STR0010#ALL#G R A N D     T O T A L
+0011#STR0011#ALL#Branch :
+0012#STR0012#ALL#C.Center
+0013#STR0013#ALL#|Name                                 Birth Date             Nationality  
+0014#STR0014#ALL#|Address     : 
+0015#STR0015#ALL#|Complement  :                        Zone   :
+0016#STR0016#ALL#|City        :                        State  : 
+0017#STR0017#ALL#|Gender      :                        Enrollm. Doc.(No./Series):
+0018#STR0018#ALL#|Marital Stat:                         Has another activity with entailm.
+0019#STR0019#ALL#|                                     to Social Secur.? 
+0020#STR0020#ALL#| Signature 
+0021#STR0021#ALL#| Name of the Proxy or Tutor   :  
+0022#STR0022#ALL#|                    Address  :   
+0023#STR0023#ALL#CERTIFICATE OF WORK ABSENCE
+0024#STR0024#ALL#|Company                                                   No.CNPJ
+0025#STR0025#ALL#|Insured´s last work day: 
+0026#STR0026#ALL#|Absent for: 
+0027#STR0027#ALL#DEPENDENTS FOR FAMILY ALLOWANCE 
+0028#STR0028#ALL#|Sons´ First Name                                   Birth Date
+0029#STR0029#ALL#|Locality                       Date 
+0030#STR0030#ALL#INSTRUCTIONS 
+0031#STR0031#ALL#1- The Requisition must be neat and mechanically filled in                  
+0032#STR0032#ALL#2- In case of insured employee, the company must fill in the forms          
+0033#STR0033#ALL# Certificate of Work Absence        
+0034#STR0034#ALL#3- In the month of work absence, the company has to pay the whole Family     
+0035#STR0035#ALL#Salary, and the INSS will do the same when the benefit ceases, avoiding this 
+0036#STR0036#ALL#way the calculation of fractionated values.
+0037#STR0037#ALL#Branch             ?
+0038#STR0038#ALL#Registration       ?
+0039#STR0039#ALL#Absence Type       ?
+0040#STR0040#ALL#Reference date     ?
+0041#STR0041#ALL#Last Working Day   ?
+0042#STR0042#ALL#Tutor/ Proxy       ?
+0043#STR0043#ALL#Address            ?
+0044#STR0044#ALL#| Responsible´s Signature   
+0045#STR0045#ALL#|and Company´s CGC stamp      
+0046#STR0046#ALL#ICD
+0047#STR0047#ALL#File printed
+0048#STR0048#ALL# Finish 
+0049#STR0049#ALL#Select file 
+0050#STR0050#ALL#File generated: 
+0051#STR0051#ALL#Unable to generate file. Error opening. DOS code: 

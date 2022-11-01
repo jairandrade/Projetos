@@ -1,0 +1,42 @@
+0001#STR0001#ALL#Entrenamientos pedidos o dados de baja
+0002#STR0002#ALL#Se imprimira segun los parametros solicitados
+0003#STR0003#ALL#por el usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Costo
+0006#STR0006#ALL#Nombre
+0007#STR0007#ALL#A Rayas
+0008#STR0008#ALL#Administracion
+0009#STR0009#ALL#Entrenamientos Solicitados o Dados de baja
+0010#STR0010#ALL#Entrenamientos Solicitados o Dados de baja     Periodo:
+0011#STR0011#ALL# a la 
+0012#STR0012#ALL#Seleccionando Registros...
+0013#STR0013#ALL#   SITUACION
+0014#STR0014#ALL#   SUC. MATR.  NOMBRE                          GRUPO           DEPARTAMENTO         CARGO                          SITUACION
+0015#STR0015#ALL#   NOMBRE                         SUC. MATR.   GRUPO           DEPARTAMENTO         CARGO                          SITUACION
+0016#STR0016#ALL#Fecha
+0017#STR0017#ALL#CURSO: 
+0018#STR0018#ALL# GRUPO: 
+0019#STR0019#ALL#CENTRO DE COSTO: 
+0020#STR0020#ALL# CALENDARIO: 
+0021#STR0021#ALL# PERIODO: 
+0022#STR0022#ALL#SOLICITUD
+0023#STR0023#ALL#RESERVA
+0024#STR0024#ALL#LISTA ESPERA
+0025#STR0025#ALL#CONCLUIDO
+0026#STR0026#ALL#SINONIMO DEL CURSO: 
+0027#STR0027#ALL#Curso:
+0028#STR0028#ALL#Sinonimo:
+0029#STR0029#ALL#Periodo:
+0030#STR0030#ALL#Total Participantes Programados
+0031#STR0031#ALL#Total Participantes Dados de Baja
+0032#STR0032#ALL#Calendario:
+0033#STR0033#ALL#Grupo:
+0034#STR0034#ALL#Conj.
+0035#STR0035#ALL#Departamento
+0036#STR0036#ALL#Cargo
+0037#STR0037#ALL#Situacion
+0038#STR0038#ALL#Participantes
+0039#STR0039#ALL#Este informe efectua la impresion de los entrenamientos que se solicitaron o bajaron 
+0040#STR0040#ALL#Entrenamiento
+0041#STR0041#ALL#Suc.
+0042#STR0042#ALL#AUSENTE

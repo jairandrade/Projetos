@@ -1,0 +1,60 @@
+0001#STR0001#ALL#Work Related Accident Communication - CAT
+0002#STR0002#ALL#It will be printed according to the paramenters required by
+0003#STR0003#ALL#user.
+0004#STR0004#ALL#Z. Form
+0005#STR0005#ALL#Management
+0006#STR0006#ALL#Work Related Accident Communication - CAT
+0007#STR0007#ALL#| 01.Issuer  
+0008#STR0008#ALL#| 1-Empployer  2-Labor Un. 3-Doctor 4-Insur./Depend. 5-Publ. Auth.|
+0009#STR0009#ALL#| 02.CAT Type   
+0010#STR0010#ALL#| 1-Initial    2-Reopening     3-Death communication :
+0011#STR0011#ALL#+--- EMPLOYER-------------------------------------------------------------------------------------------------------------------+
+0012#STR0012#ALL#|   |03.Company name / Name                                             04.Registration                       05.CNAE           |
+0013#STR0013#ALL#|   |06.Address                                           Zone            ZIP       07.City              08.St 09.Telephone     |
+0014#STR0014#ALL#|   +--- INJURED ---------------------------------------------------------------------------------------------------------------+
+0015#STR0015#ALL#|   |10.Name:               
+0016#STR0016#ALL#11. Mother name: 
+0017#STR0017#ALL#|   |12.Birth date   13.Gender             14.Marit. Status    15.CTPS     Series   Issue         16.St    17.Monthly Remun.    |
+0018#STR0018#ALL#| E |18.ID card       Issue                Issued by   19.St       20.PIS/PASEP/NIT                                             |
+0019#STR0019#ALL#| M |21.Address (Rua/Av./Nr.)              District           Cep          22.City              23.State 24.Telephone           |
+0020#STR0020#ALL#| I |25.Job title                    26.CBO             27.INSS affiliation         28.Retired?         29.Area                 |
+0021#STR0021#ALL#| T +---ACCIDENT OR DISEASE ----------------------------------------------------------------------------------------------------+
+0022#STR0022#ALL#|   |30.Accident date      31.Accident hr.   32.Worked hours         33.Type        34.Was there absence?    35.Last day worked |
+0023#STR0023#ALL#|   |36.Accident local                    37.Local specification          38.Cgc                39.St    40.City                |
+0024#STR0024#ALL#|   |41.Injured part of the body: 
+0025#STR0025#ALL#42.Causing Agent:   
+0026#STR0026#ALL#| T |43.Description of the situation that has caused the accident or disease             44.Was there police report?            |
+0027#STR0027#ALL#45.Any deaths ? 
+0028#STR0028#ALL#|   +--- WITNESSES--------------------------------------------------------------------------------------------------------------+
+0029#STR0029#ALL#|   |46.Name: 
+0030#STR0030#ALL#|   |47.Address                               Zone  /ZIP                   48.City                 49.St         Telephone      |
+0031#STR0031#ALL#|   |50.Name: 
+0032#STR0032#ALL#|   |51.Address                               Zone  /ZIP                   52.City                 53.St         Telephone      |
+0033#STR0033#ALL#1-Yes 2-No 
+0034#STR0034#ALL#1-Urban  2-Rural
+0035#STR0035#ALL#|   |                __________________________________          ________________________________________                       |
+0036#STR0036#ALL#|   |                          Place and Date                        Issuer´s signature and stamp                               |
+0037#STR0037#ALL#+---+--- ASSISTANCE  -----------------------------------------------------------------------------------------------------------+
+0038#STR0038#ALL#| A |54.Medical Assistance Unit                                                          55.Date              56.Hour           |
+0039#STR0039#ALL#| T |                                                                                       ___/___/___          ___:___        |
+0040#STR0040#ALL#| E |57.Confinement?       58.Estimated length of treatment    59.Must the injured one be absent from work during the treatment?|
+0041#STR0041#ALL#| S |  [ ] 1-Yes 2-No                    ______________days       [ ] 1-Yes 2-No                                                |
+0042#STR0042#ALL#| T +--- LESION-----------------------------------------------------------------------------------------------------------------+
+0043#STR0043#ALL#| A |60.Description and nature of the lesion                                                                                    |
+0044#STR0044#ALL#| D |                                                                                                                           |
+0045#STR0045#ALL#| O +--- DIAGNOSIS   -----------------------------------------------------------------------------------------------------------+
+0046#STR0046#ALL#|   |61.Probable diagnosis                                                                                |62.CID-10            |
+0047#STR0047#ALL#| M |                                                                                                     |                     |
+0048#STR0048#ALL#| E |                                                                                                     |                     |
+0049#STR0049#ALL#| D |63.Observations------------------------------------------------------------------------------------------------------------+
+0050#STR0050#ALL#| I |                                                                                                                           |
+0051#STR0051#ALL#| C +---------------------------------------------------------------------------------------------------------------------------+
+0052#STR0052#ALL#|   |                          Place and Date                    Doctor´s signature and stamp                                   |
+0053#STR0053#ALL#+---+---------------------------------------------------------------------------------------------------------------------------+
+0054#STR0054#ALL#|   |64.Received on   65.Unit code         66.CAT no.  |NOTES:1- A inexatidao das declaracoes desta comunicacao implicara nas   |
+0055#STR0055#ALL#| I | ___/___/___      _______________      __________ |         sanctions estimated in atrcs.171 and 299 of the Penal Code.          |
+0056#STR0056#ALL#| N |67.Server registration                            |      2- Work-related accident must be communicated until    |
+0057#STR0057#ALL#| S |  _____________  ________________________________ |         1st working day after the accident, under fine penalty in the form of previs-|
+0058#STR0058#ALL#| S |   Registration           Signature               |         ta no art. 22 da Lei no. 8.213/91.                             |
+0059#STR0059#ALL#+-------------------------------------------------------------------------------------------------------------------------------+
+0060#STR0060#ALL#THE ACCIDENT COMMUNICATION IS MANDATORY, EVEN IF THERE IS NO WORK ABSENCE.                                  

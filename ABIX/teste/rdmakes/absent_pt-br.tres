@@ -1,0 +1,28 @@
+0001#STR0001#ALL#Absenteismo
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Nome
+0007#STR0007#ALL#Turno
+0008#STR0008#ALL#Zebrado
+0009#STR0009#ALL#Administraçäo
+0010#STR0010#ALL#(1) Descricao                  Horas      % (2) Descricao                  Horas      %  (3) Descricao                  Horas      %
+0011#STR0011#ALL#Matric Nome                  Periodo  Hrs.Prev.  Hrs.Real     %  (1)Hrs.Adic.     %  (2)Hrs.N.Trab.     %  (3)Hrs.Abonadas     %   
+0012#STR0014#ALL# Turno: 
+0013#STR0015#ALL#TOTAIS PARA A FILIAL 
+0014#STR0016#ALL#Periodo     Hrs.Prev.     Hrs.Real       % (1)Hrs.Adic.      % (2)Hrs.N.Trab.      % (3)Hrs.Abonadas      %
+0015#STR0017#ALL#(1) Descricao                  Horas      % (2) Descricao                  Horas      %  (3) Descricao                  Horas      %
+0016#STR0018#ALL#TOTAIS PARA A EMPRESA 
+0017#STR0019#ALL#TOTAIS PARA O TURNO 
+0018#STR0020#ALL#TOTAIS PARA O CENTRO DE CUSTO 
+0019#STR0027#ALL#Filial: 
+0020#STR0030#ALL#C.C.: 
+0021#STR0031#ALL#Periodo       Hrs.Prev.     Hrs.Real       % (1)Hrs.Adic.      % (2)Hrs.N.Trab.      % (3)Hrs.Abonadas      %
+0022#STR0032#ALL#Inconsistencia
+0023#STR0033#ALL#Periodo Fornecido Invalido
+0024#STR0034#ALL#Selecione a opção de impressão
+0025#STR0035#ALL#Por Periodo
+0026#STR0036#ALL#Por Datas
+0027#STR0037#ALL#Departamento
+0028#STR0038#ALL#C.Custo+Nome

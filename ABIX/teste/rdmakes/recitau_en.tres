@@ -1,0 +1,30 @@
+0001#STR0001#BRA#CREATION OF ITAU FILE FOR PAYMENT RECEIPTS
+0002#STR0002#BRA#Electronic Payslip Generation - Itau Bank
+0003#STR0003#BRA#This program generates the magnetic file to be sent
+0004#STR0004#BRA#to Itau Bank for provision of Electronic Payslip
+0005#STR0005#BRA#NOTE
+0006#STR0006#BRA#There are no records to be saved. File creation
+0007#STR0007#BRA#aborted...
+0008#STR0008#BRA#Keep the file batch number for possible need:
+0009#STR0009#BRA#OK
+0010#STR0010#BRA#File created
+0011#STR0011#BRA#INCONSISTENCIES IN
+0012#STR0012#BRA#Processing...
+0013#STR0013#BRA#Problems occurred when attempting to delete file
+0014#STR0014#BRA#Problems occurred when closing file
+0015#STR0015#BRA#Substitute the
+0016#STR0016#BRA#existing one?
+0017#STR0017#BRA#Problems occurred when attempting to delete file
+0018#STR0018#BRA#File Name in Parameters is Blank.
+0019#STR0019#BRA#Attention!
+0020#STR0020#BRA#File
+0021#STR0021#BRA#cannot be created! Verifique os parametros.
+0022#STR0022#BRA#is required, but is empty or smaller than zero.
+0023#STR0023#BRA#of employee
+0024#STR0024#BRA#Field
+0025#STR0025#BRA#Parameter 'MV_SEQITU' not found.
+0026#STR0026#BRA#Help
+0027#STR0027#BRA#Group of questions 'RECITAU' not found.
+0028#STR0028#BRA#Please update the environment to release version 12.1.27.
+0029#STR0029#BRA#EIN not found in Protheus companies register or the address data are incomplete.
+0030#STR0030#BRA#Check the Configurator module (SIGACFG) for the companies/branches register.

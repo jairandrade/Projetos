@@ -1,0 +1,64 @@
+0001#STR0001#ALL#Форма посещаемости
+0002#STR0002#ALL#Печать будут выполнена согласно параметрам, выбранным
+0003#STR0003#ALL#Польз.
+0004#STR0004#ALL#Имя 
+0005#STR0005#ALL#Регистрация 
+0006#STR0006#ALL#Форм Z
+0007#STR0007#ALL#Управление
+0008#STR0011#ALL#ФОРМА ПОСЕЩАЕМОСТИ
+0009#STR0012#ALL#Выборка записей...  
+0010#STR0013#ALL#КАЛЕНДАРЬ:
+0011#STR0014#ALL#КУРС:
+0012#STR0015#ALL#КЛАСС:
+0013#STR0016#ALL#ПЕРИОД:
+0014#STR0017#ALL#В 
+0015#STR0018#ALL#ВРЕМЯ:
+0016#STR0019#ALL#МАТР. ФИЛ. MOME                               ВИД         СТАТУС   ГРУППА          ОТДЕЛ           ДОЛЖНОСТЬ
+0017#STR0020#ALL#РЕЗЕРВ.
+0018#STR0021#ALL#СПИС. ОЖИД.
+0019#STR0022#ALL#ЗАЯВКА
+0020#STR0023#ALL#ЗАВЕРШЕНО
+0021#STR0024#ALL#ИНСТРУКТОР
+0022#STR0025#ALL#Нет резервирования для этого курса
+0023#STR0026#ALL#ОТМЕНЕНО ПОЛЬЗ.
+0024#STR0027#ALL#МЕСТО:
+0025#STR0028#ALL#_____ОТСУТСТВ.______
+0026#STR0029#ALL#СИНОНИМ КУРСА:
+0027#STR0030#ALL#Табл
+0028#STR0031#ALL#Отдел
+0029#STR0032#ALL#Долж.
+0030#STR0033#ALL#Календ. 
+0031#STR0034#ALL#Направ
+0032#STR0035#ALL#Группа
+0033#STR0036#ALL#Инструк.
+0034#STR0037#ALL#Synonym 
+0035#STR0038#ALL#Период
+0036#STR0039#ALL# в 
+0037#STR0040#ALL#Время
+0038#STR0041#ALL#Мест:
+0039#STR0042#ALL#Подпись  
+0040#STR0043#ALL#Фили
+0041#STR0044#ALL#Рег.
+0042#STR0045#ALL#Всего участн.
+0043#STR0046#ALL#Генерирует список зачисл. на тренинги.
+0044#STR0047#ALL#Список участников
+0045#STR0048#ALL#Event Log in report display: Attendance List
+0046#STR0049#ALL#Check the Training Request table (RA3). Unable to find request.
+0047#STR0050#ALL#Check the Courses table (RA1). Unable to find course.
+0048#STR0051#ALL#Check the Employees table (SRA). Unable to find registration.
+0049#STR0052#ALL#Check the Roles table (SRJ). Unable to find role.
+0050#STR0053#ALL#Check the Positions table (SQ3). Unable to find position.
+0051#STR0054#ALL#Possible causes:
+0052#STR0055#ALL#Branch parameters are incorrect;
+0053#STR0056#ALL#Registration parameters are incorrect;
+0054#STR0057#ALL#Calendar parameters are incorrect;
+0055#STR0058#ALL#Course parameters are incorrect;
+0056#STR0059#ALL#Class parameters are incorrect;
+0057#STR0060#ALL#Reservation statuses are incorrect;
+0058#STR0061#ALL#Name parameters are incorrect;
+0059#STR0062#ALL#Employee role is invalid;
+0060#STR0063#ALL#Group parameters are incorrect;
+0061#STR0064#ALL#Department parameters are incorrect;
+0062#STR0065#ALL#Position parameters are incorrect;
+0063#STR0066#ALL#Employee position is invalid;
+0064#STR0067#ALL#If the employee has a cost center, then the position must have the same one.

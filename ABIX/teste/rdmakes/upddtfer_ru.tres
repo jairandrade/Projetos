@@ -1,0 +1,9 @@
+0001#STR0001#ALL#Backup base before executing this process.
+0002#STR0002#ALL#Tool to adjust payment dates of funds of the following month in SRD.
+0003#STR0003#ALL#UPDDTFER - Vacation payment date updated
+0004#STR0004#ALL#At the end of the processing, payment dates of SRD of funds from vacation transferred to the following month are corrected.
+0005#STR0005#ALL#Base Updating...
+0006#STR0006#ALL#Await while processing is executed.
+0007#STR0007#ALL#Executing updating of dates...
+0008#STR0008#ALL#Backup of base has already been executed?
+0009#STR0009#ALL#Backup and run the routine again.

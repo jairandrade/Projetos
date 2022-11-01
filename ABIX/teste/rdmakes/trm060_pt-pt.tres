@@ -1,0 +1,27 @@
+0001#STR0001#ALL#Formações Solicitadas Ou Liquidadas
+0002#STR0002#ALL#Será impresso de acordo com os parâmetros solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Registo
+0005#STR0005#ALL#Centro De Custo
+0007#STR0007#ALL#Código de barras
+0008#STR0008#ALL#Administração
+0009#STR0009#ALL#Formações Solicitadas Ou Liquidadas
+0010#STR0010#ALL# Formações Solicitadas Ou Liquidadas     Período:
+0012#STR0012#ALL#A Seleccionar Registos...
+0013#STR0013#ALL#   Situação
+0014#STR0014#ALL#   Fil. Reg.   Nome                            Grupo           Departamento         Cargo                          Situação
+0015#STR0015#ALL#   Nome                           Fil. Reg.    Grupo           Departamento         Cargo                          Situação
+0017#STR0017#ALL#Curso: 
+0018#STR0018#ALL# turma: 
+0019#STR0019#ALL#Centro de custo: 
+0020#STR0020#ALL# calendário: 
+0021#STR0021#ALL# período: 
+0022#STR0022#ALL#Solicitação
+0023#STR0023#ALL#Reserva
+0024#STR0024#ALL#Lista De Espera
+0025#STR0025#ALL#Concluído
+0026#STR0026#ALL#Sinónimo de curso: 
+0028#STR0028#ALL#Sinónimo:
+0031#STR0031#ALL#Total Participantes Já Liquidados
+0039#STR0039#ALL#Este relatório efectua a impressão  das formações que foram solicitadas ou liquidadas 
+0040#STR0040#ALL#Formação

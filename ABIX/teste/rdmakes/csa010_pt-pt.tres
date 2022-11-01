@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Listagem De Autorização Do Aumento De Quadro De Empregados.
+0002#STR0002#ALL#Sera impresso de acordo com os parâmetro s solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Centro De Custo
+0005#STR0005#ALL#Código de barras
+0006#STR0006#ALL#Administração
+0007#STR0007#ALL#     ano/mês função                          vl.actual  vl.previsto  vl.autorizado qt.actual qt.prev. qt.aprov. dt. aprov. autorizador 
+0008#STR0008#ALL# autorização do aumento de quadro 
+0009#STR0009#ALL#Centro de custo: 
+0010#STR0010#ALL#Total c.custo - 
+0011#STR0011#ALL#Total crial: 
+0012#STR0012#ALL#Total do período - 
+0014#STR0014#ALL#Autorização de vagas
+0015#STR0015#ALL#Quadro de empregado por função
+0016#STR0016#ALL#Vl.actual
+0017#STR0017#ALL#Vl.previ
+0018#STR0018#ALL#Qtd.actual
+0019#STR0019#ALL#Qtd.previ
+0020#STR0020#ALL#Qtd.aprov
+0021#STR0021#ALL#Autorizador
+0022#STR0022#ALL#Qtd.aprov
+0023#STR0023#ALL#Total função: 
+0024#STR0024#ALL#Total do período: 
+0025#STR0025#ALL#Total c.custo: 
+0026#STR0026#ALL#Este Programa Emite Relatório De Aprovação De Vagas

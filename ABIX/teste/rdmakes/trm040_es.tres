@@ -1,0 +1,39 @@
+0001#STR0001#ALL#Costo de Capacitac. Aual 
+0002#STR0002#ALL#En este informe se imprim. los costos anuales de capacitacion separados por mes(Ene a Dic).
+0003#STR0003#ALL#el usuario.
+0004#STR0004#ALL#Curso
+0005#STR0005#ALL#Centro de Costo
+0006#STR0006#ALL#A Rayas
+0007#STR0007#ALL#Administracion
+0008#STR0009#ALL#Inversion en Entrenamiento en el Año de 
+0009#STR0010#ALL# en: 
+0010#STR0011#ALL# Valor
+0011#STR0012#ALL# Horas
+0012#STR0013#ALL#Seleccionando Registros...
+0013#STR0014#ALL#CENTRO DE COSTO: 
+0014#STR0015#ALL#TOTAL DEL CENTRO DE COSTO
+0015#STR0016#ALL#TOTAL GENERAL:           
+0016#STR0017#ALL#                                           ENE         FEB         MAR         ABR         MAY         JUN         JUL         AGO         SEP         OCT         NOV         DIC 
+0017#STR0018#ALL#CURSO                                     VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR           TOTAL
+0018#STR0019#ALL#CURSO                                     HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS           TOTAL
+0019#STR0020#ALL#ENE
+0020#STR0021#ALL#FEB
+0021#STR0022#ALL#MAR
+0022#STR0023#ALL#ABR
+0023#STR0024#ALL#MAY
+0024#STR0025#ALL#JUN
+0025#STR0026#ALL#JUL
+0026#STR0027#ALL#AGO
+0027#STR0028#ALL#SEP
+0028#STR0029#ALL#OCT
+0029#STR0030#ALL#NOV
+0030#STR0031#ALL#DIC
+0031#STR0032#ALL#TOTAL
+0032#STR0033#ALL#VALOR
+0033#STR0034#ALL#HORAS
+0034#STR0035#ALL#Costo por Curso
+0035#STR0036#ALL#Total por C.Costo
+0036#STR0037#ALL#Costo por C.Costo
+0037#STR0038#ALL#Inconsistencias en la funcion o cargo
+0038#STR0039#ALL#Sucursal Matricula Empleado                     Calendario Curso
+0039#STR0040#ALL#Se encontraron inconsistencias en el vinculo Funcion vs. Cargo. ¿Desea generar Log?

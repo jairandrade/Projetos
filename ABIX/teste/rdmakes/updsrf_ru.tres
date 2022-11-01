@@ -1,0 +1,21 @@
+0001#STR0001#BRA#Backup base before executing this process.
+0002#STR0002#BRA#Tool to remove the records of the Control of Entitled Days table (SRF) that were unduly generated during closing of the script of Vacation.
+0003#STR0003#BRA#UPDSRF - Update of SRF table data.
+0004#STR0004#BRA#At the end of the processing, the records of active vacation that had date earlier than other settled periods are removed.
+0005#STR0005#BRA#Selection of Branches
+0006#STR0006#BRA#Select the branches whose data are updated
+0007#STR0007#BRA#Base Updating...
+0008#STR0008#BRA#Await while processing is executed.
+0009#STR0009#BRA#Running updating of table of control of entitled days...
+0010#STR0010#BRA#Backup of base has already been executed?
+0011#STR0011#BRA#Branch being processed: 
+0012#STR0012#BRA#Registration being processed: 
+0013#STR0013#BRA#Backup and run the routine again.
+0014#STR0014#BRA#Simulation of data that are processed
+0015#STR0015#BRA#Do you want to simulate to generate the LOG of the records that are affected?
+0016#STR0016#BRA#If this option is selected, the data are not updated.
+0017#STR0017#BRA#A LOG with he records that may be affected in the real processing is displayed.
+0018#STR0018#BRA#SIMULATION - generation of the LOG of records that are affected
+0019#STR0019#BRA#UPDSRF - Log of processing
+0020#STR0020#BRA#(SIMULATION)
+0021#STR0021#BRA#There are no records to process.

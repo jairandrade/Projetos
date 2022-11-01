@@ -1,0 +1,10 @@
+0001#STR0001#ALL#Realice la copia de seguridad de la base antes de ejecutar este proceso.
+0002#STR0002#ALL#Herramienta para ajuste de los días pagados en la SR8.
+0003#STR0003#ALL#UPDDPGSR8 - Actualiza días pagados empresa en la ausencia del empleado
+0004#STR0004#ALL#Al final del procesamiento los días pagados de la SR8 estarán corregidos.
+0005#STR0005#ALL#Realizando actualización de la base...
+0006#STR0006#ALL#Espere mientras se ejecuta el procesamiento.
+0007#STR0007#ALL#Ejecutando la actualización de los días pagados ...
+0008#STR0008#ALL#¿Se realizó la copia de seguridad de la base?
+0009#STR0009#ALL#Realice la copia de seguridad y ejecute la rutina nuevamente.
+0010#STR0010#ALL#¡Final del procesamiento!

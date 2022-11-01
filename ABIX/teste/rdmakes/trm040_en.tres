@@ -1,0 +1,39 @@
+0001#STR0001#ALL#Annual Training Cost
+0002#STR0002#ALL#The annual training costs will be printed in this report separatedly by month (Jan to Dec).
+0003#STR0003#ALL#the User.
+0004#STR0004#ALL#Course
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Z.Form
+0007#STR0007#ALL#Management
+0008#STR0009#ALL#Training Investment in the Year of 
+0009#STR0010#ALL# in: 
+0010#STR0011#ALL# Amount
+0011#STR0012#ALL# Hours
+0012#STR0013#ALL#Selecting Records...
+0013#STR0014#ALL#COST CENTER: 
+0014#STR0015#ALL#AMOUNT OF COST CENTER
+0015#STR0016#ALL#GRAND TOTAL:            
+0016#STR0017#ALL#                                           JAN         FEB         MAR         APR         MAY         JUN         JUL         AUG         SEP         OCT         NOV         DEC 
+0017#STR0018#ALL#COURSE                                    VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE       VALUE           TOTAL
+0018#STR0019#ALL#COURSE                                    HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS       HOURS           TOTAL
+0019#STR0020#ALL#JAN
+0020#STR0021#ALL#FEb
+0021#STR0022#ALL#MAR
+0022#STR0023#ALL#APR
+0023#STR0024#ALL#MAY
+0024#STR0025#ALL#JUN
+0025#STR0026#ALL#JUL
+0026#STR0027#ALL#AUG
+0027#STR0028#ALL#SEP
+0028#STR0029#ALL#OCT
+0029#STR0030#ALL#NOV
+0030#STR0031#ALL#DEC
+0031#STR0032#ALL#TOTAL
+0032#STR0033#ALL#AMNT.
+0033#STR0034#ALL#HOURS
+0034#STR0035#ALL#Cost by Course 
+0035#STR0036#ALL#Total by Cost Center
+0036#STR0037#ALL#Cost by Cost Center
+0037#STR0038#ALL#Inconsistences in role or position
+0038#STR0039#ALL#Branch Enrollment Employee                      Calendar   Course
+0039#STR0040#ALL#FThere are inconsistences in the Role vs. Position binding. Generate log?

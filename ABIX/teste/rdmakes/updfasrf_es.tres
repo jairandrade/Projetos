@@ -1,0 +1,15 @@
+0001#STR0001#ALL#Realice la copia de seguridad de la base antes de ejecutar este proceso.
+0002#STR0002#ALL#Herramienta para ajuste de las faltas en la tabla de Control de días de derecho (SRF).
+0003#STR0003#ALL#UPDFASRF - Actualiza faltas en la SRF.
+0004#STR0004#ALL#Al final del procesamiento las faltas de los empleados de las sucursales seleccionadas estarán actualizadas de acuerdo con la SRD en la SRF.
+0005#STR0005#ALL#Selección de sucursales
+0006#STR0006#ALL#Seleccione las sucursales cuyos datos se actualizarán
+0007#STR0007#ALL#Realizando actualización de la base...
+0008#STR0008#ALL#Espere mientras se ejecuta el procesamiento.
+0009#STR0009#ALL#Ejecutando la actualización de las faltas...
+0010#STR0010#ALL#¿Se realizó la copia de seguridad de la base?
+0011#STR0011#ALL#Sucursal en procesamiento: 
+0012#STR0012#ALL#Matrícula en procesamiento: 
+0013#STR0013#ALL#Realice la copia de seguridad y ejecute la rutina nuevamente.
+0014#STR0014#ALL#Faltas actualizadas con éxito.
+0015#STR0015#ALL#No existen faltas en la SRD para actualización.

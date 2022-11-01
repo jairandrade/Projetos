@@ -1,0 +1,34 @@
+0001#STR0001#ALL#Ficha De Salário-família.
+0002#STR0002#ALL#Sera impresso de acordo com os parâmetro s solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Matrícula
+0005#STR0005#ALL#Centro De Custo
+0006#STR0006#ALL#Código de barras
+0007#STR0007#ALL#Administração
+0008#STR0008#ALL# ficha de salário-família 
+0009#STR0009#ALL#Ficha De Salário - Família
+0011#STR0012#ALL#Número de contribuinte/registo na Segurança social: 
+0012#STR0013#ALL#Endereço: 
+0013#STR0014#ALL#Localidade: 
+0014#STR0015#ALL#Código postal: 
+0015#STR0016#ALL#  cidade: 
+0016#STR0017#ALL#  B.I.: 
+0018#STR0019#ALL#Carteira profissional: 
+0019#STR0020#ALL# série: 
+0020#STR0021#ALL#    dt.admissão: 
+0021#STR0022#ALL#Dt.demissão: 
+0022#STR0023#ALL#  localidade: 
+0023#STR0024#ALL#Código postal: 
+0024#STR0025#ALL#  cidade: 
+0025#STR0026#ALL#B.I.: 
+0026#STR0027#ALL#Filhos menores de 14 anos - (dados extraídos das certidões)
+0027#STR0028#ALL#|No. |             NOME DO FILHO              | DT.NASC. |            LOCAL DO            |  CARTÓRIO  | N.REG. |  No.  |   No. |               MATRICULA             | DT.      | DT.DA    |            VISTO             |
+0029#STR0030#ALL#| VALOR DE UM SALÁRIO-FAMILIA                                             | VALOR TOTAL DOS SALARIOS-FAMILIA A PAGAR                              |VALOR TOTAL DOS SALARIOS-FAMILIA A PAGAR                                |
+0032#STR0033#ALL#Recebi Os Documentos Acima
+0033#STR0034#ALL#Assinatura
+0034#STR0035#ALL#Cancelado Pelo Operador
+0037#STR0038#ALL#|No. |          NOME DO FILHO         | DT.NASC. |  LOCAL DO  |  CARTÓRIO  | N.REG. |  No.  |   No. | DT.   | DT.DA |    VISTO     |
+0039#STR0040#ALL#| VALOR DE UM SALÁRIO-FAMÍLIA                                     | VALOR TOTAL DOS SALÁRIOS-FAMÍLIA A PAGAR                       |
+0042#STR0043#ALL#Atenção
+0043#STR0044#ALL#Antes de prosseguir, e necessário executar os procedimentos do boletim técnico - campo matrícula civil na ficha de salário família.
+0044#STR0045#ALL#OK

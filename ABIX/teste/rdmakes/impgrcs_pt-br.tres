@@ -1,0 +1,65 @@
+0001#STR0001#ALL#GRCS - Guia de Recolhimento da Contribuição Sindical
+0002#STR0002#ALL#Dados da Entidade Sinical
+0003#STR0003#ALL#Nome da Entidade
+0004#STR0004#ALL#Vencimento
+0005#STR0005#ALL#Exercício
+0006#STR0006#ALL#Código da Entidade Sindical
+0007#STR0007#ALL#Endereço
+0008#STR0008#ALL#Número
+0009#STR0009#ALL#Complemento
+0010#STR0010#ALL#CNPJ da Entidade
+0011#STR0011#ALL#Bairro/Distrito
+0012#STR0012#ALL#Cidade/Município
+0013#STR0013#ALL#UF
+0014#STR0014#ALL#Dados do Contribuinte
+0015#STR0015#ALL#Nome/Razão Social/Denominação Social
+0016#STR0016#ALL#CPF/CNPJ/Código Contribuinte
+0017#STR0017#ALL#Código Atividade
+0018#STR0018#ALL#Dados de Referência da Contribuição
+0019#STR0019#ALL#Categoria
+0020#STR0020#ALL#Patronal/Empregador
+0021#STR0021#ALL#Empregados
+0022#STR0022#ALL#Prof. Liberal
+0023#STR0023#ALL#Autônomos
+0024#STR0024#ALL#Capital Social - Empresa
+0025#STR0025#ALL#Nº Empregados Contribuintes
+0026#STR0026#ALL#Capital Social Estabelecimento
+0027#STR0027#ALL#Total Remuneração - Contribuintes
+0028#STR0028#ALL#Total de Empregados - Estabelecimento
+0029#STR0029#ALL#Dados da Contribuição
+0030#STR0030#ALL#Valor do Documento
+0031#STR0031#ALL#Desconto
+0032#STR0032#ALL#Abatimento
+0033#STR0033#ALL#Outras
+0034#STR0034#ALL#Outros
+0035#STR0035#ALL#Deduções
+0036#STR0036#ALL#Mora
+0037#STR0037#ALL#Multa
+0038#STR0038#ALL#Acréscimos
+0039#STR0039#ALL#Valor Cobrado
+0040#STR0040#ALL#Código Cedente
+0041#STR0041#ALL#Nosso Número
+0042#STR0042#ALL#Data
+0043#STR0043#ALL#Autenticação
+0044#STR0044#ALL#Mecânica
+0045#STR0045#ALL#Local de Pagamento
+0046#STR0046#ALL#Cedente
+0047#STR0047#ALL#Data do Documento
+0048#STR0048#ALL#Número do Documento
+0049#STR0049#ALL#Esp. Docum.
+0050#STR0050#ALL#Aceite
+0051#STR0051#ALL#Data Processamento
+0052#STR0052#ALL#Instruções
+0053#STR0053#ALL#Sacado
+0054#STR0054#ALL#Sacador
+0055#STR0055#ALL#Avalista
+0056#STR0056#ALL#Uso do Banco
+0057#STR0057#ALL#Carteira
+0058#STR0058#ALL#Código de Barras
+0059#STR0059#ALL#Espécie
+0060#STR0060#ALL#Quantidade
+0061#STR0061#ALL#Valor
+0062#STR0062#ALL#Agência
+0063#STR0063#ALL#Ficha de Compensação
+0064#STR0064#ALL#CEP
+0065#STR0065#ALL#Data de Vencimento

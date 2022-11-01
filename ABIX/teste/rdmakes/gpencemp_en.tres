@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Analytical generation of Company Duties
+0002#STR0002#ALL#Generates entries of company duties per employee
+0003#STR0003#ALL#Generation of Entries of Company Duties
+0004#STR0004#ALL#Wizard for the generation of entries of funds corresponding to the duties of the company, for annual accruals (SRD), according to parameterization entered as follows.
+0005#STR0005#ALL#This option must be used only for periods in which the calculation of the Personnel Management was executed by using parameter MV_ENCINSS with 'N'.
+0006#STR0006#ALL#Once executed, this process cannot be undone.
+0007#STR0007#ALL#WARNING: Execute the backup of the environment before continuing.
+0008#STR0008#ALL#Selection of Periods and Branches
+0009#STR0009#ALL#Select the period and branches for the generation of entries
+0010#STR0010#ALL#Generating entries
+0011#STR0011#ALL#Wait for process end.
+0012#STR0012#ALL#Period from
+0013#STR0013#ALL#Invalid month!
+0014#STR0014#ALL#Month: 
+0015#STR0015#ALL#Invalid year!
+0016#STR0016#ALL#Year: 
+0017#STR0017#ALL#Period to
+0018#STR0018#ALL#Invalid data!
+0019#STR0019#ALL#The end year and month cannot be earlier than the start year and month. For the records to be converted, leave all fields in blank.
+0020#STR0020#ALL#Generation of entries...
+0021#STR0021#ALL#Fill out the From/To period for the duties generation.
+0022#STR0022#ALL#This procedure cannot be undone. Only continue after having executed the backup of your environment.
+0023#STR0023#ALL#Continue?
+0024#STR0024#ALL#Branch: 
+0025#STR0025#ALL#Process: 

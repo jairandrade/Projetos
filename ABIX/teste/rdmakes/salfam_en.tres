@@ -1,0 +1,44 @@
+0001#STR0001#ALL#Family Allowance Card.
+0002#STR0002#ALL#It will be printed according to the parameters selected by
+0003#STR0003#ALL#the usuer.
+0004#STR0004#ALL#Registration
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Z.Form
+0007#STR0007#ALL#Administration
+0008#STR0008#ALL# FAMILY ALLOWANCE CARD 
+0009#STR0009#ALL#ALLOWANCE CARD - FAMILY
+0010#STR0011#ALL#Compnay: 
+0011#STR0012#ALL#CGC/Registration INSS Nr: 
+0012#STR0013#ALL#Address: 
+0013#STR0014#ALL#Zone: 
+0014#STR0015#ALL#  ZIP CODE: 
+0015#STR0016#ALL#  City: 
+0016#STR0017#ALL#  STATE: 
+0017#STR0018#ALL#Employee: 
+0018#STR0019#ALL#CTPS: 
+0019#STR0020#ALL# Series: 
+0020#STR0021#ALL#    Admission Dt.: 
+0021#STR0022#ALL#Demission Dt.: 
+0022#STR0023#ALL#  Zone: 
+0023#STR0024#ALL#ZIP CODE: 
+0024#STR0025#ALL#  City: 
+0025#STR0026#ALL#STATE: 
+0026#STR0027#ALL#CHILREN UNDER     14      - (Data extracted from birth cer)
+0027#STR0028#ALL#|No. |             CHILD NAME              | DT.BIRTH |            PLACE OF            |  NOTARY  | N.REG. |  No.  |   No. |               ENROLLMENT             | DT.      | DT.OF    |            VISA             |
+0028#STR0029#ALL#|Ord.|                                        |          |           BIRTH           |            |        | BOOK | PAGE |                                     | REG.    | WRITE-OFF    |          FISC.INSS           |
+0029#STR0030#ALL#| VALUE OF A FAMILY ALLOWANCE                                             | TOTAL OF FAMILY ALLOWANCES PAYABLE                              |TOTAL OF FAMILY ALLOWANCES PAYABLE                                |
+0030#STR0031#ALL#| On          _____ ___________________ of _____  R$ _________________ | From _____ ___________________ of ______  R$ ______________ | From _____ ___________________ of ______  R$ _______________ |
+0031#STR0032#ALL#| Changed on _____ ___________________ of _____  R$ _________________ | From _____ ___________________ of ______  R$ ______________ | From _____ ___________________ of ______  R$ _______________ |
+0032#STR0033#ALL#RECEIVED THE ABOVE DOCUMENTS
+0033#STR0034#ALL#SIGNATURE
+0034#STR0035#ALL#Cancelled by the Operator
+0035#STR0036#ALL#PROOF OF ANNUAL DELIVERY OF VACCINE CERTIFICATE - Children up to 5 years old (Art. 67 of Law 8.213/91)
+0036#STR0037#ALL#|           Child           |     Delivery Date      |           Child           |     Delivery Date      |           Child           |     Delivery Date      |           Child           |     Delivery Date     |
+0037#STR0038#ALL#|No. |          CHILD NAME         | DT.BIRTH |  PLACE OF  |  NOTARY  | N.REG. |  No.  |   No. | DT.   | DT.OF |    VISA     |
+0038#STR0039#ALL#|Ord.|                                |          | BIRTH |            |        | BOOK | PAGE | REG. | WRITE-OFF | FISCAL INSS  |
+0039#STR0040#ALL#| VALUE OF A FAMILY ALLOWANCE                                     | TOTAL OF FAMILY ALLOWANCES PAYABLE                       |
+0040#STR0041#ALL#| On         ___ __________________ of _____  R$ ____________ | From ___ _________________ of _____  R$ ____________ |
+0041#STR0042#ALL#| Changed on ___ __________________ of _____  R$ ____________ | From ___ _________________ of _____  R$ ____________ |
+0042#STR0043#ALL#Attention
+0043#STR0044#ALL#Before proceeding, you must run the technical report procedures - Civil Registration Field in Family Salary Form.
+0044#STR0045#ALL#OK

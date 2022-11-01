@@ -1,0 +1,10 @@
+0001#STR0001#ALL#Backup base before executing this process.
+0002#STR0002#ALL#Tool to adjust of the days paid in the SR8.
+0003#STR0003#ALL#UPDDPGSR8 - Days paid updated company in the employee absence
+0004#STR0004#ALL#At the end of the processing, the paid days of the SR8 are adjusted.
+0005#STR0005#ALL#Base Updating...
+0006#STR0006#ALL#Await while processing is executed.
+0007#STR0007#ALL#Running updating of paid days...
+0008#STR0008#ALL#Backup of base has already been executed?
+0009#STR0009#ALL#Backup and run the routine again.
+0010#STR0010#ALL#Processing end

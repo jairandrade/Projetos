@@ -1,0 +1,60 @@
+0001#STR0001#ALL#Comunicacion de Accidente en el Trabajo - CAT
+0002#STR0002#ALL#Se imprimira segun los parametros solicitados por el
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#A Rayado
+0005#STR0005#ALL#Administracion
+0006#STR0006#ALL#Comunicacion de Accidente en el Trabajo - CAT
+0007#STR0007#ALL#| 01.Emitente
+0008#STR0008#ALL#| 1-Emplegador 2-Sindicato 3-Medico 4-Segur./Depend. 5-Aut.publica|
+0009#STR0009#ALL#| 02.Tipo de CAT
+0010#STR0010#ALL#| 1-Inicial    2-Reapertura    3-Comunicacion de Muerte:
+0011#STR0011#ALL#+--- EMPLEADOR ----------------------------------------------------------------------------------------------------------------+
+0012#STR0012#ALL#|   |03.Razon Social / Nombre                                             04.Inscripcion                        05.CNAE           |
+0013#STR0013#ALL#|   |06.Direccion                                          Barrio          CEP       07.Municipio         08.UF 09.Telefono      |
+0014#STR0014#ALL#|   +--- ACCIDENTADO ------------------------------------------------------------------------------------------------------------+
+0015#STR0015#ALL#|   |10.Nombre del Accidentado: 
+0016#STR0016#ALL#11. Nombre de la Madre: 
+0017#STR0017#ALL#|   |12.Nacimiento   13.Sexo               14.Estado Civil     15.CTPS     Serie    Emision       16.UF    17.Remun.Mensual      |
+0018#STR0018#ALL#| E |18.Identidad    Emision               Organo Exp.  19.UF       20.PIS/PASEP/NIT                                             |
+0019#STR0019#ALL#| M |21.Direccion (Calle/Av./No.)             Barrio             Cp          22,Municipio           23,UF  24,Telefono            |
+0020#STR0020#ALL#| I |25.Nombre de la Ocupacion             26.CBO             27.Afiliacion INSS            28.¿Jubilado?      29.Area           |
+0021#STR0021#ALL#| T +--- ACCIDENTE O ENFERMEDAD -------------------------------------------------------------------------------------------------+
+0022#STR0022#ALL#|   |30.Fecha Accidente      31.Hr Acidente    32.Hrs Trabajadas      33.Tipo        34.Hubo Alejamiento?    35.Ultimo dia Trab. |
+0023#STR0023#ALL#|   |36.Local Accidente                    37.Especificacion Local          38.N.Contribuyente            39.UF    40.Municipio  |
+0024#STR0024#ALL#|   |41.Parte del cuerpo afectada: 
+0025#STR0025#ALL#42.Agente Causador: 
+0026#STR0026#ALL#| T |43.Descripcion de la Situacion Generadora del Accidente o enfermedad                         44.Hubo Registro Policiaco?    |
+0027#STR0027#ALL#45.Hube Muerte? 
+0028#STR0028#ALL#|   +--- TESTIGOS ---------------------------------------------------------------------------------------------------------------+
+0029#STR0029#ALL#|   |46.Nombre: 
+0030#STR0030#ALL#|   |47.Direccion                              Barrio/CP                   48.Municipio            49.UF         Telefono       |
+0031#STR0031#ALL#|   |50.Nombre: 
+0032#STR0032#ALL#|   |51.Direccion                              Barrio/CP                   52.Municipio            53.UF         Telefono       |
+0033#STR0033#ALL#1-Si 2-No
+0034#STR0034#ALL#1-Urbana 2-Rural
+0035#STR0035#ALL#|   |                __________________________________          ________________________________________                       |
+0036#STR0036#ALL#|   |                          Local y Fecha                          Firma y sello del Emitente                                |
+0037#STR0037#ALL#+---+--- ATENCIÓN--- -----------------------------------------------------------------------------------------------------------+
+0038#STR0038#ALL#| A |54.Unidad de Atencion Medica                                                         55.Fecha             56.Hora          |
+0039#STR0039#ALL#| T |                                                                                       ___/___/___          ___:___        |
+0040#STR0040#ALL#| E |57.Hubo Hospitalizacion? 58.Duracion Probable del Tratamiento 59.El accidentado se alejara del trabajo durante tratamiento?|
+0041#STR0041#ALL#| S |  [ ] 1-Si 2-No                   ______________Dias       [ ] 1-Si 2-No                                                   |
+0042#STR0042#ALL#| T +--- LESION -----------------------------------------------------------------------------------------------------------------+
+0043#STR0043#ALL#| A |60.Descripcion y Modalidad de la Lesion                                                                                    |
+0044#STR0044#ALL#| D |                                                                                                                           |
+0045#STR0045#ALL#| O +--- DIAGNOSTICO -----------------------------------------------------------------------------------------------------------+
+0046#STR0046#ALL#|   |61.Diagnostico Probable                                                                              |62.CID-10            |
+0047#STR0047#ALL#| M |                                                                                                     |                     |
+0048#STR0048#ALL#| E |                                                                                                     |                     |
+0049#STR0049#ALL#| D |63.Observaiones ------------------------------------------------------------------------------------------------------------+
+0050#STR0050#ALL#| I |                                                                                                                           |
+0051#STR0051#ALL#| C +---------------------------------------------------------------------------------------------------------------------------+
+0052#STR0052#ALL#|   |                          Local y Fecha                      Firma y sello del Medico con CRM                              |
+0053#STR0053#ALL#+---+---------------------------------------------------------------------------------------------------------------------------+
+0054#STR0054#ALL#|   |64.Recibida en   65.Cod. de la Unidad   66.No.CAT   |NOTAS:1-La inexatitud en declaraciones de esta comunicacion implica en|
+0055#STR0055#ALL#| I | ___/___/___      _______________      __________ |         las sanciones previstas en los arts.171 y 299 del Codigo Penal.|
+0056#STR0056#ALL#| N |67,Matricula del Servidor                          |      2- La comunicacion de accidente de trabajo se debera hacer hasta el   |
+0057#STR0057#ALL#| S |  _____________  ________________________________ |         hasta el 1o. Dia habil tras el accidente,bajo pena de multa en |
+0058#STR0058#ALL#| S |    Matricula       Firma del Servidor            |         la forma prevista en el art. 22 de la Ley no. 8.213/91.        |
+0059#STR0059#ALL#+-------------------------------------------------------------------------------------------------------------------------------+
+0060#STR0060#ALL#LA COMUNICACION DEL ACCIDENTE ES OBLIGATORIA, AUNQUE QUE NO HAYA ALEJAMIENTO DEL TRABAJO.                                  

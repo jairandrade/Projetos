@@ -1,0 +1,14 @@
+0001#STR0001#ALL#The purpose of this program is to print the test form to be 
+0002#STR0002#ALL#given to participants of a given course according to the parameters selected. 
+0003#STR0003#ALL#Z.Form
+0004#STR0004#ALL#Management
+0005#STR0005#ALL#Evaluation:
+0006#STR0006#ALL#Employee`s Test
+0007#STR0007#ALL#Cancelled by User
+0008#STR0008#ALL#Cancelled by Operator
+0009#STR0009#ALL#Evaluation: 
+0010#STR0010#ALL#Name: 
+0011#STR0011#ALL#Evaluator: 
+0012#STR0012#ALL#Evaluation form 
+0013#STR0013#ALL#Test questions 
+0014#STR0014#ALL#Form header 

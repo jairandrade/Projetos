@@ -1,0 +1,30 @@
+0001#STR0001#BRA#GERAÇÃO DE ARQUIVO ITAÚ P/RECIBOS DE PAGAMENTOS
+0002#STR0002#BRA#Geração Holerite Eletronico - Bco Itaú
+0003#STR0003#BRA#Este programa fara a geração do arquivo magnetico para envio 
+0004#STR0004#BRA#ao Banco Itaú para disponibilização do Holerite Eletronico 
+0005#STR0005#BRA#AVISO
+0006#STR0006#BRA#Não existem registros a serem gravados. A geração do arquivo 
+0007#STR0007#BRA# foi abortada ...
+0008#STR0008#BRA#Guarde o número do lote deste arquivo para eventual necessidade: 
+0009#STR0009#BRA#OK
+0010#STR0010#BRA#Gerado o arquivo 
+0011#STR0011#BRA#INCONSISTÊNCIAS NA 
+0012#STR0012#BRA#Processando...
+0013#STR0013#BRA#Ocorreram problemas na tentativa de deleção do arquivo 
+0014#STR0014#BRA#Ocorreram problemas no fechamento do arquivo 
+0015#STR0015#BRA#Deseja substituir o 
+0016#STR0016#BRA# existente ?
+0017#STR0017#BRA#Ocorreram problemas na tentativa de deleção do arquivo 
+0018#STR0018#BRA#Nome do Arquivo nos Parametros em Branco.
+0019#STR0019#BRA#Atenção!
+0020#STR0020#BRA#O arquivo 
+0021#STR0021#BRA# não pode ser criado! Verifique os parametros.
+0022#STR0022#BRA# é obrigatorio porém esta vazio ou menor que zero.
+0023#STR0023#BRA# do funcionário 
+0024#STR0024#BRA#O Campo 
+0025#STR0025#BRA#Parâmetro 'MV_SEQITU' não encontrado.
+0026#STR0026#BRA#Help
+0027#STR0027#BRA#Grupo de perguntas 'RECITAU' não encontrado.
+0028#STR0028#BRA#Favor atualizar o ambiente para o release versão 12.1.27.
+0029#STR0029#BRA#CNPJ não localizado no cadastro de empresas do Protheus ou os dados de endereço não estão completos.
+0030#STR0030#BRA#Verifique no módulo configurador (SIGACFG) o cadastro de empresas\filiais.

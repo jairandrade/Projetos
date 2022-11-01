@@ -1,0 +1,34 @@
+0002#STR0002#ALL#O Aumento Será Aplicado Sobre As Tarefas Definidas Nos Parâmetros,
+0003#STR0003#ALL#A reajustar automaticamente os lançamentos de todos os funcionários.
+0004#STR0004#ALL#Registo
+0005#STR0005#ALL#Centro De Custo
+0006#STR0006#ALL#Função
+0008#STR0008#ALL#Código de barras
+0009#STR0009#ALL#Administração
+0010#STR0010#ALL#Base de dados: 
+0016#STR0016#ALL#Intervalo De
+0017#STR0017#ALL#Intervalo Até
+0019#STR0019#ALL#Valor Do Aumento
+0020#STR0020#ALL#Relação De Aumento De Tarefas
+0023#STR0023#ALL#Abandonar
+0024#STR0024#ALL# calcular para tarefas 
+0025#STR0025#ALL#Módulo
+0026#STR0026#ALL#Filial: 
+0027#STR0027#ALL# ccto: 
+0028#STR0028#ALL# mat: 
+0029#STR0029#ALL# nome: 
+0030#STR0030#ALL# dt.admissão: 
+0031#STR0031#ALL# categoria: 
+0032#STR0032#ALL# sindicato: 
+0033#STR0033#ALL# função: 
+0035#STR0035#ALL#A Seleccionar Registos...
+0036#STR0036#ALL# tarefa: 
+0037#STR0037#ALL# verba: 
+0038#STR0038#ALL#Tarefa Antiga          Percentual          Reajuste          Nova Tarefa          Arredondamento
+0039#STR0039#ALL#Tarefa     Verba     Dt.tarefa De     Dt.tarefa Até     Tarefa Antiga     Percentual     Reajuste     Nova Tarefa     Arredondamento
+0040#STR0040#ALL#Parâmetros
+0041#STR0041#ALL#Empregados
+0042#STR0042#ALL#De todas as filiais, a partir da data digitada.
+0043#STR0043#ALL#Diário Do Reajuste De Tarefas
+0045#STR0045#ALL#ÍNDICE PARA AUMENTO DE TAREFA
+0047#STR0047#ALL# ultrapassou a capacidade máxima de armazenamento do campo RO_VALOR

@@ -1,0 +1,30 @@
+0001#STR0001#BRA#GENERACIÓN DE ARCHIVO ITAÚ P/RECIBOS DE PAGO
+0002#STR0002#BRA#Generación de boleta de pago electrónica - Bco Itaú
+0003#STR0003#BRA#Este programa generará el archivo magnético para envío
+0004#STR0004#BRA#al Banco Itaú para poner a disposición la boleta de pago electrónica
+0005#STR0005#BRA#AVISO
+0006#STR0006#BRA#No existen registros por grabarse. La generación del archivo.
+0007#STR0007#BRA#se interrumpió ...
+0008#STR0008#BRA#Guarde el número del lote de este archivo para eventual necesidad:
+0009#STR0009#BRA#OK
+0010#STR0010#BRA#Generado el archivo
+0011#STR0011#BRA#INCONSISTENCIAS EN LA
+0012#STR0012#BRA#Procesando...
+0013#STR0013#BRA#Ocurrieron problemas al intentar borrar el archivo
+0014#STR0014#BRA#Ocurrieron problemas al cierre del archivo
+0015#STR0015#BRA#¿Desea sustituir el
+0016#STR0016#BRA#existente ?
+0017#STR0017#BRA#Ocurrieron problemas al intentar borrar el archivo
+0018#STR0018#BRA#Nombre del archivo en los parámetros en blanco.
+0019#STR0019#BRA#¡Atención!
+0020#STR0020#BRA#¡El archivo
+0021#STR0021#BRA#no puede crearse! Verifique los parámetros.
+0022#STR0022#BRA#es obligatorio, pero está vacío o es menor que cero.
+0023#STR0023#BRA#del empleado
+0024#STR0024#BRA#El campo
+0025#STR0025#BRA#No se encontró el parámetro 'MV_SEQITU'.
+0026#STR0026#BRA#Help
+0027#STR0027#BRA#No se encontró el grupo de preguntas 'RECITAU'.
+0028#STR0028#BRA#Por favor, actualice el entorno para el release versión 12.1.27.
+0029#STR0029#BRA#CNPJ no encontrado en el archivo de empresas del Protheus o los datos de la dirección no están completos.
+0030#STR0030#BRA#Verifique en el módulo configurador (SIGACFG) el archivo de empresas\sucursales.

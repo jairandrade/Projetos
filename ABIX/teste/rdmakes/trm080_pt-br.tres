@@ -1,0 +1,27 @@
+0001#STR0001#ALL#Este programa tem como objetivo imprimir os testes realizados
+0002#STR0002#ALL#conforme parametros selecionados.
+0003#STR0003#ALL#Avaliacoes realizadas
+0004#STR0004#ALL#*** CANCELADO PELO OPERADOR ***
+0005#STR0005#ALL#Zebrado
+0006#STR0006#ALL#Administracao
+0007#STR0007#ALL#Filial Matricula Nome                          Avaliacao                               Nota
+0008#STR0008#ALL#Filial Matricula Nome                          Avaliacao                              Questao Alternativa  Pontos
+0009#STR0009#ALL#Calendario
+0010#STR0010#ALL#Curso: 
+0011#STR0011#ALL#Turma: 
+0012#STR0012#ALL#Total de Pontos
+0013#STR0013#ALL#Filial Matricula Nome                          Avaliacao
+0014#STR0014#ALL#Alternativas
+0015#STR0015#ALL#Pontos
+0016#STR0016#ALL#Resposta    
+0017#STR0017#ALL#Media: 
+0018#STR0018#ALL#Sinonimo
+0019#STR0019#ALL#Media da Turma: 
+0020#STR0020#ALL#Funcionário
+0021#STR0021#ALL#Questões
+0022#STR0022#ALL#Respostas
+0023#STR0023#ALL#Resposta Dissertativa
+0024#STR0024#ALL#Sintético
+0025#STR0025#ALL#Analítico
+0026#STR0026#ALL#Cadastro de Escala
+0027#STR0027#ALL#Percentual

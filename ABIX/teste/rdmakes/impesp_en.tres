@@ -1,0 +1,96 @@
+0001#STR0001#ALL#Time Attendance Mirror
+0002#STR0002#ALL#It will be printed according to the parameters selected 
+0003#STR0003#ALL#by the User.
+0004#STR0004#ALL#Registr.
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Name
+0007#STR0007#ALL#Shift
+0008#STR0008#ALL#Z.Form
+0009#STR0009#ALL#Management
+0010#STR0013#ALL#Employee Signature
+0011#STR0014#ALL#T O T A L S
+0012#STR0015#ALL#Cod Descript.                Calc.            Cod Descript.                Calc.          
+0013#STR0016#ALL#Cod Descript.                         Infor.  Cod Descript.                         Infor.
+0014#STR0017#ALL#Cod Descript.                Calc.    Infor.  Cod Descript.                Calc.    Infor.
+0015#STR0018#ALL#** Except. not Worked **
+0016#STR0019#ALL#** Holiday **
+0017#STR0020#ALL#** Absent **
+0018#STR0021#ALL#** D.S.R. **
+0019#STR0022#ALL#** Compensat. **
+0020#STR0023#ALL#** Not Worked **
+0021#STR0024#ALL#Comp..: 
+0022#STR0025#ALL# Reg..: 
+0023#STR0026#ALL#  Plate : 
+0024#STR0027#ALL#Add...: 
+0025#STR0028#ALL# Name..: 
+0026#STR0029#ALL#CGC: 
+0027#STR0030#ALL# Funct.: 
+0028#STR0031#ALL#C.C...: 
+0029#STR0032#ALL# Categ.: 
+0030#STR0033#ALL#Shift.: 
+0031#STR0034#ALL#   DATE    DAY     
+0032#STR0035#ALL#to I. 
+0033#STR0036#ALL#to O. 
+0034#STR0037#ALL#Remarks                   Hours  Type of Marking
+0035#STR0038#ALL#C.Cent. + Name
+0036#STR0039#ALL#Notice Period Invalid.
+0037#STR0040#ALL#Browse Anotations
+0038#STR0041#ALL#Bonus Reason
+0039#STR0042#ALL#Date
+0040#STR0043#ALL#Day
+0041#STR0044#ALL#&#170;I.
+0042#STR0045#ALL#&#170;O.
+0043#STR0046#ALL#Observations
+0044#STR0047#ALL#Hours  Mark Type
+0045#STR0048#ALL#Shift 
+0046#STR0049#ALL#Shifts: 
+0047#STR0050#ALL#Process + Registration
+0048#STR0051#ALL#Dept.: 
+0049#STR0052#ALL#Select print option: 
+0050#STR0053#ALL#By period
+0051#STR0054#ALL#By dates
+0052#STR0055#ALL#Process: 
+0053#STR0056#ALL#Period
+0054#STR0057#ALL#Schedule: 
+0055#STR0058#ALL#Paym. Nr.: 
+0056#STR0059#ALL#Entered                 Hours
+0057#STR0060#ALL#Department
+0058#STR0061#ALL#Department + Name
+0059#STR0062#ALL#Allowance
+0060#STR0063#ALL#Note
+0061#STR0064#ALL#Code
+0062#STR0065#ALL#Description
+0063#STR0066#ALL#Calc.
+0064#STR0067#ALL#Infor.
+0065#STR0068#ALL#H.E.
+0066#STR0069#ALL#Absent.
+0067#STR0070#ALL#Ad. Not.
+0068#STR0071#ALL#Company: 
+0069#STR0072#ALL#Registration: 
+0070#STR0073#ALL#Plate: 
+0071#STR0074#ALL#Name: 
+0072#STR0075#ALL#CNPJ: 
+0073#STR0076#ALL#Function: 
+0074#STR0077#ALL#C.C. 
+0075#STR0078#ALL#Category: 
+0076#STR0079#ALL#Shift: 
+0077#STR0080#ALL#For this report the parameter MV_COLMARC must be lower or equal to 5.
+0078#STR0081#ALL#Time Bank
+0079#STR0082#ALL#Previous Balance
+0080#STR0083#ALL#Debit
+0081#STR0084#ALL#Credit
+0082#STR0085#ALL#Current Balance
+0083#STR0086#ALL#Attention
+0084#STR0087#ALL#Period entered does not correspond with current period. Continue?
+0085#STR0088#ALL#Stat....:
+0086#STR0089#ALL#Period:
+0087#STR0090#ALL#ON LEAVE
+0088#STR0091#ALL#VACATION
+0089#STR0092#ALL#TRANSFERED
+0090#STR0093#ALL#DISMISSED
+0091#STR0094#ALL#REGULAR
+0092#STR0095#ALL#CEI:
+0093#STR0096#ALL#CPF:
+0094#STR0097#ALL#Valued hours
+0095#STR0098#ALL#Val Hr
+0096#STR0099#ALL#Social Name:

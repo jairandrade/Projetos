@@ -1,0 +1,35 @@
+0001#STR0001#ALL#Impressäo Ok?
+0002#STR0002#ALL#Ministerio da Previdencia e Assistencia Social-MPAS
+0003#STR0003#ALL#3 - CODIGO DE
+0004#STR0004#ALL#PAGAMENTO
+0005#STR0005#ALL#Instituto Nacional do Seguro Social-INSS
+0006#STR0006#ALL#4 - COMPETENCIA
+0007#STR0007#ALL#GUIA DA PREVIDENCIA SOCIAL - GPS
+0008#STR0008#ALL#5 - IDENTIFICADOR
+0009#STR0009#ALL#1 - NOME OU RAZAO SOCIAL / FONE / ENDERECO:
+0010#STR0010#ALL#6 - VALOR DO INSS
+0011#STR0011#ALL#2 - VENCIMENTO
+0012#STR0012#ALL#9 - VALOR DE OUTRAS
+0013#STR0013#ALL#(Uso Exclusivo do INSS)
+0014#STR0014#ALL#ENTIDADES
+0015#STR0015#ALL#ATENCAO: E vedada a utilizacao de GPS  para  recolhimento de  receita de  valor
+0016#STR0016#ALL#inferior ao estipulado  em   Resolucao  publicada  pelo  INSS,  A  receita  que
+0017#STR0017#ALL#10 - ATM/MULTA E JUROS
+0018#STR0018#ALL#resultar  valor  inferior devera  ser adicionada  a contribuicao ou importancia
+0019#STR0019#ALL#correspondente nos meses subsequentes, ate que o  tal seja  igual  ou  superior
+0020#STR0020#ALL#valor minimo fixado
+0021#STR0021#ALL#11 - TOTAL
+0022#STR0022#ALL#12 - AUTENTICACAO BANCARIA
+0023#STR0023#ALL# 1¦VIA - INSS - 2¦VIA - CONTRIBUINTE
+0024#STR0024#ALL#Secretaria da Receita Previdenciária - SRP
+0025#STR0025#ALL#NOME OU RAZÃO SOCIAL / ENDEREÇO / TELEFONE
+0026#STR0026#ALL#3 - CÓDIGO DE PAGAMENTO
+0027#STR0027#ALL#AUTENTICAÇÃO BANCÁRIA
+0028#STR0028#ALL#ATENÇÃO:
+0029#STR0029#ALL#É vedada a utilização de GPS para recolhimento de receita de 
+0030#STR0030#ALL#valor inferior ao estipulado em Resolução publicada pela SRP. A receita que   
+0031#STR0031#ALL#resultar valor inferior, deverá ser adicionada a contribuição ou importância  
+0032#STR0032#ALL#correspondente nos meses subsequentes, até que o total seja igual ou 
+0033#STR0033#ALL#superior ao valor mínimo fixado.
+0034#STR0034#ALL#1a. VIA - INSS
+0035#STR0035#ALL#2a. VIA - CONTRIBUINTE

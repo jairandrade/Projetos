@@ -1,0 +1,30 @@
+0001#STR0001#ALL#Este programa tem como objectivo imprimir os currículos
+0002#STR0002#ALL#Conforme parâmetros seleccionados.
+0003#STR0003#ALL#Código de barras
+0004#STR0004#ALL#Administração
+0005#STR0005#ALL#Resultado Da Pesquisa Salarial
+0006#STR0006#ALL#Integração Com Ms-word
+0007#STR0007#ALL#Este procedimento irá imprimir o resultado da pesquisa salarial cofacturaorme os parâmetros definidos.
+0008#STR0008#ALL#Cancelado pelo utilizador
+0009#STR0009#ALL#Pequeno
+0010#STR0010#ALL#Médio
+0011#STR0011#ALL#Grande
+0012#STR0012#ALL#Resultado Pesquisa Salarial
+0013#STR0013#ALL#Base:
+0014#STR0014#ALL#Comparativo Empresa X Mercado
+0015#STR0015#ALL#Cargo                                porte freq.   1º.quartil        média      mediana   3º.quartil
+0016#STR0016#ALL#Região: 
+0017#STR0017#ALL#Empresa: 
+0018#STR0018#ALL#Região: 
+0019#STR0019#ALL#Porte: 
+0020#STR0020#ALL#                                     -----empresa (salário Médio)-----  -------------------mercado (salário Base)----------------------    --------------mercado (salário Total)--------------
+0021#STR0021#ALL#Cargo                                freq. salário base salário total   porte freq.   1º.quartil        média      mediana   3º.quartil      1º.quartil        média      mediana   3º.quartil
+0022#STR0022#ALL#Região: 
+0023#STR0023#ALL#Atenção
+0024#STR0024#ALL#Deve Ser Escolhida Uma Moeda Nos Parâmetros.
+0025#STR0025#ALL#Alterne para o programa do ms-word para visualizar o documento 
+0026#STR0026#ALL# ou clique no botão para fechar.
+0028#STR0028#ALL#Impressão do resultado da pesquisa de remunerações (.dot) | 
+0029#STR0029#ALL#Seleccionar Directório
+0030#STR0030#ALL#Moedas Do Sistema
+0031#STR0031#ALL#Empresas Convidadas Na Pesquisa

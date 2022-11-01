@@ -1,0 +1,29 @@
+0001#STR0001#ALL#Treinamento
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuário. Dependendo do processamento das Necessidades de Treinamentos.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Nome
+0007#STR0007#ALL#Zebrado
+0008#STR0008#ALL#Administraçäo
+0009#STR0009#ALL#SOLICITACAO/RESERVA DE TREINAMENTO
+0010#STR0010#ALL#CURSO: 
+0011#STR0011#ALL#FIL. MATR.  NOME                           GRUPO           DEPARTAMENTO         CARGO                        SITUACAO     DT.SOLIC.  CALENDARIO                        PERIODO         TURMA C.CUSTO
+0012#STR0012#ALL#RESERVADO
+0013#STR0013#ALL#LISTA ESPERA
+0014#STR0014#ALL#SOLICITACAO
+0015#STR0015#ALL#Selecionando Registros...
+0016#STR0016#ALL#Ordem de 
+0017#STR0017#ALL#Este programa tem como objetivo imprimir a Solicitação de Treinamento conforme parâmetros selecionados
+0018#STR0018#ALL#Curso
+0019#STR0019#ALL#Fil.
+0020#STR0020#ALL#Matr.
+0021#STR0021#ALL#Nome
+0022#STR0022#ALL#Grupo
+0023#STR0023#ALL#Depto
+0024#STR0024#ALL#Cargo
+0025#STR0025#ALL#Sit
+0026#STR0026#ALL#Dt.Solic.
+0027#STR0027#ALL#Calend
+0028#STR0028#ALL#Período
+0029#STR0029#ALL#Total de Funcionário

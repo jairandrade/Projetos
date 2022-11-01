@@ -1,0 +1,190 @@
+0001#STR0001#ALL#02 Razão Social/Nome
+0002#STR0002#ALL#IDENTIFICAÇÃO DO EMPREGADOR
+0003#STR0003#ALL#TERMO DE RESCISÃO DO CONTRATO DE TRABALHO
+0004#STR0004#ALL#CNPJ/CEI Tomador/Obra:
+0005#STR0005#ALL#Endereço (Logradouro, nº, andar, apartamento)
+0006#STR0006#ALL#IDENTIFICAÇÃO DO TRABALHADOR
+0007#STR0007#ALL#20 Nome da Mãe
+0008#STR0008#ALL#DADOS DO CONTRATO
+0009#STR0009#ALL#21 Tipo de Contrato
+0010#STR0010#ALL#1. Contrato de trabalho por prazo indeterminado
+0011#STR0011#ALL#2. Contrato de trabalho por prazo determinado com cláusula assecuratória de direito recíproco de rescisão antecipada.
+0012#STR0012#ALL#18 CPF
+0013#STR0013#ALL#CEP 
+0014#STR0014#ALL#Bairro
+0015#STR0015#ALL#Município
+0016#STR0016#ALL#UF 
+0017#STR0017#ALL#CNAE 
+0018#STR0018#ALL#3. Contrato de trabalho por prazo determinado sem cláusula assecuratória de direito recíproco de rescisão antecipada.
+0019#STR0019#ALL#22 Causa do Afastamento
+0020#STR0020#ALL#23 Remuneração Mês Ant.
+0021#STR0021#ALL#24 Data de Admissão
+0022#STR0022#ALL#25 Data do Aviso Prévio
+0023#STR0023#ALL#11 Nome
+0024#STR0024#ALL#CTPS (nº,série,UF) 
+0025#STR0025#ALL#10 PIS/PASEP
+0026#STR0026#ALL#26 Data de Afastamento
+0027#STR0027#ALL#19 Data de Nascimento
+0028#STR0028#ALL#27 Cód. Afast.
+0029#STR0029#ALL#28 Pensão Alim. (%) TRCT
+0030#STR0030#ALL#29 Pensão Alim. (%) FGTS
+0031#STR0031#ALL#30 Categoria do Trabalhador
+0032#STR0032#ALL#NÃO
+0033#STR0033#ALL#31 Código Sindical
+0034#STR0034#ALL#32 CNPJ e Nome da Entidade Sindical
+0035#STR0035#ALL#DISCRIMINAÇÃO DAS VERBAS RESCISÓRIAS
+0036#STR0036#ALL#VERBAS RESCISÓRIAS
+0037#STR0037#ALL#Rubrica
+0038#STR0038#ALL#Valor
+0039#STR0039#ALL#50 Saldo de 
+0040#STR0040#ALL#/dias Salário
+0041#STR0041#ALL#/faltas e DSR)
+0042#STR0042#ALL#Férias
+0043#STR0043#ALL#00 /faltas acrescidas
+0044#STR0044#ALL#do DSR)
+0045#STR0045#ALL#51 Comissões
+0046#STR0046#ALL#52 Gratificação
+0047#STR0047#ALL#53 Adic. de Insalubridade
+0048#STR0048#ALL#54 Adic. de Periculosidade
+0049#STR0049#ALL#55 Adic. Noturno 
+0050#STR0050#ALL# horas a
+0051#STR0051#ALL# Horas Extras 
+0052#STR0052#ALL#57 Gorjetas
+0053#STR0053#ALL#58 Descanso Semanal
+0054#STR0054#ALL#Remunerado (DSR)
+0055#STR0055#ALL#62 Salário-Família
+0056#STR0056#ALL#01 CNPJ/CEI
+0057#STR0057#ALL#59 Reflexo do DSR sobre o 
+0058#STR0058#ALL#Salário Variável
+0059#STR0059#ALL#60 Multa Art. 477,§8º/CLT
+0060#STR0060#ALL#61 Multa Art. 479/CLT
+0061#STR0061#ALL#63 13º Salário Proporcional 
+0062#STR0062#ALL#64.1 13º Salário-Exerc.
+0063#STR0063#ALL#Férias Venc.(Reflexo/Dobra)
+0064#STR0064#ALL#avos 
+0065#STR0065#ALL#65 Férias Proporc 
+0066#STR0066#ALL#Férias Venc. Per. Aquis.
+0067#STR0067#ALL# a 
+0068#STR0068#ALL#68 Terço Constituc. de Férias
+0069#STR0069#ALL#69 Aviso Prévio Indenizado
+0070#STR0070#ALL#70 13º Salário (Aviso Prévio 
+0071#STR0071#ALL#Indenizado)
+0072#STR0072#ALL#TOTAL BRUTO
+0073#STR0073#ALL#DEDUÇÕES
+0074#STR0074#ALL#Desconto
+0075#STR0075#ALL#100 Pensão Alimentícia
+0076#STR0076#ALL#101 Adiantamento Salarial
+0077#STR0077#ALL#102 Adiantamento 13º Salário
+0078#STR0078#ALL#103 Aviso Prévio Indenizado
+0079#STR0079#ALL#104 Multa Art. 480/CLT
+0080#STR0080#ALL#105 Empréstimo em Consignação
+0081#STR0081#ALL#106 Vale-Transporte
+0082#STR0082#ALL#107 Reembolso do Vale-Transporte
+0083#STR0083#ALL#108 Vale-Alimentação  
+0084#STR0084#ALL#109 Reembolso Vale-Alimentação
+0085#STR0085#ALL#110 Contribuição para o FAPI
+0086#STR0086#ALL#111 Contribuição Sindical Laboral
+0087#STR0087#ALL#112.1 Previdência Social
+0088#STR0088#ALL#112.2 Prev Social - 13º Salário
+0089#STR0089#ALL#113 Contribuição Previdência 
+0090#STR0090#ALL#Complementar
+0091#STR0091#ALL#114.1 IRRF
+0092#STR0092#ALL#114.2 IRRF sobre 13º Salário
+0093#STR0093#ALL#114.3 IRRF sobre Participação nos 
+0094#STR0094#ALL#Lucros ou Resultados
+0095#STR0095#ALL#116 Desc. de Valor Liq. de TRCT-
+0096#STR0096#ALL#Quitado
+0097#STR0097#ALL#TOTAL DEDUÇÕES
+0098#STR0098#ALL#116 Desc. de Valor Liq. de TRCT-Quitado
+0099#STR0099#ALL#VALOR LÍQUIDO
+0100#STR0100#ALL#FORMALIZAÇÃO DA RESCISÃO
+0101#STR0101#ALL#150 Local e data do recebimento
+0102#STR0102#ALL#151 Carimbo e assinatura do empregador ou preposto
+0103#STR0103#ALL#152 Assinatura do Trabalhador
+0104#STR0104#ALL#153 Assinatura do responsável legal do trabalhador
+0105#STR0105#ALL#154 HOMOLOGAÇÃO
+0106#STR0106#ALL#155 Digital do Trabalhador
+0107#STR0107#ALL#156 Digital do responsável legal
+0108#STR0108#ALL#Foi prestada, gratuitamente, assistência ao trabalhador, nos termos do 
+0109#STR0109#ALL#art.477, §1º, da Consolidação das Leis do Trabalho-CLT, sendo comprovado,
+0110#STR0110#ALL#neste ato, o efetivo pagamento das verbas rescisórias acima especificadas.
+0111#STR0111#ALL#Local e Data
+0112#STR0112#ALL#Carimbo e assinatura do assistente
+0113#STR0113#ALL#157 Identificação do órgão homologador
+0114#STR0114#ALL#158 Recepção pelo Banco(data e carimbo)
+0115#STR0115#ALL#A ASSISTÊNCIA NO ATO DA RESCISÃO CONTRATUAL É GRATUITA.
+0116#STR0116#ALL#Pode o trabalhador iniciar  ação judicial quanto  aos créditos resultantes das  relações de trabalho até o limite de dois 
+0117#STR0117#ALL#anos após a extinção do contrato de trabalho (Inc. XXIX, Art.7º da Constituição Federal/1988).
+0118#STR0118#ALL#R.G.: 
+0119#STR0119#ALL#71 Férias (Aviso Prévio 
+0120#STR0120#ALL#94 Salário do mês anterior à rescisão
+0121#STR0121#ALL#TERMO DE QUITAÇÃO DE RESCISÃO DO CONTRATO DE TRABALHO
+0122#STR0122#ALL#EMPREGADOR
+0123#STR0123#ALL#TRABALHADOR
+0124#STR0124#ALL#CONTRATO
+0125#STR0125#ALL#Foi realizada  a rescisão  do contrato  de trabalho  do trabalhador  acima qualificado,  nos  termos  do artigo  nº 477 da  Consolidação  das Leis  do
+0126#STR0126#ALL#Trabalho(CLT).  A  assistência  à rescisão  prevista  no  § 1º  do  art.  nº 477  da  CLT  não  é  devida,  tendo  em  vista  a  duração  do  contrato de
+0127#STR0127#ALL#trabalho não  ser superior  a um ano  de serviço  e não  existir previsão  de assistência  à rescisão contratual  em Acordo  ou Convenção Coletiva
+0128#STR0128#ALL#de Trabalho da categoria a qual pertence o trabalhador.
+0129#STR0129#ALL#150 Assinatura do Empregador ou Preposto
+0130#STR0130#ALL#No  dia 
+0131#STR0131#ALL#  foi  realizado,  nos  termos  do  art.  23  da  Instrução  Normativa/SRT   nº  15/2010,  o  efetivo  pagamento  das  verbas 
+0132#STR0132#ALL#rescisórias  especificadas  no  corpo  do  TRCT,  no  valor  líquido  de  R$ 
+0133#STR0133#ALL#151 Assinatura do Trabalhador
+0134#STR0134#ALL#152 Assinatura do Responsável Legal do Trabalhador
+0135#STR0135#ALL#156 Informações à CAIXA:
+0136#STR0136#ALL#29 Pensão Alimentícia (%) FGTS
+0137#STR0137#ALL#Indenizado)
+0138#STR0138#ALL#TERMO DE HOMOLOGAÇÃO DE RESCISÃO DO CONTRATO DE TRABALHO
+0139#STR0139#ALL#31 Código Sindical
+0140#STR0140#ALL#32 CNPJ e Nome da Entidade Sindical Laboral
+0141#STR0141#ALL#Foi  prestada, gratuitamente,  assistência  na rescisão do  contrato  de trabalho, nos  termos do artigo  n.º  477, § 1º,  da Consolidação  das Leis do 
+0142#STR0142#ALL#Trabalho (CLT),  sendo  comprovado  neste  ato  o efetivo  pagamento das  verbas  rescisórias  especificadas  no  corpo do  TRCT,  no valor líquido
+0143#STR0143#ALL# o qual,  devidamente rubricado  pelas partes,  é parte integrante do presente Termo de Homologaçao.
+0144#STR0144#ALL#As   partes   assistidas   no   presente   ato   de   rescisão   contratual   foram   identificadas   como   legítimas   conforme   previsto   na    Instrução
+0145#STR0145#ALL#Normativa/SRT n.º 15/2010.
+0146#STR0146#ALL#Fica ressalvado o direito de o trabalhador pleitear judicialmente os direitos informados no campo 155, abaixo.
+0147#STR0147#ALL#correspondente.
+0148#STR0148#ALL#153 Carimbo e Assinatura do Assistente
+0149#STR0149#ALL#154 Nome do Órgão Homologador
+0150#STR0150#ALL#155 Ressalvas
+0151#STR0151#ALL#/dias
+0152#STR0152#ALL#,  o  qual,  devidamente  rubricado  pelas  partes,  é  parte
+0153#STR0153#ALL#99 Ajuste do Saldo Devedor
+0154#STR0154#ALL#(líquido de 
+0155#STR0155#ALL#27 Cód. Afastamento
+0156#STR0156#ALL# dias
+0157#STR0157#ALL#de R$
+0158#STR0158#ALL#integrante do presente Termo de Quitação.
+0159#STR0159#ALL#TRAB. NAO VINC. AO RGPS, MAS COM DIREITO AO FGTS
+0160#STR0160#ALL#EMPREGADO - CONTR TRAB POR PRAZO DETERM. (LEI No. 9.601/98)
+0161#STR0161#ALL#EMPREGADO DOMÉSTICO
+0162#STR0162#ALL#MENOR APRENDIZ (LEI 10.097/2000)
+0163#STR0163#ALL#TRAB NAO VINCULADO AO RGPS, MAS COM DIREITO AO FGTS
+0164#STR0164#ALL#EMPR - CONTR TRAB POR PRAZO DETERM (LEI No 9.601/98)
+0165#STR0165#ALL#Percentagem
+0166#STR0166#ALL#Prêmios
+0167#STR0167#ALL#Viagens
+0168#STR0168#ALL#Sobreaviso
+0169#STR0169#ALL#Prontidão
+0170#STR0170#ALL#Adicional por tempo de serviço
+0171#STR0171#ALL#Adicional por Transferência de Localidade de Trabalho
+0172#STR0172#ALL#Salário Família excedente ao Valor Legal
+0173#STR0173#ALL#Abono/Gratificação de Férias Excedente 20 dias de salário
+0174#STR0174#ALL#Valor global diárias para viagem Excedente 50% salário
+0175#STR0175#ALL#Ajuda de Custo art. 470/CLT
+0176#STR0176#ALL#Etapas marítimos
+0177#STR0177#ALL#Licença Prêmio indenizada
+0178#STR0178#ALL#Quebra de Caixa
+0179#STR0179#ALL#PLR
+0180#STR0180#ALL#Indenização a Título de Incentivo à demissão
+0181#STR0181#ALL#Bolsa Aprendizagem
+0182#STR0182#ALL#Abonos Desvinculados do Salário
+0183#STR0183#ALL#Ganhos Eventuais Desvinculados do Salário
+0184#STR0184#ALL#Reembolso Creche
+0185#STR0185#ALL#Reembolso Babá
+0186#STR0186#ALL#Gratificação Semestral
+0187#STR0187#ALL#Indenização art 9º Lei 7238/84
+0188#STR0188#ALL#Multa art. 476-A & 5º da CLT
+0189#STR0189#ALL#Outros descontos não previstos acima 
+0190#STR0190#ALL#4. Contrato de trabalho intermitente

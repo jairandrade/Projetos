@@ -1,0 +1,31 @@
+0001#STR0001#ALL#El objetivo de este prog. es imprimir los curriculum
+0002#STR0002#ALL#de acuerdo con los parametros seleccionados.
+0003#STR0003#ALL#A Rayas
+0004#STR0004#ALL#Administracion
+0005#STR0005#ALL#Resultado de Encuesta Salarial
+0006#STR0006#ALL#Integracion con MS-Word
+0007#STR0007#ALL#Esta rutina imprimira el Resultado de la Encuesta Salarial segun los parametros definidos.
+0008#STR0008#ALL#Anulado por el usuario
+0009#STR0009#ALL#PEQUEÑO
+0010#STR0010#ALL#MEDIANO
+0011#STR0011#ALL#GRANDE
+0012#STR0012#ALL#RESULTADO ENCUESTA SALARIAL
+0013#STR0013#ALL#BASE:
+0014#STR0014#ALL#COMPARATIVO EMPRESA VS MERCADO
+0015#STR0015#ALL#CARGO                                PORTE FREC.   1o.CUARTIL        MEDIA      MEDIANA   3o.CUARTIL
+0016#STR0016#ALL#REGION: 
+0017#STR0017#ALL#EMPRESA: 
+0018#STR0018#ALL#REGION: 
+0019#STR0019#ALL#PORTE: 
+0020#STR0020#ALL#                                     -----EMPRESA (SALARIO PROMEDIO)-----  -------------------MERCADO (SALARIO BASE)----------------------    --------------MERCADO (SALARIO TOTAL)--------------
+0021#STR0021#ALL#CARGO                                FREC. SALARIO BASE SALARIO TOTAL   PORTE FREC.   1o.CUARTIL        PROM.      MEDIANA   3o.CUARTIL      1o.CUARTIL        PROM.      MEDIANA   3o.CUARTIL
+0022#STR0022#ALL#REGION: 
+0023#STR0023#ALL#Atencion
+0024#STR0024#ALL#Debe elegirse una Moneda en los Parametros.
+0025#STR0025#ALL#Ejecute el aplicativo Ms-Word para visualizar el Documento 
+0026#STR0026#ALL# o haga clic en el boton para cerrar.
+0027#STR0027#ALL#Cerrar
+0028#STR0028#ALL#Impresion Resultado de Encuesta Salarial (.DOT) | 
+0029#STR0029#ALL#Seleccione Directorio
+0030#STR0030#ALL#Monedas del Sistema
+0031#STR0031#ALL#Empresas invitadas en la Encuesta

@@ -1,0 +1,15 @@
+0001#STR0001#ALL#Backup base before executing this process.
+0002#STR0002#ALL#Tool for adjustment of absences in the table of Entitled Days Control (SRF).
+0003#STR0003#ALL#UPDFASRF - Updates absences in SRF.
+0004#STR0004#ALL#At the end of processing, the absences of the employees of the selected branches are updated according to SRD in SRF.
+0005#STR0005#ALL#Selection of Branches
+0006#STR0006#ALL#Select the branches whose data are updated
+0007#STR0007#ALL#Base Updating...
+0008#STR0008#ALL#Await while processing is executed.
+0009#STR0009#ALL#Executing updating of absences...
+0010#STR0010#ALL#Backup of base has already been executed?
+0011#STR0011#ALL#Branch being processed: 
+0012#STR0012#ALL#Registration being processed: 
+0013#STR0013#ALL#Backup and run the routine again.
+0014#STR0014#ALL#Absences successfully updated.
+0015#STR0015#ALL#No absences in SRD for updating.

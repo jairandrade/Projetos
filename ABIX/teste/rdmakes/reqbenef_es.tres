@@ -1,0 +1,51 @@
+0001#STR0001#ALL#Matricula
+0002#STR0002#ALL#SOLICITUD DE BENEFICIO POR INCAPACIDAD
+0003#STR0003#ALL#Se imprimira de acuerdo con los parametros solicitados po el usuario
+0004#STR0004#ALL#Obs. Debe imprimirse un Mapa para cada Tipo de Contrato.
+0005#STR0005#ALL#A Rayas
+0006#STR0006#ALL#Administracion
+0007#STR0007#ALL#SOLICITUD DE BENEFICIO POR INCAPACIDAD 
+0008#STR0008#ALL#PREVIDENCIA SOCIAL-Inst Nacional do Seguro Social 
+0009#STR0009#ALL#Pagina:
+0010#STR0010#ALL#T O T A L     G E N E R A L
+0011#STR0011#ALL#Sucursal :
+0012#STR0012#ALL#C.Costo:
+0013#STR0013#ALL#|Nombre                                 Fecha Nacimiento        Nacionalidad
+0014#STR0014#ALL#|Direccion    : 
+0015#STR0015#ALL#|Complemento :                        Barrio :
+0016#STR0016#ALL#|Ciudad      :                        Provincia : 
+0017#STR0017#ALL#|Sexo        :                        DOC.Inscripcion(Nº.y Serie):
+0018#STR0018#ALL#|Estado Civil:                         Tiene otra actividade con vinculacion
+0019#STR0019#ALL#|                                     a la Previd.Social? 
+0020#STR0020#ALL#| Firma 
+0021#STR0021#ALL#| Nombre del Procurador o Curador:  
+0022#STR0022#ALL#|                    Direccion :   
+0023#STR0023#ALL#CERTIFICADO DE LICENCIA DEL TRABAJO
+0024#STR0024#ALL#|Empresa                                                   Nº.CNPJ
+0025#STR0025#ALL#|Ultimo dia de trabajo del asegurado : 
+0026#STR0026#ALL#|Licencia por: 
+0027#STR0027#ALL#BENEFICIARIO PARA SALARIO FAMILIA 
+0028#STR0028#ALL#|Primer nombre de los hijos                                 Fecha Nacimiento
+0029#STR0029#ALL#|Localidad                     Fecha 
+0030#STR0030#ALL#INSTRUCCCIONES 
+0031#STR0031#ALL#1- Esta Solicitud debe estar sin rasuras y llenado de preferencia a maquina
+0032#STR0032#ALL#2- En el caso de asegurado empleado, la empresa es responsable por el llenado
+0033#STR0033#ALL# solicitud de Licencia del Trabajo
+0034#STR0034#ALL#3- En el mes de licencia del trabajo, la empresa efectuara el pago integral
+0035#STR0035#ALL#del Salario - Familia, y el Seguro Social hara el mismo en el mes de la  suspension del beneficio, 
+0036#STR0036#ALL#evitandose asi, el calculo de valores fraccionados.
+0037#STR0037#ALL#¿Sucursal             ?
+0038#STR0038#ALL#¿Matricula          ?
+0039#STR0039#ALL#¿Tipo Licencia   ?
+0040#STR0040#ALL#¿Fecha de Referencia ?
+0041#STR0041#ALL#¿Ult. Dia Trabajado?
+0042#STR0042#ALL#¿Curador/Procurador ?
+0043#STR0043#ALL#¿Direccion           ?
+0044#STR0044#ALL#¿| Firma del Responsable 
+0045#STR0045#ALL#| y sello del CGC de la Empresa 
+0046#STR0046#ALL#C.I.D.
+0047#STR0047#ALL#¡Archivo Impreso !
+0048#STR0048#ALL# Finalizacion 
+0049#STR0049#ALL#Seleccione el Archivo
+0050#STR0050#ALL#Archivo Generado:
+0051#STR0051#ALL#No fue posible generar el archivo.  Error de apertura, codigo DOS: 

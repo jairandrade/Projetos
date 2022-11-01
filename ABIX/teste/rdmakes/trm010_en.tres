@@ -1,0 +1,64 @@
+0001#STR0001#ALL#Attendance Form
+0002#STR0002#ALL#It will be printed according to parameters selected by the
+0003#STR0003#ALL#User.
+0004#STR0004#ALL#Name
+0005#STR0005#ALL#Registration
+0006#STR0006#ALL#Z.Form
+0007#STR0007#ALL#Management
+0008#STR0011#ALL#ATTENDANCE FORM
+0009#STR0012#ALL#Selecting Records...
+0010#STR0013#ALL#CALENDAR: 
+0011#STR0014#ALL#COURSE: 
+0012#STR0015#ALL#CLASS: 
+0013#STR0016#ALL#PERIOD: 
+0014#STR0017#ALL#TO
+0015#STR0018#ALL#TIME: 
+0016#STR0019#ALL#BCH. MATR.  MOME                               VIEW         STAT  GROUP           DEPARTMENT           POSITION                   
+0017#STR0020#ALL#RESERVED
+0018#STR0021#ALL#WAITING LIST
+0019#STR0022#ALL#REQUISITION
+0020#STR0023#ALL#CONCLUDED
+0021#STR0024#ALL#INSTRUCTOR 
+0022#STR0025#ALL#No Reservation for this Course
+0023#STR0026#ALL#CANCELLED BY THE USER
+0024#STR0027#ALL#PLACE: 
+0025#STR0028#ALL#________ABSENT_______
+0026#STR0029#ALL#COURSE SYNONYM: 
+0027#STR0030#ALL#Stat.
+0028#STR0031#ALL#Dept.
+0029#STR0032#ALL#Posit
+0030#STR0033#ALL#Calendar  
+0031#STR0034#ALL#Course
+0032#STR0035#ALL#Group
+0033#STR0036#ALL#Instruct.
+0034#STR0037#ALL#Synonym 
+0035#STR0038#ALL#Period 
+0036#STR0039#ALL# to 
+0037#STR0040#ALL#Time   
+0038#STR0041#ALL#Locat
+0039#STR0042#ALL#Signature
+0040#STR0043#ALL#Brn.
+0041#STR0044#ALL#Reg. 
+0042#STR0045#ALL#Total Participants
+0043#STR0046#ALL#Generates the Roll for Trainings. 
+0044#STR0047#ALL#List of participants 
+0045#STR0048#ALL#Event Log in report display: Attendance List
+0046#STR0049#ALL#Check the Training Request table (RA3). Unable to find request.
+0047#STR0050#ALL#Check the Courses table (RA1). Unable to find course.
+0048#STR0051#ALL#Check the Employees table (SRA). Unable to find registration.
+0049#STR0052#ALL#Check the Roles table (SRJ). Unable to find role.
+0050#STR0053#ALL#Check the Positions table (SQ3). Unable to find position.
+0051#STR0054#ALL#Possible causes:
+0052#STR0055#ALL#Branch parameters are incorrect;
+0053#STR0056#ALL#Registration parameters are incorrect;
+0054#STR0057#ALL#Calendar parameters are incorrect;
+0055#STR0058#ALL#Course parameters are incorrect;
+0056#STR0059#ALL#Class parameters are incorrect;
+0057#STR0060#ALL#Reservation statuses are incorrect;
+0058#STR0061#ALL#Name parameters are incorrect;
+0059#STR0062#ALL#Employee role is invalid;
+0060#STR0063#ALL#Group parameters are incorrect;
+0061#STR0064#ALL#Department parameters are incorrect;
+0062#STR0065#ALL#Position parameters are incorrect;
+0063#STR0066#ALL#Employee position is invalid;
+0064#STR0067#ALL#If the employee has a cost center, then the position must have the same one.

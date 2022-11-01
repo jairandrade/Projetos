@@ -1,0 +1,47 @@
+0001#STR0001#ALL#Este programa tiene como objetivo imprimir los curriculums
+0002#STR0002#ALL#conforme parametros seleccionados.
+0003#STR0003#ALL#Curriculum
+0004#STR0004#ALL#Nombre
+0005#STR0005#ALL#A Rayas
+0006#STR0006#ALL#Administracion
+0007#STR0007#ALL#Curriculums
+0008#STR0008#ALL#Curriculum Vitae
+0009#STR0009#ALL#Anulado por el usuario
+0010#STR0010#ALL#Seleccionando Registros...
+0011#STR0011#ALL#Anulado por el Operador
+0012#STR0012#ALL#DATOS PERSONALES
+0013#STR0013#ALL#Nombre: 
+0014#STR0014#ALL#Tel.: 
+0015#STR0015#ALL#Fc.Nasc.: 
+0016#STR0016#ALL#Est.Civil: 
+0017#STR0017#ALL#Direccion: 
+0018#STR0018#ALL#RG: 
+0019#STR0019#ALL#CIC: 
+0020#STR0020#ALL#AREA DE INTERES
+0021#STR0021#ALL#Cargo: 
+0022#STR0022#ALL#Pret.Salarial: 
+0023#STR0023#ALL#Indicado por: 
+0024#STR0024#ALL#CALIFICACIONES
+0025#STR0025#ALL#*** Calificaciones no Archivadas ***
+0026#STR0026#ALL#ANALISIS
+0027#STR0027#ALL#*** Analisis no archivado ***
+0028#STR0028#ALL#HISTORICO PROFESIONAL 
+0029#STR0029#ALL#Admision   Retiro   Area                                Empresa                        Cargo
+0030#STR0030#ALL#Actividades:
+0031#STR0031#ALL#*** Actividad no Archivada ***
+0032#STR0032#ALL#*** Historial Profesional no Archivada ***
+0033#STR0033#ALL#FORMACION ESCOLAR
+0034#STR0034#ALL#CURSOS EXTRACURRICULARES
+0035#STR0035#ALL#Fc.Graduacion   Entidad                       Curso
+0036#STR0036#ALL#*** Escolaridad no Archivada ***
+0037#STR0037#ALL#*** Curso Extracurricular no archivado ***
+0038#STR0038#ALL#EXPERIENCIA
+0039#STR0039#ALL#*** Experiencia no archivada ***
+0040#STR0040#ALL#Grupo              Factor                            Grado
+0041#STR0041#ALL#CARACTERÍSTICAS DEL EMPLEADO
+0042#STR0042#ALL#Característica                 Respuesta
+0043#STR0043#ALL#*** Características del empleado no se definieron ***
+0044#STR0044#BRA#Estatus consentimiento:
+0045#STR0045#BRA#Aceptación
+0046#STR0046#BRA#Pendiente
+0047#STR0047#BRA#/ Responsable

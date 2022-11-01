@@ -1,0 +1,35 @@
+0001#STR0001#ALL#Custo Da Formação
+0002#STR0002#ALL#O relatório custo de formação apresenta, de forma sintética ou analítica, os custos
+0003#STR0003#ALL#com treinamento de funcionários de acordo com os parâmetros solicitados pelo utilizador.
+0004#STR0004#ALL#Registo
+0005#STR0005#ALL#Centro De Custo
+0007#STR0007#ALL#Código de barras
+0008#STR0008#ALL#Administração
+0009#STR0009#ALL#Custo Da Formação 
+0010#STR0010#ALL#Custo Da Formação No Período:
+0012#STR0012#ALL#A Seleccionar Registos...
+0013#STR0013#ALL#                                                Qtde.         Custo      Horas   %pres   Facturas
+0014#STR0014#ALL#   Fil. Reg.   Nome                             Qtde.         Custo      Horas   %pres   Facturas
+0015#STR0015#ALL#   Fil. Nome                            Reg.    Qtde.         Custo      Horas   %pres   Notas
+0017#STR0017#ALL# curso: 
+0018#STR0018#ALL# turma: 
+0019#STR0019#ALL#Centro de custo: 
+0020#STR0020#ALL#Calendário: 
+0021#STR0021#ALL# período: 
+0022#STR0022#ALL#Total Crial:           
+0023#STR0023#ALL#Total centro de custo: 
+0024#STR0024#ALL#Entidade: 
+0025#STR0025#ALL# instrutor: 
+0026#STR0026#ALL# horário: 
+0027#STR0027#ALL# duração: 
+0028#STR0028#ALL# local: 
+0030#STR0030#ALL#Sinónimo do curso: 
+0032#STR0032#ALL#Sinónimo
+0035#STR0035#ALL#Reg.
+0039#STR0039#ALL#% de pres
+0042#STR0042#ALL#Custos por Empregado
+0043#STR0043#ALL#   FIL. MATR.  NOME                             QTD.         CUSTO      HORAS   %PRES   NOTAS  CALEND CURSO TURMA PERÍODO
+0044#STR0044#ALL#Total Curso:
+0045#STR0045#ALL#                                                Qtde.         Custo      Horas
+0047#STR0047#ALL#Filial Registo Empregado                    Calendário Curso
+0048#STR0048#ALL#Foram Encontradas Inconsistências No Vínculo Função X Cargo. Deseja Criar Log?

@@ -1,0 +1,32 @@
+0001#STR0001#ALL#GENERATION OF SANTANDER FILE FOR PAYMENT RECEIPTS
+0002#STR0002#ALL#Electronic Payslip Generation - Santander Bank
+0003#STR0003#ALL#This program generates the magnetic file to be sent
+0004#STR0004#ALL#to Santander Bank for provision of Electronic Payslip
+0005#STR0005#ALL#File created
+0006#STR0006#ALL#Keep the file batch number for possible substitution:
+0007#STR0007#ALL#INCONSISTENCIES IN
+0008#STR0008#ALL#Please analyze the receipt composition tables, as they may have inconsistencies.
+0009#STR0009#ALL#SRA - Employees
+0010#STR0010#ALL#RCH - Calculation Period
+0011#STR0011#ALL#SRD - Transactions History
+0012#STR0012#ALL#SRC - Movement of the Period
+0013#STR0013#ALL#SRV - Funds
+0014#STR0014#ALL#NOTE
+0015#STR0015#ALL#There are no records to be saved. File creation
+0016#STR0016#ALL#was canceled.
+0017#STR0017#ALL#OK
+0018#STR0018#ALL#Problems occurred when attempting to delete file
+0019#STR0019#ALL#Problems occurred when closing file
+0020#STR0020#ALL#Problems occurred when attempting to delete file
+0021#STR0021#ALL#Processing...
+0022#STR0022#ALL#Substitute the
+0023#STR0023#ALL#existing one?
+0024#STR0024#ALL#File Name in Parameters is Blank.
+0025#STR0025#ALL#Attention!
+0026#STR0026#ALL#cannot be created! Check parameters.
+0027#STR0027#ALL#File
+0028#STR0028#ALL#Error when saving the file
+0029#STR0029#ALL#. Continue?
+0030#STR0030#ALL#is required, but is empty or smaller than zero.
+0031#STR0031#ALL#Field
+0032#STR0032#ALL#of employee

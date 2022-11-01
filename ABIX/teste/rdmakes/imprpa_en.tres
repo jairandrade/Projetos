@@ -1,0 +1,41 @@
+0001#STR0001#ALL#Registration
+0002#STR0002#ALL#Cost Center
+0003#STR0003#ALL#Name
+0004#STR0004#ALL#Cost Center + Name
+0005#STR0005#ALL#Issue of Receipts related to Autonomous Payment
+0006#STR0006#ALL#They will be printed according to the parameters required by
+0007#STR0007#ALL#the user
+0008#STR0008#ALL#Z. Form
+0009#STR0009#ALL#Management
+0010#STR0010#ALL#Checking integrity of the file about the previous month movement.
+0011#STR0011#ALL#       AUTONOMOUS PAYMENT RECEIPT  -   RPA        +--------RECEIPT No.---------+
+0012#STR0012#ALL#                                                  |                            |
+0013#STR0013#ALL#+-------------------------------------------------+----------------------------+
+0014#STR0014#ALL#| COMPANY NAME                                    |   REGISTRAT.(CNPJ or INSS) |
+0015#STR0015#ALL#|                                                 |                            |
+0016#STR0016#ALL#+-------------------------------------------------+----------------------------+
+0017#STR0017#ALL#|          RECEIVED FROM THE COMPANY ABOVE DUE TO THE SERVICE RENDERING OF     |
+0018#STR0018#ALL#|                                                                              |
+0019#STR0019#ALL#|THE AMOUNT OF:                                                                |
+0020#STR0020#ALL#|                                                                              |
+0021#STR0021#ALL#+--------- INSCRIPTION NUMBER  ---------+ DETAILS:                             |
+0022#STR0022#ALL#| INSS NO :                             | I SERVICE VALUE   .....              |
+0023#STR0023#ALL#| CPF NO  :                             | II OTHERS..............              |
+0024#STR0024#ALL#+------------- IDENTITY   --------------+      TOTAL.............              |
+0025#STR0025#ALL#| NUMBER :                              |                                      |
+0026#STR0026#ALL#| ISSUE BODY    :          ST :         | DISCOUNTS:                           |
+0027#STR0027#ALL#+-------------- ADDRESS  ---------------+ III  I.R.R.F...........              |
+0028#STR0028#ALL#|                                       | IV   INSS..............              |
+0029#STR0029#ALL#|                                       | V    OTHERS............              |
+0030#STR0030#ALL#|                                       |                                      |
+0031#STR0031#ALL#|                                       | NET VALUE    ..........              |
+0032#STR0032#ALL#+-------  PLACE     -------+--- DATE ---+ +------------ SIGNATURE  ------------+
+0033#STR0033#ALL#|                          |            | |                                    |
+0034#STR0034#ALL#+--------------------------+------------+ +------------------------------------+
+0035#STR0035#ALL#| C.CENTER:                             | +----------- FULL NAME     ----------+
+0036#STR0036#ALL#|                                       | |                                    |
+0037#STR0037#ALL#+---------------------------------------+ +------------------------------------+
+0038#STR0038#ALL#RS
+0039#STR0039#ALL#Selecting files about Previous Movements
+0040#STR0040#ALL#Department
+0041#STR0041#ALL#Department +Name

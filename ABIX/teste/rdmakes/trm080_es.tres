@@ -1,0 +1,27 @@
+0001#STR0001#ALL#El objetivo de este prog. es imprimir el test realizado
+0002#STR0002#ALL#de acuerdo con los parametros seleccionados.
+0003#STR0003#ALL#Evaluaciones efectuadas
+0004#STR0004#ALL#*** ANULADO POR EL OPERADOR ***
+0005#STR0005#ALL#A Rayas
+0006#STR0006#ALL#Administracion
+0007#STR0007#ALL#Sucur. Matricula Nombre                        Evaluacion                              Nota
+0008#STR0008#ALL#Sucur. Matricula Nombre                        Evaluacion                             Cuestion Alternativa  Puntos
+0009#STR0009#ALL#Calendario: 
+0010#STR0010#ALL#Curso: 
+0011#STR0011#ALL#Grupo: 
+0012#STR0012#ALL#Total de Puntos: 
+0013#STR0013#ALL#Sucur. Matricula Nombre                        Evaluacion
+0014#STR0014#ALL#Alternativas
+0015#STR0015#ALL#Puntos
+0016#STR0016#ALL#Respuesta    
+0017#STR0017#ALL#Media: 
+0018#STR0018#ALL#Sinonimo: 
+0019#STR0019#ALL#Prom. de Grupo: 
+0020#STR0020#ALL#Empleado
+0021#STR0021#ALL#Preguntas
+0022#STR0022#ALL#Respuestas
+0023#STR0023#ALL#Respuesta Descriptiva
+0024#STR0024#ALL#Sintetico
+0025#STR0025#ALL#Analitico
+0026#STR0026#ALL#Archivo de Escala
+0027#STR0027#ALL#Porcentaje

@@ -1,0 +1,48 @@
+0001#STR0001#ALL#Custo Treinamento
+0002#STR0002#ALL#O Relatório Custo de Treinamento apresenta, de forma sintética ou analítica, os custos
+0003#STR0003#ALL#com treinamento de funcionários de acordo com os parâmetros solicitados pelo usuário.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Nome
+0007#STR0007#ALL#Zebrado
+0008#STR0008#ALL#Administracao
+0009#STR0009#ALL#Custo do Treinamento
+0010#STR0010#ALL#Custo do Treinamento     Periodo:
+0011#STR0011#ALL# a 
+0012#STR0012#ALL#Selecionando Registros...
+0013#STR0013#ALL#                                                QTDE.         CUSTO      HORAS   %PRES   NOTAS
+0014#STR0014#ALL#   FIL. MATR.  NOME                             QTDE.         CUSTO      HORAS   %PRES   NOTAS
+0015#STR0015#ALL#   FIL. NOME                            MATR.   QTDE.         CUSTO      HORAS   %PRES   NOTAS
+0016#STR0016#ALL#Data
+0017#STR0017#ALL# CURSO: 
+0018#STR0018#ALL# TURMA: 
+0019#STR0019#ALL#CENTRO DE CUSTO: 
+0020#STR0020#ALL#CALENDARIO: 
+0021#STR0021#ALL# PERIODO: 
+0022#STR0022#ALL#TOTAL GERAL:           
+0023#STR0023#ALL#TOTAL CENTRO DE CUSTO: 
+0024#STR0024#ALL#ENTIDADE: 
+0025#STR0025#ALL# INSTRUTOR: 
+0026#STR0026#ALL# HORARIO: 
+0027#STR0027#ALL# DURACAO: 
+0028#STR0028#ALL# LOCAL: 
+0029#STR0029#ALL#Total
+0030#STR0030#ALL#SINONIMO DO CURSO: 
+0031#STR0031#ALL#Curso
+0032#STR0032#ALL#Sinônimo
+0033#STR0033#ALL#Período
+0034#STR0034#ALL#Entidade
+0035#STR0035#ALL#Matr.
+0036#STR0036#ALL#Nome
+0037#STR0037#ALL#Custo
+0038#STR0038#ALL#Horas
+0039#STR0039#ALL#%Pres
+0040#STR0040#ALL#Nota
+0041#STR0041#ALL#Treinamento
+0042#STR0042#ALL#Custos por Funcionários
+0043#STR0043#ALL#   FIL. MATR.  NOME                             QTDE.         CUSTO      HORAS   %PRES   NOTAS  CALEND CURSO TURMA PERIODO
+0044#STR0044#ALL#TOTAL CURSO:
+0045#STR0045#ALL#                                                QTDE.         CUSTO      HORAS
+0046#STR0046#ALL#Inconsistências na função ou cargo
+0047#STR0047#ALL#Filial Matricula Funcionario                    Calendario Curso
+0048#STR0048#ALL#Foram encontradas inconsistências no vínculo Função x Cargo. Deseja gerar Log?

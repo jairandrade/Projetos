@@ -1,0 +1,13 @@
+0001#STR0001#ALL#Initiating U_PonScheduler()...
+0002#STR0002#ALL#Preparing Company Environment. Please, wait... 
+0003#STR0003#ALL#Start Reading/Annotation on: 
+0004#STR0004#ALL# at 
+0005#STR0005#ALL#Company: 
+0006#STR0006#ALL#Branch:  
+0007#STR0007#ALL#End Reading/Annotation on: 
+0008#STR0008#ALL#Concluding Company Environment. Please, wait... 
+0009#STR0009#ALL#It was not possible to conclude the process. Company or Branch not valid.
+0010#STR0010#ALL#Read Start in: 
+0011#STR0011#ALL#Read End in: 
+0012#STR0012#ALL#Appointment Start in: 
+0013#STR0013#ALL#Appointment End in: 

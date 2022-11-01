@@ -1,0 +1,64 @@
+0001#STR0001#ALL#Lista de Presença
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuário.
+0004#STR0004#ALL#Nome
+0005#STR0005#ALL#Matricula
+0006#STR0006#ALL#Zebrado
+0007#STR0007#ALL#Administraçäo
+0008#STR0011#ALL#LISTA DE PRESENCA
+0009#STR0012#ALL#Selecionando Registros...
+0010#STR0013#ALL#CALENDARIO: 
+0011#STR0014#ALL#CURSO: 
+0012#STR0015#ALL#TURMA: 
+0013#STR0016#ALL#PERIODO: 
+0014#STR0017#ALL# A 
+0015#STR0018#ALL#HORARIO: 
+0016#STR0019#ALL#FIL. MATR.  MOME                               VISTO        SIT.  GRUPO           DEPARTAMENTO         CARGO                   
+0017#STR0020#ALL#RESERVADO
+0018#STR0021#ALL#LISTA ESPERA
+0019#STR0022#ALL#SOLICITACAO
+0020#STR0023#ALL#CONCLUIDO
+0021#STR0024#ALL#INSTRUTOR: 
+0022#STR0025#ALL#Nao existe reserva para este curso
+0023#STR0026#ALL#CANCELADO PELO USUARIO
+0024#STR0027#ALL#LOCAL: 
+0025#STR0028#ALL#________FALTOU_______
+0026#STR0029#ALL#SINONIMO DO CURSO: 
+0027#STR0030#ALL#Sit.
+0028#STR0031#ALL#Depto
+0029#STR0032#ALL#Cargo
+0030#STR0033#ALL#Calendário
+0031#STR0034#ALL#Curso
+0032#STR0035#ALL#Turma
+0033#STR0036#ALL#Instrutor
+0034#STR0037#ALL#Sinônimo
+0035#STR0038#ALL#Período
+0036#STR0039#ALL# a 
+0037#STR0040#ALL#Horário
+0038#STR0041#ALL#Local
+0039#STR0042#ALL#Visto
+0040#STR0043#ALL#Fil.
+0041#STR0044#ALL#Matr.
+0042#STR0045#ALL#Total de Participantes
+0043#STR0046#ALL#Emite Lista de Presença para os Treinamentos.
+0044#STR0047#ALL#Relação dos Participantes
+0045#STR0048#ALL#Log de Ocorrências na exibição do relatório:  Lista de Presença
+0046#STR0049#ALL#Verifique a tabela de Solicitações de Treinamento (RA3). Não foi possível encontrar a solicitação!
+0047#STR0050#ALL#Verifique a tabela de Cursos (RA1). Não foi possível encontrar o curso!
+0048#STR0051#ALL#Verifique a tabela de Funcionários (SRA). Não foi possível encontrar a matrícula!
+0049#STR0052#ALL#Verifique a tabela de Funções (SRJ). Não foi possível encontrar a função!
+0050#STR0053#ALL#Verifique a tabela de Cargos (SQ3). Não foi possível encontrar o cargo!
+0051#STR0054#ALL#Possíveis Causas:
+0052#STR0055#ALL#Parâmetros de filiais incorretos;
+0053#STR0056#ALL#Parâmetros de matrículas incorretos;
+0054#STR0057#ALL#Parâmetros de calendários incorretos;
+0055#STR0058#ALL#Parâmetros de cursos incorretos;
+0056#STR0059#ALL#Parâmetros de turma incorretos;
+0057#STR0060#ALL#Situações de reserva incorretas;
+0058#STR0061#ALL#Parâmetros de nomes incorretos;
+0059#STR0062#ALL#Função do funcionário inválida;
+0060#STR0063#ALL#Parâmetros de grupos incorretos;
+0061#STR0064#ALL#Parâmetros de departamentos incorretos;
+0062#STR0065#ALL#Parâmetros de cargos incorretos;
+0063#STR0066#ALL#Cargo do funcionário inválido;
+0064#STR0067#ALL#Caso o funcionário tenha o centro de custo informado, o cargo deverá ter o centro de custo informado;

@@ -1,0 +1,26 @@
+0001#STR0001#ALL#Personnel Increasing Approval Report.
+0002#STR0002#ALL#It will be printed according to the parameters selected
+0003#STR0003#ALL#by the user.
+0004#STR0004#ALL#Cost Center
+0005#STR0005#ALL#Z.Form
+0006#STR0006#ALL#Management
+0007#STR0007#ALL#     YR/MTH  FUNCTION                        CURR.VL.  ESTIM.VL.    APPROV.VL.  CURR.QT. EST.QTTY APPR.QTTY  APPRV.DT. APPROVER  
+0008#STR0008#ALL# Personnel Increasing Approval 
+0009#STR0009#ALL#Cost Center: 
+0010#STR0010#ALL#Total C.Center - 
+0011#STR0011#ALL#Grand Total: 
+0012#STR0012#ALL#Total Period - 
+0013#STR0013#ALL#Total -
+0014#STR0014#ALL#Vacancy Approval
+0015#STR0015#ALL#List of Employees per Function
+0016#STR0016#ALL#Curr.Vl.
+0017#STR0017#ALL#Estim.Vl.
+0018#STR0018#ALL#Curr.Qty.
+0019#STR0019#ALL#Estim.Qty.
+0020#STR0020#ALL#Approv.Qty.
+0021#STR0021#ALL#Approver
+0022#STR0022#ALL#Approv.Qty.
+0023#STR0023#ALL#Role Total:   
+0024#STR0024#ALL#Period total:  
+0025#STR0025#ALL#Cost C. Total: 
+0026#STR0026#ALL#This Program Generates Vacancies Approval Report

@@ -1,0 +1,21 @@
+0001#STR0001#ALL#Matrícula
+0002#STR0002#ALL#C.custo
+0004#STR0004#ALL#Emissão demonstrativa das alterações salariais.
+0005#STR0005#ALL#Sera impresso de acordo com os parâmetro s solicitados pelo
+0006#STR0006#ALL#Utilizador.
+0007#STR0007#ALL#Código de barras
+0008#STR0008#ALL#Administração
+0009#STR0009#ALL#Demonstrativo Das Alterações Salariais
+0010#STR0010#ALL#Função ->
+0011#STR0011#ALL#Fil C.custo   Registo Nome Do Empregado             Data  Tempo Motivo                   %aumento     Sal.anterior        Salário
+0012#STR0012#ALL#                                                            Mm/aa
+0013#STR0013#ALL#Admissão ->
+0014#STR0014#ALL#Vínculo 
+0015#STR0015#ALL#Mm/aa
+0016#STR0016#ALL#Total empregado ->
+0017#STR0017#ALL#Total c.custo ->
+0018#STR0018#ALL#Total filial  ->
+0019#STR0019#ALL#Total empresa ->
+0020#STR0020#ALL#  Empregado
+0021#STR0021#ALL#  Funcionários
+0022#STR0022#ALL# (actual)

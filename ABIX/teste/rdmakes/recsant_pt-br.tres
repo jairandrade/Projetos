@@ -1,0 +1,32 @@
+0001#STR0001#ALL#GERAÇÃO DE ARQUIVO SANTANDER P/RECIBOS DE PAGAMENTOS
+0002#STR0002#ALL#Geração Holerite Eletronico - Bco Santander
+0003#STR0003#ALL#Este programa fara a geração do arquivo magnetico para envio 
+0004#STR0004#ALL#ao Banco Santander para disponibilização do Holerite Eletronico 
+0005#STR0005#ALL#Gerado o arquivo 
+0006#STR0006#ALL#Guarde o número do lote deste arquivo para eventual substituição: 
+0007#STR0007#ALL#INCONSISTÊNCIAS NA 
+0008#STR0008#ALL#Favor analisar as tabelas de composição do recibo, pois pode existir inconsistências nas mesmas.
+0009#STR0009#ALL#SRA - Funcionários
+0010#STR0010#ALL#RCH - Período de Calculos
+0011#STR0011#ALL#SRD - Histórico de Movimentos
+0012#STR0012#ALL#SRC - Movimento do Período   
+0013#STR0013#ALL#SRV - Verbas   
+0014#STR0014#ALL#AVISO
+0015#STR0015#ALL#Não existem registros a serem gravados. A geração do arquivo 
+0016#STR0016#ALL# foi abortada. 
+0017#STR0017#ALL#OK
+0018#STR0018#ALL#Ocorreram problemas na tentativa de deleção do arquivo 
+0019#STR0019#ALL#Ocorreram problemas no fechamento do arquivo 
+0020#STR0020#ALL#Ocorreram problemas na tentativa de deleção do arquivo 
+0021#STR0021#ALL#Processando...
+0022#STR0022#ALL#Deseja substituir o 
+0023#STR0023#ALL# existente ?
+0024#STR0024#ALL#Nome do Arquivo nos Parametros em Branco.
+0025#STR0025#ALL#Atenção!
+0026#STR0026#ALL# não pode ser criado! Verifique os parametros.
+0027#STR0027#ALL#O arquivo 
+0028#STR0028#ALL#Ocorreu um erro na gravação do arquivo 
+0029#STR0029#ALL#.   Continua?
+0030#STR0030#ALL# é obrigatorio porém esta vazio ou menor que zero.
+0031#STR0031#ALL#O Campo 
+0032#STR0032#ALL# do funcionário 

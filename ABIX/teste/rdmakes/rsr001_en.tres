@@ -1,0 +1,47 @@
+0001#STR0001#ALL#This Program will print the Curricula, according to
+0002#STR0002#ALL#the selected parameters.
+0003#STR0003#ALL#Curriculum
+0004#STR0004#ALL#Name
+0005#STR0005#ALL#Z.Form
+0006#STR0006#ALL#Management
+0007#STR0007#ALL#Curricula
+0008#STR0008#ALL#Curriculum
+0009#STR0009#ALL#Cancelled by the User
+0010#STR0010#ALL#Selecting Records...
+0011#STR0011#ALL#Cencelled by Operator
+0012#STR0012#ALL#PERSONAL DATA
+0013#STR0013#ALL#Name: 
+0014#STR0014#ALL#Phone: 
+0015#STR0015#ALL#Birth: 
+0016#STR0016#ALL#Mar.Status: 
+0017#STR0017#ALL#Address: 
+0018#STR0018#ALL#ID: 
+0019#STR0019#ALL#FTR: 
+0020#STR0020#ALL#DESIRED AREA
+0021#STR0021#ALL#Posit.: 
+0022#STR0022#ALL#Salary wanted: 
+0023#STR0023#ALL#Indicated by: 
+0024#STR0024#ALL#SKILS
+0025#STR0025#ALL#*** Skils not registered ***
+0026#STR0026#ALL#ANALISYS
+0027#STR0027#ALL#*** Analisys not Registered ***
+0028#STR0028#ALL#PROFESSIONAL HISTORY 
+0029#STR0029#ALL#Admiss.    Demiss.    Area                                Company                        Funct.
+0030#STR0030#ALL#Activities:
+0031#STR0031#ALL#*** Activity not Registered ***
+0032#STR0032#ALL#*** Professional History not Registered ***
+0033#STR0033#ALL#GRADUATION
+0034#STR0034#ALL#EXTRA CURRICULUM COURSE
+0035#STR0035#ALL#Graduat.Dt.   Entity                         Course
+0036#STR0036#ALL#*** Graduation not Registered ***
+0037#STR0037#ALL#*** Extra Curricular Course not Registered ***
+0038#STR0038#ALL#EXPERIENCE
+0039#STR0039#ALL#*** Experience not Registered ***
+0040#STR0040#ALL#Group              Factor                          Degree
+0041#STR0041#ALL#EMPLOYEE CHARACTERISTICS
+0042#STR0042#ALL#Characteristic                Response
+0043#STR0043#ALL#*** Employee Characteristics Not Defined ***
+0044#STR0044#BRA#Consent Status:
+0045#STR0045#BRA#Accepted
+0046#STR0046#BRA#Pending
+0047#STR0047#BRA#/Responsible party

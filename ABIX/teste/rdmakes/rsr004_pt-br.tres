@@ -1,0 +1,15 @@
+0001#STR0001#ALL#Este programa tem como objetivo imprimir os testes realizados
+0002#STR0002#ALL#conforme parametros selecionados.
+0003#STR0003#ALL#Testes realizados
+0004#STR0004#ALL#*** CANCELADO PELO OPERADOR ***
+0005#STR0005#ALL#Zebrado
+0006#STR0006#ALL#Administracao
+0007#STR0007#ALL#Filial Curriculo Nome                          Teste                                  Nota
+0008#STR0008#ALL#Filial Curriculo Nome                          Teste                                  Questao Alternativa Pontos
+0009#STR0009#ALL#Candidato
+0010#STR0010#ALL#Currículo
+0011#STR0011#ALL#Questões
+0012#STR0012#ALL#Pontos
+0013#STR0013#ALL#Teste
+0014#STR0014#ALL#Nota
+0015#STR0015#ALL#Total de Pontos: 

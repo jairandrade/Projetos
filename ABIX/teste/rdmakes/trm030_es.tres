@@ -1,0 +1,48 @@
+0001#STR0001#ALL#Costo Entrenamiento
+0002#STR0002#ALL#El Informe Costo de Capacitacion muestra, de forma sintetica o analitica, los costos
+0003#STR0003#ALL#con capacitacion de empleados de acuerdo con los param. solicitados por el usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Costo
+0006#STR0006#ALL#Nombre
+0007#STR0007#ALL#A Rayas
+0008#STR0008#ALL#Administracion
+0009#STR0009#ALL#Costo del Entrenamiento
+0010#STR0010#ALL#Costo del Entrenamiento  Periodo:
+0011#STR0011#ALL# a la 
+0012#STR0012#ALL#Seleccionando registros...
+0013#STR0013#ALL#                                                CTD.          COSTO      HORAS   %PRES   NOTAS
+0014#STR0014#ALL#   FIL. MATR.  NOM.                             CTD.          COSTO      HORAS   %PRES   NOTAS
+0015#STR0015#ALL#   FIL. NOM.                            MATR.   CTD.          COSTO      HORAS   %PRES   NOTAS
+0016#STR0016#ALL#Fecha
+0017#STR0017#ALL# CURSO: 
+0018#STR0018#ALL# GRUPO: 
+0019#STR0019#ALL#CENTRO DE COSTO: 
+0020#STR0020#ALL#CALENDARIO: 
+0021#STR0021#ALL# PERIODO: 
+0022#STR0022#ALL#TOTAL GRAL.:           
+0023#STR0023#ALL#TOTAL CENTRO DE COSTO: 
+0024#STR0024#ALL#ENTIDAD: 
+0025#STR0025#ALL# INSTRUCTOR: 
+0026#STR0026#ALL# HORARIO: 
+0027#STR0027#ALL# DURACION: 
+0028#STR0028#ALL# LOCAL: 
+0029#STR0029#ALL#Total
+0030#STR0030#ALL#SINONIMO DEL CURSO: 
+0031#STR0031#ALL#Curso
+0032#STR0032#ALL#Sinonimo
+0033#STR0033#ALL#Periodo
+0034#STR0034#ALL#Entidad 
+0035#STR0035#ALL#Matr.
+0036#STR0036#ALL#Nomb
+0037#STR0037#ALL#Costo
+0038#STR0038#ALL#Horas
+0039#STR0039#ALL#%Pres
+0040#STR0040#ALL#Nota
+0041#STR0041#ALL#Capacitacion
+0042#STR0042#ALL#Costo por empleado     
+0043#STR0043#ALL#   SUC. MATR.  NOMBRE                           CANT.         COSTO      HORAS   %PRES   NOTAS  CALEND CURSO GRUPO PERIODO
+0044#STR0044#ALL#TOTAL CURSO:
+0045#STR0045#ALL#                                                CANT.         COSTO      HORAS
+0046#STR0046#ALL#Inconsistencias en la funcion o cargo
+0047#STR0047#ALL#Sucursal Matricula Empleado                     Calendario Curso
+0048#STR0048#ALL#Se encontraron inconsistencias en el vinculo Funcion vs. Cargo. ¿Desea generar Log?

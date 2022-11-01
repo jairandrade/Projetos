@@ -1,0 +1,72 @@
+0001#STR0001#BRA#Generation of Model reports (Contract/Extention/T.A/Agreement)
+0002#STR0002#BRA#Registration
+0003#STR0003#BRA#Cost Center
+0004#STR0004#BRA#Name
+0005#STR0005#BRA#1 - Employment contract
+0006#STR0006#BRA#2 - Contract extension
+0007#STR0007#BRA#3 - Transportation Allowance Form
+0008#STR0008#BRA#4 - Agreement for compensation of hours
+0009#STR0009#BRA#Models available for selection
+0010#STR0010#BRA#EMPLOYMENT CONTRACT BY WAY OF EXPERIENCE
+0011#STR0011#BRA#Enter company 
+0012#STR0012#BRA#located in 
+0013#STR0013#BRA#on the street 
+0014#STR0014#BRA#hereafter named as EMPLOYER and 
+0015#STR0015#BRA#holding the Employee Cart number 
+0016#STR0016#BRA#Series 
+0017#STR0017#BRA#hereafter named as EMPLOYEE, this CONTRACT OF EXPERIENCE is executed, with the validity of 
+0018#STR0018#BRA#From the start date of services provision, according to the following specifications: 
+0019#STR0019#BRA#1 - The EMPLOYEE hired in the personnel of the EMPLOYER to exert the roles of 
+0020#STR0020#BRA#through the compensation of R$ 
+0021#STR0021#BRA#However, the circumstance of the role being specified does not matter in the non-transferability of the EMPLOYEE to another service, in case he or she demonstrates better capacity of adaptation as long as he or she is compatible with his or her personal condition. 
+0022#STR0022#BRA#2 - The work schedule will be recorded on his or her registration form and any reduction of the work day, by determination of the EMPLOYER, will not innovate this adjustment, always remaining in full the obligation of the EMPLOYEE to comply with the schedule determined to him or her, observing the legal limit.
+0023#STR0023#BRA#3 - The employee is also required to render services overtime, whenever determined by the EMPLOYER, in the form provided by Law. In the event of this possibility by the EMPLOYER, the EMPLOYEE will receive the overtime value with the legal increase, except for the occurrence of compensation, with the consequent reduction of the working day on another day. 
+0024#STR0024#BRA#4 - The EMPLOYEE expressly accepts the condition of providing services in any work shift, that is, both during the day and at night, not simultaneously, complying with the legal regulations ruling the subject, regarding remuneration.. 
+0025#STR0025#BRA#5 - It is adjusted according to the provisions of paragraph 1 of article 469, of the Consolidation of Labor Laws, that the EMPLOYEE will comply with the order emanating from EMPLOYER for the provision of services both in the place of execution of the Contract of Work, and in any other City, Capital or Village of the National Territory, whether such transfer is transient or permanent. 
+0026#STR0026#BRA#6 - At the time of signature of this contract, the EMPLOYEE receives the Internal Regulations of the Company whose clauses are part of the Work Contract, and the violation of any of them will imply a sanction, whose graduation will depend on its severity, culminating in the termination of the contract. 
+0027#STR0027#BRA#7 - In case of damage caused by the EMPLOYEE, the EMPLOYER is hereby authorized to effect the discount of the amount corresponding to the loss, which will, based on paragraph 1 of article 462 of the Consolidation of Labor Laws, since this possibility is expressly provided for in the Contract.
+0028#STR0028#BRA#8 - The present Agreement shall be valid 
+0029#STR0029#BRA#for days, and it shall be concluded for the parties to verify to each other the convenience or not of being definitively bound to a Contract of Work. The Company began to know the EMPLOYEE's aptitudes and their personal and moral qualities; the EMPLOYEE checking to see if the environment and working methods meet their convenience.
+0030#STR0030#BRA#9 - The termination of this Agreement is executed due to the above term or at the will of one of the parties; Terminating at the will of the EMPLOYEE or EMPLOYEE, is obliged to pay 50% of the salaries due until the end (half of the remaining combined time), pursuant to article 479 of the CLT, without damage to the FGTS Reg. Due to termination of this Agreement.
+0031#STR0031#BRA#10 - In the event that this adjustment becomes an Undetermined Term Contract, over the course of time, the EMPLOYER will remain in full force, and the Second with the EMPLOYEE, who will provide the relevant receipt.
+0032#STR0032#BRA#____________________________________________________________
+0033#STR0033#BRA#Company:
+0034#STR0034#BRA#Employee:
+0035#STR0035#BRA#Witness:
+0036#STR0036#BRA#Contract extension term
+0037#STR0037#BRA#By mutual agreement between the parties, this Agreement of Experience shall expire on this date extended until 
+0038#STR0038#BRA#TRANSPORTATION ALLOWANCE
+0039#STR0039#BRA#DECREE No. 95.247, FROM 11/17/87
+0040#STR0040#BRA#REC. THE LAW N.º 7.418 FROM 12/16/85
+0041#STR0041#BRA#ALT. LAW N.º 7.619 FROM 09/30/87
+0042#STR0042#BRA#I, signed below, declare, under the penalties of Lei, my address, neighborhood, city, state, amount of bus, train, metro, integration (bus + Metro) and / or integration (bus + train), which I use from my residence to work and vice versa. 
+0043#STR0043#BRA#Address.............: 
+0044#STR0044#BRA#Compl. Address..................: 
+0045#STR0045#BRA#District...................: 
+0046#STR0046#BRA#City..................: 
+0047#STR0047#BRA#State............: 
+0048#STR0048#BRA#Transportation Used 
+0049#STR0049#BRA#Type        Quant.     Value           Type        Quant.     Value
+0050#STR0050#BRA#Bus      ______     __________      Train        ______     __________
+0051#STR0051#BRA#Metro       ______     __________      Integration  ______     __________
+0052#STR0052#BRA#Name of the Bus Company (ies): 
+0053#STR0053#BRA#1) __________________________________________________________________________
+0054#STR0054#BRA#2) __________________________________________________________________________
+0055#STR0055#BRA#3) __________________________________________________________________________
+0056#STR0056#BRA#Note: I am aware that if the employer finds any irregularity or serious misconduct on my above declaration or improper use of the transportation voucher, I may be dismissed in accordance with article 482 of the Labor Law and Article 7, paragraph 3, of Decree No. 95.247 of November 17, 1987.
+0057#STR0057#BRA#* I acknowledge that I will be deducted monthly a portion equivalent to 6% of basic salary or salary.
+0058#STR0058#BRA#* When a change of address or modification of my transportation service occurs, a new declaration must be completed:
+0059#STR0059#BRA#Monthly load: 
+0060#STR0060#BRA#____________________________________________
+0061#STR0061#BRA#Signature of right thumb
+0062#STR0062#BRA#Name: 
+0063#STR0063#BRA#ID nº: 
+0064#STR0064#BRA#Agreement for Compensation of Work Hours
+0065#STR0065#BRA#By this agreement for compensation of hours, signed between the Company established in 
+0066#STR0066#BRA#With the branch of Service and its undersigned employee holder of the Employee Book No. 
+0067#STR0067#BRA#, Series, 
+0068#STR0068#BRA#It is agreed, based on the provisions of the above article, that the regular working hours will be as follows: 
+0069#STR0069#BRA#From Monday to Friday, from 
+0070#STR0070#BRA#with 1 hour of Meal and rest. Making the total of 
+0071#STR0071#BRA#weekly hours. 
+0072#STR0072#BRA#To be in full agreement, the Contracting Parties shall sign this Agreement in two copies, which shall be in force until ____ / ____ / ________

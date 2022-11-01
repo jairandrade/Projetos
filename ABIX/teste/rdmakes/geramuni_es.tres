@@ -1,0 +1,8 @@
+0001#STR0001#ALL#Compatibilizador de tabla CC2
+0002#STR0002#ALL#Este programa efectuara una compatibilizacion de la informacion existente en la tabla
+0003#STR0003#ALL#'CC2 - Archivo de Municipios' existente en la base de datos, con la tabla de municipios oficial.
+0004#STR0004#ALL#¿Confirma el procesamiento?
+0005#STR0005#ALL#¿Desea virtualizar la lista de municipios agregados?
+0006#STR0006#ALL#Relacion de Municipios Agregados
+0007#STR0007#ALL#Codigo
+0008#STR0008#ALL#Descripcion

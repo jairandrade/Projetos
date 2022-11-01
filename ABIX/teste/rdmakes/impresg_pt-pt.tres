@@ -1,0 +1,52 @@
+0001#STR0001#ALL#02 Razao Social/nome
+0002#STR0002#ALL#Termo De Rescisão Do Contrato De Trabalho
+0003#STR0003#ALL#Termo de rescisão do contrato de trabalho ( complementar )
+0004#STR0004#ALL#No.Contr.Tomador/Obra: 
+0005#STR0005#ALL#Identificação Do Empregador
+0006#STR0006#ALL#Identificação Do Trabalhador
+0007#STR0007#ALL#20 Nome Da Mãe
+0008#STR0008#ALL#Dados Do Contrato
+0009#STR0009#ALL#21 remun.fins resc.
+0010#STR0010#ALL#22 Data De Admissão
+0011#STR0011#ALL#Endereço 
+0012#STR0012#ALL#18 No.Contr. 
+0013#STR0013#ALL#Código postal 
+0014#STR0014#ALL#Localidade
+0015#STR0015#ALL#Município
+0016#STR0016#ALL#Distrito 
+0017#STR0017#ALL#CAE 
+0019#STR0019#ALL# A assistência no acto de rescisão contratual é gratuita
+0024#STR0024#ALL#Carteira de trabalho (nº,série,distrito) 
+0027#STR0027#ALL#19 Data De Nascimento
+0030#STR0030#ALL#24 Data Do Afastamento
+0033#STR0033#ALL#27 Pens.alim.
+0034#STR0034#ALL#25 causa do afastamento
+0035#STR0035#ALL#26 cód. afastamento
+0036#STR0036#ALL#28 Categoria Do Trabalhador
+0037#STR0037#ALL#Discriminação Das Verbas Rescisorias                                                                                      Descontos
+0038#STR0038#ALL#Total bruto 
+0039#STR0039#ALL#Total descontos 
+0040#STR0040#ALL#Líquido a receber 
+0041#STR0041#ALL#Formalização Da Rescisão
+0042#STR0042#ALL#56 local e data do recebimento
+0043#STR0043#ALL#58 assinatura do trabalhador
+0044#STR0044#ALL#57 carimbo e assinatura do empregador ou preposto
+0045#STR0045#ALL#59 assinatura do responsavel legal do trabalhador
+0046#STR0046#ALL#60 Homologação
+0047#STR0047#ALL#61 digital do trabalhador
+0048#STR0048#ALL#62 digital do responsável 
+0051#STR0051#ALL#Termos do art. 477,inc.1. da clt, sendo comprovado, neste acto  
+0052#STR0052#ALL#O efetivo pagamento das verbas rescisorias acima especificadas.
+0053#STR0053#ALL#64 recepção pelo banco (data e carimbo)
+0054#STR0054#ALL#63 identificação do orgao homologador:
+0056#STR0056#ALL#01 No.Contr.
+0058#STR0058#ALL#Chave identif.: 
+0059#STR0059#ALL#Proventos
+0060#STR0060#ALL#Descontos
+0061#STR0061#ALL#Identificação Do Empregador
+0062#STR0062#ALL#Identificação Do Trabalhador
+0063#STR0063#ALL#Dados Do Contrato
+0064#STR0064#ALL#Discriminação Das Verbas De Rescisão
+0065#STR0065#ALL#Formalização Da Rescisão
+0067#STR0067#ALL#C.custo:
+0068#STR0068#ALL#Banco/ag.:

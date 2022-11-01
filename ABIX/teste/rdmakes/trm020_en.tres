@@ -1,0 +1,29 @@
+0001#STR0001#ALL#Training
+0002#STR0002#ALL#It will be printed according to parameters selected by
+0003#STR0003#ALL#the User. Depending on the process of the Necessities of Trainings.
+0004#STR0004#ALL#Registration
+0005#STR0005#ALL#Cost Center
+0006#STR0006#ALL#Name
+0007#STR0007#ALL#Z.Form 
+0008#STR0008#ALL#Management
+0009#STR0009#ALL#REQUISITION/RESERVATION OF TRAINING
+0010#STR0010#ALL#COURSE: 
+0011#STR0011#ALL#BRC. REGS.  NAME                           GROUP           DEPARTMENT           LOAD                         STATUS       REQUEST DT CALENDAR                          PERIOD          TEAM  C.CENTE
+0012#STR0012#ALL#RESERVED
+0013#STR0013#ALL#WAITING LIST
+0014#STR0014#ALL#REQUISITION
+0015#STR0015#ALL#Selecting Records...
+0016#STR0016#ALL#Order of 
+0017#STR0017#ALL#The purpose of this program is to print the training request according to the parameters selected 
+0018#STR0018#ALL#Course
+0019#STR0019#ALL#Brn.
+0020#STR0020#ALL#Reg.:
+0021#STR0021#ALL#Name
+0022#STR0022#ALL#Group
+0023#STR0023#ALL#Dept.
+0024#STR0024#ALL#Posit
+0025#STR0025#ALL#Sit.
+0026#STR0026#ALL#Req. Date
+0027#STR0027#ALL#Calend
+0028#STR0028#ALL#Period 
+0029#STR0029#ALL#Employees Total

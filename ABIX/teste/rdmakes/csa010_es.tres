@@ -1,0 +1,26 @@
+0001#STR0001#ALL#Informe de aprobacion de aumento de personal de la empresa.
+0002#STR0002#ALL#Se imprimira de acuerdo con los parametros solicitados por el
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Centro de Costos
+0005#STR0005#ALL#A Rayas
+0006#STR0006#ALL#Administracion
+0007#STR0007#ALL#     AÑO/MES FUNCION                         VL.ACTUAL VL.PREVISTO  VL.APROBADO CT.ACT.  CT.PREV. CT.APROB. FC. APROB. APROBADOR 
+0008#STR0008#ALL# Aprobacion de Aumento de Personal 
+0009#STR0009#ALL#Centro de Costos: 
+0010#STR0010#ALL#Total C.Costos - 
+0011#STR0011#ALL#Total General: 
+0012#STR0012#ALL#Total del Periodo - 
+0013#STR0013#ALL#Total -
+0014#STR0014#ALL#Aprobacion de Vacantes
+0015#STR0015#ALL#Cuadro de Empleado por Funcion
+0016#STR0016#ALL#Vl.Actual
+0017#STR0017#ALL#Vl.Previ
+0018#STR0018#ALL#Ctd.Actual
+0019#STR0019#ALL#Ctd.Previ
+0020#STR0020#ALL#Ctd.Aprob
+0021#STR0021#ALL#Aprobador
+0022#STR0022#ALL#Ctd.Aprob
+0023#STR0023#ALL#Total Funcion:
+0024#STR0024#ALL#Total Periodo: 
+0025#STR0025#ALL#Total C.Costo: 
+0026#STR0026#ALL#Este Programa Emite Informe de Aprobacion de Vacantes

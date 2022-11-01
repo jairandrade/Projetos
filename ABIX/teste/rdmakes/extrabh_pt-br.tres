@@ -1,0 +1,39 @@
+0001#STR0001#ALL#Zebrado
+0002#STR0002#ALL#Administraçäo
+0003#STR0003#ALL#Extrato Banco de Horas
+0004#STR0004#ALL#Será impresso de acordo com os parametros solicitados pelo
+0005#STR0005#ALL#usuario.
+0006#STR0006#ALL#Matricula
+0007#STR0007#ALL#Centro de Custo
+0008#STR0008#ALL#Nome
+0009#STR0009#ALL#Turno
+0010#STR0010#ALL#C.Custo + Nome
+0011#STR0011#ALL#Extrato Banco de Horas
+0012#STR0012#ALL#Assinatura do Funcionario
+0013#STR0013#ALL#Emp...:
+0014#STR0014#ALL# Matr..: 
+0015#STR0015#ALL#  Chapa : 
+0016#STR0016#ALL#End...: 
+0017#STR0017#ALL# Nome..: 
+0018#STR0018#ALL#CGC...: 
+0019#STR0019#ALL#Funcao: 
+0020#STR0020#ALL#C.C...: 
+0021#STR0021#ALL# Categ.: 
+0022#STR0022#ALL#Turno.: 
+0023#STR0023#ALL#  Data     Evento                       Debito    Credito       Saldo  Status
+0024#STR0024#ALL#Saldo Anterior 
+0025#STR0025#ALL#Data
+0026#STR0026#ALL#Evento
+0027#STR0027#ALL#D&eacute;bito
+0028#STR0028#ALL#Cr&eacute;dito
+0029#STR0029#ALL#Saldo
+0030#STR0030#ALL#Status
+0031#STR0031#ALL#Consulta de Banco de Horas
+0032#STR0032#ALL#Departamento
+0033#STR0033#ALL#N&atilde;o h&aacute; lan&ccedil;amentos no banco de horas.
+0034#STR0034#ALL#Imprimir
+0035#STR0035#ALL#Voltar
+0036#STR0036#ALL#Lista do Banco de Horas
+0037#STR0037#ALL#Débt.Valorizado
+0038#STR0038#ALL#Créd.Valorizado
+0039#STR0039#ALL#Sal.Valorizado

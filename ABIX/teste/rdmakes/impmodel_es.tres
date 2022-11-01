@@ -1,0 +1,72 @@
+0001#STR0001#BRA#Generación de informes Modelo (Contrato/Prorrogación/VT/Acuerdo)
+0002#STR0002#BRA#Matrícula
+0003#STR0003#BRA#Centro de costo
+0004#STR0004#BRA#Nombre
+0005#STR0005#BRA#1 - Contrato de trabajo
+0006#STR0006#BRA#2 - Prorrogación del contrato
+0007#STR0007#BRA#3 - Término de ticket transporte
+0008#STR0008#BRA#4 - Acuerdo para compensación de horas
+0009#STR0009#BRA#Modelos disponibles para selección
+0010#STR0010#BRA#CONTRATO DE TRABAJO A TÍTULO DE EXPERIENCIA
+0011#STR0011#BRA#Entre la firma 
+0012#STR0012#BRA#con sede en 
+0013#STR0013#BRA#en la calle 
+0014#STR0014#BRA#en adelante designada simplemente EMPLEADORA y 
+0015#STR0015#BRA#portador de Libreta de trabajo nº 
+0016#STR0016#BRA#Serie 
+0017#STR0017#BRA#a continuación denominado solamente EMPLEADO, se celebra el presente CONTRATO DE EXPERIENCIA, que tendrá vigencia a 
+0018#STR0018#BRA#partir de la fecha de inicio de la prestación de servicios, de acuerdo con las siguientes condiciones especificadas: 
+0019#STR0019#BRA#1 - Queda el EMPLEADO ingresado en la plantilla de empleados de la EMPLEADORA para ejercer las funciones de 
+0020#STR0020#BRA#por medio de la remuneración de R$ 
+0021#STR0021#BRA#La circunstancia, sin embargo, de ser la función especificada no importa en la intransferibilidad del EMPLEADO a otro servicio, en el cual muestre mejor capacidad de adaptación, siempre y cuando sea compatible con su condición personal. 
+0022#STR0022#BRA#2 - El horario laboral se anotará en su ficha de registro y la eventual reducción de jornada, por determinación de la EMPLEADORA, no innovará este ajuste, permaneciendo siempre íntegra la obligación del EMPLEADO de cumplir el horario que le fuera determinado, observando el límite legal.
+0023#STR0023#BRA#3 - También se obliga al empleado a prestar servicios en horas extraordinarias, siempre que le fuera determinado por la EMPLEADORA, en la forma prevista en la Ley.  En la hipótesis de esta facultad por la EMPLEADORA, el EMPLEADO recibirá las horas extraordinarias con el aumento legal, salvo la ocurrencia de compensación, con la consecuente  reducción de la jornada laboral en otro día. 
+0024#STR0024#BRA#4 - Acepta el EMPLEADO, expresamente, la condición de prestar servicios en cualquiera de los turnos de trabajo, esto es, tanto durante el día como en la noche, siempre y cuando no exista simultaneidad, observadas las  prescripciones legales reguladoras del asunto, con respecto a la remuneración. 
+0025#STR0025#BRA#5 - Queda ajustado en los términos de lo que dispone el párrafo 1º del artículo 469, de la Consolidación de las Leyes laborales, que el EMPLEADO acatará a la orden emanada de la EMPLEADORA para la prestación de servicios, tanto en la localidad de celebración del Contrato de trabajo, como en cualquier otra ciudad, Capital o municipio del Territorio nacional, sea esta transferencia transitoria o definitiva. 
+0026#STR0026#BRA#6 - En el acto de la firma de este contrato, el EMPLEADO recibe el Reglamento interno de la empresa cuyas cláusulas forman parte del Contrato laboral y la violación  de cualquiera de estas implicará en una sanción, cuya graduación dependerá de su gravedad, culminando con la rescisión del contrato. 
+0027#STR0027#BRA#7 - En caso de daño causado por el EMPLEADO, la EMPLEADORA, queda autorizada para hacer efectivo el descuento del importe correspondiente al perjuicio, el cual se realizará de acuerdo con el párrafo 1º del artículo 462 de la Consolidación de las leyes de trabajo, ya que esta posibilidad queda expresamente prevista en el Contrato.
+0028#STR0028#BRA#8 - El presente contrato, regirá durante 
+0029#STR0029#BRA#días, siendo celebrado para que las partes verifiquen recíprocamente, la conveniencia o no de vincularse en carácter definitivo a un Contrato laboral.  La Empresa pasando a conocer las aptitudes del EMPLEADO y sus cualidades personales y morales; el EMPLEADO verificando si el entorno y los métodos de trabajo atienden su conveniencia.
+0030#STR0030#BRA#9 - Se opera la rescisión del presente Contrato como resultado del plazo anterior o por voluntad de una de las partes; rescindiéndose por voluntad del EMPLEADO o EMPLEADORA, queda esta obligada a pagar el 50% de los sueldos adeudados hasta el final (mitad del tiempo combinado  restante), en los términos del artículo 479 de la C.L.T., sin perjuicio en el Reg. del F.G.T.S.. Ningún aviso previo se adeuda por la rescisión del presente Contrato.
+0031#STR0031#BRA#10 - En la hipótesis de que este ajuste se transforme en Contrato de plazo indeterminado, por el transcurso del tiempo, continuarán en plena  vigencia en poder de la EMPLEADORA, y la Segunda con el EMPLEADO, que de esta dará el competente recibo.
+0032#STR0032#BRA#____________________________________________________________
+0033#STR0033#BRA#Empresa: 
+0034#STR0034#BRA#Empleado: 
+0035#STR0035#BRA#Testigo: 
+0036#STR0036#BRA#Término de prorrogación de contrato
+0037#STR0037#BRA#Por mutuo acuerdo entre las partes, queda el presente Contrato de experiencia que debería vencer en esta fecha prorrogado hasta 
+0038#STR0038#BRA#TICKET TRANSPORTE
+0039#STR0039#BRA#DECRETO Nº 95.247 DEL 17/11/87
+0040#STR0040#BRA#REG. LA LEY Nº 7.418 DEL 16/12/85
+0041#STR0041#BRA#MOD. LEY Nº 7.619 DEL 30/09/87
+0042#STR0042#BRA#Yo, abajo firmante, declaro bajo las penas de Ley, mi dirección, barrio, ciudad, estado, cantidad de ómnibus, tren, metro, integración (ómnibus + Metro) y/o integración (ómnibus + tren), que utilizo en el desplazamiento de mi residencia al trabajo y viceversa. 
+0043#STR0043#BRA#Dirección:......... 
+0044#STR0044#BRA#Compl. Direc.: ..... 
+0045#STR0045#BRA#Barrio:........... 
+0046#STR0046#BRA#Municipio:........ 
+0047#STR0047#BRA#Estado:........... 
+0048#STR0048#BRA#Transporte utilizado 
+0049#STR0049#BRA#Tipo        Cant.     Valor           Tipo        Cant.     Valor
+0050#STR0050#BRA#Ómnibus      ______     __________      Tren        ______     __________
+0051#STR0051#BRA#Metro       ______     __________      Integración  ______     __________
+0052#STR0052#BRA#Nombre de la(s) Compañía(s) de ómnibus: 
+0053#STR0053#BRA#1) __________________________________________________________________________
+0054#STR0054#BRA#2) __________________________________________________________________________
+0055#STR0055#BRA#3) __________________________________________________________________________
+0056#STR0056#BRA#Obs.: Estoy enterado de que, si el empleador constatara cualquier irregularidad o falta grave en mi declaración anterior o uso indebido del ticket transporte, podré ser despedido, de acuerdo con el artículo 482 de la C.L.T. y artículo 7 párrafo 3 del decreto nº 95.247 del 17/11/87.
+0057#STR0057#BRA#* Reconozco que se me descontará mensualmente una cuota equivalente al 6% del sueldo básico o remuneración.
+0058#STR0058#BRA#* Si ocurriera cambio de dirección o modificación del medio de servicio de transporte, debe realizarse una nueva declaración:
+0059#STR0059#BRA#Carga horaria mensual: 
+0060#STR0060#BRA#____________________________________________
+0061#STR0061#BRA#Firma o impresión del pulgar derecho
+0062#STR0062#BRA#Nombre: 
+0063#STR0063#BRA#DI Nº: 
+0064#STR0064#BRA#Acuerdo para compensación de horas de trabajo
+0065#STR0065#BRA#Por el presente acuerdo para compensación de horas, firmado entre la Empresa establecida en 
+0066#STR0066#BRA#con el ramo de Prestación de servicio y su empleado abajo firmante, portador de la Libreta de trabajo Nº 
+0067#STR0067#BRA#, Serie', 
+0068#STR0068#BRA#queda convenido, con base en lo que faculta el artículo anterior, que el horario normal de trabajo será el siguiente: 
+0069#STR0069#BRA#De lunes a Sexta viernes de 
+0070#STR0070#BRA#con 1 hora de comida y descanso. Haciendo un total de 
+0071#STR0071#BRA#horas semanales. 
+0072#STR0072#BRA#Y por estar de pleno acuerdo, las partes contratantes firman el presente acuerdo en dos ejemplares, el cual regirá hasta el ____/____/________

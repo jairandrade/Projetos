@@ -1,0 +1,35 @@
+0001#STR0001#ALL#¿Impresion Ok?
+0002#STR0002#ALL#Ministerio de Prevision y Asistencia Social-MPAS
+0003#STR0003#ALL#3 - CODIGO DE
+0004#STR0004#ALL#PAGO
+0005#STR0005#ALL#Instituto Nacional de Seguridad Social-INSS
+0006#STR0006#ALL#4 - COMPETENCIA
+0007#STR0007#ALL#FORMULARIO DE PREVISION SOCIAL - GPS
+0008#STR0008#ALL#5 - IDENTIFICADOR
+0009#STR0009#ALL#1 - NOMBRE O RAZON SOCIAL / TEL / DIRECC.:
+0010#STR0010#ALL#6 - VALOR DEL INSS
+0011#STR0011#ALL#2 - VENCIMIENTO
+0012#STR0012#ALL#9 - VALOR DE OTRAS
+0013#STR0013#ALL#(Uso Exclusivo del INSS)
+0014#STR0014#ALL#ENTIDADES
+0015#STR0015#ALL#ATENCION: Es prohibido utilizar el GPS  para  recaudacion de reditos de valor
+0016#STR0016#ALL#inferior al estipulado en Resolucion publicada por el INSS,  los  reditos  que
+0017#STR0017#ALL#10 - ATM/MULTA Y INTERESES
+0018#STR0018#ALL#lleguen a un valor inferior deberan agregarse a la contribucion o importancia
+0019#STR0019#ALL#correspondiente en los meses subsecuentes, hasta que el mismo sea igual o superior
+0020#STR0020#ALL#al valor minimo fijado
+0021#STR0021#ALL#11 - TOTAL
+0022#STR0022#ALL#12 - AUTENTICACION BANCARIA
+0023#STR0023#ALL#ORIGINAL - INSS - COPIA - CONTRIBUYENTE
+0024#STR0024#ALL#Supereceita - SRP
+0025#STR0025#ALL#NOMBRE O RAZON SOCIAL / DIRECCION  / TELEFONO
+0026#STR0026#ALL#3 - CODIGO DE PAGO
+0027#STR0027#ALL#AUTENTICACION BANCARIA
+0028#STR0028#ALL#ATENCION :
+0029#STR0029#ALL#Se prohibe la utilizacion de GPS para pago de recaudacion de 
+0030#STR0030#ALL#valor inferior al estipulado en la Resolucion publicada por la SRP. La recaudacion que  
+0031#STR0031#ALL#resulte valor inferior, debera adicionarse a la contribucion o importe  
+0032#STR0032#ALL#correspondiente a los meses subsecuentes, hasta que el total sea igual o 
+0033#STR0033#ALL#superior al valor minimo fijado.
+0034#STR0034#ALL#1a. Copia - ISS
+0035#STR0035#ALL#2a. Copia - CONTRIBUYENTE

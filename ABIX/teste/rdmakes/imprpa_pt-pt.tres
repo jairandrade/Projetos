@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Registo
+0002#STR0002#ALL#Centro De Custo
+0004#STR0004#ALL#Centro De Custo + Nome
+0005#STR0005#ALL#Emissão De Recibos De Pagamento De Autonomo.
+0006#STR0006#ALL#Serão Impressos De Acordo Com Os Paramentos Solicitados Pelo
+0007#STR0007#ALL#Utilizador
+0008#STR0008#ALL#Código de barras
+0009#STR0009#ALL#Administração
+0010#STR0010#ALL#A Verificar Integridade Do Ficheiro De Movimento Mensal Anterior...
+0014#STR0014#ALL#| nome ou razao social da empresa                 |   registo   (NIF  ou  ISS) |
+0019#STR0019#ALL#|a importancia de:                                                             |
+0021#STR0021#ALL#+--------- número de inscrição ---------+ especificação:                       |
+0022#STR0022#ALL#| no SS :                             | i valor do serviço.....              |
+0023#STR0023#ALL#| NIF     :                                                | ii outros..............              |
+0024#STR0024#ALL#+------------- identidade --------------+      soma..............              |
+0025#STR0025#ALL#| número :                              |                                      |
+0026#STR0026#ALL#| orgao emissor :         Distr:        | descontos:                           |
+0027#STR0027#ALL#+-------------- morada ---------------+ iii  i.r.r.f...........              |
+0028#STR0028#ALL#|                                       | iv   ISS...............              |
+0029#STR0029#ALL#|                                       | v    outros............              |
+0031#STR0031#ALL#|                                       | valor líquido..........              |
+0032#STR0032#ALL#+------- freguesia --------+--- data ---+ +------------ assinatura ------------+
+0035#STR0035#ALL#| c.custo:                              | +----------- nome completo ----------+
+0038#STR0038#ALL#Rs
+0039#STR0039#ALL#A Seleccionar Registos De Movimentos Anteriores

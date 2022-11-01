@@ -1,0 +1,31 @@
+0001#STR0001#ALL#Este programa tem como objetivo imprimir os curriculos
+0002#STR0002#ALL#conforme parametros selecionados.
+0003#STR0003#ALL#Zebrado
+0004#STR0004#ALL#Administracao
+0005#STR0005#ALL#Resultado da Pesquisa Salarial
+0006#STR0006#ALL#Integraçäo com MS-Word
+0007#STR0007#ALL#Esta rotina irá imprimir o Resultado da Pesquisa Salarial conforme os parametros definidos.
+0008#STR0008#ALL#Cancelado pelo usuario
+0009#STR0009#ALL#PEQUENO
+0010#STR0010#ALL#MEDIO
+0011#STR0011#ALL#GRANDE
+0012#STR0012#ALL#RESULTADO PESQUISA SALARIAL
+0013#STR0013#ALL#BASE:
+0014#STR0014#ALL#COMPARATIVO EMPRESA x MERCADO
+0015#STR0015#ALL#CARGO                                PORTE FREQ.   1o.QUARTIL        MEDIA      MEDIANA   3o.QUARTIL
+0016#STR0016#ALL#REGIAO: 
+0017#STR0017#ALL#EMPRESA: 
+0018#STR0018#ALL#REGIAO: 
+0019#STR0019#ALL#PORTE: 
+0020#STR0020#ALL#                                     -----EMPRESA (SALARIO MEDIO)-----  -------------------MERCADO (SALARIO BASE)----------------------    --------------MERCADO (SALARIO TOTAL)--------------
+0021#STR0021#ALL#CARGO                                FREQ. SALARIO BASE SALARIO TOTAL   PORTE FREQ.   1o.QUARTIL        MEDIA      MEDIANA   3o.QUARTIL      1o.QUARTIL        MEDIA      MEDIANA   3o.QUARTIL
+0022#STR0022#ALL#REGIAO: 
+0023#STR0023#ALL#Atencao
+0024#STR0024#ALL#Deve ser escolhida uma Moeda nos Parametros.
+0025#STR0025#ALL#Alterne para o programa do Ms-Word para visualizar o Documento 
+0026#STR0026#ALL# ou clique no botao para fechar.
+0027#STR0027#ALL#Fechar
+0028#STR0028#ALL#Impressao Resultado da Pesquisa Salarial (.DOT) | 
+0029#STR0029#ALL#Selecione Diretorio
+0030#STR0030#ALL#Moedas do Sistema
+0031#STR0031#ALL#Empresas Convidadas na Pesquisa

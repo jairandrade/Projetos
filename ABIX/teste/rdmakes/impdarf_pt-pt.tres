@@ -1,0 +1,25 @@
+0001#STR0001#ALL#Impressão Ok?
+0002#STR0002#ALL#Ministerio da fazenda
+0003#STR0003#ALL#Secretaria Da Receita Federal Do Brasil
+0004#STR0004#ALL#Documento de arrecadação de receitas federais
+0005#STR0005#ALL#Darf
+0006#STR0006#ALL#Nome/telefone
+0007#STR0007#ALL#Atenção
+0008#STR0008#ALL#   e  vedado  o  recolhimento  de  tributos  e  contribuições administrados pela 
+0009#STR0009#ALL#Secretaria da receita federal cujo valor seja inferior a r$ 10,00.ocorrendo tal 
+0010#STR0010#ALL#Situação adicione esse valor  ao  tributo/contribuição de mesmo código  de períodos
+0011#STR0011#ALL#Subsequentes ate que o total seja igual ou superior a r$10,00.
+0012#STR0012#ALL#String não utilizada
+0013#STR0013#ALL#Período de apuramento
+0014#STR0014#ALL#Número Do Cpf Ou Cgc
+0015#STR0015#ALL#Código da receita
+0016#STR0016#ALL#Nr de referência
+0017#STR0017#ALL#Data De Vencimento
+0018#STR0018#ALL#Valor Principal
+0019#STR0019#ALL#Valor Da Multa
+0020#STR0020#ALL#Valor Dos Juros E/ou
+0021#STR0021#ALL#Encargos dl - 1025/69
+0022#STR0022#ALL#Valor Total
+0023#STR0023#ALL#Autenticação bancária
+0024#STR0024#ALL#(somente nas 1a e 2a vias)
+0026#STR0026#ALL#NC/CEI Tomador : 

@@ -1,0 +1,39 @@
+0001#STR0001#ALL#Custo de Treinamento Anual
+0002#STR0002#ALL#Neste relatório serão impressos os custos de treinamento anual separados por mês(Jan a Dez).
+0003#STR0003#ALL#usuário.
+0004#STR0004#ALL#Curso
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Zebrado
+0007#STR0007#ALL#Administraçäo
+0008#STR0009#ALL#Investimento em Treinamento no Ano de 
+0009#STR0010#ALL# em: 
+0010#STR0011#ALL# Valor
+0011#STR0012#ALL# Horas
+0012#STR0013#ALL#Selecionando Registros...
+0013#STR0014#ALL#CENTRO DE CUSTO: 
+0014#STR0015#ALL#TOTAL DO CENTRO DE CUSTO
+0015#STR0016#ALL#TOTAL GERAL:            
+0016#STR0017#ALL#                                           JAN         FEV         MAR         ABR         MAI         JUN         JUL         AGO         SET         OUT         NOV         DEZ 
+0017#STR0018#ALL#CURSO                                     VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR       VALOR           TOTAL
+0018#STR0019#ALL#CURSO                                     HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS       HORAS           TOTAL
+0019#STR0020#ALL#JAN
+0020#STR0021#ALL#FEV
+0021#STR0022#ALL#MAR
+0022#STR0023#ALL#ABR
+0023#STR0024#ALL#MAI
+0024#STR0025#ALL#JUN
+0025#STR0026#ALL#JUL
+0026#STR0027#ALL#AGO
+0027#STR0028#ALL#SET
+0028#STR0029#ALL#OUT
+0029#STR0030#ALL#NOV
+0030#STR0031#ALL#DEZ
+0031#STR0032#ALL#TOTAL
+0032#STR0033#ALL#VALOR
+0033#STR0034#ALL#HORAS
+0034#STR0035#ALL#Custo por Curso
+0035#STR0036#ALL#Total por C.Custo
+0036#STR0037#ALL#Custo por C.Custo
+0037#STR0038#ALL#Inconsistências na função ou cargo
+0038#STR0039#ALL#Filial Matricula Funcionario                    Calendario Curso
+0039#STR0040#ALL#Foram encontradas inconsistências no vínculo Função x Cargo. Deseja gerar Log?

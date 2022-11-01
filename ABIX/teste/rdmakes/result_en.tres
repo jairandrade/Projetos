@@ -1,0 +1,31 @@
+0001#STR0001#ALL#This program will show all the resumees
+0002#STR0002#ALL#according to the selected parameters.
+0003#STR0003#ALL#Z.Form
+0004#STR0004#ALL#Management
+0005#STR0005#ALL#Wages Survey Results
+0006#STR0006#ALL#Integration with MS-Word
+0007#STR0007#ALL#This routine will show the Wages Survey Results according to the parameters defined.
+0008#STR0008#ALL#Cancelled by the user
+0009#STR0009#ALL#SMALL
+0010#STR0010#ALL#MEDIUM
+0011#STR0011#ALL#LARGE
+0012#STR0012#ALL#WAGES SURVEY RESULTS
+0013#STR0013#ALL#BASIS:
+0014#STR0014#ALL#COMPARISON COMPANY x MARKET
+0015#STR0015#ALL#POSITION                             FREQ.PORT     1ST.QUARTILE      AVER.      MEDIAN    3RD.QUARTILE
+0016#STR0016#ALL#REGION: 
+0017#STR0017#ALL#COMPANY: 
+0018#STR0018#ALL#REGION: 
+0019#STR0019#ALL#PORT: 
+0020#STR0020#ALL#                                     ------COMPANY (AVER.SALARY)------  -------------------MARKET  (BASE SALARY)-----------------------    --------------MARKET  (TOTAL SALARY)---------------
+0021#STR0021#ALL#POSITION                             FREQ. BASE SALARY   TOTAL SALARY   FREQ. PORT    1ST.QUART.      AVERAGE      MEDIAN    3RD.QUART.    1ST.QUARTILE      AVERAGE      MEDIAN    3RD.QUART.
+0022#STR0022#ALL#REGION: 
+0023#STR0023#ALL#Attention
+0024#STR0024#ALL#A currency must be selected in the Parameters.
+0025#STR0025#ALL#Change to the Ms-Word program to view the Document 
+0026#STR0026#ALL# or click the button to close.
+0027#STR0027#ALL#Close
+0028#STR0028#ALL#Print of Salary Survey Result (.DOT) | 
+0029#STR0029#ALL#Select the Directory
+0030#STR0030#ALL#System Currencies
+0031#STR0031#ALL#Companies Participating in the Survey

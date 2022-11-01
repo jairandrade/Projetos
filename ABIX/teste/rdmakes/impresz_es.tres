@@ -1,0 +1,58 @@
+0001#STR0001#ALL#|02 Razon Social/Nom.:
+0002#STR0002#ALL#TERMINOS DE LIQUIDACION FINAL DE TRABAJO
+0003#STR0003#ALL#TERMINOS DE LIQUIDACION FIANL DE TRABAJO ( COMPLEMENTARIA )
+0004#STR0004#ALL#|09 CNPJ/CEI Tomador/Obra:
+0005#STR0005#ALL#|_________________________________________________IDENTIFICACION DEL EMPLADOR_____________________________________________________|
+0006#STR0006#ALL#|_________________________________________________IDENTIFICACION DEL TRABAJADOR___________________________________________________|
+0007#STR0007#ALL#|20 Nom. Madre : 
+0008#STR0008#ALL#|______________________________________________________ DATOS DEL CONTRATO________________________________________________________|
+0009#STR0009#ALL#|21 Remun.fins resc.: 
+0010#STR0010#ALL#|22 Admis.: 
+0011#STR0011#ALL# Direccion: 
+0012#STR0012#ALL#|18 CPF:
+0013#STR0013#ALL# Cep: 
+0014#STR0014#ALL# Barrio: 
+0015#STR0015#ALL# Munic.: 
+0016#STR0016#ALL# Prov: 
+0017#STR0017#ALL#|08 CNAE: 
+0018#STR0018#ALL#|23 Fc.Preaviso:
+0019#STR0019#ALL# LOS SERVICIOS DE LA RESCISION DE CONTRATO SON GRATUITOS
+0020#STR0020#ALL#|                                |                                |
+0021#STR0021#ALL#|_________________________________________________________________________________________________________________________________|
+0022#STR0022#ALL#|                                                               |                                                                 |
+0023#STR0023#ALL#|11 Nom.:
+0024#STR0024#ALL#|17 Ctps/Serie/Prov:
+0025#STR0025#ALL#|10 PIS/PASEP:
+0026#STR0026#ALL#|_______________________________________________________________|
+0027#STR0027#ALL#|19 Naci.:
+0028#STR0028#ALL#| Sello y firma del servidor                                    |________________________________|________________________________|
+0029#STR0029#ALL#| Local y fecha                                                 |                                |                                |
+0030#STR0030#ALL#|24 Fc. Licen.: 
+0031#STR0031#ALL#| __________________________________                            |                                |                                |
+0032#STR0032#ALL#|                                                               |                                |                                |
+0033#STR0033#ALL#|27 Pens.Alim.:
+0034#STR0034#ALL#|25 Causa:
+0035#STR0035#ALL#|26 Cod. licencia   :
+0036#STR0036#ALL#|28 Categoria: 
+0037#STR0037#ALL#|_REMUNERACIONES____________________________________DETALLE DE LOS CONCEPTOS RESCISORIOS_____________________________________DESCUENTOS_|
+0038#STR0038#ALL#|30-TOTAL BRUTO              
+0039#STR0039#ALL#|TOTAL DESCUENTOS            
+0040#STR0040#ALL#|NETO POR PAGAR              
+0041#STR0041#ALL#|___________________________________________________FORMALIZACION DE RESCISION____________________________________________________|
+0042#STR0042#ALL#|56 Local y fecha de pago      
+0043#STR0043#ALL#|58 Firma del trabajador     
+0044#STR0044#ALL#|57 Sello y firma del empleador o preposito       
+0045#STR0045#ALL#|59 Firma responsable legal     
+0046#STR0046#ALL#|60 HOMOLOGACION
+0047#STR0047#ALL#|61 Digital del trabajador       |62 Digital del responsable legal
+0048#STR0048#ALL#|_______________________________________________________________|_________________________________________________________________|
+0049#STR0049#ALL#|_________________________________________________________________________________________________________________________________|
+0050#STR0050#ALL#Se prestaron servicios gratuitos al trabajador cumpliendo las
+0051#STR0051#ALL#leyes del art. 477,Inc.1. del CLT, y se comprobo en este acto
+0052#STR0052#ALL#el pago de la liquidacion final antes especificada.
+0053#STR0053#ALL#64 Recibido por el Banco(fecha y sello) 
+0054#STR0054#ALL#|63 Identificacion de institucion homologadora 
+0055#STR0055#ALL# Sucursal: 
+0056#STR0056#ALL#|01 CNPJ/CEI: 
+0057#STR0057#ALL#|Matricula: 
+0058#STR0058#ALL#Clave Identif.: 

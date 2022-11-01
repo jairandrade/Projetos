@@ -1,0 +1,21 @@
+0001#STR0001#BRA#Realize o backup da base antes de executar esse processo.
+0002#STR0002#BRA#Ferramenta para eliminar registros da tabela de Controle de Dias de Direito (SRF) que foram gerados indevidamente durante o fechamento do roteiro de Férias.
+0003#STR0003#BRA#UPDSRF - Atualização dos dados da tabela SRF.
+0004#STR0004#BRA#Ao final do processamento serão eliminados os registros de férias ativos que estavam com data inferior a outros períodos que estavam quitados.
+0005#STR0005#BRA#Seleção de Filiais
+0006#STR0006#BRA#Selecione as filiais cujos dados serão atualizados
+0007#STR0007#BRA#Realizando atualização da base...
+0008#STR0008#BRA#Aguarde enquanto o processamento é executado.
+0009#STR0009#BRA#Executando atualização da tabela controle dias de direito...
+0010#STR0010#BRA#O backup da base já foi realizado?
+0011#STR0011#BRA#Filial sendo processada: 
+0012#STR0012#BRA#Matrícula sendo processada: 
+0013#STR0013#BRA#Realize o backup e execute a rotina novamente.
+0014#STR0014#BRA#Simulação dos dados que serão processados
+0015#STR0015#BRA#Deseja efetuar a simulação para fazer a geração do LOG dos registros que serão afetados?
+0016#STR0016#BRA#Caso essa opção seja marcada os dados não serão atualizados.
+0017#STR0017#BRA#Será apresentado um LOG com os registros que podem ser afetados no processamento real.
+0018#STR0018#BRA#SIMULAÇÃO - geração de LOG dos registros que serão afetados
+0019#STR0019#BRA#UPDSRF - Log de processamento
+0020#STR0020#BRA#(SIMULACAO)
+0021#STR0021#BRA#Não foram localizados registros para serem processados.

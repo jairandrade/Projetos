@@ -1,0 +1,96 @@
+0001#STR0001#ALL#Espelho do Ponto
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Nome
+0007#STR0007#ALL#Turno
+0008#STR0008#ALL#Zebrado
+0009#STR0009#ALL#Administraçäo
+0010#STR0013#ALL#Assinatura do Funcionário
+0011#STR0014#ALL#T O T A I S
+0012#STR0015#ALL#Cod Descricao                Calc.            Cod Descricao                Calc.          
+0013#STR0016#ALL#Cod Descricao                         Infor.  Cod Descricao                         Infor.
+0014#STR0017#ALL#Cod Descricao                Calc.    Infor.  Cod Descricao                Calc.    Infor.
+0015#STR0018#ALL#** Excecao nao Trabalhada **
+0016#STR0019#ALL#** Feriado **
+0017#STR0020#ALL#** Ausente **
+0018#STR0021#ALL#** D.S.R. **
+0019#STR0022#ALL#** Compensado **
+0020#STR0023#ALL#** Não Trabalhado **
+0021#STR0024#ALL#Emp...: 
+0022#STR0025#ALL# Matr..: 
+0023#STR0026#ALL#  Chapa : 
+0024#STR0027#ALL#End...: 
+0025#STR0028#ALL# Nome..: 
+0026#STR0029#ALL#CGC...: 
+0027#STR0030#ALL# Funcao: 
+0028#STR0031#ALL#C.C...: 
+0029#STR0032#ALL# Categ.: 
+0030#STR0033#ALL#Turno.: 
+0031#STR0034#ALL#   DATA    DIA     
+0032#STR0035#ALL#a E. 
+0033#STR0036#ALL#a S. 
+0034#STR0037#ALL#Observacao                Horas  Tipo da Marcacao
+0035#STR0038#ALL#C.Custo + Nome
+0036#STR0039#ALL#Periodo de Apontamento Invalido.
+0037#STR0040#ALL#Consultar Marca&ccedil;&otilde;es
+0038#STR0041#ALL#Motivo de Abono
+0039#STR0042#ALL#Data
+0040#STR0043#ALL#Dia
+0041#STR0044#ALL#&#170;E.
+0042#STR0045#ALL#&#170;S.
+0043#STR0046#ALL#Observa&ccedil;&otilde;es
+0044#STR0047#ALL#Horas  Tipo da Marca&ccedil;&atilde;o
+0045#STR0048#ALL#Turno 
+0046#STR0049#ALL#Turnos: 
+0047#STR0050#ALL#Processo + Matrícula
+0048#STR0051#ALL#Depto.: 
+0049#STR0052#ALL#Selecione a opção de impressão: 
+0050#STR0053#ALL#Por Período
+0051#STR0054#ALL#Por Datas
+0052#STR0055#ALL#Processo: 
+0053#STR0056#ALL#Periodo
+0054#STR0057#ALL#Roteiro: 
+0055#STR0058#ALL#Num. Pagto: 
+0056#STR0059#ALL#Informado                 Horas
+0057#STR0060#ALL#Departamento
+0058#STR0061#ALL#Departamento + Nome
+0059#STR0062#ALL#Abono
+0060#STR0063#ALL#Observação
+0061#STR0064#ALL#Código
+0062#STR0065#ALL#Descrição
+0063#STR0066#ALL#Calc.
+0064#STR0067#ALL#Infor.
+0065#STR0068#ALL#H.E.
+0066#STR0069#ALL#Absent.
+0067#STR0070#ALL#Ad. Not.
+0068#STR0071#ALL#Empresa: 
+0069#STR0072#ALL#Matrícula: 
+0070#STR0073#ALL#Chapa: 
+0071#STR0074#ALL#Nome: 
+0072#STR0075#ALL#CNPJ: 
+0073#STR0076#ALL#Função: 
+0074#STR0077#ALL#C.C.: 
+0075#STR0078#ALL#Categoria: 
+0076#STR0079#ALL#Turno: 
+0077#STR0080#ALL#Para esse relatório o parametro MV_COLMARC deve ser menor ou igual à 5.
+0078#STR0081#ALL#Banco de Horas
+0079#STR0082#ALL#Saldo Anterior
+0080#STR0083#ALL#Débito
+0081#STR0084#ALL#Crédito
+0082#STR0085#ALL#Saldo Atual
+0083#STR0086#ALL#Atenção
+0084#STR0087#ALL#O período informado não corresponde com o do período corrente. Deseja continuar mesmo assim?
+0085#STR0088#ALL#Sit...: 
+0086#STR0089#ALL#Período: 
+0087#STR0090#ALL#AFASTADO
+0088#STR0091#ALL#FERIAS
+0089#STR0092#ALL#TRANSFERIDO
+0090#STR0093#ALL#DEMITIDO
+0091#STR0094#ALL#NORMAL
+0092#STR0095#ALL#CEI: 
+0093#STR0096#ALL#CPF: 
+0094#STR0097#ALL#Horas valorizadas
+0095#STR0098#ALL#Hr.Val
+0096#STR0099#ALL#Nome Social: 

@@ -1,0 +1,130 @@
+#INCLUDE "PROTHEUS.CH"
+#INCLUDE "PONTRANSF.CH"
+
+/*
+ÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜÜ
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+±±ÚÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄ¿±±
+±±³Fun‡„o    ³ PONTRANSF   ³ Autor ³ Marco Nakazawa	    ³ Data ³ 01.04.22 ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Descri‡…o ³ RDMake para corrigir o dados levados na transferência. 	  ³±±
+±±³DRHJORNPRT-2122														  ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Sintaxe   ³ PONTRANSF(void)                                            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Parametros³                                                            ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÅÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³ Uso      ³ Generico                                                   ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³         ATUALIZACOES SOFRIDAS DESDE A CONSTRU€AO INICIAL.             ³±±
+±±ÃÄÄÄÄÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÂÄÄÄÄÄÄÂÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ´±±
+±±³Programador ³ Data   ³ BOPS ³  Motivo da Alteracao                     ³±±
+±±ÀÄÄÄÄÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÁÄÄÄÄÄÄÁÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ±±
+±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±
+ßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßßß*/
+
+User Function PONTRANSF()
+Local aTabPon		:= {"SP8","SPC","RFE","SP5","SPB","RFF","SP2","RF0"}
+Local cAliasSRE		:= GetNextAlias()
+Local cTempAlias	:= ""
+Local cWhere		:= ""
+Local cQuery		:= ""
+Local cPrefixo		:= ""
+Local cAlias		:= ""
+Local cNovaFil		:= ""
+Local cNovaMat		:= ""
+Local cNovoCC		:= ""
+Local nLenPon		:= Len(aTabPon)
+Local nI			:= 0
+
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Reinicializa as Static do SIGAPON                            ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+PonDestroyStatic()
+
+//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ¿
+//³ Incio da execução                           				 ³
+//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÙ
+If !MsgNoYes(STR0001, STR0002)
+	Return
+Else
+
+	cWhere := "%"
+	cWhere += "SRE.RE_DATA >= '20220101'"
+	cWhere += "%"
+
+	BeginSql alias cAliasSRE
+		SELECT
+			RE_DATA,
+			RE_EMPD,
+			RE_FILIALD,
+			RE_MATD,
+			RE_EMPP,
+			RE_FILIALP,
+			RE_MATP,
+			RE_CCP
+		FROM %table:SRE% SRE
+		WHERE %Exp:cWhere%
+			AND SRE.%notDel%
+		ORDER BY SRE.RE_DATA 
+	EndSql
+
+	While (cAliasSRE)->(!EoF())
+		cMatAnt		:= (cAliasSRE)->RE_MATD
+		cFilialAnt	:= (cAliasSRE)->RE_FILIALD
+		cNovaFil	:= (cAliasSRE)->RE_FILIALP
+		cNovaMat	:= (cAliasSRE)->RE_MATP
+		cNovoCC		:= (cAliasSRE)->RE_CCP
+		cDataTraf	:= (cAliasSRE)->RE_DATA
+
+		For nI := 1 To nLenPon
+			cAlias		:= aTabPon[nI]
+			cTempAlias	:= "Temp_" + aTabPon[nI]
+			cPrefixo	:= PrefixoCpo((cAlias:= Upper(AllTrim(cAlias))))
+
+			cQuery := "SELECT R_E_C_N_O_ FROM " + RetSqlName(cAlias) + " "
+			
+			If cAlias == "RF0"
+				cQuery += "WHERE RF0_DTPREF < '" + cDataTraf + "'"
+			ElseIf cAlias == "SP2"
+				cQuery += "WHERE P2_DATAATE < '" + cDataTraf + "'"
+			Else
+				cQuery += "WHERE " + cPrefixo + "_DATA < '" + cDataTraf + "'"
+			EndIf
+			
+			If cAlias == "RFE"
+				cQuery += " AND " + cPrefixo + "_FILORG = '" + xFilial(cAlias,AllTrim(cFilialAnt)) + "'"
+				cQuery += " AND " + cPrefixo + "_MATORG = " + cMatAnt
+			Else
+				cQuery += " AND " + cPrefixo + "_FILIAL = '" + xFilial(cAlias,AllTrim(cFilialAnt)) + "'"
+				cQuery += " AND " + cPrefixo + "_MAT = " + cMatAnt
+			EndIf
+			
+			cQuery := ChangeQuery(cQuery)
+
+			dbUseArea(.T., "TOPCONN", TCGenQry(,,cQuery), cTempAlias, .F., .T.)
+
+			DbSelectArea(cAlias)
+
+			While !(cTempAlias)->(Eof())
+				(cAlias)->(DbGoto((cTempAlias)->R_E_C_N_O_))
+				RecLock(cAlias, .F.)
+					(cAlias)->&(cPrefixo + "_FILIAL")	:= cNovaFil
+					(cAlias)->&(cPrefixo + "_MAT")		:= cNovaMat
+					If cAlias <> "RF0"
+						(cAlias)->&(cPrefixo + "_CC")	:= cNovoCC
+					EndIf 
+				MsUnLock()
+				(cTempAlias)->(dbskip())
+			EndDo
+			(cAlias)->(dbCloseArea())
+			(cTempAlias)->(dbCloseArea())
+		Next
+		(cAliasSRE)->(dbskip())
+	EndDo
+	(cAliasSRE)->(dbCloseArea())
+EndIf
+
+ApMsgInfo(STR0003)
+
+Return

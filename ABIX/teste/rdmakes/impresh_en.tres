@@ -1,0 +1,190 @@
+0001#STR0001#ALL#02 Corporate Name/Name
+0002#STR0002#ALL#EMPLOYER IDENTIFICATION
+0003#STR0003#ALL#EMPLOYMENT CONTRACT TERMINATION STATEMENT
+0004#STR0004#ALL#CNPJ/CEI Acquirer/Work:
+0005#STR0005#ALL#Address (Street, nr., floor, flat)
+0006#STR0006#ALL#EMPLOYEE IDENTIFICATION
+0007#STR0007#ALL#20 Mother´s Name
+0008#STR0008#ALL#CONTRACT DATA
+0009#STR0009#ALL#21 Type of Contract
+0010#STR0010#ALL#1. Indefinite work contract
+0011#STR0011#ALL#2. Fixed term work contract with insurance clause for mutual breach right.
+0012#STR0012#ALL#18 CPF
+0013#STR0013#ALL#ZIP Code 
+0014#STR0014#ALL#District
+0015#STR0015#ALL#Municipality
+0016#STR0016#ALL#State 
+0017#STR0017#ALL#CNAE 
+0018#STR0018#ALL#3. Fixed term work contract without insurance clause for mutual breach right.
+0019#STR0019#ALL#22 Cause of absence
+0020#STR0020#ALL#23 Remuneration Prev. Month
+0021#STR0021#ALL#24 Admission Date
+0022#STR0022#ALL#25 Date of Prior Notice
+0023#STR0023#ALL#11 Name
+0024#STR0024#ALL#CTPS (nr,series,FU) 
+0025#STR0025#ALL#10 PIS/PASEP
+0026#STR0026#ALL#26 Absence Date
+0027#STR0027#ALL#19 Date of Birth
+0028#STR0028#ALL#27 Abs. Cd.
+0029#STR0029#ALL#28 Alimony (%) TRCT
+0030#STR0030#ALL#29 Alimony (%) FGTS
+0031#STR0031#ALL#30 Employee Category
+0032#STR0032#ALL#DO NOT
+0033#STR0033#ALL#31 Union Code
+0034#STR0034#ALL#32 CNPJ and Name of Union Entity
+0035#STR0035#ALL#DIFFERENTIATION OF SEVERAL PAY BUDGETS
+0036#STR0036#ALL#SEVERANCE
+0037#STR0037#ALL#Signature
+0038#STR0038#ALL#Value
+0039#STR0039#ALL#50 Balance of 
+0040#STR0040#ALL#/days Salary
+0041#STR0041#ALL#/absences and DSR)
+0042#STR0042#ALL#Vacation
+0043#STR0043#ALL#00 /added absences
+0044#STR0044#ALL#DSR)
+0045#STR0045#ALL#51 Committees
+0046#STR0046#ALL#52 Bonus
+0047#STR0047#ALL#53 Insalubrity Add.
+0048#STR0048#ALL#54 Hazard Add.
+0049#STR0049#ALL#55 Night Add. 
+0050#STR0050#ALL# hours to
+0051#STR0051#ALL# Overtime 
+0052#STR0052#ALL#57 Tips
+0053#STR0053#ALL#58 Weekly Rest
+0054#STR0054#ALL#Paid (DSR)
+0055#STR0055#ALL#62 Family Allowance
+0056#STR0056#ALL#01 CNPJ/CEI
+0057#STR0057#ALL#59 Consequence of DSR on 
+0058#STR0058#ALL#Variable Salary
+0059#STR0059#ALL#60 Fine Art. 477,§8º/CLT
+0060#STR0060#ALL#61 Fine Art. 479/CLT
+0061#STR0061#ALL#63 Proportional Year-end Bonus 
+0062#STR0062#ALL#64.1 13th Salary-Fis.Y.
+0063#STR0063#ALL#Vacation Due (Reflection/Doubling)
+0064#STR0064#ALL#fraction 
+0065#STR0065#ALL#65 Proport Vacation 
+0066#STR0066#ALL#Aquis. Per. Expir. Vacation
+0067#STR0067#ALL# to 
+0068#STR0068#ALL#68 Vacation Const. Third
+0069#STR0069#ALL#69 Indemnified Notice Period
+0070#STR0070#ALL#70 13th Salary (Notice Period 
+0071#STR0071#ALL#Compensated)
+0072#STR0072#ALL#GROSS TOTAL
+0073#STR0073#ALL#DEDUCTIONS
+0074#STR0074#ALL#Discount
+0075#STR0075#ALL#100 Alimony
+0076#STR0076#ALL#101 Salary Advance
+0077#STR0077#ALL#102 13th Salary Advance
+0078#STR0078#ALL#103 Indemnified Notice Period
+0079#STR0079#ALL#104 Fine Art. 480/CLT
+0080#STR0080#ALL#105 Consignment Loan
+0081#STR0081#ALL#106 Transportation Ticket
+0082#STR0082#ALL#107 Transportation Reimbursement
+0083#STR0083#ALL#108 Meal Voucher  
+0084#STR0084#ALL#109 Food Reimbursement
+0085#STR0085#ALL#110 Contribution for FAPI
+0086#STR0086#ALL#111 Union Dues
+0087#STR0087#ALL#112.1 Social Security
+0088#STR0088#ALL#112.2 Soc Security - 13th Salary
+0089#STR0089#ALL#113 Pension Contribution 
+0090#STR0090#ALL#Additional
+0091#STR0091#ALL#114.1 IRRF
+0092#STR0092#ALL#114.2 IRRF on Year-end Bonus
+0093#STR0093#ALL#114.3 IRRF on Sharing 
+0094#STR0094#ALL#Profits or Income
+0095#STR0095#ALL#116 Disc. of Net Value of TRCT-
+0096#STR0096#ALL#Settled
+0097#STR0097#ALL#TOTAL DEDUCTIONS
+0098#STR0098#ALL#116 Disc. of Net Value of TRCT-Settled
+0099#STR0099#ALL#NET VALUE
+0100#STR0100#ALL#FORMALIZATION OF TERMINATION
+0101#STR0101#ALL#150 Local and date of payment
+0102#STR0102#ALL#151 Stamp and signing of employer or representative
+0103#STR0103#ALL#152 Employee Signature
+0104#STR0104#ALL#153 Signature of the employee legal responsible
+0105#STR0105#ALL#154 APPROVAL
+0106#STR0106#ALL#155 Employee Fingerprint
+0107#STR0107#ALL#156 Legal Responsible fingerprint
+0108#STR0108#ALL#Assistance was provided to the employee free of charge, in the terms of 
+0109#STR0109#ALL#art.477, §1st, of Consolidated Labor Laws-CLT, being attested,
+0110#STR0110#ALL#in this act, the actual payment of the aforementioned severance pay funds.
+0111#STR0111#ALL#Location and Date
+0112#STR0112#ALL#Assistant stamp and singing
+0113#STR0113#ALL#157 Identification of the approving authority
+0114#STR0114#ALL#158 Bank Reception (date and stamp)
+0115#STR0115#ALL#ASSISTANCE AT TIME OF TERMINATION OF CONTRACT IS FREE.
+0116#STR0116#ALL#The worker can start a lawsuit in relation to the credit as a result of the labor relationships to the limit of two 
+0117#STR0117#ALL#years after the labor contract extinction (Inc. XXIX, Art.7th from  Federal Constitution/1988).
+0118#STR0118#ALL#R.G.: 
+0119#STR0119#ALL#71 Vacation (Notice Period 
+0120#STR0120#ALL#94 Salary of month prior to termination
+0121#STR0121#ALL#EMPLOYMENT CONTRACT RELEASE STATEMENT
+0122#STR0122#ALL#EMPLOYER
+0123#STR0123#ALL#WORKER
+0124#STR0124#ALL#CONTRACT
+0125#STR0125#ALL#The labor contract termination of above qualified worker was performed under article No. 447 of Consolidated 
+0126#STR0126#ALL#Labor Laws (CLT).  Assistance to termination predicted in § 1st of art. No. 477 of CLT is not appropriate, 
+0127#STR0127#ALL#in view of the fact that the duration of the labor contract is not longer than a year of service and assistance to contract termination is not predicted in Agreement or 
+0128#STR0128#ALL#Collective Convention to which the employee belongs to.
+0129#STR0129#ALL#150 Signature of Employer or Power of Attorney
+0130#STR0130#ALL#On day 
+0131#STR0131#ALL#  was made, under the art.  23 from the Normative Instruction/SRT no.15/2010, the effective payment of the  
+0132#STR0132#ALL#severance pay specified in the body of TRCT, in net value of R$ 
+0133#STR0133#ALL#151 Employee Signature
+0134#STR0134#ALL#152 Signature of the Employee Legal Responsible
+0135#STR0135#ALL#156 Information to CAIXA:
+0136#STR0136#ALL#29 Alimony (%) FGTS
+0137#STR0137#ALL#Indemnified)
+0138#STR0138#ALL#EMPLOYMENT CONTRACT HOMOLOGATION STATEMENT
+0139#STR0139#ALL#31 Union Code
+0140#STR0140#ALL#32 CNPJ and Labor Union Entity Name
+0141#STR0141#ALL#Assistance in the termination labor contract is provided in the terms of article no. 477 § 1st,  of the Consolidation of the Labor Laws 
+0142#STR0142#ALL#(CLT), being approved in this act the effective payment of severance pay specified in the body of TRCT, in net value 
+0143#STR0143#ALL# which, initialed by parties, is part of this Ratification Statement.
+0144#STR0144#ALL#The parties assisted in the present termination contract were identified as legitimate according to what is estimated in the
+0145#STR0145#ALL#Normative Instruction/SRT no. 15/2010
+0146#STR0146#ALL#The right to plead in court the rights indicated in the field 155, below.
+0147#STR0147#ALL#corresponding.
+0148#STR0148#ALL#153 Assistant Stamp and Signature
+0149#STR0149#ALL#154 Homologating Agency Name
+0150#STR0150#ALL#155 Exceptions
+0151#STR0151#ALL#/days
+0152#STR0152#ALL#, to which, initialed by parties, is part of
+0153#STR0153#ALL#99 Debit Balance Adjustment
+0154#STR0154#ALL#(net of 
+0155#STR0155#ALL#27 Absence Cd
+0156#STR0156#ALL# days
+0157#STR0157#ALL#R$
+0158#STR0158#ALL#the present Settlement Term.
+0159#STR0159#ALL#WORK NOT LINKED TO RGPS, BUT WITH RIGHT TO FGTS
+0160#STR0160#ALL#EMPLOYEE - LABOR CONTR FOR A GIVEN PERIOD (LAW No. 9.601/98)
+0161#STR0161#ALL#HOUSEWORKER
+0162#STR0162#ALL#UNDERAGE APPRENTICE (LAW 10.097/2000)
+0163#STR0163#ALL#WORK NOT LINKED TO RGPS, BUT WITH RIGHT TO FGTS
+0164#STR0164#ALL#EMPLOYEE - LABOR CONTR FOR A GIVEN PERIOD (LAW No. 9.601/98)
+0165#STR0165#ALL#Percentage
+0166#STR0166#ALL#Prizes
+0167#STR0167#ALL#Trips
+0168#STR0168#ALL#On Call
+0169#STR0169#ALL#Ready
+0170#STR0170#ALL#Additional by length of service
+0171#STR0171#ALL#Additional by Work Location Transfer
+0172#STR0172#ALL#Family Salary exceeds Legal Value
+0173#STR0173#ALL#Vacation Bonus/Premium Exceeds 20 days of Salary
+0174#STR0174#ALL#Global value for trips that exceed 50% of salary
+0175#STR0175#ALL#Allowance art. 470/CLT
+0176#STR0176#ALL#Sea Stages
+0177#STR0177#ALL#Premium License Compensated
+0178#STR0178#ALL#Flow Break
+0179#STR0179#ALL#Profit Sharing
+0180#STR0180#ALL#Compensation Received as Dismissal Compensation
+0181#STR0181#ALL#Learning Bonus
+0182#STR0182#ALL#Bonus Unattached from Salary
+0183#STR0183#ALL#Eventual Gain Unattached from Salary
+0184#STR0184#ALL#Daycare Reimbursement
+0185#STR0185#ALL#Nanny Reimbursement
+0186#STR0186#ALL#Quarterly Bonus
+0187#STR0187#ALL#Compensation art. 9 of Law No. 7238/84
+0188#STR0188#ALL#Penalty art. 476-A & 5 of CLT
+0189#STR0189#ALL#Other discounts not foreseen above 
+0190#STR0190#ALL#4. Intermittent employment contract

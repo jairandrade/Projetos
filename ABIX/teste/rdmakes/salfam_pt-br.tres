@@ -1,0 +1,44 @@
+0001#STR0001#ALL#Ficha de Salario-Famila.
+0002#STR0002#ALL#Será impresso de acordo com os parametros solicitados pelo
+0003#STR0003#ALL#usuario.
+0004#STR0004#ALL#Matricula
+0005#STR0005#ALL#Centro de Custo
+0006#STR0006#ALL#Zebrado
+0007#STR0007#ALL#Administraçäo
+0008#STR0008#ALL# FICHA DE SALARIO-FAMILIA 
+0009#STR0009#ALL#FICHA DE SALARIO - FAMILIA
+0010#STR0011#ALL#Empresa: 
+0011#STR0012#ALL#CGC/Matricula No INSS: 
+0012#STR0013#ALL#Endereco: 
+0013#STR0014#ALL#Bairro: 
+0014#STR0015#ALL#  CEP: 
+0015#STR0016#ALL#  Cidade: 
+0016#STR0017#ALL#  UF: 
+0017#STR0018#ALL#Empregado: 
+0018#STR0019#ALL#CTPS: 
+0019#STR0020#ALL# Serie: 
+0020#STR0021#ALL#    Dt.Admissao: 
+0021#STR0022#ALL#Dt.Demissao: 
+0022#STR0023#ALL#  Bairro: 
+0023#STR0024#ALL#CEP: 
+0024#STR0025#ALL#  Cidade: 
+0025#STR0026#ALL#UF: 
+0026#STR0027#ALL#FILHOS MENORES DE 14 ANOS - (Dados extraidos das certidoes)
+0027#STR0028#ALL#|No. |             NOME DO FILHO              | DT.NASC. |            LOCAL DO            |  CARTORIO  | N.REG. |  No.  |   No. |               MATRICULA             | DT.      | DT.DA    |            VISTO             |
+0028#STR0029#ALL#|Ord.|                                        |          |           NASCIMENTO           |            |        | LIVRO | FOLHA |                                     | ENTR.    | BAIXA    |          FISC.INSS           |
+0029#STR0030#ALL#| VALOR DE UM SALARIO-FAMILIA                                             | VALOR TOTAL DOS SALARIOS-FAMILIA A PAGAR                              |VALOR TOTAL DOS SALARIOS-FAMILIA A PAGAR                                |
+0030#STR0031#ALL#| Em          _____ de ___________________ de _____  R$ _________________ | A partir de _____ de ___________________ de ______  R$ ______________ | A partir de _____ de ___________________ de ______  R$ _______________ |
+0031#STR0032#ALL#| Alterado em _____ de ___________________ de _____  R$ _________________ | A partir de _____ de ___________________ de ______  R$ ______________ | A partir de _____ de ___________________ de ______  R$ _______________ |
+0032#STR0033#ALL#RECEBI OS DOCUMENTOS ACIMA
+0033#STR0034#ALL#ASSINATURA
+0034#STR0035#ALL#Cancelado pelo Operador
+0035#STR0036#ALL#COMPROVAÇAO DA ENTREGA ANUAL DOS ATESTADOS DE VACINAS - Filhos até 5 anos (Art. 67 da Lei 8.213/91)
+0036#STR0037#ALL#|           Filho           |     Data de Entrega      |           Filho           |     Data de Entrega      |           Filho           |     Data de Entrega      |           Filho           |     Data de Entrega     |
+0037#STR0038#ALL#|No. |          NOME DO FILHO         | DT.NASC. |  LOCAL DO  |  CARTORIO  | N.REG. |  No.  |   No. | DT.   | DT.DA |    VISTO     |
+0038#STR0039#ALL#|Ord.|                                |          | NASCIMENTO |            |        | LIVRO | FOLHA | ENTR. | BAIXA | FISCAL INSS  |
+0039#STR0040#ALL#| VALOR DE UM SALARIO-FAMILIA                                     | VALOR TOTAL DOS SALARIOS-FAMILIA A PAGAR                       |
+0040#STR0041#ALL#| Em          ___ de __________________ de _____  R$ ____________ | A partir de ___ de _________________ de _____  R$ ____________ |
+0041#STR0042#ALL#| Alterado em ___ de __________________ de _____  R$ ____________ | A partir de ___ de _________________ de _____  R$ ____________ |
+0042#STR0043#ALL#Atencao
+0043#STR0044#ALL#Antes de prosseguir, e necessario executar os procedimentos do boletim tecnico - Campo Matricula Civil na Ficha de Salario Familia.
+0044#STR0045#ALL#Ok

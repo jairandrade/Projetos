@@ -1,0 +1,57 @@
+0001#STR0001#ALL#Comunicação De Acidente Do Trabalho - Cat
+0002#STR0002#ALL#Sera impresso de acordo com os parâmetro s solicitados pelo
+0003#STR0003#ALL#Utilizador.
+0004#STR0004#ALL#Código de barras
+0005#STR0005#ALL#Administração
+0006#STR0006#ALL#Comunicação De Acidente Do Trabalho - Cat
+0007#STR0007#ALL#| 01.emitente
+0008#STR0008#ALL#| 1-empregador 2-sindicato 3-medico 4-segur./depend. 5-aut.publica|
+0009#STR0009#ALL#| 02.tipo De Cat
+0010#STR0010#ALL#| 1-inicial    2-reabertura    3-comunicação De Obito:
+0011#STR0011#ALL#+--- empregador ----------------------------------------------------------------------------------------------------------------+
+0012#STR0012#ALL#|   |03.razao social / nome                                             04.inscrição                          05.cnae           |
+0013#STR0013#ALL#|   |06.morada                                    freguesia          cep       07.concelho         08.uf 09.telefone      |
+0014#STR0014#ALL#|   +--- acidentado ------------------------------------------------------------------------------------------------------------+
+0015#STR0015#ALL#|   |10.nome do acidentado: 
+0016#STR0016#ALL#11. nome da mae: 
+0017#STR0017#ALL#|   |12.nascimento   13.sexo               14.estado civil     15.ctps     serie    emissão       16.uf    17.remun.mensal      |
+0018#STR0018#ALL#| e |18.identidade    emissão              orgao exp.  19.uf       20.pis/pasep/nit                                             |
+0019#STR0019#ALL#| M |21.Morada (Rua/Av./Nr.)             Freguesia          CP          22.Concelho           23.UF  24.Telefone            |
+0020#STR0020#ALL#| i |25.nome da ocupação             26.cbo             27.filiação inss            28.aposentado?      29.area                 |
+0021#STR0021#ALL#| t +--- acidente ou doenca ----------------------------------------------------------------------------------------------------+
+0022#STR0022#ALL#|   |30.data Acidente      31.hr Acidente    32.hrs Trabalhadas      33.tipo        34.houve Afastamento?    35.último Dia Trab.|
+0023#STR0023#ALL#|   |36.local acidente                    37.especificação local          38.cgc                39.uf    40.municipio           |
+0024#STR0024#ALL#|   |41.parte do corpo atingida: 
+0025#STR0025#ALL#42.agente causador: 
+0026#STR0026#ALL#| t |43.descrição da situação criadora do acidente ou doenca                             44.houve registo policial?            |
+0027#STR0027#ALL#45.houve morte? 
+0028#STR0028#ALL#|   +--- testemunhas -----------------------------------------------------------------------------------------------------------+
+0029#STR0029#ALL#|   |46.nome: 
+0030#STR0030#ALL#|   |47.morada                            freguesia/cep                   48.concelho            49.uf         telefone       |
+0031#STR0031#ALL#|   |50.nome: 
+0032#STR0032#ALL#|   |51.morada                              freguesia/cep                   52.concelho            53.uf         telefone       |
+0033#STR0033#ALL#1-sim 2-nao
+0034#STR0034#ALL#1-urbana 2-rural
+0036#STR0036#ALL#|   |                          local e data                          assinatura e carimbo do emitente                           |
+0037#STR0037#ALL#+---+--- atendimento -----------------------------------------------------------------------------------------------------------+
+0038#STR0038#ALL#| a |54.unidade de atendimento medico                                                    55.data              56.hora           |
+0039#STR0039#ALL#| t |                                                                                       ___/___/___          ___:___        |
+0040#STR0040#ALL#| e |57.houve internação?  58.duração provavel do tratamento   59.devera o acidentado afastar-se do trabalho durante tratamento?|
+0041#STR0041#ALL#| s |  [ ] 1-sim 2-não                   ______________dias       [ ] 1-sim 2-não                                               |
+0042#STR0042#ALL#| t +--- lesão -----------------------------------------------------------------------------------------------------------------+
+0043#STR0043#ALL#| a |60.descrição e natureza da lesão                                                                                           |
+0044#STR0044#ALL#| d |                                                                                                                           |
+0045#STR0045#ALL#| o +--- diagnostico -----------------------------------------------------------------------------------------------------------+
+0046#STR0046#ALL#|   |61.diagnostico provavel                                                                              |62.cid-10            |
+0047#STR0047#ALL#| m |                                                                                                     |                     |
+0048#STR0048#ALL#| e |                                                                                                     |                     |
+0049#STR0049#ALL#| d |63.observações ------------------------------------------------------------------------------------------------------------+
+0050#STR0050#ALL#| i |                                                                                                                           |
+0051#STR0051#ALL#| c +---------------------------------------------------------------------------------------------------------------------------+
+0052#STR0052#ALL#|   |                          local e data                      assinatura e carimbo do medico com crm                         |
+0054#STR0054#ALL#|   |64.recebida em   65.cod. da unidade   66.no.cat   |notas:1- a inexatidao das declarações desta comunicação implicara nas   |
+0055#STR0055#ALL#| i | ___/___/___      _______________      __________ |         sanções previstas nos arts.171 e 299 do código  penal.          |
+0056#STR0056#ALL#| N |67.Matrícula do Servidor                          |      2- A comunicação de acidente do trabalho deverá ser feita até o   |
+0057#STR0057#ALL#| s |  _____________  ________________________________ |         1o. dia util apos o acidente,sob pena de multa na forma previs-|
+0058#STR0058#ALL#| s |    matricula        assinatura do servidor       |         ta no art. 22 da lei no. 8.213/91.                             |
+0060#STR0060#ALL#A comunicação do acidente e obrigatoria, mesmo no caso em que não haja afastamento do trabalho.                                  

@@ -1,0 +1,33 @@
+0001#STR0001#ALL#Grcs - guia de recolhimento da contribuição sindical
+0002#STR0002#ALL#Dados Da Entidade Sinical
+0003#STR0003#ALL#Nome Da Entidade
+0006#STR0006#ALL#Código Da Entidade Sindical
+0007#STR0007#ALL#Morada
+0010#STR0010#ALL#Cnpj Da Entidade
+0011#STR0011#ALL#Localidade/Distrito
+0012#STR0012#ALL#Região/concelho
+0013#STR0013#ALL#Uf
+0014#STR0014#ALL#Dados Do Contribuinte
+0015#STR0015#ALL#Nome/razão Social/denominação Social
+0016#STR0016#ALL#Cpf/cnpj/código  contribuinte
+0017#STR0017#ALL#Código  atividade
+0018#STR0018#ALL#Dados de referencia da contribuição
+0020#STR0020#ALL#Patronal/empregador
+0023#STR0023#ALL#Independentes
+0027#STR0027#ALL#Total remuneração - contribuintes
+0028#STR0028#ALL#Total De Empregados - Estabelecimento
+0029#STR0029#ALL#Dados da contribuição
+0030#STR0030#ALL#Valor Do Documento
+0040#STR0040#ALL#Código Cessante
+0041#STR0041#ALL#O Nosso Número
+0045#STR0045#ALL#Local De Pagamento
+0047#STR0047#ALL#Data Do Documento
+0048#STR0048#ALL#Número do documento
+0051#STR0051#ALL#Data De Processamento
+0053#STR0053#ALL#Entidade a pagar a letra
+0054#STR0054#ALL#Cobrador
+0056#STR0056#ALL#Utilização Do Banco
+0058#STR0058#ALL#Código De Barras
+0063#STR0063#ALL#Ficha de compensação
+0064#STR0064#ALL#Código postal
+0065#STR0065#ALL#Data De Vencimento
